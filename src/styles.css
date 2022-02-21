@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+.footer{
+    color: #fff;
+    background: #222222;
+}
+
+.informes span{
+    font-size: 50px;
+    color: black;
+}
+.informes p{
+    font-size: 20px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

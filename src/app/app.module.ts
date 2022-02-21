@@ -10,6 +10,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProfileComponent } from './home/profile/profile.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './servicios/token-interceptor.service';
+import { IndexComponent } from './pagina/index/index.component';
+import { KbotAgendaComponent } from './pagina/kbot-agenda/kbot-agenda.component';
+import { KbotMarketComponent } from './pagina/kbot-market/kbot-market.component';
+import { KbotPersonalizadoComponent } from './pagina/kbot-personalizado/kbot-personalizado.component';
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 
@@ -19,7 +23,11 @@ import { TokenInterceptorService } from './servicios/token-interceptor.service';
     HeaderComponent,
     FooterComponent,
     routingComponents,
-    ProfileComponent
+    ProfileComponent,
+    IndexComponent,
+    KbotAgendaComponent,
+    KbotMarketComponent,
+    KbotPersonalizadoComponent
     // LoginComponent,
     // DashboardComponent
   ],
