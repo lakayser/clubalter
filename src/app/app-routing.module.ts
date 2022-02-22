@@ -10,6 +10,9 @@ import { IndexComponent } from './pagina/index/index.component';
 import { KbotAgendaComponent } from './pagina/kbot-agenda/kbot-agenda.component';
 import { KbotMarketComponent } from './pagina/kbot-market/kbot-market.component';
 import { KbotPersonalizadoComponent } from './pagina/kbot-personalizado/kbot-personalizado.component';
+import { EspecialistasComponent } from './vistas/especialistas/especialistas.component';
+import { HorarioComponent } from './vistas/horario/horario.component';
+import { BoxComponent } from './vistas/box/box.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -20,6 +23,9 @@ const routes: Routes = [
   { path: 'dashboard',  component: DashboardComponent },
   { path: 'login',      component: LoginComponent },
   { path: 'profile',      component: ProfileComponent,  canActivate: [AuthGuard] },
+  {path: 'especialistas', component: EspecialistasComponent, canActivate: [AuthGuard]},
+  {path: 'horario', component: HorarioComponent, canActivate: [AuthGuard]},
+  {path: 'box', component: BoxComponent, canActivate: [AuthGuard]},
 
 
   {path: '**', redirectTo: '', pathMatch: 'full'}

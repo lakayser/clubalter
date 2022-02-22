@@ -14,6 +14,9 @@ import { IndexComponent } from './pagina/index/index.component';
 import { KbotAgendaComponent } from './pagina/kbot-agenda/kbot-agenda.component';
 import { KbotMarketComponent } from './pagina/kbot-market/kbot-market.component';
 import { KbotPersonalizadoComponent } from './pagina/kbot-personalizado/kbot-personalizado.component';
+import { EspecialistasComponent } from './vistas/especialistas/especialistas.component';
+import { HorarioComponent } from './vistas/horario/horario.component';
+import { BoxComponent } from './vistas/box/box.component';
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 
@@ -27,7 +30,10 @@ import { KbotPersonalizadoComponent } from './pagina/kbot-personalizado/kbot-per
     IndexComponent,
     KbotAgendaComponent,
     KbotMarketComponent,
-    KbotPersonalizadoComponent
+    KbotPersonalizadoComponent,
+    EspecialistasComponent,
+    HorarioComponent,
+    BoxComponent
     // LoginComponent,
     // DashboardComponent
   ],
