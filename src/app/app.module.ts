@@ -17,6 +17,7 @@ import { KbotPersonalizadoComponent } from './pagina/kbot-personalizado/kbot-per
 import { EspecialistasComponent } from './vistas/especialistas/especialistas.component';
 import { HorarioComponent } from './vistas/horario/horario.component';
 import { BoxComponent } from './vistas/box/box.component';
+import { ObjToArrayPipe } from './objToArray.pipe';
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 
@@ -33,7 +34,8 @@ import { BoxComponent } from './vistas/box/box.component';
     KbotPersonalizadoComponent,
     EspecialistasComponent,
     HorarioComponent,
-    BoxComponent
+    BoxComponent,
+    ObjToArrayPipe
     // LoginComponent,
     // DashboardComponent
   ],

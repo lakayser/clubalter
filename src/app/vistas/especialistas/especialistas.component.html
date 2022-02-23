@@ -54,64 +54,53 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Apellido</th>
                                         <th scope="col">Ocupacion</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>Masajista</td>
+                                    <tr *ngFor="let usuario of usuarios">
+                                        
+                                        <td>{{ usuario.nameUser }}</td>
+                                        <td>{{ usuario.ocupation }}</td>
+                                        
                                         <div class="btn-group mr-0" role="group"
-                                            aria-label="Basic mixed styles example">
-                                            <button type="button" class="btn btn-danger">Eliminar</button>
-                                            <button type="button" class="btn btn-warning">Editar</button>
-                                            <button type="button" class="btn btn-success">Ver</button>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>Recepcionista</td>
-                                        <div class="btn-group mr-0" role="group"
-                                            aria-label="Basic mixed styles example">
-                                            <button type="button" class="btn btn-danger">Eliminar</button>
-                                            <button type="button" class="btn btn-warning">Editar</button>
-                                            <button type="button" class="btn btn-success">Ver</button>
-                                        </div>
-                                    </tr>
-                                    <tr>
-                                        <td>Larry </td>
-                                        <td>herrera </td>
-                                        <td>Masajista</td>
-                                        <div class="btn-group mr-0" role="group"
-                                            aria-label="Basic mixed styles example">
-                                            <button type="button" class="btn btn-danger">Eliminar</button>
-                                            <button type="button" class="btn btn-warning">Editar</button>
-                                            <button type="button" class="btn btn-success">Ver</button>
-                                        </div>
+                                        aria-label="Basic mixed styles example">
+                                        <button type="button" class="btn btn-danger">Eliminar</button>
+                                        <button type="button" class="btn btn-warning">Editar</button>
+                                        <button type="button" class="btn btn-success">Ver</button>
+                                    </div>
+                                       
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <!--Formulario Agregar-->
                         <div class="col-lg-6">
-                            <form class="row g-3 mb-3 ">
+                            <form #usuarioFrom="ngForm" (ngSubmit)="addUsuario(usuarioFrom)" class="row g-3 mb-3 ">
                                 <div class="col-12">
                                     <label for="inputEmail4" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="nombre">
+                                    <input type="text" class="form-control" id="login" name="nameUser" [(ngModel)]="selectedUsuario.nameUser">
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="inputOcupacion" class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control" id="login" name="password" [(ngModel)]="selectedUsuario.password">
+                                </div>
+                                <div class="col-12">
+                                    <label for="inputOcupacion" class="form-label">Organizacion</label>
+                                    <input type="text" class="form-control" id="login" name="organization" [(ngModel)]="selectedUsuario.organization">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputOcupacion" class="form-label">Ocupacion</label>
-                                    <input type="text" class="form-control" id="Asunto">
+                                    <input type="text" class="form-control" id="login" name="ocupation" [(ngModel)]="selectedUsuario.ocupation">
                                 </div>
                                 <div class="col-12">
-                                    <label for="inputOcupacion" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" id="Asunto">
+                                    <label for="inputOcupacion" class="form-label">rol</label>
+                                    <input type="text" class="form-control" id="login" name="roles" [(ngModel)]="selectedUsuario.roles">
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-danger text-uppercase">Agregar Especialista</button>
+                                    <button type="submit" class="btn btn-danger text-uppercase" value="Guardar">Agregar
+                                        Especialista</button>
                                 </div>
                             </form>
                         </div>

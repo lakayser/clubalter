@@ -37,8 +37,7 @@
                 </ng-container>
                 <ng-template #loggedIn>
                     <li class="nav-item">
-                        <a class="nav-link" style="cursor: pointer" (click)="apiService.logout()">Salir</a>
-                        <button type="button" class="btn btn-primary" >Primary</button>
+                        <button type="button" class="btn btn-primary" (click)="apiService.logout()" >Cerrar Sesion</button>
                     </li>
                 </ng-template>
             </ul>

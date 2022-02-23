@@ -3,5 +3,5 @@ export interface Usuario {
     password:  String;
     organization: String;
     ocupation:  String;
-    roles: String;
+    roles?: String;
 }
