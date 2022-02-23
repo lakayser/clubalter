@@ -62,7 +62,7 @@
                                         
                                         <td>{{ usuario.nameUser }}</td>
                                         <td>{{ usuario.ocupation }}</td>
-                                        
+
                                         <div class="btn-group mr-0" role="group"
                                         aria-label="Basic mixed styles example">
                                         <button type="button" class="btn btn-danger">Eliminar</button>
@@ -79,24 +79,24 @@
                             <form #usuarioFrom="ngForm" (ngSubmit)="addUsuario(usuarioFrom)" class="row g-3 mb-3 ">
                                 <div class="col-12">
                                     <label for="inputEmail4" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="login" name="nameUser" [(ngModel)]="selectedUsuario.nameUser">
+                                    <input type="text" class="form-control"  name="nameUser" [(ngModel)]="selectedUsuario.nameUser">
                                 </div>
 
                                 <div class="col-12">
                                     <label for="inputOcupacion" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" id="login" name="password" [(ngModel)]="selectedUsuario.password">
+                                    <input type="password" class="form-control"  name="password" [(ngModel)]="selectedUsuario.password">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputOcupacion" class="form-label">Organizacion</label>
-                                    <input type="text" class="form-control" id="login" name="organization" [(ngModel)]="selectedUsuario.organization">
+                                    <input type="text" class="form-control"  name="organization" [(ngModel)]="selectedUsuario.organization">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputOcupacion" class="form-label">Ocupacion</label>
-                                    <input type="text" class="form-control" id="login" name="ocupation" [(ngModel)]="selectedUsuario.ocupation">
+                                    <input type="text" class="form-control"  name="ocupation" [(ngModel)]="selectedUsuario.ocupation">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputOcupacion" class="form-label">rol</label>
-                                    <input type="text" class="form-control" id="login" name="roles" [(ngModel)]="selectedUsuario.roles">
+                                    <input type="text" class="form-control"  name="roles" [(ngModel)]="selectedUsuario.roles" required>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-danger text-uppercase" value="Guardar">Agregar
