@@ -58,47 +58,47 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let usuario of usuarios">
-                                        
-                                        <td>{{ usuario.nameUser }}</td>
-                                        <td>{{ usuario.ocupation }}</td>
+                                    <tr *ngFor="let users of usuariosService.users">
+
+                                        <td>{{ users.nameUser }}</td>
+                                        <td>{{ users.ocupation }}</td>
 
                                         <div class="btn-group mr-0" role="group"
-                                        aria-label="Basic mixed styles example">
-                                        <button type="button" class="btn btn-danger">Eliminar</button>
-                                        <button type="button" class="btn btn-warning">Editar</button>
-                                        <button type="button" class="btn btn-success">Ver</button>
-                                    </div>
-                                       
+                                            aria-label="Basic mixed styles example">
+                                            <button type="button" class="btn btn-primary  mr-2" (click)="editUsuario(users)">Editar</button>
+                                            <button type="button" class="btn btn-danger" (click)="deleteUsuario(users._id)" >Eliminar</button>
+                                        </div>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <!--Formulario Agregar-->
                         <div class="col-lg-6">
-                            <form #usuarioFrom="ngForm" (ngSubmit)="addUsuario(usuarioFrom)" class="row g-3 mb-3 ">
+                            <form #usuarioForm="ngForm" (ngSubmit)="addUsuario(usuarioForm)" class="row g-3 mb-3 ">
+                                <input type="hidden" name="_id" [(ngModel)]="usuariosService.selectedUsuario._id">
                                 <div class="col-12">
                                     <label for="inputEmail4" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control"  name="nameUser" [(ngModel)]="selectedUsuario.nameUser">
+                                    <input type="text" class="form-control" name="nameUser"
+                                        [(ngModel)]="usuariosService.selectedUsuario.nameUser">
                                 </div>
 
                                 <div class="col-12">
                                     <label for="inputOcupacion" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control"  name="password" [(ngModel)]="selectedUsuario.password">
+                                    <input type="password" class="form-control" name="password"
+                                        [(ngModel)]="usuariosService.selectedUsuario.password">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputOcupacion" class="form-label">Organizacion</label>
-                                    <input type="text" class="form-control"  name="organization" [(ngModel)]="selectedUsuario.organization">
+                                    <input type="text" class="form-control" name="organization"
+                                        [(ngModel)]="usuariosService.selectedUsuario.organization">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputOcupacion" class="form-label">Ocupacion</label>
-                                    <input type="text" class="form-control"  name="ocupation" [(ngModel)]="selectedUsuario.ocupation">
-                                </div>
-                                <div class="col-12">
-                                    <label for="inputOcupacion" class="form-label">rol</label>
-                                    <input type="text" class="form-control"  name="roles" [(ngModel)]="selectedUsuario.roles" required>
+                                    <input type="text" class="form-control" name="ocupation"
+                                        [(ngModel)]="usuariosService.selectedUsuario.ocupation">
                                 </div>
                                 <div class="text-center">
+                                    
                                     <button type="submit" class="btn btn-danger text-uppercase" value="Guardar">Agregar
                                         Especialista</button>
                                 </div>

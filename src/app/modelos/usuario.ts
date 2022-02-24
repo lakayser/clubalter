@@ -1,7 +1,7 @@
 export interface Usuario {
-    nameUser: String;
-    password:  String;
-    organization: String;
-    ocupation:  String;
-    roles?: String;
+    _id?: string;
+    nameUser: string;
+    password:  string;
+    organization: string;
+    ocupation:  string;
 }

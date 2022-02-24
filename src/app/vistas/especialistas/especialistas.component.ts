@@ -11,30 +11,54 @@ import { NgForm } from '@angular/forms';
 })
 export class EspecialistasComponent implements OnInit {
 
+  constructor(private router: Router, public usuariosService: UsuariosService) { }
+
   public usuarios: Array<any> = [];
-  
-  selectedUsuario: Usuario ={
-    nameUser: '',
-    password: '' ,
-    organization: '' ,
-    ocupation: '' 
-  };
 
 
-  constructor(private router: Router, private usuarioService: UsuariosService) { }
 
   ngOnInit(): void {
-    this.usuarioService.getUsuarios().subscribe(
-      res => this.usuarios = res
+    this.getUsuarios();
+  }
 
+  getUsuarios() {
+    this.usuariosService.getUsuarios().subscribe(
+      (res) => {
+        this.usuariosService.users = res;
+      },
+      (err) => console.error(err)
     )
   }
+
   addUsuario(form: NgForm) {
-    this.usuarioService.createUsuario(form.value).subscribe(
-     res => console.log(res),
-     err => console.error(err)
-      )
-    
+    if (form.value._id) {
+      this.usuariosService.putUsuario(form.value).subscribe((res) => {
+        console.log(res);
+  
+      });
+    } else {
+      this.usuariosService.createUsuario(form.value).subscribe((res) => {
+        console.log(res); 
+      });
+    }
   }
+
+  deleteUsuario(_id: any) {
+    if (confirm('Esta seguro que desea eliminar este usuario?')) {
+      this.usuariosService.deleteUsuario(_id).subscribe(
+        (res) => {
+          this.getUsuarios();
+        },
+        (err) => console.log(err)
+      );
+    }
+
+  }
+  editUsuario(users: Usuario) {
+    this.usuariosService.selectedUsuario = users;
+
+
+  }
+
 }
 
