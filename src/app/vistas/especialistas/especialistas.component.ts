@@ -3,6 +3,7 @@ import { UsuariosService } from '../../servicios/usuarios.service';
 import { Usuario } from '../../modelos/usuario'
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-especialistas',
@@ -22,23 +23,23 @@ export class EspecialistasComponent implements OnInit {
   }
 
   getUsuarios() {
-    this.usuariosService.getUsuarios().subscribe(
-      (res) => {
+    this.usuariosService.getUsuarios().subscribe((res) => {
         this.usuariosService.users = res;
-      },
-      (err) => console.error(err)
-    )
+      }); 
   }
 
   addUsuario(form: NgForm) {
     if (form.value._id) {
       this.usuariosService.putUsuario(form.value).subscribe((res) => {
         console.log(res);
-  
+        this.getUsuarios();
+        form.reset();
       });
     } else {
       this.usuariosService.createUsuario(form.value).subscribe((res) => {
         console.log(res); 
+        this.getUsuarios();
+        form.reset();
       });
     }
   }

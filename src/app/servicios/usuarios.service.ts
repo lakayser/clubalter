@@ -9,7 +9,7 @@ import { RouteReuseStrategy } from '@angular/router';
 })
 export class UsuariosService {
 
-  URL: string ='https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
+  URL: string ='http://localhost:8080/botmilaAPI/moderator/';
 
   selectedUsuario: Usuario ={
     _id: '',
@@ -26,7 +26,7 @@ export class UsuariosService {
 
   constructor(private http:HttpClient) { }
 
-  getUsuarios() {
+  getUsuarios(){
     return this.http.get<Usuario[]>(`${this.URL}list-users`);
   }
 
