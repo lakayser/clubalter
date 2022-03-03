@@ -10,7 +10,7 @@ import { RouteReuseStrategy } from '@angular/router';
 })
 export class HorariosService {
 
-  URL: string ='http://localhost:8080/botmilaAPI/moderator/';
+  URL: string ='https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
 
   selectedHorario: Horario ={
     _id: '',
