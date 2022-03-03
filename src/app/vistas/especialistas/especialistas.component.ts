@@ -26,7 +26,7 @@ export class EspecialistasComponent implements OnInit {
     this.usuariosService.getUsuarios().subscribe((res) => {
         this.usuariosService.users = res;
       }); 
-  }
+  } 
 
   addUsuario(form: NgForm) {
     if (form.value._id) {
@@ -45,7 +45,7 @@ export class EspecialistasComponent implements OnInit {
   }
 
   deleteUsuario(_id: any) {
-    if (confirm('Esta seguro que desea eliminar este usuario?')) {
+    if (confirm('Esta seguro que desea eliminar esta reserva?')) {
       this.usuariosService.deleteUsuario(_id).subscribe(
         (res) => {
           this.getUsuarios();
