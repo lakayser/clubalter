@@ -29,6 +29,10 @@ html {
   
   
   /* STRUCTURE */
+  .fondo{
+    background: url(../../../assets/Imagen4.jpg);
+    background-size: 100%;
+  }
   
   .wrapper {
     display: flex;
@@ -38,6 +42,7 @@ html {
     width: 100%;
     min-height: 50%;
     padding: 20px;
+   
   }
   
   #formContent {
