@@ -55,17 +55,23 @@
                                     <tr>
                                         <th scope="col">Hora Comienzo</th>
                                         <th scope="col">Hora Termino</th>
+                                        <th scope="col">Nombre Doctor</th>
+                                        <th scope="col">Organización</th>
+                                        <th scope="col">Ocupación</th>
                                         
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let horarios of horariosService.horarios">
+                                    <tr *ngFor="let horarios of horariosService.horarios | ObjToArray">
 
                                         <td>{{ horarios.hourStart }}</td>
                                         <td>{{ horarios.hourEnd }}</td>
-                                        <div ng-repeat=" asd in horarios "> {{horarios.doctorId}}
 
-                                        </div>
+                                        <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.nameUser}} </td>
+
+                                        <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.organization}} </td>
+
+                                        <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.ocupation}} </td>
                                         
                                         <div class="btn-group mr-0" role="group"
                                             aria-label="Basic mixed styles example">
@@ -106,8 +112,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
             </section>
 
