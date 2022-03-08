@@ -1,115 +1,208 @@
-<div class="d-flex">
-    <div id="sidebar-container" class="bg-primary">
-        <div class="logo">
-            <h4 class="text-light font-weight-bold" routerLink="/home">Botmila</h4>
-        </div>
-        <div class="menu">
-            <a routerLink="/dashboard" class="d-block  text-light p-3"><i
-                    class="icon ion-md-apps mr-2 lead"></i>Dashboard</a>
-            <a routerLink="/horario" class="d-block  text-light p-3"><i
-                    class="icon ion-md-calendar mr-2 lead"></i>Horarios</a>
-            <a routerLink="/especialistas" class="d-block text-light p-3"><i
-                    class="icon ion-md-people mr-2 lead"></i>Especialistas</a>
-            <a routerLink="/box" class="d-block  text-light p-3"><i class="icon ion-md-cube mr-2 lead"></i>Box</a>
+<div id="app">
+    <div id="sidebar" class="active">
+        <div class="sidebar-wrapper active">
+            <div class="sidebar-header">
+                <div class="d-flex justify-content-between">
+                    <div class="logo">
+                        <a routerLink="/dashboard"><img src="../../../assets/Bot_grafica2.png" alt="Logo" srcset=""></a>
+                    </div>
+                    <div class="toggler">
+                        <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <ul class="menu">
+                    <li class="sidebar-title">Menu</li>
+
+                    <li class="sidebar-item">
+                        <a routerLink="/dashboard" class='sidebar-link'>
+                            <i class="bi bi-grid-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a routerLink="/horario" class='sidebar-link'>
+                            <i class="bi bi-stack"></i>
+                            <span>Horarios</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item active">
+                        <a routerLink="/especialistas" class='sidebar-link'>
+                            <i class="bi bi-collection-fill"></i>
+                            <span>Especialistas</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item ">
+                        <a routerLink="/box" class='sidebar-link'>
+                            <i class="bi bi-grid-1x2-fill"></i>
+                            <span>Box</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
         </div>
     </div>
-    <div class="w-100">
-        <app-header></app-header>
+    <app-header></app-header>
+    <div id="main">
+        <header class="mb-3">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </header>
 
-        <div id="content">
-            <section class="py-3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <h1 class="font-weight-bold mb-0">Especialistas</h1>
-                            <p class="lead text-muted">Gestion de Especialistas</p>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div class="container">
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-lg-6 stat my-3">
-                                <h1>Especialistas</h1>
-                            </div>
-                            <div class="col-lg-6 stat my-3">
-                                <h1>Agregar Especialista</h1>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--Tabla y formulario-->
-            <section>
-                <!--Tabla Crud-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <table class="table table-bordered border-primary mt-2">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Ocupacion</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let users of usuariosService.users">
-
-                                        <td>{{ users.nameUser }}</td>
-                                        <td>{{ users.ocupation }}</td>
-
-                                        <div class="btn-group mr-0" role="group"
-                                            aria-label="Basic mixed styles example">
-                                            <button type="button" class="btn btn-primary  mr-2" (click)="editUsuario(users)">Editar</button>
-                                            <button type="button" class="btn btn-danger" (click)="deleteUsuario(users._id)" >Eliminar</button>
-                                        </div>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!--Formulario Agregar-->
-                        <div class="col-lg-6">
-                            <form #usuarioForm="ngForm" (ngSubmit)="addUsuario(usuarioForm)" class="row g-3 mb-3 ">
-                                <input type="hidden" name="_id" [(ngModel)]="usuariosService.selectedUsuario._id">
-                                <div class="col-12">
-                                    <label for="inputEmail4" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" name="nameUser"
-                                        [(ngModel)]="usuariosService.selectedUsuario.nameUser">
-                                </div>
-
-                                <div class="col-12">
-                                    <label for="inputOcupacion" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" name="password"
-                                        [(ngModel)]="usuariosService.selectedUsuario.password">
-                                </div>
-                                <div class="col-12">
-                                    <label for="inputOcupacion" class="form-label">Organizacion</label>
-                                    <input type="text" class="form-control" name="organization"
-                                        [(ngModel)]="usuariosService.selectedUsuario.organization">
-                                </div>
-                                <div class="col-12">
-                                    <label for="inputOcupacion" class="form-label">Ocupacion</label>
-                                    <input type="text" class="form-control" name="ocupation"
-                                        [(ngModel)]="usuariosService.selectedUsuario.ocupation">
-                                </div>
-                                <div class="text-center">
-                                    
-                                    <button type="submit" class="btn btn-danger text-uppercase" value="Guardar">Agregar
-                                        Especialista</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-            </section>
-
+        <div class="page-heading">
+            <h3>ESPECIALISTAS</h3>
         </div>
+        <div class="page-content">
+            <section class="row">
+                <div class="col-12 col-lg-9">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>GESTION DE ESPECIALISTAS</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="chart-profile-visit">
+                                        <div class="container">
+                                            <div class="card">
+                                                <div class="row">
+                                                    <div class="col-lg-6 stat my-3">
+                                                        <h1>Especialistas</h1>
+                                                    </div>
+                                                    <div class="col-lg-6 stat my-3">
+                                                        <h1>Agregar Especialista</h1>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <table
+                                                        class="table table-responsive table-bordered border-primary mt-2">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Nombre</th>
+                                                                <th scope="col">Ocupacion</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let users of usuariosService.users">
+
+                                                                <td>{{ users.nameUser }}</td>
+                                                                <td>{{ users.ocupation }}</td>
+
+                                                                <div class="btn-group mr-0" role="group"
+                                                                    aria-label="Basic mixed styles example">
+                                                                    <button type="button" class="btn btn-primary  mr-2"
+                                                                        (click)="editUsuario(users)">Editar</button>
+                                                                    <button type="button" class="btn btn-danger"
+                                                                        (click)="deleteUsuario(users._id)">Eliminar</button>
+                                                                </div>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!--Formulario Agregar-->
+                                                <div class="col-lg-6">
+                                                    <form #usuarioForm="ngForm" (ngSubmit)="addUsuario(usuarioForm)"
+                                                        class="row g-3 mb-3 ">
+                                                        <input type="hidden" name="_id"
+                                                            [(ngModel)]="usuariosService.selectedUsuario._id">
+                                                        <div class="col-12">
+                                                            <label for="inputEmail4" class="form-label">Nombre</label>
+                                                            <input type="text" class="form-control" name="nameUser"
+                                                                [(ngModel)]="usuariosService.selectedUsuario.nameUser">
+                                                        </div>
+
+                                                        <div class="col-12">
+                                                            <label for="inputOcupacion"
+                                                                class="form-label">Contraseña</label>
+                                                            <input type="password" class="form-control" name="password"
+                                                                [(ngModel)]="usuariosService.selectedUsuario.password">
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <label for="inputOcupacion"
+                                                                class="form-label">Organizacion</label>
+                                                            <input type="text" class="form-control" name="organization"
+                                                                [(ngModel)]="usuariosService.selectedUsuario.organization">
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <label for="inputOcupacion"
+                                                                class="form-label">Ocupacion</label>
+                                                            <input type="text" class="form-control" name="ocupation"
+                                                                [(ngModel)]="usuariosService.selectedUsuario.ocupation">
+                                                        </div>
+                                                        <div class="text-center">
+
+                                                            <button type="submit" class="btn btn-danger text-uppercase"
+                                                                value="Guardar">Agregar
+                                                                Especialista</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-lg-3">
+                    <div class="card">
+                        <div class="card-body py-4 px-5">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar avatar-xl">
+                                    <img src="assets/images/faces/1.jpg" alt="Face 1">
+                                </div>
+                                <div class="ms-3 name">
+                                    <h5 class="font-bold">John Duck</h5>
+                                    <h6 class="text-muted mb-0">@johnducky</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+       
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>TARJETA </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-visitors-profile"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <div class="footer clearfix mb-0 text-muted">
+                <div class="float-start">
+                    <p>2022 &copy; Boliot</p>
+                </div>
+
+            </div>
+        </footer>
     </div>
 </div>
+<script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/vendors/apexcharts/apexcharts.js"></script>
+<script src="assets/js/pages/dashboard.js"></script>
+
+<script src="assets/js/mazer.js"></script>

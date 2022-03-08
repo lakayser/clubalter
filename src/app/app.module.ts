@@ -35,7 +35,8 @@ import { ObjToArrayPipe } from './objToArray.pipe';
     EspecialistasComponent,
     HorarioComponent,
     BoxComponent,
-    ObjToArrayPipe
+    ObjToArrayPipe,
+  
     // LoginComponent,
     // DashboardComponent
   ],
