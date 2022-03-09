@@ -26,7 +26,8 @@ const routes: Routes = [
   {path: 'especialistas', component: EspecialistasComponent, canActivate: [AuthGuard]},
   {path: 'horario', component: HorarioComponent, canActivate: [AuthGuard]},
   {path: 'box', component: BoxComponent, canActivate: [AuthGuard]},
-  {path: 'lugar', component: LugarComponent,canActivate: [AuthGuard]},
+  {path: 'lugar', component: LugarComponent},
+  
 
 
   {path: '**', redirectTo: '', pathMatch: 'full'}

@@ -19,6 +19,8 @@ import { HorarioComponent } from './vistas/horario/horario.component';
 import { BoxComponent } from './vistas/box/box.component';
 import { ObjToArrayPipe } from './objToArray.pipe';
 import { LugarComponent } from './vistas/lugar/lugar.component';
+import { SidebarComponent } from './plantillas/sidebar/sidebar.component';
+import { SidebarModule } from 'ng-sidebar';
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 
@@ -38,6 +40,7 @@ import { LugarComponent } from './vistas/lugar/lugar.component';
     BoxComponent,
     ObjToArrayPipe,
     LugarComponent,
+    SidebarComponent,
   
     // LoginComponent,
     // DashboardComponent
@@ -47,7 +50,8 @@ import { LugarComponent } from './vistas/lugar/lugar.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SidebarModule.forRoot()
   ],
   providers: [ AuthGuard, {
     provide: HTTP_INTERCEPTORS,

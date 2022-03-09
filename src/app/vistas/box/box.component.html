@@ -134,7 +134,7 @@
             </section>
         </div>
         <div *ngFor="let dato of datos | ObjToArray">
-            <form action="{{dato.url}}" method="post">
+            <form ngNoForm action="{{dato.url}}" method="post">
                 {{dato.url}}
                 <input type="text" name="token_ws" value="{{dato.token}}">       
                 <button type="submit">Pagar</button>
