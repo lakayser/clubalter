@@ -13,6 +13,7 @@ import { KbotPersonalizadoComponent } from './pagina/kbot-personalizado/kbot-per
 import { EspecialistasComponent } from './vistas/especialistas/especialistas.component';
 import { HorarioComponent } from './vistas/horario/horario.component';
 import { BoxComponent } from './vistas/box/box.component';
+import { LugarComponent } from './vistas/lugar/lugar.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'especialistas', component: EspecialistasComponent, canActivate: [AuthGuard]},
   {path: 'horario', component: HorarioComponent, canActivate: [AuthGuard]},
   {path: 'box', component: BoxComponent, canActivate: [AuthGuard]},
+  {path: 'lugar', component: LugarComponent,canActivate: [AuthGuard]},
 
 
   {path: '**', redirectTo: '', pathMatch: 'full'}

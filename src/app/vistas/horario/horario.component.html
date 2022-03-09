@@ -119,14 +119,20 @@
                         
                                                         <div class="col-12">
                                                             <label for="inputOcupacion" class="form-label">Hora Termino</label>
-                                                            <input type="text" class="form-control" name="asd"
+                                                            <input type="text" class="form-control" name="hourEnd"
                                                                 [(ngModel)]="horariosService.selectedHorario.hourEnd">
                                                         </div>
-                                                        <!-- <div class="col-12">
-                                                            <label for="inputOcupacion" class="form-label">Organizacion</label>
+                                                        <div class="col-12">
+                                                            <label for="inputOcupacion" class="form-label">Organización</label>
                                                             <input type="text" class="form-control" name="organization"
-                                                                [(ngModel)]="usuariosService.selectedUsuario.organization">
-                                                        </div> -->
+                                                                [(ngModel)]="horariosService.selectedHorario.organization">
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <label for="inputOcupacion" class="form-label">Doctor</label>
+                                                            <input type="text" class="form-control" name="doctorId"
+                                                                [(ngModel)]="horariosService.selectedHorario.doctorId">
+                                                        </div>
+
                                                         <div class="text-center">
                                                             
                                                             <button type="submit" class="btn btn-danger text-uppercase" value="Guardar">Agregar
@@ -152,8 +158,8 @@
                                     <img src="assets/images/faces/1.jpg" alt="Face 1">
                                 </div>
                                 <div class="ms-3 name">
-                                    <h5 class="font-bold">John Duck</h5>
-                                    <h6 class="text-muted mb-0">@johnducky</h6>
+                                    <h5 class="font-bold">Marco Hernández</h5>
+                                    <h6 class="text-muted mb-0">Centro suyai</h6>
                                 </div>
                             </div>
                         </div>

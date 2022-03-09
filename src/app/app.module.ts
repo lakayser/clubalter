@@ -18,6 +18,7 @@ import { EspecialistasComponent } from './vistas/especialistas/especialistas.com
 import { HorarioComponent } from './vistas/horario/horario.component';
 import { BoxComponent } from './vistas/box/box.component';
 import { ObjToArrayPipe } from './objToArray.pipe';
+import { LugarComponent } from './vistas/lugar/lugar.component';
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 
@@ -36,6 +37,7 @@ import { ObjToArrayPipe } from './objToArray.pipe';
     HorarioComponent,
     BoxComponent,
     ObjToArrayPipe,
+    LugarComponent,
   
     // LoginComponent,
     // DashboardComponent

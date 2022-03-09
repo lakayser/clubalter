@@ -15,6 +15,7 @@ export class TransbankService {
     console.log('trasbank andando');
     
    }
+   
    getTransbank(){
      let header = new HttpHeaders()
      .set('Type-content', 'aplication/json')

@@ -9,7 +9,7 @@ import { TransbankService } from 'src/app/servicios/transbank.service';
 export class BoxComponent{
 
   public datos: Array<any> =[];
-
+ 
   constructor(
     private transbankServices: TransbankService
   ) { 
