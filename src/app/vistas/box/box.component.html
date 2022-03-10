@@ -73,19 +73,6 @@
                                         <!--Tabla Crud-->
                                         <div class="container">
                                             <div class="row">
-                                                <ul>
-                                                    <li *ngFor="let dato of datos | ObjToArray">
-                                                        {{dato.token}}
-                                                    </li>
-                                                </ul>
-
-                                                <pre>
-                                                    {{datos | json}}
-                                                </pre>
-
-
-                                                
-
                                                 <!--Formulario Agregar-->
                                                 <div class="col-lg-6">
                                                     <form class="row g-3 mb-3 ">
@@ -132,13 +119,6 @@
 
                 </div>
             </section>
-        </div>
-        <div *ngFor="let dato of datos | ObjToArray">
-            <form ngNoForm action="{{dato.url}}" method="post">
-                {{dato.url}}
-                <input type="text" name="token_ws" value="{{dato.token}}">       
-                <button type="submit">Pagar</button>
-            </form>
         </div>
         <footer>
             <div class="footer clearfix mb-0 text-muted">

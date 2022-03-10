@@ -73,7 +73,7 @@
                                 <div class="card-body">
                                     <div id="chart-profile-visit">
                                         <div class="container">
-                                            <div class="card">
+                                            <div class="card mt-2">
                                                 <div class="row">
                                                     <div class="col-lg-6 stat my-3">
                                                         <h1>Especialistas</h1>
@@ -88,27 +88,27 @@
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-lg-6">
-                                                    <table
-                                                        class="table table-responsive table-bordered border-primary mt-2">
+                                                    <table class="table table-responsive table-bordered border-dark mt-2">
                                                         <thead>
                                                             <tr>
                                                                 <th scope="col">Nombre</th>
                                                                 <th scope="col">Ocupacion</th>
+                                                                <th scope="col">Opciones</th>
                                                             </tr>
                                                         </thead>
+                                                        
                                                         <tbody>
                                                             <tr *ngFor="let users of usuariosService.users">
-
+                                                                
                                                                 <td>{{ users.nameUser }}</td>
                                                                 <td>{{ users.ocupation }}</td>
-
+                                                                
                                                                 <div class="btn-group mr-0" role="group"
                                                                     aria-label="Basic mixed styles example">
-                                                                    <button type="button" class="btn btn-primary  mr-2"
-                                                                        (click)="editUsuario(users)">Editar</button>
-                                                                    <button type="button" class="btn btn-danger"
-                                                                        (click)="deleteUsuario(users._id)">Eliminar</button>
+                                                                    <button type="button" class="btn btn-primary  mr-2"(click)="editUsuario(users)">Editar</button>
+                                                                    <button type="button" class="btn btn-danger"(click)="deleteUsuario(users._id)">Eliminar</button>
                                                                 </div>
+                                                                
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -176,7 +176,7 @@
                             </div>
                         </div>
                     </div>
-       
+
                     <div class="card">
                         <div class="card-header">
                             <h4>TARJETA </h4>

@@ -14,6 +14,7 @@ import { EspecialistasComponent } from './vistas/especialistas/especialistas.com
 import { HorarioComponent } from './vistas/horario/horario.component';
 import { BoxComponent } from './vistas/box/box.component';
 import { LugarComponent } from './vistas/lugar/lugar.component';
+import { PortalPagoComponent } from './pagina/portal-pago/portal-pago.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -27,7 +28,7 @@ const routes: Routes = [
   {path: 'horario', component: HorarioComponent, canActivate: [AuthGuard]},
   {path: 'box', component: BoxComponent, canActivate: [AuthGuard]},
   {path: 'lugar', component: LugarComponent},
-  
+  {path: 'pagos', component:PortalPagoComponent},
 
 
   {path: '**', redirectTo: '', pathMatch: 'full'}
