@@ -3,6 +3,7 @@ import {HorariosService} from '../../servicios/horarios.service';
  import {Horario} from '../../modelos/horario';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import * as moment from 'moment';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./horario.component.css']
 })
 export class HorarioComponent implements OnInit {
+  currentTime: any;
 
   constructor(private router: Router, public horariosService: HorariosService) { }
 
@@ -20,11 +22,13 @@ export class HorarioComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.getHorarios()
   }
   getHorarios() {
     this.horariosService.getHorarios().subscribe((res) => {
         this.horariosService.horarios = res;
+      
         console.log(res)
         
       }); 

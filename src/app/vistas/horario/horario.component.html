@@ -80,7 +80,7 @@
                                                                 <th scope="col">Hora Comienzo</th>
                                                                 <th scope="col">Hora Termino</th>
                                                                 <th scope="col">Nombre Doctor</th>
-                                                                <th scope="col">Organización</th>
+                                                                
                                                                 <th scope="col">Ocupación</th>
                                                                 <th scope="col">Opciones</th>
                                                                 
@@ -94,7 +94,7 @@
                         
                                                                 <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.nameUser}} </td>
                         
-                                                                <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.organization}} </td>
+                                                                
                         
                                                                 <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.ocupation}} </td>
                                                                 
@@ -114,20 +114,16 @@
                                                         <input type="hidden" name="_id" [(ngModel)]="horariosService.selectedHorario._id">
                                                         <div class="col-12">
                                                             <label for="inputEmail4" class="form-label">Hora Inicio</label>
-                                                            <input type="text" class="form-control" name="nameUser"
+                                                            <input type="datetime-local" class="form-control" name="hourStart"
                                                                 [(ngModel)]="horariosService.selectedHorario.hourStart">
                                                         </div>
                         
                                                         <div class="col-12">
                                                             <label for="inputOcupacion" class="form-label">Hora Termino</label>
-                                                            <input type="text" class="form-control" name="hourEnd"
+                                                            <input type="datetime-local" class="form-control" name="hourEnd"
                                                                 [(ngModel)]="horariosService.selectedHorario.hourEnd">
                                                         </div>
-                                                        <div class="col-12">
-                                                            <label for="inputOcupacion" class="form-label">Organización</label>
-                                                            <input type="text" class="form-control" name="organization"
-                                                                [(ngModel)]="horariosService.selectedHorario.organization">
-                                                        </div>
+                                                       
                                                         <div class="col-12">
                                                             <label for="inputOcupacion" class="form-label">Doctor</label>
                                                             <input type="text" class="form-control" name="doctorId"
