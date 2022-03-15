@@ -22,6 +22,7 @@ import { LugarComponent } from './vistas/lugar/lugar.component';
 import { SidebarComponent } from './plantillas/sidebar/sidebar.component';
 import { SidebarModule } from 'ng-sidebar';
 import { PortalPagoComponent } from './pagina/portal-pago/portal-pago.component';
+import { AgendarhoraComponent } from './vistas/agendarhora/agendarhora.component';
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 
@@ -43,6 +44,7 @@ import { PortalPagoComponent } from './pagina/portal-pago/portal-pago.component'
     LugarComponent,
     SidebarComponent,
     PortalPagoComponent,
+    AgendarhoraComponent,
   
     // LoginComponent,
     // DashboardComponent

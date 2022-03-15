@@ -15,6 +15,7 @@ import { HorarioComponent } from './vistas/horario/horario.component';
 import { BoxComponent } from './vistas/box/box.component';
 import { LugarComponent } from './vistas/lugar/lugar.component';
 import { PortalPagoComponent } from './pagina/portal-pago/portal-pago.component';
+import { AgendarhoraComponent } from './vistas/agendarhora/agendarhora.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'box', component: BoxComponent, canActivate: [AuthGuard]},
   {path: 'lugar', component: LugarComponent},
   {path: 'pagos', component:PortalPagoComponent},
+  {path: 'hora', component:AgendarhoraComponent,canActivate: [AuthGuard]},
 
 
   {path: '**', redirectTo: '', pathMatch: 'full'}

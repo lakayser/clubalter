@@ -28,14 +28,14 @@
                             <span>Horarios</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item active">
                         <a routerLink="/hora" class='sidebar-link'>
                             <i class="bi bi-stack"></i>
                             <span>Agendar Hora</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item">
                         <a routerLink="/especialistas" class='sidebar-link'>
                             <i class="bi bi-collection-fill"></i>
                             <span>Especialistas</span>
@@ -64,97 +64,90 @@
         </header>
 
         <div class="page-heading">
-            <h3>ESPECIALISTAS</h3>
+            <h3>HORARIOS</h3>
         </div>
         <div class="page-content">
             <section class="row">
                 <div class="col-12 col-lg-9">
-
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>GESTION DE ESPECIALISTAS</h4>
+                                    <h4>GESTION DE HORARIOS</h4>
                                 </div>
                                 <div class="card-body">
                                     <div id="chart-profile-visit">
                                         <div class="container">
-                                            <div class="card mt-2">
-                                                <div class="row">
-                                                    <div class="col-lg-6 stat my-3">
-                                                        <h1>Especialistas</h1>
-                                                    </div>
-                                                    <div class="col-lg-6 stat my-3">
-                                                        <h1>Agregar Especialista</h1>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="container">
                                             <div class="row">
-                                                <div class="col-lg-5">
-                                                    <table class="table table-responsive table-bordered border-dark mt-2">
+                                                <div class="col-lg-4">
+                                                    <table class="table table-responsive table-bordered border-dark mt-2 ">
                                                         <thead>
                                                             <tr>
-                                                                <th scope="col">Nombre</th>
-                                                                <th scope="col">Ocupacion</th>
-                                                                <th scope="col">Opciones</th>
+                                                                <th scope="col">Hora Inicio</th>
+                                                                <th scope="col">Hora hora termino</th>
+                                                                <th scope="col">valor</th>
+                                                                <th scope="col">Doctor</th>
+                                                                
                                                             </tr>
                                                         </thead>
-                                                        
                                                         <tbody>
-                                                            <tr *ngFor="let users of usuariosService.users">
+                                                            <tr *ngFor="let hora of horadisponibleService.hora | ObjToArray">
                                                                 
-                                                                <td>{{ users.nameUser }}</td>
-                                                                <td>{{ users.ocupation }}</td>
+                                                                <td *ngFor="let a of hora.horaId">{{ a.horaInicio }}</td>
+                                                                <td *ngFor="let a of hora.horaId">{{ a.horaTermino }}</td>
+                                                                <td>{{ hora.payment }}</td>
+                                                               
+                        
+                                                                <td *ngFor="let dataDoc of hora.doctorId"> {{dataDoc.nameUser}} </td>
+
+                                                                <!-- <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.ocupation}} </td>  -->
                                                                 
-                                                                <div class="btn-group mr-0" role="group"
+                                                                <!-- <div class="btn-group mr-0" role="group"
                                                                     aria-label="Basic mixed styles example">
-                                                                    <button type="button" class="btn btn-primary  mr-2"(click)="editUsuario(users)">Editar</button>
-                                                                    <button type="button" class="btn btn-danger"(click)="deleteUsuario(users._id)">Eliminar</button>
-                                                                </div>
-                                                                
+                                                                    <button type="button" class="btn btn-primary  mr-2" (click)="editHorarios(horarios)">Editar</button>
+                                                                    <button type="button" class="btn btn-danger" (click)="deleteHorarios(horarios._id)" >Eliminar</button>
+                                                                </div> -->
                                                             </tr>
+                        
                                                         </tbody>
                                                     </table>
                                                 </div>
                                                 <!--Formulario Agregar-->
-                                                <div class="col-lg-6">
-                                                    <form #usuarioForm="ngForm" (ngSubmit)="addUsuario(usuarioForm)"
-                                                        class="row g-3 mb-3 ">
-                                                        <input type="hidden" name="_id"
-                                                            [(ngModel)]="usuariosService.selectedUsuario._id">
+                                                <div class="col-lg-4">
+                                                    <form #usuarioForm="ngForm" (ngSubmit)="addHora(usuarioForm)" class="row g-3 mb-3 ">
                                                         <div class="col-12">
-                                                            <label for="inputEmail4" class="form-label">Nombre</label>
-                                                            <input type="text" class="form-control" name="nameUser"
-                                                                [(ngModel)]="usuariosService.selectedUsuario.nameUser">
+                                                            <label for="inputEmail4" class="form-label">Hora</label>
+                                                            <!-- <input type="text" class="form-control" name="horaInicio"
+                                                                [(ngModel)]="horadisponibleService.selectedHora.horaId"> -->
+                                                                <select class="form-select" aria-label="Default select example" [(ngModel)]="horariosService.selectedHorario._id" >
+                                                                <option selected  >Open this select menu</option>
+                                                                <option *ngFor="let horarios of horariosService.horarios | ObjToArray" [ngValue]="horarios._id" >{{horarios.horaInicio}} - {{horarios.horaTermino}}</option>
+                                                                
+                                                                  </select>
+                                                            </div>
+                                                      
+                        
+                                                        <div class="col-12">
+                                                            <label for="inputOcupacion" class="form-label">valor</label>
+                                                            <input type="number" class="form-control" name="payment"
+                                                                [(ngModel)]="horadisponibleService.selectedHora.payment">
+                                                        </div>
+                                                       
+                                                        <div class="col-12">
+                                                            <label for="inputOcupacion" class="form-label">Doctor</label>
+                                                            <input type="text" class="form-control" name="doctorId"
+                                                                [(ngModel)]="horadisponibleService.selectedHora.doctorId">
                                                         </div>
 
-                                                        <div class="col-12">
-                                                            <label for="inputOcupacion"
-                                                                class="form-label">Contraseña</label>
-                                                            <input type="password" class="form-control" name="password"
-                                                                [(ngModel)]="usuariosService.selectedUsuario.password">
-                                                        </div>
-                                                        
-                                                        <div class="col-12">
-                                                            <label for="inputOcupacion"
-                                                                class="form-label">Ocupacion</label>
-                                                            <input type="text" class="form-control" name="ocupation"
-                                                                [(ngModel)]="usuariosService.selectedUsuario.ocupation">
-                                                        </div>
                                                         <div class="text-center">
-
-                                                            <button type="submit" class="btn btn-danger text-uppercase"
-                                                                value="Guardar">Agregar
-                                                                Especialista</button>
+                                                            
+                                                            <button type="submit" class="btn btn-danger text-uppercase" value="Guardar">Agregar
+                                                                Hora</button>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
                                         </div>
-
 
                                     </div>
                                 </div>
@@ -163,6 +156,7 @@
                     </div>
 
                 </div>
+                
                 <div class="col-12 col-lg-3">
                     <div class="card">
                         <div class="card-body py-4 px-5">
@@ -177,15 +171,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>TARJETA </h4>
-                        </div>
-                        <div class="card-body">
-                            <div id="chart-visitors-profile"></div>
-                        </div>
-                    </div>
+                   
+                    
                 </div>
             </section>
         </div>

@@ -14,11 +14,11 @@ export class HorariosService {
 
   selectedHorario: Horario ={
     _id: '',
-    hourStart:      '',
-    hourEnd:       '',
-    organization:  '',
-    doctorId: ''
-  };
+    horaInicio:   '',
+    horaTermino:   '',
+    disponibilidad: ''
+    
+};
 
   horarios: Horario[];
   

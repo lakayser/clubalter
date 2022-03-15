@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {HorariosService} from '../../servicios/horarios.service';
- import {Horario} from '../../modelos/horario';
+import {Horario} from '../../modelos/horario';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import * as moment from 'moment';
 import { Observable } from 'rxjs';
 
-@Component({
+@Component({ 
   selector: 'app-horario',
   templateUrl: './horario.component.html',
   styleUrls: ['./horario.component.css']
