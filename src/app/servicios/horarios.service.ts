@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Horario} from '../modelos/horario'
 import { RouteReuseStrategy } from '@angular/router';
+import { Math } from '../modelos/math';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { RouteReuseStrategy } from '@angular/router';
 export class HorariosService {
 
   URL: string ='https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
-
+  math: string ='https://botmila-api.herokuapp.com/botmilaAPI/moderator/'
   selectedHorario: Horario ={
     _id: '',
     horaInicio:   '',
@@ -19,12 +20,23 @@ export class HorariosService {
     disponibilidad: ''
     
 };
+selectedMath: Math={
+  horasTotalDisponible: '',
+  horasTotalAgendadas: ''
+};
+
 
   horarios: Horario[];
+
+  mathx: Math[];
   
   private httpheaders = new HttpHeaders({'Content-Type' : 'aplication/json'});
 
   constructor(private http:HttpClient) { }
+
+  getMath(){
+    return this.http.get<Math[]>(`${this.math}math`)
+  }
 
   getHorarios(){
     return this.http.get<Horario[]>(`${this.URL}list-hours`);

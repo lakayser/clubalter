@@ -4,7 +4,7 @@
             <div class="sidebar-header">
                 <div class="d-flex justify-content-between">
                     <div class="logo">
-                        <a routerLink="/dashboard"><img src="../../../assets/Bot_grafica2.png" alt="Logo" srcset=""></a>
+                        <a routerLink="/dashboard"><img src="../../../assets/Logo-Botmila.png" alt="Logo" srcset=""></a>
                     </div>
                     <div class="toggler">
                         <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -73,7 +73,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>GESTION DE HORARIOS</h4>
+                                    <h4>AGENDAR HORAS</h4>
                                 </div>
                                 <div class="card-body">
                                     <div id="chart-profile-visit">
@@ -117,13 +117,13 @@
                                                     <form #usuarioForm="ngForm" (ngSubmit)="addHora(usuarioForm)" class="row g-3 mb-3 ">
                                                         <div class="col-12">
                                                             <label for="inputEmail4" class="form-label">Hora</label>
-                                                            <!-- <input type="text" class="form-control" name="horaInicio"
-                                                                [(ngModel)]="horadisponibleService.selectedHora.horaId"> -->
-                                                                <select class="form-select" aria-label="Default select example" [(ngModel)]="horariosService.selectedHorario._id" >
+                                                            <input type="text" class="form-control" name="horaId"
+                                                                [(ngModel)]="horadisponibleService.selectedHora.horaId">
+                                                                <!-- <select class="form-select" aria-label="Default select example" [(ngModel)]="horadisponibleService.selectedHora.horaId" >
                                                                 <option selected  >Open this select menu</option>
                                                                 <option *ngFor="let horarios of horariosService.horarios | ObjToArray" [ngValue]="horarios._id" >{{horarios.horaInicio}} - {{horarios.horaTermino}}</option>
                                                                 
-                                                                  </select>
+                                                                  </select> -->
                                                             </div>
                                                       
                         

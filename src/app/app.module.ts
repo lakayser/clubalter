@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { SidebarComponent } from './plantillas/sidebar/sidebar.component';
 import { SidebarModule } from 'ng-sidebar';
 import { PortalPagoComponent } from './pagina/portal-pago/portal-pago.component';
 import { AgendarhoraComponent } from './vistas/agendarhora/agendarhora.component';
+
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 
@@ -45,6 +47,7 @@ import { AgendarhoraComponent } from './vistas/agendarhora/agendarhora.component
     SidebarComponent,
     PortalPagoComponent,
     AgendarhoraComponent,
+    
   
     // LoginComponent,
     // DashboardComponent
@@ -55,7 +58,8 @@ import { AgendarhoraComponent } from './vistas/agendarhora/agendarhora.component
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    SidebarModule.forRoot()
+    NgChartsModule
+    
   ],
   providers: [ AuthGuard, {
     provide: HTTP_INTERCEPTORS,

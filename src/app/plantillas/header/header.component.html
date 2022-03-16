@@ -1,17 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #96c6b3;">
+
+<nav class="navbar navbar-expand-lg navbar-light border-3 border-bottom border-dark" style="background-color: #96c6b3;">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="assets/Banner-Facebook.jpg" alt="" width="250" height="250"  class="d-inline-block align-text-top">
-
+        <img src="assets/Banner-Facebook.jpg" alt="" width="250" height="80"  class="d-inline-block align-text-top">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"  >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav  ms-auto">
             <ng-container *ngIf="!apiService.loggedIn(); else loggedIn">
-          
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/login" routerLinkActive="active">Ingresar</a>
           </li>
@@ -27,12 +27,21 @@
          
         </ng-container>
         <ng-template #loggedIn>
+          <li class="nav-item">
+            <button type="button" class="btn btn-secondary" routerLink="/dashboard">ir a dashboard</button>
+        </li> 
             <li class="nav-item">
-                <button type="button" class="btn btn-primary" (click)="apiService.logout()">Cerrar
+                <button type="button" class="btn btn-primary ml-2" (click)="apiService.logout()">Cerrar
                     Sesion</button>
             </li>
+            
         </ng-template>
         </ul>
       </div>
     </div>
   </nav>
+
+  <script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+
+
+  
