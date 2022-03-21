@@ -18,7 +18,7 @@ export class HorarioComponent implements OnInit {
 
   public horarios: Array<Horario> = [];
 
-  
+  nodisponible=false;
 
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class HorarioComponent implements OnInit {
   getHorarios() {
     this.horariosService.getHorarios().subscribe((res) => {
         this.horariosService.horarios = res;
-      
+        
         console.log(res)
         
       }); 

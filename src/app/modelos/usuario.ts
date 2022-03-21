@@ -7,4 +7,6 @@ export interface Usuario {
     rut: string;
     telefono: string;
     direccion: string;
+    email: string;
+    payment: number;
 }

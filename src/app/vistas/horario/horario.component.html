@@ -166,13 +166,21 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                        
                                                             <tr
                                                                 *ngFor="let horarios of horariosService.horarios | ObjToArray">
 
                                                                 <td>{{ horarios.horaInicio }}</td>
                                                                 <td>{{ horarios.horaTermino }}</td>
                                                                 <td>{{ horarios.box }}</td>
-                                                                <td>{{ horarios.disponibilidad }}</td>
+                                                                
+                                                                <td *ngIf="horarios.disponibilidad==true; ">Disponible</td>
+                                                               
+                                                         
+                                                  
+                                                                <td *ngIf="horarios.disponibilidad==!true; ">no Disponible</td>
+                                                               
+                                                            
 
                                                                 <!-- <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.nameUser}} </td>
                                                                 <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.ocupation}} </td> -->

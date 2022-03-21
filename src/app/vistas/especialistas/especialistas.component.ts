@@ -20,6 +20,7 @@ export class EspecialistasComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsuarios();
+    this.getActivo();
   }
 
   getUsuarios() {
@@ -27,6 +28,14 @@ export class EspecialistasComponent implements OnInit {
         this.usuariosService.users = res;
       }); 
   } 
+
+  getActivo(){
+    this.usuariosService.getActivo().subscribe((resp)=>{
+      this.usuariosService.nombre =resp;
+      console.log('respuesta'+ resp)
+      
+    })
+  }
 
   addUsuario(form: NgForm) {
     if (form.value._id) {

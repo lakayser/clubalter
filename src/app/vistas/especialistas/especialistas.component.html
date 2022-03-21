@@ -107,8 +107,8 @@
                                                     </div>
                                                     <div class="col-6">
                                                         <label for="inputMail" class="form-label">E-mail</label>
-                                                        <input type="email" class="form-control" name=""
-                                                            [(ngModel)]="usuariosService.selectedUsuario.ocupation">
+                                                        <input type="email" class="form-control" name="email"
+                                                            [(ngModel)]="usuariosService.selectedUsuario.email">
                                                     </div>
                                                     <div class="col-6">
                                                         <label for="inputTelefono" class="form-label">Telefono</label>
@@ -125,7 +125,7 @@
                                                             Hora</label>
                                                         <div class="input-group ">
                                                             <span class="input-group-text">$</span>
-                                                            <input type="number" class="form-control"name="direccion">
+                                                            <input type="number" class="form-control"name="payment" [(ngModel)]="usuariosService.selectedUsuario.payment">
 
                                                         </div>
                                                     </div>
@@ -152,9 +152,9 @@
                                 <div class="avatar avatar-xl">
                                     <img src="assets/images/faces/1.jpg" alt="Face 1">
                                 </div>
-                                <div class="ms-3 name">
-                                    <h5 class="font-bold">Marco Hernández</h5>
-                                    <h6 class="text-muted mb-0">Centro suyai</h6>
+                                <div class="ms-3 name"  *ngFor="let nombre of usuariosService.nombre | ObjToArray">
+                                    <h5 class="font-bold" >{{ nombre.nameUser }}</h5>
+                                    <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -208,9 +208,10 @@
                                                                 <td>{{ users.nameUser }}</td>
                                                                 <td>{{ users.ocupation }}</td>
                                                                 <td>{{ users.rut }}</td>
-                                                                <td>{{ users}}</td>
+                                                                <td>{{ users.email}}</td>
                                                                 <td>{{ users.telefono }}</td>
                                                                 <td>{{ users.direccion }}</td>
+                                                                <td>{{ users.payment }}</td>
 
                                                                 <div class="btn-group mr-0" role="group"
                                                                     aria-label="Basic mixed styles example">
@@ -224,7 +225,7 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <a  href="#chart-profile-visit">Contacto</a>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -232,10 +233,11 @@
                             </div>
                         </div>
                     </div>
-
+                   
                 </div>
                
             </section>
+            <a aria-current="page"  href="#chart-profile-visit">Subir</a>
         </div>
          <footer>
             <div class="footer clearfix mb-0 text-muted">

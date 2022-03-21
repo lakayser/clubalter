@@ -10,6 +10,7 @@ import { RouteReuseStrategy } from '@angular/router';
 export class UsuariosService {
 
   URL: string ='https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
+  URL2: string = 'https://botmila-api.herokuapp.com/botmilaAPI/';
 
   selectedUsuario: Usuario ={
     _id: '',
@@ -19,15 +20,24 @@ export class UsuariosService {
     ocupation: '' ,
     rut: '',
     telefono: '',
-    direccion: ''
+    direccion: '',
+    payment: 0,
+    email: ''
+
   };
 
   users: Usuario[];
+
+  nombre: Usuario[];
   
   private httpheaders = new HttpHeaders({'Content-Type' : 'aplication/json'});
 
 
   constructor(private http:HttpClient) { }
+
+  getActivo(){
+    return this.http.get<Usuario[]>(`${this.URL2}dataUser`);
+  }
 
   getUsuarios(){
     return this.http.get<Usuario[]>(`${this.URL}list-users`);
