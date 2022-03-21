@@ -17,12 +17,14 @@ export class TransbankService {
    }
    
    getTransbank(){
+
      let header = new HttpHeaders()
      .set('Type-content', 'aplication/json')
+
      return this.http.get(this._url,{
         headers: header
-       
-       
+        
+        
      });
    }
 }

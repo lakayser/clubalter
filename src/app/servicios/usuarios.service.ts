@@ -16,7 +16,10 @@ export class UsuariosService {
     nameUser: '',
     password: '' ,
     organization: '' ,
-    ocupation: '' 
+    ocupation: '' ,
+    rut: '',
+    telefono: '',
+    direccion: ''
   };
 
   users: Usuario[];

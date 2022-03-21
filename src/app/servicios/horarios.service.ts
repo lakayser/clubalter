@@ -17,7 +17,8 @@ export class HorariosService {
     _id: '',
     horaInicio:   '',
     horaTermino:   '',
-    disponibilidad: ''
+    disponibilidad: '',
+    box: ''
     
 };
 selectedMath: Math={

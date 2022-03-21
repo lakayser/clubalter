@@ -21,35 +21,30 @@
                             <span>Dashboard</span>
                         </a>
                     </li>
-
                     <li class="sidebar-item active">
                         <a routerLink="/horario" class='sidebar-link'>
                             <i class="bi bi-stack"></i>
-                            <span>Horarios</span>
+                            <span>Gestion Horarios/BOX</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
                         <a routerLink="/hora" class='sidebar-link'>
                             <i class="bi bi-stack"></i>
-                            <span>Agendar Hora</span>
+                            <span>Agregar Horas a especialistas</span>
                         </a>
                     </li>
-
+                    <li class="sidebar-item">
+                        <a routerLink="/agendarpaciente" class='sidebar-link'>
+                            <i class="bi bi-grid-1x2-fill"></i>
+                            <span>Agendar una hora</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item">
                         <a routerLink="/especialistas" class='sidebar-link'>
                             <i class="bi bi-collection-fill"></i>
                             <span>Especialistas</span>
                         </a>
                     </li>
-
-                    <li class="sidebar-item ">
-                        <a routerLink="/box" class='sidebar-link'>
-                            <i class="bi bi-grid-1x2-fill"></i>
-                            <span>Box</span>
-                        </a>
-                    </li>
-
-
                 </ul>
             </div>
             <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -69,74 +64,49 @@
         <div class="page-content">
             <section class="row">
                 <div class="col-12 col-lg-9">
-                    <div class="row">
+                    <div class="row  justify-content-center">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>GESTION DE HORARIOS</h4>
+                                    <h4 class="text-center">Agregar Horario disponible</h4>
                                 </div>
                                 <div class="card-body">
                                     <div id="chart-profile-visit">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <table class="table table-responsive table-bordered border-dark mt-2 ">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Hora Comienzo</th>
-                                                                <th scope="col">Hora Termino</th>
-                                                                <th scope="col">Disponibilidad</th>
-                                                                
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr *ngFor="let horarios of horariosService.horarios | ObjToArray">
-                        
-                                                                <td>{{ horarios.horaInicio }}</td>
-                                                                <td>{{ horarios.horaTermino }}</td>
-                                                                <td>{{ horarios.disponibilidad }}</td>
-                        
-                                                                <!-- <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.nameUser}} </td>
-                                                                <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.ocupation}} </td> -->
-                                                                
-                                                                <!-- <div class="btn-group mr-0" role="group"
-                                                                    aria-label="Basic mixed styles example">
-                                                                    <button type="button" class="btn btn-primary  mr-2" (click)="editHorarios(horarios)">Editar</button>
-                                                                    <button type="button" class="btn btn-danger" (click)="deleteHorarios(horarios._id)" >Eliminar</button>
-                                                                </div> -->
-                                                            </tr>
-                        
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <!--Formulario Agregar-->
-                                                <div class="col-lg-4">
-                                                    <form #usuarioForm="ngForm" (ngSubmit)="addHorarios(usuarioForm)" class="row g-3 mb-3 ">
-                                                        <input type="hidden" name="_id" [(ngModel)]="horariosService.selectedHorario._id">
-                                                        <div class="col-12">
-                                                            <label for="inputEmail4" class="form-label">Hora Inicio</label>
-                                                            <input type="time" class="form-control" name="horaInicio"
-                                                                [(ngModel)]="horariosService.selectedHorario.horaInicio" required>
-                                                        </div>
-                        
-                                                        <div class="col-12">
-                                                            <label for="inputOcupacion" class="form-label">Hora Termino</label>
-                                                            <input type="time" class="form-control" name="horaTermino"
-                                                                [(ngModel)]="horariosService.selectedHorario.horaTermino"required>
-                                                        </div>
-                                                       
-                                                        
+                                        <!--Formulario Agregar-->
+                                        <div class="row">
+                                            <div class="col-lg-8 offset-md-2">
+                                                <form #usuarioForm="ngForm" (ngSubmit)="addHorarios(usuarioForm)"
+                                                    class="row g-3 mb-3 ">
+                                                    <input type="hidden" name="_id"
+                                                        [(ngModel)]="horariosService.selectedHorario._id">
+                                                    <div class="col-12">
+                                                        <label for="inputEmail4" class="form-label">Hora Inicio</label>
+                                                        <input type="time" class="form-control" name="horaInicio"
+                                                            [(ngModel)]="horariosService.selectedHorario.horaInicio"
+                                                            required>
+                                                    </div>
 
-                                                        <div class="text-center">
-                                                            
-                                                            <button type="submit" class="btn btn-danger text-uppercase" value="Guardar">Agregar
-                                                                Hora</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                                    <div class="col-12">
+                                                        <label for="inputOcupacion" class="form-label">Hora
+                                                            Termino</label>
+                                                        <input type="time" class="form-control" name="horaTermino"
+                                                            [(ngModel)]="horariosService.selectedHorario.horaTermino"
+                                                            required>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="inputOcupacion" class="form-label">Box</label>
+                                                        <input type="number" class="form-control" name="box"
+                                                            [(ngModel)]="horariosService.selectedHorario.box" required>
+                                                    </div>
+                                                    <div class="text-center">
+
+                                                        <button type="submit" class="btn btn-danger text-uppercase"
+                                                            value="Guardar">Agregar
+                                                            Hora</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +114,6 @@
                     </div>
 
                 </div>
-                
                 <div class="col-12 col-lg-3">
                     <div class="card">
                         <div class="card-body py-4 px-5">
@@ -159,12 +128,74 @@
                             </div>
                         </div>
                     </div>
-                   
-                    
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>TARJETA </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-visitors-profile"></div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
+        <div class="page-content">
+            <section class="row">
+                <div class="col-12 col-lg-9">
+                    <div class="row  justify-content-center">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="text-center">Lista De Horarios Disponibles</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="chart-profile-visit">
 
+                                        <div class="container">
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-10">
+                                                    <table
+                                                        class="table table-responsive table-bordered border-dark mt-2 ">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Hora Comienzo</th>
+                                                                <th scope="col">Hora Termino</th>
+                                                                <th scope="col">Numero Box</th>
+                                                                <th scope="col">Disponibilidad</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr
+                                                                *ngFor="let horarios of horariosService.horarios | ObjToArray">
+
+                                                                <td>{{ horarios.horaInicio }}</td>
+                                                                <td>{{ horarios.horaTermino }}</td>
+                                                                <td>{{ horarios.box }}</td>
+                                                                <td>{{ horarios.disponibilidad }}</td>
+
+                                                                <!-- <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.nameUser}} </td>
+                                                                <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.ocupation}} </td> -->
+
+                                                                <!-- <div class="btn-group mr-0" role="group"
+                                                                    aria-label="Basic mixed styles example">
+                                                                    <button type="button" class="btn btn-primary  mr-2" (click)="editHorarios(horarios)">Editar</button>
+                                                                    <button type="button" class="btn btn-danger" (click)="deleteHorarios(horarios._id)" >Eliminar</button>
+                                                                </div> -->
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
         <footer>
             <div class="footer clearfix mb-0 text-muted">
                 <div class="float-start">

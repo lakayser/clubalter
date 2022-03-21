@@ -24,6 +24,7 @@ import { SidebarComponent } from './plantillas/sidebar/sidebar.component';
 import { SidebarModule } from 'ng-sidebar';
 import { PortalPagoComponent } from './pagina/portal-pago/portal-pago.component';
 import { AgendarhoraComponent } from './vistas/agendarhora/agendarhora.component';
+import { AgendarPacienteComponent } from './vistas/agendar-paciente/agendar-paciente.component';
 
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
@@ -47,6 +48,7 @@ import { AgendarhoraComponent } from './vistas/agendarhora/agendarhora.component
     SidebarComponent,
     PortalPagoComponent,
     AgendarhoraComponent,
+    AgendarPacienteComponent,
     
   
     // LoginComponent,
