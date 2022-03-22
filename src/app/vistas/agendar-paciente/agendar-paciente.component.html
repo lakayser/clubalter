@@ -80,13 +80,15 @@
                                             <div class="col-lg-8 offset-md-2">
                                                 <form class="row g-3 mb-3 ">
                                                     <div class="col-12">
-                                                        <label for="inputEmail4" class="form-label">Hora y
-                                                            BOX</label>
-                                                        <select class="form-select" aria-label="Default select example">
-                                                            <option selected>elegir hora y box</option>
-                                                            <option value="1">10:00-11:00/box1</option>
-                                                            <option value="2">10:00-11:00/box2</option>
-                                                            <option value="3">11:00-12:00/box1</option>
+                                                        <label for="inputEmail4" class="form-label">Hora</label>
+                                                        <select class="form-select" aria-label="Default select example"
+                                                            name="horaId"
+                                                            [(ngModel)]="horadisponibleService.selectedHora.horaId">
+
+                                                            <option
+                                                                *ngFor="let horarios of horariosService.horarios | ObjToArray"
+                                                                [ngValue]="horarios._id">{{horarios.horaInicio}} -
+                                                                {{horarios.horaTermino}} box {{horarios.box}}</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-12">
@@ -99,21 +101,25 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-12">
-                                                        <label for="inputEmail4" class="form-label">Especialistas</label>
-                                                        <select class="form-select" aria-label="Default select example">
-                                                            <option selected>Seleccione un Especialista</option>
-                                                            <option value="1">Guillermo</option>
-                                                            <option value="2">Mauricio</option>
-                                                            <option value="3">Antonio</option>
+                                                        <label for="inputOcupacion" class="form-label">Doctor</label>
+                                                        <select class="form-select" aria-label="Default select example"
+                                                            name="doctorId"
+                                                            [(ngModel)]="usuariosService.selectedUsuario.nameUser">
+
+                                                            <option
+                                                                *ngFor="let users of usuariosService.users | ObjToArray"
+                                                                [ngValue]="users._id">{{users.nameUser}}</option>
+
                                                         </select>
                                                     </div>
                                                     <div class="col-12">
-                                                        <label for="input" class="form-label">Nombre Del Paciente</label>
-                                                        <input type="text" class="form-control" name="ocupation">
+                                                        <label for="input" class="form-label">Nombre Del
+                                                            Paciente</label>
+                                                        <input type="text" class="form-control" name="nombrePaciente">
                                                     </div>
                                                     <div class="col-12">
                                                         <label for="input" class="form-label">Rut Del Paciente</label>
-                                                        <input type="text" class="form-control" name="ocupation">
+                                                        <input type="text" class="form-control" name="RutPaciente">
                                                     </div>
                                                     <div class="text-center">
                                                         <button type="submit"
@@ -135,9 +141,9 @@
                                 <div class="avatar avatar-xl">
                                     <img src="assets/images/faces/1.jpg" alt="Face 1">
                                 </div>
-                                <div class="ms-3 name">
-                                    <h5 class="font-bold">Marco Hernández</h5>
-                                    <h6 class="text-muted mb-0">Centro suyai</h6>
+                                <div class="ms-3 name" *ngFor="let nombre of usuariosService.nombre | ObjToArray">
+                                    <h5 class="font-bold">{{ nombre.nameUser }}</h5>
+                                    <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -167,15 +173,17 @@
                                     <div id="chart-profile-visit">
                                         <div class="container">
                                             <div class="row justify-content-center">
-                                                <div class="col-lg-10">
+                                                <div class="col-lg-7">
                                                     <table
                                                         class="table table-responsive table-bordered border-dark mt-2 ">
-                                                     
+
                                                         <thead>
                                                             <tr>
                                                                 <th scope="col">Nombre Paciente</th>
                                                                 <th scope="col">Rut Paciente</th>
+                                                                <th scope="col">Valor</th>
                                                                 <th scope="col">Nombre Doctor</th>
+
                                                                 <th scope="col">Hora/box</th>
                                                                 <th scope="col">Estado</th>
 
@@ -183,7 +191,23 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
+                                                            <tr
+                                                                *ngFor="let hora of horadisponibleService.hora | ObjToArray">
+                                                                <td>nombre paciente</td>
+
+                                                                <td>rut paciente</td>
+
+                                                                <td *ngFor="let dataDoc of hora.doctorId">
+                                                                    {{dataDoc.payment}} </td>
+
+                                                                <td *ngFor="let dataDoc of hora.doctorId">
+                                                                    {{dataDoc.nameUser}} </td>
+
+                                                                <td *ngFor="let a of hora.horaId">{{ a.horaInicio }} box
+                                                                    {{ a.box }}
+                                                                </td>
+                                                                <td>estado</td>
+
 
 
                                                             </tr>

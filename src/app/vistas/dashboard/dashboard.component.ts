@@ -7,6 +7,7 @@ import { Math } from 'src/app/modelos/math';
 
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import { Router } from '@angular/router';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -67,12 +68,13 @@ export class DashboardComponent implements OnInit{
 
     this.chart?.update();
   }
-  constructor(private router: Router, public horariosService: HorariosService) { }
+  constructor(private router: Router, public horariosService: HorariosService, public usuariosService:UsuariosService) { }
   
   public horax:Array<any> = []
 
   ngOnInit(): void {
     this.getMath();
+    this.getActivo();
 
   }
   getMath() {
@@ -82,7 +84,13 @@ export class DashboardComponent implements OnInit{
         
       }); 
   } 
-  
+  getActivo(){
+    this.usuariosService.getActivo().subscribe((resp)=>{
+      this.usuariosService.nombre =resp;
+      console.log('respuesta'+ resp)
+      
+    })
+  }
  
 }
 

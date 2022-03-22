@@ -80,8 +80,7 @@
                                         <div class="row">
                                             <div class="col-lg-8 offset-md-2">
 
-                                                <form #usuarioForm="ngForm" (ngSubmit)="addHora(usuarioForm)" 
-                                                    class="row g-3 mb-3 ">
+                                                <form #usuarioForm="ngForm"  (ngSubmit)="addHora(usuarioForm)" class="row g-3 mb-3 ">
                                                     <!-- <div class="col-12">
                                                         <label for="inputEmail4" class="form-label">Hora</label>
                                                         <select class="form-select" aria-label="Default select example"  >
@@ -92,16 +91,17 @@
                                                     </div> -->
                                                     <div class="col-12" >
                                                         <label for="inputEmail4" class="form-label">Hora</label>
-                                                        <select class="form-select" aria-label="Default select example" [(ngModel)]="horariosService">
-                                                            <option selected  [ngValue]="''">Open this select menu</option>
-                                                            <option *ngFor="let horarios of horariosService.horarios | ObjToArray" [value]="horarios._id"  >{{horarios.horaInicio}} - {{horarios.horaTermino}}</option>
+                                                        <select class="form-select" aria-label="Default select example" name="horaId" 
+                                                            [(ngModel)]="horadisponibleService.selectedHora.horaId">
+
+                                                            <option *ngFor="let horarios of horariosService.horarios | ObjToArray" [ngValue]="horarios._id">{{horarios.horaInicio}} - {{horarios.horaTermino}} box {{horarios.box}}</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-12" >
                                                         <label for="inputOcupacion" class="form-label" >Doctor</label>
-                                                            <select class="form-select" aria-label="Default select example">
-                                                                <option selected [ngValue]="''" >Open this select menu</option>
-                                                                <option [ngValue]="users._id" *ngFor="let users of usuariosService.users | ObjToArray"  >{{users.nameUser}}</option>
+                                                            <select class="form-select" aria-label="Default select example" name="doctorId" [(ngModel)]="usuariosService.selectedUsuario.nameUser">
+                                                            
+                                                                <option *ngFor="let users of usuariosService.users | ObjToArray" [ngValue]="users._id" >{{users.nameUser}}</option>
                                                                 
                                                                   </select>
                                                     </div>
@@ -133,9 +133,9 @@
                                 <div class="avatar avatar-xl">
                                     <img src="assets/images/faces/1.jpg" alt="Face 1">
                                 </div>
-                                <div class="ms-3 name">
-                                    <h5 class="font-bold">Marco Hernández</h5>
-                                    <h6 class="text-muted mb-0">Centro suyai</h6>
+                                <div class="ms-3 name"  *ngFor="let nombre of usuariosService.nombre | ObjToArray">
+                                    <h5 class="font-bold" >{{ nombre.nameUser }}</h5>
+                                    <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
 
                                         <div class="container">
                                             <div class="row justify-content-center">
-                                                <div class="col-lg-10">
+                                                <div class="col-lg-6">
                                                     <table
                                                         class="table table-responsive table-bordered border-dark mt-2 ">
                                                         <thead>
@@ -189,7 +189,8 @@
                                                                 <td *ngFor="let a of hora.horaId">{{ a.horaTermino }}
                                                                 </td>
                                                                 <td *ngFor="let a of hora.horaId">{{ a.box }}</td>
-                                                                <td>{{ hora.payment }}</td>
+                                                                <td *ngFor="let dataDoc of hora.doctorId">
+                                                                    {{dataDoc.payment}} </td>
 
 
                                                                 <td *ngFor="let dataDoc of hora.doctorId">

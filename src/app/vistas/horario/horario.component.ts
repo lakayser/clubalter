@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import * as moment from 'moment';
 import { Observable } from 'rxjs';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({ 
   selector: 'app-horario',
@@ -14,7 +15,7 @@ import { Observable } from 'rxjs';
 export class HorarioComponent implements OnInit {
   currentTime: any;
 
-  constructor(private router: Router, public horariosService: HorariosService) { }
+  constructor(private router: Router, public horariosService: HorariosService, public usuariosService:UsuariosService) { }
 
   public horarios: Array<Horario> = [];
 
@@ -24,6 +25,7 @@ export class HorarioComponent implements OnInit {
   ngOnInit(): void {
     this.currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.getHorarios()
+    this.getActivo();
   }
   getHorarios() {
     this.horariosService.getHorarios().subscribe((res) => {
@@ -33,6 +35,13 @@ export class HorarioComponent implements OnInit {
         
       }); 
   } 
+  getActivo(){
+    this.usuariosService.getActivo().subscribe((resp)=>{
+      this.usuariosService.nombre =resp;
+      console.log('respuesta'+ resp)
+      
+    })
+  }
 
   addHorarios(form: NgForm) {
     if (form.value._id) {

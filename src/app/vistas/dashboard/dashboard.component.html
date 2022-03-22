@@ -171,9 +171,9 @@
                                 <div class="avatar avatar-xl">
                                     <img src="assets/images/faces/1.jpg" alt="Face 1">
                                 </div>
-                                <div class="ms-3 name">
-                                    <h5 class="font-bold">Marco Hernández</h5>
-                                    <h6 class="text-muted mb-0">Centro suyai</h6>
+                                <div class="ms-3 name"  *ngFor="let nombre of usuariosService.nombre | ObjToArray">
+                                    <h5 class="font-bold" >{{ nombre.nameUser }}</h5>
+                                    <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
                                 </div>
                             </div>
                         </div>
