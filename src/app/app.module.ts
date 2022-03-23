@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgChartsModule } from 'ng2-charts';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,9 +29,20 @@ import { SidebarModule } from 'ng-sidebar';
 import { PortalPagoComponent } from './pagina/portal-pago/portal-pago.component';
 import { AgendarhoraComponent } from './vistas/agendarhora/agendarhora.component';
 import { AgendarPacienteComponent } from './vistas/agendar-paciente/agendar-paciente.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatepickerComponent } from './vistas/datepicker/datepicker.component';
+import { CommonModule } from '@angular/common';
+import { OcupationComponent } from './vistas/ocupation/ocupation.component';
+import { OrganizationComponent } from './vistas/organization/organization.component';
 
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
+const materialModules = [
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatFormFieldModule,
+  MatInputModule
+];
 
 @NgModule({
   declarations: [
@@ -49,6 +64,10 @@ import { AgendarPacienteComponent } from './vistas/agendar-paciente/agendar-paci
     PortalPagoComponent,
     AgendarhoraComponent,
     AgendarPacienteComponent,
+    DatepickerComponent,
+    OcupationComponent,
+    OrganizationComponent,
+    
     
   
     // LoginComponent,
@@ -60,8 +79,17 @@ import { AgendarPacienteComponent } from './vistas/agendar-paciente/agendar-paci
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NgChartsModule
+    NgChartsModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    materialModules,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule
     
+  ],
+  exports: [
+    materialModules
   ],
   providers: [ AuthGuard, {
     provide: HTTP_INTERCEPTORS,

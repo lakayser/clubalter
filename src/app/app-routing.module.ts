@@ -17,6 +17,8 @@ import { LugarComponent } from './vistas/lugar/lugar.component';
 import { PortalPagoComponent } from './pagina/portal-pago/portal-pago.component';
 import { AgendarhoraComponent } from './vistas/agendarhora/agendarhora.component';
 import { AgendarPacienteComponent } from './vistas/agendar-paciente/agendar-paciente.component';
+import { OcupationComponent } from './vistas/ocupation/ocupation.component';
+import { OrganizationComponent } from './vistas/organization/organization.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -33,7 +35,8 @@ const routes: Routes = [
   {path: 'lugar', component: LugarComponent},
   {path: 'pagos', component:PortalPagoComponent},
   {path: 'hora', component:AgendarhoraComponent,canActivate: [AuthGuard]},
-
+  {path: 'ocupation', component:OcupationComponent,canActivate: [AuthGuard] },
+  {path: 'organization', component:OrganizationComponent},
 
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
