@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TransbankService } from 'src/app/servicios/transbank.service';
+import {TransbankService  } from '../../servicios/transbank.service'
 @Component({
   selector: 'app-portal-pago',
   templateUrl: './portal-pago.component.html',
   styleUrls: ['./portal-pago.component.css']
 })
-export class PortalPagoComponent implements OnInit {
+export class PortalPagoComponent {
 
   public datos: Array<any> =[];
  
@@ -19,7 +19,6 @@ export class PortalPagoComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-  }
+  
 
 }

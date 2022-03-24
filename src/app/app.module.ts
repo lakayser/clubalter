@@ -34,6 +34,9 @@ import { DatepickerComponent } from './vistas/datepicker/datepicker.component';
 import { CommonModule } from '@angular/common';
 import { OcupationComponent } from './vistas/ocupation/ocupation.component';
 import { OrganizationComponent } from './vistas/organization/organization.component';
+import { AdminusuariosComponent } from './vistaAdmin/adminusuarios/adminusuarios.component';
+import { DashboardadminComponent } from './vistaAdmin/dashboardadmin/dashboardadmin.component';
+import { OrganizacionesAdminComponent } from './vistaAdmin/organizaciones-admin/organizaciones-admin.component';
 
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
@@ -67,6 +70,9 @@ const materialModules = [
     DatepickerComponent,
     OcupationComponent,
     OrganizationComponent,
+    AdminusuariosComponent,
+    DashboardadminComponent,
+    OrganizacionesAdminComponent,
     
     
   

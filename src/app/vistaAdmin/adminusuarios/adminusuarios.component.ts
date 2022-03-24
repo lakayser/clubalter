@@ -1,29 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../servicios/usuarios.service';
+import { Organization } from 'src/app/modelos/organization';
 import { Usuario } from '../../modelos/usuario'
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { OcupationService } from 'src/app/servicios/ocupation.service';
+import { OrganizationService } from 'src/app/servicios/organization.service';
 
 @Component({
-  selector: 'app-especialistas',
-  templateUrl: './especialistas.component.html',
-  styleUrls: ['./especialistas.component.css']
+  selector: 'app-adminusuarios',
+  templateUrl: './adminusuarios.component.html',
+  styleUrls: ['./adminusuarios.component.css']
 })
-export class EspecialistasComponent implements OnInit {
+export class AdminusuariosComponent implements OnInit {
 
-  constructor(private router: Router, public usuariosService: UsuariosService, public ocupationService:OcupationService) { }
-
-  public usuarios: Array<any> = [];
-
-
-
+  constructor(private router: Router, public usuariosService: UsuariosService, public organization:OrganizationService) { }
+  
   ngOnInit(): void {
     this.getUsuarios();
     this.getActivo();
   }
 
+  
   getUsuarios() {
     this.usuariosService.getUsuarios().subscribe((res) => {
         this.usuariosService.users = res;
@@ -70,6 +67,4 @@ export class EspecialistasComponent implements OnInit {
 
 
   }
-
 }
-

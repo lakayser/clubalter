@@ -16,43 +16,44 @@
                     <li class="sidebar-title">Menu</li>
 
                     <li class="sidebar-item">
-                        <a routerLink="/dashboard" class='sidebar-link'>
+                        <a routerLink="/dashboardAdmin" class='sidebar-link'>
                             <i class="bi bi-grid-fill"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
-                        <a routerLink="/horario" class='sidebar-link'>
+                        <a routerLink="/usersAdmin" class='sidebar-link'>
                             <i class="bi bi-stack"></i>
-                            <span>Gestion Horarios/BOX</span>
+                            <span>CRUD USUARIOS</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
-                        <a routerLink="/hora" class='sidebar-link'>
+                    <li class="sidebar-item active">
+                        <a routerLink="/orgaAdmin" class='sidebar-link'>
                             <i class="bi bi-stack"></i>
-                            <span>Agregar Horas a especialistas</span>
+                            <span>ORGANIZACIONES</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <!-- <li class="sidebar-item">
                         <a routerLink="/agendarpaciente" class='sidebar-link'>
                             <i class="bi bi-grid-1x2-fill"></i>
                             <span>Agendar una hora</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item ">
+                    <li class="sidebar-item">
                         <a routerLink="/especialistas" class='sidebar-link'>
                             <i class="bi bi-collection-fill"></i>
                             <span>Especialistas</span>
                         </a>
                     </li>
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item">
                         <a routerLink="/ocupation" class='sidebar-link'>
                             <i class="bi bi-collection-fill"></i>
                             <span>Especialidades</span>
                         </a>
-                    </li>
+                    </li> -->
+
                 </ul>
             </div>
             <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -67,7 +68,7 @@
         </header>
 
         <div class="page-heading">
-            <h3>GESTION DE ESPECIALIDADES</h3>
+            <h3>ADMINISTRADOOOOOOOOOOOOOOOOOOOOOR</h3>
         </div>
         <div class="page-content">
             <section class="row" >
@@ -77,22 +78,42 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="text-center">Agregar Una Especialidad</h4>
+                                    <h4 class="text-center">Agregar Una Nueva Organizacion</h4>
                                 </div>
                                 <div class="card-body" id="AAA">
                                     <div id="chart-profile-visit">
                                         <!--Formulario Agregar-->
                                         <div class="row">
                                             <div class="col-lg-8 offset-md-2">
-                                                <!-- #usuarioForm="ngForm" (ngSubmit)="addUsuario(usuarioForm)" -->
-                                                <form 
+
+                                                <form #organizationForm="ngForm" (ngSubmit)="addOrganization(organizationForm) "
                                                     class="row g-3 mb-3">
-                                                    <input type="hidden" name="_id">
-                                                        <!-- [(ngModel)]="usuariosService.selectedUsuario._id" -->
+                                                    <input type="hidden" name="_id"
+                                                        [(ngModel)]="organizationService.selectedOrganization._id">
                                                     <div class="col-6">
-                                                        <label for="inputName" class="form-label">Nombre de la Especialidad</label>
-                                                        <input type="text" class="form-control" name="nameUser">
-                                                            <!-- [(ngModel)]="usuariosService.selectedUsuario.nameUser"  -->
+                                                        <label for="inputName" class="form-label">Nombre</label>
+                                                        <input type="text" class="form-control" name="name"
+                                                            [(ngModel)]="organizationService.selectedOrganization.name">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="inputRut" class="form-label">Rut</label>
+                                                        <input type="text" class="form-control" name="rut"
+                                                           >
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="inputMail" class="form-label">E-mail</label>
+                                                        <input type="email" class="form-control" name="email"
+                                                            >
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="inputTelefono" class="form-label">Telefono</label>
+                                                        <input type="text" class="form-control" name="telefono"
+                                                            >
+                                                    </div>
+                                                    <div class="col-6 ">
+                                                        <label for="inputDireccion" class="form-label">Direccion</label>
+                                                        <input type="text" class="form-control" name="direccion"
+                                                           >
                                                     </div>
                                                     <div class="text-center">
 
@@ -101,7 +122,6 @@
                                                             Especialista</button>
                                                     </div>
                                                 </form>
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -142,10 +162,10 @@
                 <div class="col-12 col-lg-9">
 
                     <div class="row  justify-content-center">
-                        <div class="col-4">
+                        <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="text-center">Lista De Especialidades</h4>
+                                    <h4 class="text-center">Lista De Especialista</h4>
                                 </div>
                                 <div class="card-body">
                                     <div id="chart-profile-visit">
@@ -158,31 +178,35 @@
                                                         <thead>
                                                             <tr>
                                                                 <th scope="col">Nombre</th>
-                                                                <th scope="col">numero de especialistas</th>
-                                                                
+<!--                                                               
+                                                                <th scope="col">Rut</th>
+                                                                <th scope="col">E-mail</th>
+                                                                <th scope="col">Telefono</th>
+                                                                <th scope="col">Direccion</th> -->
+                                                              
+                                                                <th scope="col">Opciones</th>
                                                             </tr>
                                                         </thead>
 
                                                         <tbody>
-                                                            <!-- <tr *ngFor="let users of usuariosService.users">
+                                                            <tr *ngFor="let organizaciones of organizationService.organizaciones">
 
-                                                                <td>{{ users.nameUser }}</td>
-                                                                <td>{{ users.ocupation }}</td>
-                                                                <td>{{ users.rut }}</td>
+                                                                <td>{{ organizaciones.name}}</td>
+                                                                <!-- <td>{{ users.rut }}</td>
                                                                 <td>{{ users.email}}</td>
                                                                 <td>{{ users.telefono }}</td>
-                                                                <td>{{ users.direccion }}</td>
-                                                                <td>{{ users.payment }}</td>
+                                                                <td>{{ users.direccion }}</td> -->
+                                                               
 
-                                                                <div class="btn-group mr-0" role="group"
+                                                                <!-- <div class="btn-group mr-0" role="group"
                                                                     aria-label="Basic mixed styles example">
                                                                     <button type="button" class="btn btn-primary  mr-2"
                                                                         (click)="editUsuario(users)"> Editar</button>
                                                                     <button type="button" class="btn btn-danger"
                                                                         (click)="deleteUsuario(users._id)">Eliminar</button>
-                                                                </div>
+                                                                </div> -->
 
-                                                            </tr> -->
+                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>

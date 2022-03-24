@@ -19,6 +19,9 @@ import { AgendarhoraComponent } from './vistas/agendarhora/agendarhora.component
 import { AgendarPacienteComponent } from './vistas/agendar-paciente/agendar-paciente.component';
 import { OcupationComponent } from './vistas/ocupation/ocupation.component';
 import { OrganizationComponent } from './vistas/organization/organization.component';
+import { DashboardadminComponent } from './vistaAdmin/dashboardadmin/dashboardadmin.component';
+import { AdminusuariosComponent } from './vistaAdmin/adminusuarios/adminusuarios.component';
+import { OrganizacionesAdminComponent } from './vistaAdmin/organizaciones-admin/organizaciones-admin.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -37,6 +40,9 @@ const routes: Routes = [
   {path: 'hora', component:AgendarhoraComponent,canActivate: [AuthGuard]},
   {path: 'ocupation', component:OcupationComponent,canActivate: [AuthGuard] },
   {path: 'organization', component:OrganizationComponent},
+  {path: 'dashboardAdmin', component:DashboardadminComponent},
+  {path: 'usersAdmin', component:AdminusuariosComponent},
+  {path: 'orgaAdmin', component:OrganizacionesAdminComponent},
 
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];

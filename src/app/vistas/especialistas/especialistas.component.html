@@ -71,7 +71,7 @@
             <h3>GESTION DE ESPECIALISTAS</h3>
         </div>
         <div class="page-content">
-            <section class="row" >
+            <section class="row">
                 <div class="col-12 col-lg-9">
 
                     <div class="row  justify-content-center">
@@ -101,13 +101,19 @@
                                                             [(ngModel)]="usuariosService.selectedUsuario.rut">
                                                     </div>
                                                     <div class="col-6">
-                                                        <label for="inputOcupacion" class="form-label">Ocupacion</label>
-                                                        <input type="text" class="form-control" name="ocupation"
-                                                            [(ngModel)]="usuariosService.selectedUsuario.ocupation">
+                                                        <label for="inputOcupacion" class="form-label">Ocupacion</label >
+                                                        <select class="form-select" aria-label="Default select example" 
+                                                            name="ocupationName"
+                                                            [(ngModel)]="usuariosService.selectedUsuario.ocupation" *ngFor="let users of usuariosService.users | ObjToArray">
+                                                            <option
+                                                                    *ngFor="let a of users.ocupation"
+                                                                [ngValue]="users._id">{{a.name}}</option>
+
+                                                        </select>
                                                     </div>
+
                                                     <div class="col-6">
-                                                        <label for="inputpassword"
-                                                            class="form-label">Contraseña</label>
+                                                        <label for="inputpassword" class="form-label">Contraseña</label>
                                                         <input type="password" class="form-control" name="password"
                                                             [(ngModel)]="usuariosService.selectedUsuario.password">
                                                     </div>
@@ -131,7 +137,8 @@
                                                             Hora</label>
                                                         <div class="input-group ">
                                                             <span class="input-group-text">$</span>
-                                                            <input type="number" class="form-control"name="payment" [(ngModel)]="usuariosService.selectedUsuario.payment">
+                                                            <input type="number" class="form-control" name="payment"
+                                                                [(ngModel)]="usuariosService.selectedUsuario.payment">
 
                                                         </div>
                                                     </div>
@@ -158,8 +165,8 @@
                                 <div class="avatar avatar-xl">
                                     <img src="assets/images/faces/1.jpg" alt="Face 1">
                                 </div>
-                                <div class="ms-3 name"  *ngFor="let nombre of usuariosService.nombre | ObjToArray">
-                                    <h5 class="font-bold" >{{ nombre.nameUser }}</h5>
+                                <div class="ms-3 name" *ngFor="let nombre of usuariosService.nombre | ObjToArray">
+                                    <h5 class="font-bold">{{ nombre.nameUser }}</h5>
                                     <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
                                 </div>
                             </div>
@@ -189,7 +196,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div id="chart-profile-visit">
-                                      
+
                                         <div class="container">
                                             <div class="row justify-content-center">
                                                 <div class="col-lg-11">
@@ -209,10 +216,10 @@
                                                         </thead>
 
                                                         <tbody>
-                                                            <tr *ngFor="let users of usuariosService.users">
+                                                            <tr *ngFor="let users of usuariosService.users |ObjToArray">
 
                                                                 <td>{{ users.nameUser }}</td>
-                                                                <td>{{ users.ocupation }}</td>
+                                                                <td *ngFor="let a of users.ocupation">{{ a.name }}
                                                                 <td>{{ users.rut }}</td>
                                                                 <td>{{ users.email}}</td>
                                                                 <td>{{ users.telefono }}</td>
@@ -231,7 +238,7 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -239,13 +246,13 @@
                             </div>
                         </div>
                     </div>
-                   
+
                 </div>
-               
+
             </section>
-            <a aria-current="page"  href="#chart-profile-visit">Subir</a>
+            <a aria-current="page" href="#chart-profile-visit">Subir</a>
         </div>
-         <footer>
+        <footer>
             <div class="footer clearfix mb-0 text-muted">
                 <div class="float-start">
                     <p>2022 &copy; Boliot</p>
