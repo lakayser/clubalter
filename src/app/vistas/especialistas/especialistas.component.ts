@@ -22,6 +22,7 @@ export class EspecialistasComponent implements OnInit {
   ngOnInit(): void {
     this.getUsuarios();
     this.getActivo();
+    this.getOcupation();
   }
 
   getUsuarios() {
@@ -29,6 +30,13 @@ export class EspecialistasComponent implements OnInit {
         this.usuariosService.users = res;
       }); 
   } 
+  getOcupation(){
+    this.ocupationService.getOcupation().subscribe((res)=>{
+      this.ocupationService.ocupa=res;
+      console.log('ocupation'+res);
+      
+    })
+  }
 
   getActivo(){
     this.usuariosService.getActivo().subscribe((resp)=>{

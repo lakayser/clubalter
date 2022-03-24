@@ -5,6 +5,7 @@ import { Usuario } from '../../modelos/usuario'
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { OrganizationService } from 'src/app/servicios/organization.service';
+import { OcupationService } from 'src/app/servicios/ocupation.service';
 
 @Component({
   selector: 'app-adminusuarios',
@@ -13,14 +14,23 @@ import { OrganizationService } from 'src/app/servicios/organization.service';
 })
 export class AdminusuariosComponent implements OnInit {
 
-  constructor(private router: Router, public usuariosService: UsuariosService, public organization:OrganizationService) { }
+  constructor(private router: Router, public usuariosService: UsuariosService, public organization:OrganizationService, public ocupationService:OcupationService) { }
   
+  public ocupations: Array<any> = [];
+
   ngOnInit(): void {
     this.getUsuarios();
     this.getActivo();
+    this.getOcupation();
   }
 
-  
+  getOcupation(){
+    this.ocupationService.getOcupation().subscribe((res)=>{
+      this.ocupationService.ocupa=res;
+      console.log('ocupation'+res);
+      
+    })
+  }
   getUsuarios() {
     this.usuariosService.getUsuarios().subscribe((res) => {
         this.usuariosService.users = res;

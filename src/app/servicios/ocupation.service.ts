@@ -7,7 +7,7 @@ import { Ocupation } from '../modelos/ocupation';
 })
 export class OcupationService {
 
-URL:'https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
+URL: string = 'https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
 
 selectedOcupation: Ocupation={
   _id: '',

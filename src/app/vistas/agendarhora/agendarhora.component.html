@@ -104,7 +104,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-12" >
-                                                        <label for="inputOcupacion" class="form-label" >Doctor</label>
+                                                        <label for="inputOcupacion" class="form-label" >Especialista</label>
                                                             <select class="form-select" aria-label="Default select example" name="doctorId" [(ngModel)]="usuariosService.selectedUsuario.nameUser">
                                                             
                                                                 <option *ngFor="let users of usuariosService.users | ObjToArray" [ngValue]="users._id" >{{users.nameUser}}</option>

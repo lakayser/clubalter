@@ -100,15 +100,17 @@
                                                         <input type="text" class="form-control" name="rut"
                                                             [(ngModel)]="usuariosService.selectedUsuario.rut">
                                                     </div>
+                                                    
+                                                    
                                                     <div class="col-6">
                                                         <label for="inputOcupacion" class="form-label">Ocupacion</label >
                                                         <select class="form-select" aria-label="Default select example" 
-                                                            name="ocupationName"
-                                                            [(ngModel)]="usuariosService.selectedUsuario.ocupation" *ngFor="let users of usuariosService.users | ObjToArray">
+                                                            name="ocupation"
+                                                            [(ngModel)]="usuariosService.selectedUsuario.ocupation" >
                                                             <option
-                                                                    *ngFor="let a of users.ocupation"
-                                                                [ngValue]="users._id">{{a.name}}</option>
-
+                                                                    *ngFor="let ocupa of ocupationService.ocupa |ObjToArray"
+                                                                [ngValue]="ocupa._id">{{ocupa.name}}</option>
+                                                               
                                                         </select>
                                                     </div>
 

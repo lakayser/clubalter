@@ -98,16 +98,21 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-12">
-                                                        <label for="inputEmail4" class="form-label">Especialidad</label>
-                                                        <select class="form-select" aria-label="Default select example">
-                                                            <option selected>Seleccionar Especialidad</option>
-                                                            <option value="1">Masajista</option>
-                                                            <option value="2">Acupunturista</option>
-                                                            <option value="3">Aromaterapia</option>
+                                                        <label for="inputOcupacion" class="form-label">Ocupacion</label >
+                                                        <select class="form-select" aria-label="Default select example" 
+                                                            name="ocupation"
+                                                            [(ngModel)]="usuariosService.selectedUsuario.ocupation" >
+                                                            <option
+                                                           
+                                                                    *ngFor="let ocupa of ocupationService.ocupa |ObjToArray"
+                                                                [ngValue]="ocupa._id">{{ocupa.name}}</option>
+                                                               
+
                                                         </select>
+                                                        
                                                     </div>
                                                     <div class="col-12">
-                                                        <label for="inputOcupacion" class="form-label">Doctor</label>
+                                                        <label for="inputOcupacion" class="form-label">Especialista</label>
                                                         <select class="form-select" aria-label="Default select example"
                                                             name="doctorId"
                                                             [(ngModel)]="usuariosService.selectedUsuario.nameUser">

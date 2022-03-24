@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HoradisponibleService } from 'src/app/servicios/horadisponible.service';
 import { HorariosService } from 'src/app/servicios/horarios.service';
+import { OcupationService } from 'src/app/servicios/ocupation.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
@@ -10,13 +11,22 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
 })
 export class AgendarPacienteComponent implements OnInit {
 
-  constructor(public usuariosService:UsuariosService, public horadisponibleService:HoradisponibleService, public horariosService:HorariosService) { }
+  constructor(public usuariosService:UsuariosService, public horadisponibleService:HoradisponibleService, public horariosService:HorariosService, public ocupationService:OcupationService) { }
 
   ngOnInit(): void {
     this.getActivo();
     this.getHora();
     this.getUsuarios();
     this.getHorarios();
+    this.getOcupation();
+    }
+
+    getOcupation(){
+      this.ocupationService.getOcupation().subscribe((res)=>{
+        this.ocupationService.ocupa=res;
+        console.log('ocupation'+res);
+        
+      })
     }
   getActivo(){
     this.usuariosService.getActivo().subscribe((resp)=>{
