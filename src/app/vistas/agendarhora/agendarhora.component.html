@@ -86,7 +86,8 @@
                                         <div class="row">
                                             <div class="col-lg-8 offset-md-2">
 
-                                                <form #usuarioForm="ngForm"  (ngSubmit)="addHora(usuarioForm)" class="row g-3 mb-3 ">
+                                                <form #usuarioForm="ngForm" (ngSubmit)="addHora(usuarioForm)"
+                                                    class="row g-3 mb-3 ">
                                                     <!-- <div class="col-12">
                                                         <label for="inputEmail4" class="form-label">Hora</label>
                                                         <select class="form-select" aria-label="Default select example"  >
@@ -95,21 +96,52 @@
                                                                 
                                                                   </select>
                                                     </div> -->
-                                                    <div class="col-12" >
-                                                        <label for="inputEmail4" class="form-label">Hora</label>
-                                                        <select class="form-select" aria-label="Default select example" name="horaId" 
+                                                    <div>
+                                                        <label for="inputNombre" class="form-label">Nombre
+                                                            Especialista</label>
+                                                        <input type="text" class="form-control" name="Nombre" required>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="inputEmail4" class="form-label">Servicio</label>
+                                                        <select class="form-select" aria-label="Default select example"
+                                                            name="horaId"
                                                             [(ngModel)]="horadisponibleService.selectedHora.horaId">
 
-                                                            <option *ngFor="let horarios of horariosService.horarios | ObjToArray" [ngValue]="horarios._id">{{horarios.horaInicio}} - {{horarios.horaTermino}} box {{horarios.box}}</option>
+                                                            <option
+                                                                *ngFor="let horarios of horariosService.horarios | ObjToArray"
+                                                                [ngValue]="horarios._id">{{horarios.horaInicio}} -
+                                                                {{horarios.horaTermino}} box {{horarios.box}}</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-12" >
-                                                        <label for="inputOcupacion" class="form-label" >Especialista</label>
-                                                            <select class="form-select" aria-label="Default select example" name="doctorId" [(ngModel)]="usuariosService.selectedUsuario.nameUser">
-                                                            
-                                                                <option *ngFor="let users of usuariosService.users | ObjToArray" [ngValue]="users._id" >{{users.nameUser}}</option>
-                                                                
-                                                                  </select>
+                                                    <div>
+                                                        <label for="inputDiracion" class="form-label">duracion del servicio</label>
+                                                        <input type="number" class="form-control" name="Duracion" required>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="inputEmail4" class="form-label">Hora</label>
+                                                        <select class="form-select" aria-label="Default select example"
+                                                            name="horaId"
+                                                            [(ngModel)]="horadisponibleService.selectedHora.horaId">
+
+                                                            <option
+                                                                *ngFor="let horarios of horariosService.horarios | ObjToArray"
+                                                                [ngValue]="horarios._id">{{horarios.horaInicio}} -
+                                                                {{horarios.horaTermino}} box {{horarios.box}}</option>
+                                                        </select>
+                                                    </div>
+                                                    
+                                                    <div class="col-12">
+                                                        <label for="inputOcupacion"
+                                                            class="form-label">Especialista</label>
+                                                        <select class="form-select" aria-label="Default select example"
+                                                            name="doctorId"
+                                                            [(ngModel)]="usuariosService.selectedUsuario.nameUser">
+
+                                                            <option
+                                                                *ngFor="let users of usuariosService.users | ObjToArray"
+                                                                [ngValue]="users._id">{{users.nameUser}}</option>
+
+                                                        </select>
                                                     </div>
 
                                                     <div class="text-center">
@@ -139,8 +171,8 @@
                                 <div class="avatar avatar-xl">
                                     <img src="assets/images/faces/1.jpg" alt="Face 1">
                                 </div>
-                                <div class="ms-3 name"  *ngFor="let nombre of usuariosService.nombre | ObjToArray">
-                                    <h5 class="font-bold" >{{ nombre.nameUser }}</h5>
+                                <div class="ms-3 name" *ngFor="let nombre of usuariosService.nombre | ObjToArray">
+                                    <h5 class="font-bold">{{ nombre.nameUser }}</h5>
                                     <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
                                 </div>
                             </div>
