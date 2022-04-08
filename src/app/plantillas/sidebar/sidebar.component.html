@@ -8,7 +8,7 @@
     <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
   </button>
-    Responsive sidebar navigation
+    TITULO
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -40,7 +40,7 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <div class="content mat-elevation-z8">
-            <app-dashboard></app-dashboard>
+            <router-outlet></router-outlet>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

@@ -71,9 +71,9 @@
             <h3>HORARIOS</h3>
         </div>
         <div class="page-content">
+
             <section class="row">
                 <div class="col-12 col-lg-9">
-
                     <div class="row  justify-content-center">
                         <div class="col-12">
                             <div class="card">
@@ -84,66 +84,59 @@
                                     <div id="chart-profile-visit">
                                         <!--Formulario Agregar-->
                                         <div class="row">
-                                            <div class="col-lg-8 offset-md-2">
-
+                                            <div class="col-lg-6">
                                                 <form #usuarioForm="ngForm" (ngSubmit)="addHora(usuarioForm)"
                                                     class="row g-3 mb-3 ">
-                                                    <!-- <div class="col-12">
-                                                        <label for="inputEmail4" class="form-label">Hora</label>
-                                                        <select class="form-select" aria-label="Default select example"  >
-                                                                <option selected  >Open this select menu</option>
-                                                                <option *ngFor="let horarios of horariosService.horarios | ObjToArray" value="horarios._id" >{{horarios.horaInicio}} - {{horarios.horaTermino}}</option>
-                                                                
-                                                                  </select>
-                                                    </div> -->
-                                                    <div>
-                                                        <label for="inputNombre" class="form-label">Nombre
+                                                    <div class="col-9">
+                                                        <label for="inputNombre" class="form-label">Nombre/Rut
                                                             Especialista</label>
                                                         <input type="text" class="form-control" name="Nombre" required>
                                                     </div>
-                                                    <div class="col-12">
+                                                    <div class="col-8">
                                                         <label for="inputEmail4" class="form-label">Servicio</label>
                                                         <select class="form-select" aria-label="Default select example"
-                                                            name="horaId"
-                                                            [(ngModel)]="horadisponibleService.selectedHora.horaId">
+                                                            name="horaId">
 
-                                                            <option
-                                                                *ngFor="let horarios of horariosService.horarios | ObjToArray"
-                                                                [ngValue]="horarios._id">{{horarios.horaInicio}} -
-                                                                {{horarios.horaTermino}} box {{horarios.box}}</option>
+                                                            <option>
+
+                                                            </option>
                                                         </select>
                                                     </div>
-                                                    <div>
-                                                        <label for="inputDiracion" class="form-label">duracion del servicio</label>
-                                                        <input type="number" class="form-control" name="Duracion" required>
+                                                    <div class="col-6">
+                                                        <label for="inputDiracion" class="form-label">duracion del
+                                                            servicio</label>
+                                                        <input type="number" class="form-control" name="Duracion"
+                                                            required>
                                                     </div>
-                                                    <div class="col-12">
+                                                    <h2>Rango Horario</h2>
+                                                    <div class="col-6">
+                                                        <label for="inputEmail4" class="form-label">Seleccionar
+                                                            Dia</label>
+                                                        <input type="date" class="form-control">
+                                                    </div>
+                                                    <div class="col-6">
                                                         <label for="inputEmail4" class="form-label">Hora</label>
                                                         <select class="form-select" aria-label="Default select example"
-                                                            name="horaId"
-                                                            [(ngModel)]="horadisponibleService.selectedHora.horaId">
+                                                            name="horaId">
 
-                                                            <option
-                                                                *ngFor="let horarios of horariosService.horarios | ObjToArray"
-                                                                [ngValue]="horarios._id">{{horarios.horaInicio}} -
-                                                                {{horarios.horaTermino}} box {{horarios.box}}</option>
+                                                            <option>
+
+                                                            </option>
                                                         </select>
                                                     </div>
-                                                    
-                                                    <div class="col-12">
-                                                        <label for="inputOcupacion"
-                                                            class="form-label">Especialista</label>
+                                                    <div class="col-6">
+                                                        <label for="inputOcupacion" class="form-label">Rango de
+                                                            horas</label>
                                                         <select class="form-select" aria-label="Default select example"
-                                                            name="doctorId"
-                                                            [(ngModel)]="usuariosService.selectedUsuario.nameUser">
+                                                            name="">
 
-                                                            <option
-                                                                *ngFor="let users of usuariosService.users | ObjToArray"
-                                                                [ngValue]="users._id">{{users.nameUser}}</option>
+                                                            <option>30 Minutos</option>
+                                                            <option>40 Minutos</option>
+                                                            <option>50 Minutos</option>
+                                                            <option>60 Minutos</option>
 
                                                         </select>
                                                     </div>
-
                                                     <div class="text-center">
 
                                                         <button type="submit" class="btn btn-danger text-uppercase"
@@ -151,61 +144,11 @@
                                                             Hora</button>
                                                     </div>
                                                 </form>
-
-
-
-
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-                <div class="col-12 col-lg-3">
-                    <div class="card">
-                        <div class="card-body py-4 px-5">
-                            <div class="d-flex align-items-center">
-                                <div class="avatar avatar-xl">
-                                    <img src="assets/images/faces/1.jpg" alt="Face 1">
-                                </div>
-                                <div class="ms-3 name" *ngFor="let nombre of usuariosService.nombre | ObjToArray">
-                                    <h5 class="font-bold">{{ nombre.nameUser }}</h5>
-                                    <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>TARJETA </h4>
-                        </div>
-                        <div class="card-body">
-                            <div id="chart-visitors-profile"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="page-content">
-            <section class="row">
-                <div class="col-12 col-lg-9">
-
-                    <div class="row  justify-content-center">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="text-center">Lista De Horas Asignadas a un Especialista</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div id="chart-profile-visit">
-
-                                        <div class="container">
-                                            <div class="row justify-content-center">
-                                                <div class="col-lg-6">
+                                            <div class="col-6">
+                                                <div>
+                                                    <h2>Rango Horario</h2>
                                                     <table
                                                         class="table table-responsive table-bordered border-dark mt-2 ">
                                                         <thead>
@@ -233,25 +176,150 @@
 
                                                                 <td *ngFor="let dataDoc of hora.doctorId">
                                                                     {{dataDoc.nameUser}} </td>
-
-                                                                <!-- <td *ngFor="let dataDoc of horarios.doctorId"> {{dataDoc.ocupation}} </td>  -->
-
-                                                                <!-- <div class="btn-group mr-0" role="group"
-                                                                    aria-label="Basic mixed styles example">
-                                                                    <button type="button" class="btn btn-primary  mr-2" (click)="editHorarios(horarios)">Editar</button>
-                                                                    <button type="button" class="btn btn-danger" (click)="deleteHorarios(horarios._id)" >Eliminar</button>
-                                                                </div> -->
                                                             </tr>
-
                                                         </tbody>
                                                     </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <div class="card">
+                        <div class="card-body py-4 px-5">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar avatar-xl">
+                                    <img src="assets/images/faces/1.jpg" alt="Face 1">
+                                </div>
+                                <div class="ms-3 name" *ngFor="let nombre of usuariosService.nombre | ObjToArray">
+                                    <h5 class="font-bold">{{ nombre.nameUser }}</h5>
+                                    <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>TARJETA </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-visitors-profile"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
+        <div class="page-content">
+            <section class="row">
+                <div class="col-12 ">
+                    <div class="row  justify-content-center">
+                        <div class="col-12">
+                            <div class="card">
 
+                                <div class="card-header">
+                                    <h4 class="text-center">Horas Del Especialista</h4>
+                                </div>
 
+                                <div class="card-body">
+                                    <div id="chart-profile-visit">
+                                        <div class="container">
+
+                                            <div class="row justify-content-center">
+                                                <div class="col-sm-2 mt-2">
+                                                    <div class="card w-60">
+                                                        <div class="card-header">
+                                                            <h4 class="text-center">Lunes</h4>
+                                                        </div>
+                                                        <div class="card-body text-center">
+                                                            <ul class="list-group list-group-flush">
+                                                                <li class="list-group-item">9:00-9:30 Disponible</li>
+                                                                <li class="list-group-item">10:00-10:30 Tomada</li>
+                                                                <li class="list-group-item">10:30-11:00 Tomada</li>
+                                                                <li class="list-group-item">10:30-11:00 Disponible</li>
+                                                                <li class="list-group-item">11:30-12:00 Disponible</li>
+                                                                <li class="list-group-item">12:30-13:00 Disponible</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2 mt-2">
+                                                    <div class="card w-60">
+                                                        <div class="card-header">
+                                                            <h4 class="text-center">Martes</h4>
+                                                        </div>
+                                                        <div class="card-body text-center">
+                                                            <ul class="list-group list-group-flush">
+                                                                <li class="list-group-item">9:00-9:30 Disponible</li>
+                                                                <li class="list-group-item">10:00-10:30 Tomada</li>
+                                                                <li class="list-group-item">10:30-11:00 Tomada</li>
+                                                                <li class="list-group-item">10:30-11:00 Disponible</li>
+                                                                <li class="list-group-item">11:30-12:00 Disponible</li>
+                                                                <li class="list-group-item">12:30-13:00 Disponible</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2 mt-2">
+                                                    <div class="card w-60">
+                                                        <div class="card-header">
+                                                            <h4 class="text-center">Miercoles</h4>
+                                                        </div>
+                                                        <div class="card-body text-center">
+                                                            <ul class="list-group list-group-flush">
+                                                                <li class="list-group-item">9:00-9:30 Disponible</li>
+                                                                <li class="list-group-item">10:00-10:30 Tomada</li>
+                                                                <li class="list-group-item">10:30-11:00 Tomada</li>
+                                                                <li class="list-group-item">10:30-11:00 Disponible</li>
+                                                                <li class="list-group-item">11:30-12:00 Disponible</li>
+                                                                <li class="list-group-item">12:30-13:00 Disponible</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2 mt-2">
+                                                    <div class="card w-60">
+                                                        <div class="card-header">
+                                                            <h4 class="text-center">Jueves</h4>
+                                                        </div>
+                                                        <div class="card-body text-center">
+                                                            <ul class="list-group list-group-flush">
+                                                                <li class="list-group-item">9:00-9:30 Disponible</li>
+                                                                <li class="list-group-item">10:00-10:30 Tomada</li>
+                                                                <li class="list-group-item">10:30-11:00 Tomada</li>
+                                                                <li class="list-group-item">10:30-11:00 Disponible</li>
+                                                                <li class="list-group-item">11:30-12:00 Disponible</li>
+                                                                <li class="list-group-item">12:30-13:00 Disponible</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2 mt-2">
+                                                    <div class="card w-60">
+                                                        <div class="card-header">
+                                                            <h4 class="text-center">Viernes</h4>
+                                                        </div>
+                                                        <div class="card-body text-center">
+                                                            <ul class="list-group list-group-flush">
+                                                                <li class="list-group-item">9:00-9:30 Disponible</li>
+                                                                <li class="list-group-item">10:00-10:30 Tomada</li>
+                                                                <li class="list-group-item">10:30-11:00 Disponible</li>
+                                                                <li class="list-group-item">10:30-11:00 Tomada</li>
+                                                                <li class="list-group-item">11:30-12:00 Tomada</li>
+                                                                <li class="list-group-item">12:30-13:00 Tomada</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                             </div>
+
+
                                         </div>
                                     </div>
                                 </div>

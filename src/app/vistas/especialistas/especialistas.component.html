@@ -73,7 +73,6 @@
         <div class="page-content">
             <section class="row">
                 <div class="col-12 col-lg-9">
-
                     <div class="row  justify-content-center">
                         <div class="col-12">
                             <div class="card">
@@ -135,14 +134,16 @@
                                                             [(ngModel)]="usuariosService.selectedUsuario.direccion">
                                                     </div>
                                                     <div class="col-6">
-                                                        <label for="inputOcupacion" class="form-label">Valor
-                                                            Hora</label>
-                                                        <div class="input-group ">
-                                                            <span class="input-group-text">$</span>
-                                                            <input type="number" class="form-control" name="payment"
-                                                                [(ngModel)]="usuariosService.selectedUsuario.payment">
-
-                                                        </div>
+                                                        <label for="inputOcupation" class="form-label">Seleccione
+                                                            Servicios que prestará</label>
+                                                        <select class="form-select" aria-label="Default select example"
+                                                            name="ocupation"
+                                                            [(ngModel)]="servicioService.selectedServicio.ocupation">
+        
+                                                            <option *ngFor="let serv of servicioService.serv  |ObjToArray"
+                                                                [ngValue]="serv._id">{{serv.name}}</option>
+        
+                                                        </select>
                                                     </div>
                                                     <div class="text-center">
 
@@ -213,6 +214,7 @@
                                                                 <th scope="col">Telefono</th>
                                                                 <th scope="col">Direccion</th>
                                                                 <th scope="col">Valor Hora</th>
+                                                                <th scope="col">servicios</th>
                                                                 <th scope="col">Opciones</th>
                                                             </tr>
                                                         </thead>
@@ -221,12 +223,13 @@
                                                             <tr *ngFor="let users of usuariosService.users |ObjToArray">
 
                                                                 <td>{{ users.nameUser }}</td>
-                                                                <td *ngFor="let a of users.ocupation">{{ a.name }}
+                                                                <td *ngFor="let a of users.ocupation">{{ a.name }}</td>
                                                                 <td>{{ users.rut }}</td>
                                                                 <td>{{ users.email}}</td>
                                                                 <td>{{ users.telefono }}</td>
                                                                 <td>{{ users.direccion }}</td>
                                                                 <td>{{ users.payment }}</td>
+                                                                <td>{{ users.service }}</td>
 
                                                                 <div class="btn-group mr-0" role="group"
                                                                     aria-label="Basic mixed styles example">

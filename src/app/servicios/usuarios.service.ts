@@ -21,8 +21,8 @@ export class UsuariosService {
     rut: '',
     telefono: '',
     direccion: '',
-    payment: 0,
-    email: ''
+    email: '',
+    service: ''
 
   };
 

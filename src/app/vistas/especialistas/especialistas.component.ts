@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { OcupationService } from 'src/app/servicios/ocupation.service';
+import { ServicioService } from 'src/app/servicios/servicio.service';
 
 @Component({
   selector: 'app-especialistas',
@@ -13,7 +14,7 @@ import { OcupationService } from 'src/app/servicios/ocupation.service';
 })
 export class EspecialistasComponent implements OnInit {
 
-  constructor(private router: Router, public usuariosService: UsuariosService, public ocupationService:OcupationService) { }
+  constructor(private router: Router, public usuariosService: UsuariosService, public ocupationService:OcupationService, public servicioService:ServicioService) { }
 
   public usuarios: Array<any> = [];
 
@@ -23,6 +24,7 @@ export class EspecialistasComponent implements OnInit {
     this.getUsuarios();
     this.getActivo();
     this.getOcupation();
+    this.getServicio();
   }
 
   getUsuarios() {
@@ -77,6 +79,12 @@ export class EspecialistasComponent implements OnInit {
     this.usuariosService.selectedUsuario = users;
 
 
+  }
+  getServicio(){
+    this.servicioService.getServicios().subscribe((res)=>{
+      this.servicioService.serv = res;
+      console.log(res);
+    })
   }
 
 }

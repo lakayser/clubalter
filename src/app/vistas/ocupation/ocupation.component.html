@@ -60,6 +60,7 @@
     </div>
     <app-header></app-header>
     <div id="main">
+
         <header class="mb-3">
             <a href="#" class="burger-btn d-block d-xl-none">
                 <i class="bi bi-justify fs-3"></i>
@@ -68,12 +69,26 @@
 
         <div class="page-heading">
             <h3>GESTION DE ESPECIALIDADES</h3>
+            <div class="col-4 col-lg-3 ">
+                <div class="card">
+                    <div class="card-body py-4 px-5">
+                        <div class="d-flex align-items-center">
+                            <div class="avatar avatar-xl">
+                                <img src="assets/images/faces/1.jpg" alt="Face 1">
+                            </div>
+                            <div class="ms-3 name" *ngFor="let nombre of usuariosService.nombre | ObjToArray">
+                                <h5 class="font-bold">{{ nombre.nameUser }}</h5>
+                                <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="page-content">
-            <section class="row" >
-                <div class="col-12 col-lg-9">
-
-                    <div class="row  justify-content-center">
+            <section class="row">
+                <div class="col-6 col-lg-5">
+                    <div class="row  ">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
@@ -82,27 +97,74 @@
                                 <div class="card-body" id="AAA">
                                     <div id="chart-profile-visit">
                                         <!--Formulario Agregar-->
-                                        <div class="row">
-                                            <div class="col-lg-8 offset-md-2">
-                                                <!-- #usuarioForm="ngForm" (ngSubmit)="addUsuario(usuarioForm)" -->
-                                                <form 
+                                        <div class="row align-items-start">
+                                            <div class="col-6">
+                                                <form #ocupationForm="ngForm" (ngSubmit)="addOcupation(ocupationForm)"
                                                     class="row g-3 mb-3">
-                                                    <input type="hidden" name="_id">
-                                                        <!-- [(ngModel)]="usuariosService.selectedUsuario._id" -->
-                                                    <div class="col-6">
-                                                        <label for="inputName" class="form-label">Nombre de la Especialidad</label>
-                                                        <input type="text" class="form-control" name="nameUser">
-                                                            <!-- [(ngModel)]="usuariosService.selectedUsuario.nameUser"  -->
+
+                                                    <input type="hidden" name="_id"
+                                                        [(ngModel)]="ocupationService.selectedOcupation._id">
+                                                    <div class="col-12">
+                                                        <label for="inputName" class="form-label">Nombre de la
+                                                            Especialidad</label>
+                                                        <input type="text" class="form-control" name="name"
+                                                            [(ngModel)]="ocupationService.selectedOcupation.name">
                                                     </div>
                                                     <div class="text-center">
-
                                                         <button type="submit" class="btn btn-danger text-uppercase"
                                                             value="Guardar">Agregar
                                                             Especialista</button>
                                                     </div>
                                                 </form>
-                                                
                                             </div>
+                                            <div class="col-5 mt-2">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4 class="text-center">Lista De Especialidades</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div id="chart-profile-visit">
+
+                                                            <div class="container">
+                                                                <div class="row justify-content-center">
+                                                                    <div class="col">
+                                                                        <table
+                                                                            class="table table-responsive table-bordered border-dark mt-2">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th scope="col">Nombre</th>
+
+
+                                                                                </tr>
+                                                                            </thead>
+
+                                                                            <tbody>
+                                                                                <tr
+                                                                                    *ngFor="let ocupa of ocupationService.ocupa">
+
+                                                                                    <td>{{ ocupa.name }}</td>
+
+
+                                                                                    <!-- <div class="btn-group mr-0" role="group"
+                                                                                        aria-label="Basic mixed styles example">
+                                                                                        <button type="button" class="btn btn-primary  mr-2"
+                                                                                            (click)="editUsuario(users)"> Editar</button>
+                                                                                        <button type="button" class="btn btn-danger"
+                                                                                            (click)="deleteUsuario(users._id)">Eliminar</button>
+                                                                                    </div> -->
+
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -111,82 +173,110 @@
                     </div>
 
                 </div>
-                <div class="col-12 col-lg-3">
-                    <div class="card">
-                        <div class="card-body py-4 px-5">
-                            <div class="d-flex align-items-center">
-                                <div class="avatar avatar-xl">
-                                    <img src="assets/images/faces/1.jpg" alt="Face 1">
-                                </div>
-                                <div class="ms-3 name"  *ngFor="let nombre of usuariosService.nombre | ObjToArray">
-                                    <h5 class="font-bold" >{{ nombre.nameUser }}</h5>
-                                    <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="col-lg-7">
                     <div class="card">
                         <div class="card-header">
-                            <h4>TARJETA </h4>
+                            <h4 class="text-center">AGREGAR UN SERVICIO</h4>
                         </div>
                         <div class="card-body">
-                            <div id="chart-visitors-profile"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="page-content">
-            <section class="row">
-                <div class="col-12 col-lg-9">
+                            <div id="chart-visitors-profile">
+                                <div class="row align-items-start">
+                                    <div class="col-5">
+                                        <form #servicioForm="ngForm" (ngSubmit)="addServicio(servicioForm)"
+                                            class="row g-3 mb-3">
+                                            <input type="hidden" name="_id"
+                                                [(ngModel)]="servicioService.selectedServicio._id">
+                                            <div class="col-12">
+                                                <label for="inputOcupation" class="form-label">Seleccione
+                                                    Especialidad</label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="ocupation"
+                                                    [(ngModel)]="servicioService.selectedServicio.ocupation">
 
-                    <div class="row  justify-content-center">
-                        <div class="col-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="text-center">Lista De Especialidades</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div id="chart-profile-visit">
-                                      
-                                        <div class="container">
-                                            <div class="row justify-content-center">
-                                                <div class="col-lg-11">
-                                                    <table
-                                                        class="table table-responsive table-bordered border-dark mt-2">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Nombre</th>
-                                                                <th scope="col">numero de Especialidades</th>
-                                                                
-                                                            </tr>
-                                                        </thead>
-<!-- 
-                                                        <tbody>
-                                                            <tr *ngFor="let users of usuariosService.users">
+                                                    <option *ngFor="let ocupa of ocupationService.ocupa  |ObjToArray"
+                                                        [ngValue]="ocupa._id">{{ocupa.name}}</option>
 
-                                                                <td>{{ users.nameUser }}</td>
-                                                                <td>{{ users.ocupation }}</td>
-                                                                <td>{{ users.rut }}</td>
-                                                                <td>{{ users.email}}</td>
-                                                                <td>{{ users.telefono }}</td>
-                                                                <td>{{ users.direccion }}</td>
-                                                                <td>{{ users.payment }}</td>
-
-                                                                <div class="btn-group mr-0" role="group"
-                                                                    aria-label="Basic mixed styles example">
-                                                                    <button type="button" class="btn btn-primary  mr-2"
-                                                                        (click)="editUsuario(users)"> Editar</button>
-                                                                    <button type="button" class="btn btn-danger"
-                                                                        (click)="deleteUsuario(users._id)">Eliminar</button>
-                                                                </div>
-
-                                                            </tr>
-                                                        </tbody> -->
-                                                    </table>
+                                                </select>
+                                            </div>
+                                            <!-- <div class="col-12">
+                                                <label for="inputName" class="form-label">ocupacion</label>
+                                                <input type="text" class="form-control" name="ocupation"
+                                                    [(ngModel)]="servicioService.selectedServicio.ocupation">
+                                            </div> -->
+                                            
+                                            <div class="col-12">
+                                                <label for="inputName" class="form-label">Nombre del Servicio</label>
+                                                <input type="text" class="form-control" name="name"
+                                                    [(ngModel)]="servicioService.selectedServicio.name">
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="inputName" class="form-label">Duracion del Servicio</label>
+                                                <input type="text" class="form-control" name="duration"
+                                                    [(ngModel)]="servicioService.selectedServicio.duration">
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="inputOcupacion" class="form-label">Valor
+                                                    Hora</label>
+                                                <div class="input-group ">
+                                                    <span class="input-group-text">$</span>
+                                                    <input type="number" class="form-control" name="value"
+                                                        [(ngModel)]="servicioService.selectedServicio.value">
                                                 </div>
-                                                
+                                            </div>
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-danger text-uppercase"
+                                                    value="Guardar">Agregar
+                                                    Servicio</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4 class="text-center">Lista De Especialidades</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div id="chart-profile-visit">
+
+                                                    <div class="container">
+                                                        <div class="row justify-content-center">
+                                                            <div class="">
+                                                                <table
+                                                                    class="table table-responsive table-bordered border-dark mt-2">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th scope="col">Nombre servicio</th>
+                                                                            <th scope="col">Duracion Servicio</th>
+                                                                            <th scope="col">Valor Servicio</th>
+                                                                            <th scope="col">ocupacion del Servicio</th>
+
+                                                                        </tr>
+                                                                    </thead>
+
+                                                                    <tbody>
+                                                                        <tr
+                                                                            *ngFor="let serv of servicioService.serv |ObjToArray">
+
+                                                                            <td> {{serv.name}} </td>
+                                                                            <td> {{serv.duration}} </td>
+                                                                            <td> {{serv.value}} </td>
+                                                                            <td *ngFor="let a of serv.ocupation"> {{a.name}}</td>
+
+                                                                            <!-- <div class="btn-group mr-0" role="group"
+                                                                            aria-label="Basic mixed styles example">
+                                                                            <button type="button" class="btn btn-primary  mr-2"
+                                                                                (click)="editUsuario(users)"> Editar</button>
+                                                                            <button type="button" class="btn btn-danger"
+                                                                                (click)="deleteUsuario(users._id)">Eliminar</button>
+                                                                        </div> -->
+
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -194,13 +284,12 @@
                             </div>
                         </div>
                     </div>
-                   
                 </div>
-               
+
             </section>
-            <a aria-current="page"  href="#chart-profile-visit">Subir</a>
         </div>
-         <footer>
+
+        <footer>
             <div class="footer clearfix mb-0 text-muted">
                 <div class="float-start">
                     <p>2022 &copy; Boliot</p>

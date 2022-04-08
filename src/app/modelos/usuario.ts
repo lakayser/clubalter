@@ -8,5 +8,6 @@ export interface Usuario {
     telefono: string;
     direccion: string;
     email: string;
-    payment: number;
+    service: ''
+    
 }

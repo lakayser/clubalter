@@ -1,7 +1,67 @@
-<div id="app">
+
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a routerLink="/dashboard"><img src="../../../assets/Logo-Botmila.png" alt="Logo" srcset=""></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
     
+                        <li class="sidebar-item active">
+                            <a routerLink="/dashboard" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
     
-    <div id="">
+                        <li class="sidebar-item">
+                            <a routerLink="/horario" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>Gestion Horarios/BOX</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a routerLink="/hora" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>Agregar Horas a especialistas</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a routerLink="/agendarpaciente" class='sidebar-link'>
+                                <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Agendar una hora</span>
+                            </a>
+                        </li>
+    
+                        <li class="sidebar-item">
+                            <a routerLink="/especialistas" class='sidebar-link'>
+                                <i class="bi bi-collection-fill"></i>
+                                <span>Especialistas</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a routerLink="/ocupation" class='sidebar-link'>
+                                <i class="bi bi-collection-fill"></i>
+                                <span>Especialidades</span>
+                            </a>
+                        </li>
+    
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <app-header></app-header>
+    <div id="main">
         
 
         <div class="page-heading">
