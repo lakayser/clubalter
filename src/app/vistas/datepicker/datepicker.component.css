@@ -1,0 +1,8 @@
+.mat-calendar-body-cell-content, .mat-date-range-input-separator {
+    color: blue;
+  }
+  .mat-calendar-body {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+  }

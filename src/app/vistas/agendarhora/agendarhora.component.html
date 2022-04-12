@@ -148,7 +148,7 @@
 
                                             <div class="col-6">
                                                 <div>
-                                                    <h2>Rango Horario</h2>
+                                                    <h2>Horas anteriores del especialista</h2>
                                                     <table
                                                         class="table table-responsive table-bordered border-dark mt-2 ">
                                                         <thead>
@@ -158,6 +158,7 @@
                                                                 <th scope="col">BOX</th>
                                                                 <th scope="col">valor</th>
                                                                 <th scope="col">Doctor</th>
+                                                                <th scope="col">Estado</th>
 
                                                             </tr>
                                                         </thead>
@@ -176,6 +177,7 @@
 
                                                                 <td *ngFor="let dataDoc of hora.doctorId">
                                                                     {{dataDoc.nameUser}} </td>
+                                                                    <td></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>

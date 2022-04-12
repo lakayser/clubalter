@@ -22,6 +22,8 @@ import { OrganizationComponent } from './vistas/organization/organization.compon
 import { DashboardadminComponent } from './vistaAdmin/dashboardadmin/dashboardadmin.component';
 import { AdminusuariosComponent } from './vistaAdmin/adminusuarios/adminusuarios.component';
 import { OrganizacionesAdminComponent } from './vistaAdmin/organizaciones-admin/organizaciones-admin.component';
+import { CanchasDashboardComponent } from './vistas/canchas-dashboard/canchas-dashboard.component';
+import { CanchasReservarComponent } from './vistas/canchas-reservar/canchas-reservar.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -40,6 +42,13 @@ const routes: Routes = [
   {path: 'hora', component:AgendarhoraComponent,canActivate: [AuthGuard]},
   {path: 'ocupation', component:OcupationComponent },
   {path: 'organization', component:OrganizationComponent},
+  {path: 'canchasGestion', component:CanchasDashboardComponent},
+  {path: 'canchasReserva', component:CanchasReservarComponent},
+
+
+
+
+
   {path: 'dashboardAdmin', component:DashboardadminComponent},
   {path: 'usersAdmin', component:AdminusuariosComponent},
   {path: 'orgaAdmin', component:OrganizacionesAdminComponent},

@@ -100,14 +100,13 @@
                                                             [(ngModel)]="usuariosService.selectedUsuario.rut">
                                                     </div>
                                                     
-                                                    
                                                     <div class="col-6">
                                                         <label for="inputOcupacion" class="form-label">Ocupacion</label >
                                                         <select class="form-select" aria-label="Default select example" 
                                                             name="ocupation"
                                                             [(ngModel)]="usuariosService.selectedUsuario.ocupation" >
                                                             <option
-                                                                    *ngFor="let ocupa of ocupationService.ocupa |ObjToArray"
+                                                                    *ngFor="let ocupa of ocupationService.ocupa"
                                                                 [ngValue]="ocupa._id">{{ocupa.name}}</option>
                                                                
                                                         </select>
@@ -134,11 +133,11 @@
                                                             [(ngModel)]="usuariosService.selectedUsuario.direccion">
                                                     </div>
                                                     <div class="col-6">
-                                                        <label for="inputOcupation" class="form-label">Seleccione
+                                                        <label for="inputService" class="form-label">Seleccione
                                                             Servicios que prestará</label>
                                                         <select class="form-select" aria-label="Default select example"
-                                                            name="ocupation"
-                                                            [(ngModel)]="servicioService.selectedServicio.ocupation">
+                                                            name="service"
+                                                            [(ngModel)]="usuariosService.selectedUsuario.service">
         
                                                             <option *ngFor="let serv of servicioService.serv  |ObjToArray"
                                                                 [ngValue]="serv._id">{{serv.name}}</option>
@@ -213,7 +212,7 @@
                                                                 <th scope="col">E-mail</th>
                                                                 <th scope="col">Telefono</th>
                                                                 <th scope="col">Direccion</th>
-                                                                <th scope="col">Valor Hora</th>
+                                                            
                                                                 <th scope="col">servicios</th>
                                                                 <th scope="col">Opciones</th>
                                                             </tr>
@@ -223,13 +222,12 @@
                                                             <tr *ngFor="let users of usuariosService.users |ObjToArray">
 
                                                                 <td>{{ users.nameUser }}</td>
-                                                                <td *ngFor="let a of users.ocupation">{{ a.name }}</td>
+                                                                <td *ngFor="let a of users.ocupation" >{{ a.name}}</td>
                                                                 <td>{{ users.rut }}</td>
                                                                 <td>{{ users.email}}</td>
                                                                 <td>{{ users.telefono }}</td>
                                                                 <td>{{ users.direccion }}</td>
-                                                                <td>{{ users.payment }}</td>
-                                                                <td>{{ users.service }}</td>
+                                                                <td *ngFor="let e of users.service " >{{ e.name }}</td>
 
                                                                 <div class="btn-group mr-0" role="group"
                                                                     aria-label="Basic mixed styles example">

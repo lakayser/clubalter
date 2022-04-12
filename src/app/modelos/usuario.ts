@@ -3,7 +3,7 @@ export interface Usuario {
     nameUser: string;
     password:  string;
     organization: string;
-    ocupation:  string;
+    ocupation:  '',
     rut: string;
     telefono: string;
     direccion: string;

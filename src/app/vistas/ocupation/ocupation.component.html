@@ -112,8 +112,8 @@
                                                     </div>
                                                     <div class="text-center">
                                                         <button type="submit" class="btn btn-danger text-uppercase"
-                                                            value="Guardar">Agregar
-                                                            Especialista</button>
+                                                            value="Guardar">Agregar Nueva
+                                                            Especialidad</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -138,7 +138,7 @@
                                                                                 </tr>
                                                                             </thead>
 
-                                                                            <tbody>
+                                                                            <tbody class="text-center">
                                                                                 <tr
                                                                                     *ngFor="let ocupa of ocupationService.ocupa">
 
@@ -248,18 +248,18 @@
                                                                             <th scope="col">Nombre servicio</th>
                                                                             <th scope="col">Duracion Servicio</th>
                                                                             <th scope="col">Valor Servicio</th>
-                                                                            <th scope="col">ocupacion del Servicio</th>
+                                                                            <th scope="col">Encargado del Servicio</th>
 
                                                                         </tr>
                                                                     </thead>
 
-                                                                    <tbody>
+                                                                    <tbody class="text-center">
                                                                         <tr
                                                                             *ngFor="let serv of servicioService.serv |ObjToArray">
 
                                                                             <td> {{serv.name}} </td>
                                                                             <td> {{serv.duration}} </td>
-                                                                            <td> {{serv.value}} </td>
+                                                                            <td> ${{serv.value}} </td>
                                                                             <td *ngFor="let a of serv.ocupation"> {{a.name}}</td>
 
                                                                             <!-- <div class="btn-group mr-0" role="group"
