@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import { HorastomadasService } from 'src/app/servicios/horastomadas.service';
 
 @Component({
   selector: 'app-canchas-reservar',
@@ -7,9 +8,10 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
   styleUrls: ['./canchas-reservar.component.css']
 })
 export class CanchasReservarComponent implements OnInit {
-  constructor(public usuariosService:UsuariosService) { }
+  constructor(public usuariosService:UsuariosService, public horastomadasService:HorastomadasService) { }
 
   ngOnInit(): void {
+    this.getHoraTomada();
   }
 
   getActivo(){
@@ -19,4 +21,17 @@ export class CanchasReservarComponent implements OnInit {
       
     })
   }
+getHoraTomada(){
+  this.horastomadasService.getHoraTomada().subscribe((res)=>{
+    this.horastomadasService.horatomada=res;
+    console.log(res);
+    
+  })
+
+}
+ 
+
+
+
+
 }

@@ -44,6 +44,7 @@ import { DashboardadminComponent } from './vistaAdmin/dashboardadmin/dashboardad
 import { OrganizacionesAdminComponent } from './vistaAdmin/organizaciones-admin/organizaciones-admin.component';
 import { CanchasDashboardComponent } from './vistas/canchas-dashboard/canchas-dashboard.component';
 import { CanchasReservarComponent } from './vistas/canchas-reservar/canchas-reservar.component';
+import { CanchasCrudComponent } from './vistas/canchas-crud/canchas-crud.component';
 
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
@@ -82,6 +83,7 @@ const materialModules = [
     OrganizacionesAdminComponent,
     CanchasDashboardComponent,
     CanchasReservarComponent,
+    CanchasCrudComponent,
     
     
     

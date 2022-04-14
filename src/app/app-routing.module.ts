@@ -24,6 +24,7 @@ import { AdminusuariosComponent } from './vistaAdmin/adminusuarios/adminusuarios
 import { OrganizacionesAdminComponent } from './vistaAdmin/organizaciones-admin/organizaciones-admin.component';
 import { CanchasDashboardComponent } from './vistas/canchas-dashboard/canchas-dashboard.component';
 import { CanchasReservarComponent } from './vistas/canchas-reservar/canchas-reservar.component';
+import { CanchasCrudComponent } from './vistas/canchas-crud/canchas-crud.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -44,6 +45,7 @@ const routes: Routes = [
   {path: 'organization', component:OrganizationComponent},
   {path: 'canchasGestion', component:CanchasDashboardComponent},
   {path: 'canchasReserva', component:CanchasReservarComponent},
+  {path: 'canchasCRUD', component:CanchasCrudComponent},
 
 
 

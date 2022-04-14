@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 export class ApiService {
 
   private URL = "https://botmila-api.herokuapp.com/botmilaAPI/auth";
-  private URL2 = "https://botmila-api.herokuapp.com/botmilaAPI";
+  private URL2 = "https://botmila-api.herokuapp.com/botmilaAPI/";
 
   constructor(private http: HttpClient, private router: Router) { }
 
