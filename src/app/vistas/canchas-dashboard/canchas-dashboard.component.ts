@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service';
+import { CanchasService } from 'src/app/servicios/canchas.service';
+import { HorastomadasService } from 'src/app/servicios/horastomadas.service';
+
 
 @Component({
   selector: 'app-canchas-dashboard',
@@ -8,16 +11,34 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
 })
 export class CanchasDashboardComponent implements OnInit {
 
-  constructor(public usuariosService:UsuariosService) { }
+  constructor(public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService, public horastomadasService:HorastomadasService) { }
 
   ngOnInit(): void {
+    this.getHoraTomada();
+    this.getHoraCancha();
+    this.getCanchas();
   }
 
-  getActivo(){
-    this.usuariosService.getActivo().subscribe((resp)=>{
-      this.usuariosService.nombre =resp;
-      console.log('respuesta'+ resp)
+  getHoraCancha(){
+    this.horariocanchaService.getHorarioCancha().subscribe((res)=>{
+      this.horariocanchaService.horacancha = res;
+      console.log(res);
+    })
+  }
+  getCanchas(){
+    this.canchasService.getCanchas().subscribe((res)=>{
+      this.canchasService.cancha= res;
+      console.log(res)
       
     })
   }
+  getHoraTomada(){
+    this.horastomadasService.getHoraTomada().subscribe((res)=>{
+      this.horastomadasService.horatomada=res;
+      console.log(res);
+      
+    })
+  
+  }
+
 }

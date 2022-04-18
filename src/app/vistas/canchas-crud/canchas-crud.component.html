@@ -122,10 +122,27 @@
                                                 class="row g-3 mb-3 ">
                                                 <input type="hidden" name="_id"
                                                     [(ngModel)]="horariocanchaService.selectedHorarioCancha._id">
+                                            
                                                 <div class="col-12">
-                                                    <label for="inputEmail4" class="form-label">Horario</label>
-                                                    <input type="text" class="form-control" name="horario"
-                                                      [(ngModel)]="horariocanchaService.selectedHorarioCancha.horario" >
+                                                    <label for="inputOcupacion" class="form-label">Horario</label>
+                                                        <select class="form-select" aria-label="Default select example"
+                                                        name="horario"
+                                                        [(ngModel)]="horariocanchaService.selectedHorarioCancha.horario">
+                                                       
+                                                        <option >09:00-10:00</option>
+                                                        <option >10:00-11:00</option>
+                                                        <option >11:00-12:00</option>
+                                                        <option >12:00-13:00</option>
+                                                        <option >13:00-14:00</option>
+                                                        <option >14:00-15:00</option>
+                                                        <option >15:00-16:00</option>
+                                                        <option >16:00-17:00</option>
+                                                        <option >17:00-18:00</option>
+                                                        <option >18:00-19:00</option>
+                                                        <option >19:00-20:00</option>
+                                                        <option >20:00-21:00</option>
+                                                        <option >21:00-22:00</option>
+                                                    </select>
                                                 </div>
 
                                                 <div class="col-12">
@@ -134,7 +151,7 @@
                                                         <select class="form-select" aria-label="Default select example"
                                                         name="dia"
                                                         [(ngModel)]="horariocanchaService.selectedHorarioCancha.dia">
-                                                        <option >Seleccione Dia</option>
+                                                   
                                                         <option >Lunes</option>
                                                         <option >Martes</option>
                                                         <option >Miercoles</option>

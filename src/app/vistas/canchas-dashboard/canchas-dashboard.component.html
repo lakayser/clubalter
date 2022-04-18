@@ -41,25 +41,8 @@
     </div> -->
     <app-header></app-header>
     <div id="">
-
-
         <div class="page-heading">
-            <h3 class="text-center">GESTION DE RESERVAS</h3>
-            <!-- <div class="col-4 col-lg-3 ">
-                <div class="card">
-                    <div class="card-body py-4 px-5">
-                        <div class="d-flex align-items-center">
-                            <div class="avatar avatar-xl">
-                                <img src="assets/images/faces/1.jpg" alt="Face 1">
-                            </div>
-                            <div class="ms-3 name" *ngFor="let nombre of usuariosService.nombre | ObjToArray">
-                                <h5 class="font-bold">{{ nombre.nameUser }}</h5>
-                                <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            <h3 class="text-center">Estado de Canchas</h3>
         </div>
         <div class="page-content">
             <section class="row">
@@ -68,7 +51,7 @@
                         <div class="col">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="text-center">Cancha 1</h4>
+                                    <h4 class="text-center">Horarios Disponibles</h4>
                                 </div>
                                 <div class="card-body" id="AAA">
                                     <div id="chart-profile-visit">
@@ -78,11 +61,11 @@
                                                 <div class="col">
                                                     <div class="card mt-2">
                                                         <div class="card-header">
-                                                            <h4 class="text-center">Lunes</h4>
+                                                            <h4 class="text-center">Cancha 1</h4>
                                                         </div>
                                                         <div class="card-body">
                                                             <div id="chart-profile-visit">
-            
+
                                                                 <div class="">
                                                                     <div class="row justify-content-center">
                                                                         <div class="">
@@ -93,24 +76,23 @@
                                                                                         <th scope="col">
                                                                                             Horario
                                                                                         </th>
-                                                                                        <th scope="col">Nombre</th>
-                                                                                        <th scope="col">Rut</th>
-                                                                                        <th scope="col">Telefono</th>
-            
+                                                                                        <th scope="col">Dia</th>
                                                                                     </tr>
                                                                                 </thead>
-            
-                                                                                <tbody class="text-center">
-                                                                                    <tr>
-            
-                                                                                        <td> </td>
-                                                                                        <td> </td>
-                                                                                        <td> </td>
-                                                                                        <td></td>
-            
-                                                                                   
-                                                                                    </tr>
-                                                                                </tbody>
+
+                                                                                <div
+                                                                                    *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                                                                    <tbody class="text-center"
+                                                                                        *ngFor=" let a of horacancha.canchas">
+                                                                                        <tr
+                                                                                            *ngIf="a.name === 'Cancha 1' ">
+
+                                                                                            <td>{{horacancha.horario}}
+                                                                                            </td>
+                                                                                            <td>{{horacancha.dia}}</td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </div>
                                                                             </table>
                                                                         </div>
                                                                     </div>
@@ -120,44 +102,46 @@
                                                     </div>
                                                 </div>
                                             </div>
-        
+
                                             <div class="col">
                                                 <div class="col">
                                                     <div class="card mt-2">
                                                         <div class="card-header">
-                                                            <h4 class="text-center">Martes</h4>
+                                                            <h4 class="text-center">Cancha 2</h4>
                                                         </div>
                                                         <div class="card-body">
                                                             <div id="chart-profile-visit">
-            
+
                                                                 <div class="">
                                                                     <div class="row justify-content-center">
-                                                                      <div>
+                                                                        <div>
                                                                             <table
                                                                                 class="table table-responsive table-bordered border-dark mt-2">
                                                                                 <thead>
                                                                                     <tr>
-                                                                                        <th scope="col">
-                                                                                            Horario
-                                                                                        </th>
-                                                                                        <th scope="col">Nombre</th>
-                                                                                        <th scope="col">Rut</th>
-                                                                                        <th scope="col">Telefono</th>
-            
+                                                                                        <th scope="col">Horario</th>
+                                                                                        <th scope="col">Dia</th>
+
+
+
                                                                                     </tr>
                                                                                 </thead>
-            
-                                                                                <tbody class="text-center">
-                                                                                    <tr>
-            
-                                                                                        <td>14:00-15:00</td>
-                                                                                        <td>Eduardo enriquez</td>
-                                                                                        <td>19797257-2</td>
-                                                                                        <td>975611352</td>
-            
-                                                                                   
-                                                                                    </tr>
-                                                                                </tbody>
+                                                                                <div
+                                                                                    *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                                                                    <tbody class="text-center"
+                                                                                        *ngFor=" let a of horacancha.canchas">
+                                                                                        <tr
+                                                                                            *ngIf="a.name === 'Cancha 2' ">
+
+                                                                                            <td>{{horacancha.horario}}
+                                                                                            </td>
+                                                                                            <td>{{horacancha.dia}}</td>
+
+
+
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </div>
                                                                             </table>
                                                                         </div>
                                                                     </div>
@@ -167,237 +151,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-                                            <div class="col">
-                                                <div class="col">
-                                                    <div class="card mt-2">
-                                                        <div class="card-header">
-                                                            <h4 class="text-center">Miercoles</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div id="chart-profile-visit">
-            
-                                                                <div class="">
-                                                                    <div class="row justify-content-center">
-                                                                      <div>
-                                                                            <table
-                                                                                class="table table-responsive table-bordered border-dark mt-2">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th scope="col">
-                                                                                            Horario
-                                                                                        </th>
-                                                                                        <th scope="col">Nombre</th>
-                                                                                        <th scope="col">Rut</th>
-                                                                                        <th scope="col">Telefono</th>
-            
-                                                                                    </tr>
-                                                                                </thead>
-            
-                                                                                <tbody class="text-center">
-                                                                                    <tr>
-            
-                                                                                        <td>14:00-15:00</td>
-                                                                                        <td>Eduardo enriquez</td>
-                                                                                        <td>19797257-2</td>
-                                                                                        <td>975611352</td>
-            
-                                                                                   
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="col">
-                                                    <div class="card mt-2">
-                                                        <div class="card-header">
-                                                            <h4 class="text-center">Jueves</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div id="chart-profile-visit">
-            
-                                                                <div class="">
-                                                                    <div class="row justify-content-center">
-                                                                      <div>
-                                                                            <table
-                                                                                class="table table-responsive table-bordered border-dark mt-2">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th scope="col">
-                                                                                            Horario
-                                                                                        </th>
-                                                                                        <th scope="col">Nombre</th>
-                                                                                        <th scope="col">Rut</th>
-                                                                                        <th scope="col">Telefono</th>
-            
-                                                                                    </tr>
-                                                                                </thead>
-            
-                                                                                <tbody class="text-center">
-                                                                                    <tr>
-            
-                                                                                        <td>14:00-15:00</td>
-                                                                                        <td>Eduardo enriquez</td>
-                                                                                        <td>19797257-2</td>
-                                                                                        <td>975611352</td>
-            
-                                                                                   
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="col">
-                                                    <div class="card mt-2">
-                                                        <div class="card-header">
-                                                            <h4 class="text-center">Viernes</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div id="chart-profile-visit">
-            
-                                                                <div class="">
-                                                                    <div class="row justify-content-center">
-                                                                      <div>
-                                                                            <table
-                                                                                class="table table-responsive table-bordered border-dark mt-2">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th scope="col">
-                                                                                            Horario
-                                                                                        </th>
-                                                                                        <th scope="col">Nombre</th>
-                                                                                        <th scope="col">Rut</th>
-                                                                                        <th scope="col">Telefono</th>
-            
-                                                                                    </tr>
-                                                                                </thead>
-            
-                                                                                <tbody class="text-center">
-                                                                                    <tr>
-            
-                                                                                        <td>14:00-15:00</td>
-                                                                                        <td>Eduardo enriquez</td>
-                                                                                        <td>19797257-2</td>
-                                                                                        <td>975611352</td>
-            
-                                                                                   
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="col">
-                                                    <div class="card mt-2">
-                                                        <div class="card-header">
-                                                            <h4 class="text-center">Sabado</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div id="chart-profile-visit">
-            
-                                                                <div class="">
-                                                                    <div class="row justify-content-center">
-                                                                      <div>
-                                                                            <table
-                                                                                class="table table-responsive table-bordered border-dark mt-2">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th scope="col">
-                                                                                            Horario
-                                                                                        </th>
-                                                                                        <th scope="col">Nombre</th>
-                                                                                        <th scope="col">Rut</th>
-                                                                                        <th scope="col">Telefono</th>
-            
-                                                                                    </tr>
-                                                                                </thead>
-            
-                                                                                <tbody class="text-center">
-                                                                                    <tr>
-            
-                                                                                        <td>14:00-15:00</td>
-                                                                                        <td>Eduardo enriquez</td>
-                                                                                        <td>19797257-2</td>
-                                                                                        <td>975611352</td>
-            
-                                                                                   
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="col">
-                                                    <div class="card mt-2">
-                                                        <div class="card-header">
-                                                            <h4 class="text-center">Domingo</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div id="chart-profile-visit">
-            
-                                                                <div class="">
-                                                                    <div class="row justify-content-center">
-                                                                      <div>
-                                                                            <table
-                                                                                class="table table-responsive table-bordered border-dark mt-2">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th scope="col">
-                                                                                            Horario
-                                                                                        </th>
-                                                                                        <th scope="col">Nombre</th>
-                                                                                        <th scope="col">Rut</th>
-                                                                                        <th scope="col">Telefono</th>
-            
-                                                                                    </tr>
-                                                                                </thead>
-            
-                                                                                <tbody class="text-center">
-                                                                                    <tr>
-            
-                                                                                        <td>14:00-15:00</td>
-                                                                                        <td>Eduardo enriquez</td>
-                                                                                        <td>19797257-2</td>
-                                                                                        <td>975611352</td>
-            
-                                                                                   
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+
 
 
                                         </div>
@@ -408,10 +162,11 @@
                     </div>
 
                 </div>
+
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="text-center">Cancha 2</h4>
+                            <h4 class="text-center">Canchas Reservadas</h4>
                         </div>
                         <div class="card-body">
                             <div id="chart-visitors-profile">
@@ -420,11 +175,11 @@
                                         <div class="col">
                                             <div class="card mt-2">
                                                 <div class="card-header">
-                                                    <h4 class="text-center">Lunes</h4>
+                                                    <h4 class="text-center">Cancha 1</h4>
                                                 </div>
                                                 <div class="card-body">
                                                     <div id="chart-profile-visit">
-    
+
                                                         <div class="">
                                                             <div class="row justify-content-center">
                                                                 <div class="">
@@ -432,27 +187,33 @@
                                                                         class="table table-responsive table-bordered border-dark mt-2 ">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th scope="col">
-                                                                                    Horario
-                                                                                </th>
+                                                                                <th scope="col">Dia</th>
+                                                                                <th scope="col">Horario</th>
                                                                                 <th scope="col">Nombre</th>
                                                                                 <th scope="col">Rut</th>
                                                                                 <th scope="col">Telefono</th>
-    
+
                                                                             </tr>
                                                                         </thead>
-    
-                                                                        <tbody class="text-center">
-                                                                            <tr>
-    
-                                                                                <td> </td>
-                                                                                <td> </td>
-                                                                                <td> </td>
-                                                                                <td></td>
-    
-                                                                           
-                                                                            </tr>
-                                                                        </tbody>
+                                                                        <div *ngFor="let horatomada of horastomadasService.horatomada |ObjToArray">
+                                                                            <tbody class="text-center" *ngFor="let e of horatomada.cancha">
+                                                                                <tr *ngIf="e.name === 'Cancha 1' ">
+
+                                                                                    <td
+                                                                                        *ngFor="let a of horatomada.horascanchas">
+                                                                                        {{a.dia}}</td>
+                                                                                    <td
+                                                                                        *ngFor="let a of horatomada.horascanchas">
+                                                                                        {{a.horario}}</td>
+                                                                                    <td
+                                                                                        *ngFor="let a of horatomada.cancha">
+                                                                                        {{a.name}}</td>
+                                                                                    <td>{{horatomada.rut}}</td>
+
+
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </div>
                                                                     </table>
                                                                 </div>
                                                             </div>
@@ -467,39 +228,48 @@
                                         <div class="col">
                                             <div class="card mt-2">
                                                 <div class="card-header">
-                                                    <h4 class="text-center">Martes</h4>
+                                                    <h4 class="text-center">Cancha 2</h4>
                                                 </div>
                                                 <div class="card-body">
                                                     <div id="chart-profile-visit">
-    
+
                                                         <div class="">
                                                             <div class="row justify-content-center">
-                                                              <div>
+                                                                <div>
                                                                     <table
                                                                         class="table table-responsive table-bordered border-dark mt-2">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th scope="col">
-                                                                                    Horario
-                                                                                </th>
+                                                                            <tr>
+                                                                                <th scope="col">Dia</th>
+                                                                                <th scope="col">Horario</th>
                                                                                 <th scope="col">Nombre</th>
                                                                                 <th scope="col">Rut</th>
                                                                                 <th scope="col">Telefono</th>
-    
+
                                                                             </tr>
                                                                         </thead>
-    
-                                                                        <tbody class="text-center">
-                                                                            <tr>
-    
-                                                                                <td>14:00-15:00</td>
-                                                                                <td>Eduardo enriquez</td>
-                                                                                <td>19797257-2</td>
-                                                                                <td>975611352</td>
-    
-                                                                           
-                                                                            </tr>
-                                                                        </tbody>
+
+                                                                        <div *ngFor="let horatomada of horastomadasService.horatomada |ObjToArray">
+                                                                            <tbody class="text-center"
+                                                                            *ngFor="let e of horatomada.cancha">
+                                                                                <tr *ngIf="e.name === 'Cancha 2' ">
+
+                                                                                    <td
+                                                                                        *ngFor="let a of horatomada.horascanchas">
+                                                                                        {{a.dia}}</td>
+                                                                                    <td
+                                                                                        *ngFor="let a of horatomada.horascanchas">
+                                                                                        {{a.horario}}</td>
+                                                                                    <td
+                                                                                        *ngFor="let a of horatomada.cancha">
+                                                                                        {{a.name}}</td>
+                                                                                    <td>{{horatomada.rut}}</td>
+
+
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </div>
                                                                     </table>
                                                                 </div>
                                                             </div>
@@ -509,237 +279,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="col">
-                                        <div class="col">
-                                            <div class="card mt-2">
-                                                <div class="card-header">
-                                                    <h4 class="text-center">Miercoles</h4>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div id="chart-profile-visit">
-    
-                                                        <div class="">
-                                                            <div class="row justify-content-center">
-                                                              <div>
-                                                                    <table
-                                                                        class="table table-responsive table-bordered border-dark mt-2">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th scope="col">
-                                                                                    Horario
-                                                                                </th>
-                                                                                <th scope="col">Nombre</th>
-                                                                                <th scope="col">Rut</th>
-                                                                                <th scope="col">Telefono</th>
-    
-                                                                            </tr>
-                                                                        </thead>
-    
-                                                                        <tbody class="text-center">
-                                                                            <tr>
-    
-                                                                                <td>14:00-15:00</td>
-                                                                                <td>Eduardo enriquez</td>
-                                                                                <td>19797257-2</td>
-                                                                                <td>975611352</td>
-    
-                                                                           
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="col">
-                                            <div class="card mt-2">
-                                                <div class="card-header">
-                                                    <h4 class="text-center">Jueves</h4>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div id="chart-profile-visit">
-    
-                                                        <div class="">
-                                                            <div class="row justify-content-center">
-                                                              <div>
-                                                                    <table
-                                                                        class="table table-responsive table-bordered border-dark mt-2">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th scope="col">
-                                                                                    Horario
-                                                                                </th>
-                                                                                <th scope="col">Nombre</th>
-                                                                                <th scope="col">Rut</th>
-                                                                                <th scope="col">Telefono</th>
-    
-                                                                            </tr>
-                                                                        </thead>
-    
-                                                                        <tbody class="text-center">
-                                                                            <tr>
-    
-                                                                                <td>14:00-15:00</td>
-                                                                                <td>Eduardo enriquez</td>
-                                                                                <td>19797257-2</td>
-                                                                                <td>975611352</td>
-    
-                                                                           
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="col">
-                                            <div class="card mt-2">
-                                                <div class="card-header">
-                                                    <h4 class="text-center">Viernes</h4>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div id="chart-profile-visit">
-    
-                                                        <div class="">
-                                                            <div class="row justify-content-center">
-                                                              <div>
-                                                                    <table
-                                                                        class="table table-responsive table-bordered border-dark mt-2">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th scope="col">
-                                                                                    Horario
-                                                                                </th>
-                                                                                <th scope="col">Nombre</th>
-                                                                                <th scope="col">Rut</th>
-                                                                                <th scope="col">Telefono</th>
-    
-                                                                            </tr>
-                                                                        </thead>
-    
-                                                                        <tbody class="text-center">
-                                                                            <tr>
-    
-                                                                                <td>14:00-15:00</td>
-                                                                                <td>Eduardo enriquez</td>
-                                                                                <td>19797257-2</td>
-                                                                                <td>975611352</td>
-    
-                                                                           
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="col">
-                                            <div class="card mt-2">
-                                                <div class="card-header">
-                                                    <h4 class="text-center">Sabado</h4>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div id="chart-profile-visit">
-    
-                                                        <div class="">
-                                                            <div class="row justify-content-center">
-                                                              <div>
-                                                                    <table
-                                                                        class="table table-responsive table-bordered border-dark mt-2">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th scope="col">
-                                                                                    Horario
-                                                                                </th>
-                                                                                <th scope="col">Nombre</th>
-                                                                                <th scope="col">Rut</th>
-                                                                                <th scope="col">Telefono</th>
-    
-                                                                            </tr>
-                                                                        </thead>
-    
-                                                                        <tbody class="text-center">
-                                                                            <tr>
-    
-                                                                                <td>14:00-15:00</td>
-                                                                                <td>Eduardo enriquez</td>
-                                                                                <td>19797257-2</td>
-                                                                                <td>975611352</td>
-    
-                                                                           
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="col">
-                                            <div class="card mt-2">
-                                                <div class="card-header">
-                                                    <h4 class="text-center">Domingo</h4>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div id="chart-profile-visit">
-    
-                                                        <div class="">
-                                                            <div class="row justify-content-center">
-                                                              <div>
-                                                                    <table
-                                                                        class="table table-responsive table-bordered border-dark mt-2">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th scope="col">
-                                                                                    Horario
-                                                                                </th>
-                                                                                <th scope="col">Nombre</th>
-                                                                                <th scope="col">Rut</th>
-                                                                                <th scope="col">Telefono</th>
-    
-                                                                            </tr>
-                                                                        </thead>
-    
-                                                                        <tbody class="text-center">
-                                                                            <tr>
-    
-                                                                                <td>14:00-15:00</td>
-                                                                                <td>Eduardo enriquez</td>
-                                                                                <td>19797257-2</td>
-                                                                                <td>975611352</td>
-    
-                                                                           
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
+
 
 
 

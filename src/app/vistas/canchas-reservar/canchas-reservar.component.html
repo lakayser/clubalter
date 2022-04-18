@@ -44,59 +44,108 @@
     <app-header></app-header>
 
     <div id="">
+        <div class="page-heading">
+            <h3 class="text-center">GESTION DE RESERVAS</h3>
+        </div>
         <div class="page-content">
             <section class="row">
                 <div class="col col-lg-9">
                     <div class="row  justify-content-center">
-                        <div class="">
+                        <div class="col">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="text-center">Lista Canchas Reservadas</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div id="">
-                                        <div class="container">
-                                            <div class="row justify-content-center">
-                                                <div class="col-lg-10">
-                                                    <table
-                                                        class="table table-responsive table-bordered border-dark mt-2 ">
+                                <div class="row align-items-start">
+                                    <div class="card-header">
+                                        <h4 class="text-center">Horarios Disponibles de Canchas</h4>
+                                    </div>
+                                    <div class="col">
+                                        <div class="col">
+                                            <div class="card mt-2">
+                                                <div class="card-header">
+                                                    <h4 class="text-center">Cancha 1</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div id="chart-profile-visit">
 
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">horario</th>
-                                                                <th scope="col">Nombre cancha</th>
-                                                                <th scope="col">Rut</th>
-                                                                <!-- <th scope="col">Correo Cliente</th>
-                                                                <th scope="col">Valor</th>
-                                                                <th scope="col">Numero de Cancha</th>
-                                                                <th scope="col">Horario</th>
-                                                                <th scope="col">Fecha</th>
-                                                                <th scope="col">Estado</th> -->
+                                                        <div class="">
+                                                            <div class="row justify-content-center">
+                                                                <div class="">
+                                                                    <table
+                                                                        class="table table-responsive table-bordered border-dark mt-2 ">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">
+                                                                                    Horario
+                                                                                </th>
+                                                                                <th scope="col">Dia</th>
+                                                                            </tr>
+                                                                        </thead>
 
+                                                                        <div
+                                                                            *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                                                            <tbody class="text-center"
+                                                                                *ngFor=" let a of horacancha.canchas">
+                                                                                <tr *ngIf="a.name === 'Cancha 1' ">
 
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr *ngFor="let horatomada of horastomadasService.horatomada |ObjToArray">
-
-                                                                <td *ngFor="let a of horatomada.horascanchas">{{a.horario}}</td>
-                                                                <td *ngFor="let a of horatomada.cancha">{{a.name}}</td>
-                                                                <td>{{horatomada.rut}}</td>
-                                                                <!-- <td> </td>
-                                                                <td> </td>
-                                                                <td> </td>
-                                                                <td></td>
-                                                                <td></td> -->
-
-
-
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                                                    <td>{{horacancha.horario}}
+                                                                                    </td>
+                                                                                    <td>{{horacancha.dia}}</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </div>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="col">
+                                        <div class="col">
+                                            <div class="card mt-2">
+                                                <div class="card-header">
+                                                    <h4 class="text-center">Cancha 2</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div id="chart-profile-visit">
+
+                                                        <div class="">
+                                                            <div class="row justify-content-center">
+                                                                <div class="">
+                                                                    <table
+                                                                        class="table table-responsive table-bordered border-dark mt-2 ">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">
+                                                                                    Horario
+                                                                                </th>
+                                                                                <th scope="col">Dia</th>
+                                                                            </tr>
+                                                                        </thead>
+
+                                                                        <div *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                                                            <tbody class="text-center"
+                                                                                *ngFor=" let a of horacancha.canchas">
+                                                                                <tr *ngIf="a.name === 'Cancha 2' ">
+
+                                                                                    <td>{{horacancha.horario}}
+                                                                                    </td>
+                                                                                    <td>{{horacancha.dia}}</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </div>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -120,11 +169,11 @@
                                         <!--Formulario Agregar-->
                                         <div class="row">
                                             <div class="col-lg-6 ">
-                                                
-                                                <form class="row g-3 mb-3 ">
-                                                  
 
-                                                  
+                                                <form class="row g-3 mb-3 ">
+
+
+
 
                                                     <div class="col-6">
                                                         <label for="input" class="form-label">Rut Del Cliente</label>
@@ -150,7 +199,7 @@
                                                     <div class="col-6 ">
                                                         <label for="inputOcupacion" class="form-label">Seleccione Dia de
                                                             La reserva</label>
-                                                            <select class="form-select" aria-label="Default select example"
+                                                        <select class="form-select" aria-label="Default select example"
                                                             name="ocupation">
                                                             <option>Seleccione Dia</option>
                                                             <option>Lunes</option>
@@ -182,7 +231,7 @@
                                                             <option>Seleccione Cancha</option>
                                                             <option>Cancha 1</option>
                                                             <option>Cancha 2</option>
-                                                            
+
                                                         </select>
                                                     </div>
                                                     <div class="text-center">
@@ -191,65 +240,9 @@
                                                     </div>
 
                                                 </form>
-                                                
-                                            </div>
-                                            <div class="col">
-                                                <div class="col-12">
-                                                    <label for="inputOcupacion" class="form-label">Seleccione Dia de
-                                                        La reserva</label>
-                                                    <select class="form-select" aria-label="Default select example"
-                                                        name="ocupation">
-                                                        <option>Lunes</option>
-                                                        <option>Martes</option>
-                                                        <option>Miercoles</option>
-                                                        <option>Jueves</option>
-                                                        <option>Viernes</option>
-                                                        <option>Sabado</option>
-                                                        <option>Domingo</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col">
-                                                    <table
-                                                        class="table table-responsive table-bordered border-dark mt-2 text-center">
 
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Nombre de cancha</th>
-                                                                <th scope="col">horario</th>
-                                                                <th scope="col">disponibilidad</th>
-
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Cancha 1</td>
-                                                                <td>14:00-15:00</td>
-                                                                <td>Dispoible</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Cancha 1</td>
-                                                                <td>14:00-15:00</td>
-                                                                <td>Dispoible</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Cancha 1</td>
-                                                                <td>14:00-15:00</td>
-                                                                <td>Dispoible</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Cancha 1</td>
-                                                                <td>14:00-15:00</td>
-                                                                <td>Dispoible</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Cancha 1</td>
-                                                                <td>14:00-15:00</td>
-                                                                <td>Dispoible</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -257,57 +250,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-3">
-                    <!-- <div class="card">
-                        <div class="card-body py-4 px-5">
-                            <div class="d-flex align-items-center">
-                                <div class="avatar avatar-xl">
-                                    <img src="assets/images/faces/1.jpg" alt="Face 1">
-                                </div>
-                                <div class="ms-3 name" *ngFor="let nombre of usuariosService.nombre | ObjToArray">
-                                    <h5 class="font-bold">{{ nombre.nameUser }}</h5>
-                                    <h6 class="text-muted mb-0">Centro Medico Suyai</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
 
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Historial </h4>
-                        </div>
-                        <div class="card-body">
-                            <div id="chart-visitors-profile">
-                                <table class="table table-responsive table-bordered border-dark mt-2 ">
-
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Numero de Cancha</th>
-                                            <th scope="col">Horario</th>
-                                            <th scope="col">Fecha</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-
-
-                                            <td> </td>
-                                            <td> </td>
-                                            <td> </td>
-
-
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
         </div>
-        
+
         <footer>
             <div class="footer clearfix mb-0 text-muted">
                 <div class="float-start">

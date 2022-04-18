@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         res => {
           console.log(res);
           localStorage.setItem('token', res.token);
-          this.router.navigate(['/canchasReserva']);
+          this.router.navigate(['/canchasGestion']);
         },
         err => { console.log(err); }
       )
