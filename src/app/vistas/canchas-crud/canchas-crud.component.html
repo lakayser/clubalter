@@ -19,80 +19,10 @@
                                 <div class="card-body">
                                     <div id="chart-profile-visit">
                                         <!--Formulario Agregar-->
+                                        <div class="container">
                                         <div class="row">
-                                            <div class="col-lg-6 ">
-                                                <form #canchaForm="ngForm" (ngSubmit)="addCancha(canchaForm)"
-                                                class="row g-3 mb-3 ">
-                                                <input type="hidden" name="_id"
-                                                [(ngModel)]="canchasService.selectedCancha._id">
-                                                    <div class="col-md-6 ">
-                                                        <label for="input" class="form-label">ingrese nombre de nueva cancha</label>
-                                                        <input type="text" class="form-control" name="name"
-                                                        [(ngModel)]="canchasService.selectedCancha.name">
-                                                         
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <button type="submit"
-                                                        class="btn btn-danger text-uppercase mt-2 text-center">Agregar Cancha</button>
-                                                        </div>  
-                                                   
-
-                                                    <!-- <div class="col-6">
-                                                        <label for="input" class="form-label">Nombre Del
-                                                            Cliente</label>
-                                                        <input type="text" class="form-control" name="nombrePaciente">
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <label for="input" class="form-label">Email Del
-                                                            Cliente</label>
-                                                        <input type="text" class="form-control" name="nombrePaciente">
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <label for="input" class="form-label">Numero telefonico del
-                                                            Cliente</label>
-                                                        <input type="text" class="form-control" name="nombrePaciente">
-                                                    </div>
-
-
-                                                    <div class="col-6 bg-secondary">
-                                                        <label for="inputOcupacion" class="form-label">Seleccione Dia de
-                                                            La reserva</label>
-                                                            <mat-form-field appearance="fill">
-                                                                <mat-label>Seleccionar Dia</mat-label>
-                                                                <input matInput [matDatepicker]="picker">
-                                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                                                <mat-datepicker #picker></mat-datepicker>
-                                                              </mat-form-field>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <label for="inputOcupacion" class="form-label">Seleccione
-                                                            Horario de La reserva</label>
-                                                        <select class="form-select" aria-label="Default select example"
-                                                            name="ocupation">
-                                                            <option>Seleccione Horas disponibles</option>
-                                                            <option>10:00-11:00</option>
-                                                            <option>11:00-12:00</option>
-                                                            <option>12:00-13:00</option>
-                                                            <option>13:00-14:00</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <label for="inputOcupacion" class="form-label">Seleccione Cancha
-                                                            para reservar</label>
-                                                        <select class="form-select" aria-label="Default select example"
-                                                            name="ocupation">
-                                                            <option>Seleccione Cancha</option>
-                                                            <option>Cancha 1</option>
-                                                            <option>Cancha 2</option>
-                                                            
-                                                        </select>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <button type="submit"
-                                                            class="btn btn-danger text-uppercase">Agendar Hora</button>
-                                                    </div> -->
-
-                                                </form>
+                                            <div class="col-lg-6 col-sm-6">
+                                                
                                                 <div class="">
                                                 <table
                                                 class="table table-responsive table-bordered border-dark mt-2 text-center">
@@ -102,6 +32,8 @@
                                                         <th scope="col">Nombre de cancha</th>
                                                      
                                                         <th scope="col">disponibilidad</th>
+                                                        <th scope="col">Rango Horario</th>
+                                                        <th scope="col">Opciones</th>
 
                                                     </tr>
                                                 </thead>
@@ -110,6 +42,8 @@
                                                         <td>{{cancha.name}}</td>
                                                         <td *ngIf="cancha.disponibilidad==true">Disponible</td>
                                                         <td *ngIf="!cancha.disponibilidad==true">NO Disponible</td>
+                                                        <td>1 hora</td>
+                                                        <td><button type="button" class="btn btn-warning">Deshabilitar</button> <button type="button" class="btn btn-danger  ml-2 mt-1">Eliminar</button></td>
                                                     </tr>
                                                     
                                                 </tbody>
@@ -117,92 +51,73 @@
                                         </div>
                                                 
                                             </div>
+                                            
                                             <div class="col">
-                                                <form #horariocanchaForm="ngForm" (ngSubmit)="addHoraCancha(horariocanchaForm)"
+                                                <form #canchaForm="ngForm" (ngSubmit)="addCancha(canchaForm)"
                                                 class="row g-3 mb-3 ">
                                                 <input type="hidden" name="_id"
-                                                    [(ngModel)]="horariocanchaService.selectedHorarioCancha._id">
-                                            
-                                                <div class="col-12">
-                                                    <label for="inputOcupacion" class="form-label">Horario</label>
-                                                        <select class="form-select" aria-label="Default select example"
-                                                        name="horario"
-                                                        [(ngModel)]="horariocanchaService.selectedHorarioCancha.horario">
+                                                [(ngModel)]="canchasService.selectedCancha._id">
+                                                    <div class="col">
+                                                        <label for="input" class="form-label">Ingrese nombre de nueva cancha</label>
+                                                        <input type="text" class="form-control" name="name"
+                                                        [(ngModel)]="canchasService.selectedCancha.name">
+                                                    </div>
+
+                                                    <div class="col">
+                                                        <label for="inputOcupacion" class="form-label">Seleccione la duracion de la reserva</label>
+                                                            <select class="form-select" aria-label="Default select example"
+                                                            name="">
                                                        
-                                                        <option >09:00-10:00</option>
-                                                        <option >10:00-11:00</option>
-                                                        <option >11:00-12:00</option>
-                                                        <option >12:00-13:00</option>
-                                                        <option >13:00-14:00</option>
-                                                        <option >14:00-15:00</option>
-                                                        <option >15:00-16:00</option>
-                                                        <option >16:00-17:00</option>
-                                                        <option >17:00-18:00</option>
-                                                        <option >18:00-19:00</option>
-                                                        <option >19:00-20:00</option>
-                                                        <option >20:00-21:00</option>
-                                                        <option >21:00-22:00</option>
-                                                    </select>
-                                                </div>
+                                                            <option >1 Hora</option>
+                                                            <option >1:30 Horas</option>
+                                                            
+                                                        </select>
+                                                    </div>
 
-                                                <div class="col-12">
-                                                    <label for="inputOcupacion" class="form-label">Seleccione Dia de
-                                                        La reserva</label>
-                                                        <select class="form-select" aria-label="Default select example"
-                                                        name="dia"
-                                                        [(ngModel)]="horariocanchaService.selectedHorarioCancha.dia">
-                                                   
-                                                        <option >Lunes</option>
-                                                        <option >Martes</option>
-                                                        <option >Miercoles</option>
-                                                        <option >Jueves</option>
-                                                        <option >Viernes</option>
-                                                        <option >Sabado</option>
-                                                        <option >Domingo</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-12">
-                                                    <label for="inputOcupacion" class="form-label">cancha</label>
-                                                    <select class="form-select" aria-label="Default select example"
-                                                        name="canchas"
-                                                        [(ngModel)]="horariocanchaService.selectedHorarioCancha.canchas">
-                                                        <option *ngFor="let cancha of canchasService.cancha | ObjToArray"
-                                                        [ngValue]="cancha._id">{{cancha.name}}</option>
-                                                      
-                                                    </select>
-                                                </div>
-                                                <div class="text-center">
-                                                    <button type="submit" class="btn btn-danger text-uppercase"
-                                                        value="Guardar">Agregar
-                                                       Horario de Cancha</button>
-                                                </div>
-                                            </form>
+                                                    <div class="text-center">
+                                                        <button type="submit"
+                                                        class="btn btn-danger text-uppercase mt-2 text-center">Agregar Cancha</button>
+                                                        </div>  
                                                 
-                                                <div class="col">
-                                                    <table
-                                                        class="table table-responsive table-bordered border-dark mt-2 text-center">
-
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Nombre de cancha</th>
-                                                                <th scope="col">horario</th>
-                                                                <th scope="col">dia</th>
-                                                                <th scope="col">disponibilidad</th>
-
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
-                                                                <td *ngFor="let a of horacancha.canchas">{{a.name}}</td>
-                                                                <td>{{horacancha.horario}}</td>
-                                                                <td>{{horacancha.dia}}</td>
-                                                                <td *ngIf="horacancha.disponibilidad==true">Disponible</td>
-                                                                <td *ngIf="!horacancha.disponibilidad==true">NO Disponible</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                </form>
+                                               
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-lg-6">
+                                                        <h2>Carga masiva de Horas</h2>
+                                                        <form>
+                                                            <div class="col">
+                                                                <label for="inputOcupacion" class="form-label">Seleccione Cancha</label>
+                                                                    <select class="form-select" aria-label="Default select example"
+                                                                    name="">
+                                                               
+                                                                    <option >Cancha 1</option>
+                                                                    <option >Cancha 2</option>
+                                                                    
+                                                                </select>
+                                                            </div>
+                                                            <div class="col">
+                                                                    <label for="input" class="form-label">Ingrese Fecha de inicio</label>
+                                                                    <input type="date" class="form-control" name="FechaInicio">
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="input" class="form-label">Ingrese Fecha de Final</label>
+                                                                <input type="date" class="form-control" name="FechaFinal">
+                                                        </div>
+                                                        <div class="text-center">
+                                                            <button type="submit"
+                                                            class="btn btn-danger text-uppercase mt-2 text-center">Agregar Horarios</button>
+                                                            </div> 
+                                                       
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -210,7 +125,95 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-12 col-lg-3">
+                    <div class="col">
+                        <form #horariocanchaForm="ngForm" (ngSubmit)="addHoraCancha(horariocanchaForm)"
+                        class="row g-3 mb-3 ">
+                        <input type="hidden" name="_id"
+                            [(ngModel)]="horariocanchaService.selectedHorarioCancha._id">
+                    
+                        <div class="col-12">
+                            <label for="inputOcupacion" class="form-label">Horario</label>
+                                <select class="form-select" aria-label="Default select example"
+                                name="horario"
+                                [(ngModel)]="horariocanchaService.selectedHorarioCancha.horario">
+                               
+                                <option >09:00-10:00</option>
+                                <option >10:00-11:00</option>
+                                <option >11:00-12:00</option>
+                                <option >12:00-13:00</option>
+                                <option >13:00-14:00</option>
+                                <option >14:00-15:00</option>
+                                <option >15:00-16:00</option>
+                                <option >16:00-17:00</option>
+                                <option >17:00-18:00</option>
+                                <option >18:00-19:00</option>
+                                <option >19:00-20:00</option>
+                                <option >20:00-21:00</option>
+                                <option >21:00-22:00</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="inputOcupacion" class="form-label">Seleccione Dia de
+                                La reserva</label>
+                                <select class="form-select" aria-label="Default select example"
+                                name="dia"
+                                [(ngModel)]="horariocanchaService.selectedHorarioCancha.dia">
+                           
+                                <option >Lunes</option>
+                                <option >Martes</option>
+                                <option >Miercoles</option>
+                                <option >Jueves</option>
+                                <option >Viernes</option>
+                                <option >Sabado</option>
+                                <option >Domingo</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="inputOcupacion" class="form-label">cancha</label>
+                            <select class="form-select" aria-label="Default select example"
+                                name="canchas"
+                                [(ngModel)]="horariocanchaService.selectedHorarioCancha.canchas">
+                                <option *ngFor="let cancha of canchasService.cancha | ObjToArray"
+                                [ngValue]="cancha._id">{{cancha.name}}</option>
+                              
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-danger text-uppercase"
+                                value="Guardar">Agregar
+                               Horario de Cancha</button>
+                        </div>
+                    </form>
+                        
+                        <div class="col">
+                            <table
+                                class="table table-responsive table-bordered border-dark mt-2 text-center">
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nombre de cancha</th>
+                                        <th scope="col">horario</th>
+                                        <th scope="col">dia</th>
+                                        <th scope="col">disponibilidad</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                        <td *ngFor="let a of horacancha.canchas">{{a.name}}</td>
+                                        <td>{{horacancha.horario}}</td>
+                                        <td>{{horacancha.dia}}</td>
+                                        <td *ngIf="horacancha.disponibilidad==true">Disponible</td>
+                                        <td *ngIf="!horacancha.disponibilidad==true">NO Disponible</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+        
                     <!-- <div class="card">
                         <div class="card-body py-4 px-5">
                             <div class="d-flex align-items-center">

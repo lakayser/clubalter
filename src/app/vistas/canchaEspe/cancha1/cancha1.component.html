@@ -1,0 +1,406 @@
+<div id="app">
+    <!-- <div id="sidebar" class="active">
+        <div class="sidebar-wrapper active">
+            <div class="sidebar-header">
+                <div class="d-flex justify-content-between">
+                    <div class="logo">
+                        <a routerLink="/dashboard"><img src="../../../assets/Logo-Botmila.png" alt="Logo" srcset=""></a>
+                    </div>
+                    <div class="toggler">
+                        <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <ul class="menu">
+                    <li class="sidebar-title">Menu</li>
+
+                    <li class="sidebar-item active">
+                        <a routerLink="/canchasGestion" class='sidebar-link'>
+                            <i class="bi bi-grid-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a routerLink="/canchasReserva" class='sidebar-link'>
+                            <i class="bi bi-stack"></i>
+                            <span>Realizar Reserva</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item ">
+                        <a routerLink="/canchasCRUD" class='sidebar-link'>
+                            <i class="bi bi-stack"></i>
+                            <span>CanchasCrud</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+        </div>
+    </div> -->
+    <app-header></app-header>
+    <div id="main">
+        <div class="page-heading">
+            <h3 class="text-center">Estado de Cancha 1</h3>
+        </div>
+        <div class="page-content">
+            <section class="row">
+                <div class="col">
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="text-center">Estado de Cancha 1</h4>
+                                </div>
+                                <div class="card-body" id="AAA">
+                                    <div id="chart-profile-visit">
+                                        <!--Formulario Agregar-->
+                                        <div class="row align-items-start">
+
+                                          
+
+                                            <div class="col-12 col-sm-12 col-md-4">
+                                                <div class="card mt-2">
+                                                    <div class="card-header">
+                                                        <h4 class="text-center">Lunes</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div id="chart-profile-visit">
+
+                                                           
+                                                                <div class="row justify-content-center">
+                                                                    <div class="">
+                                                                        <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-interval="false" data-bs-ride="carousel">
+                                                                            <div class="carousel-indicators">
+                                                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                                                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                                                                            </div>
+                                                                            <div class="carousel-inner">
+                                                                              <div class="carousel-item active">
+                                                                                <h1 class="text-center">LUNES</h1>
+                                                                                    <table
+                                                                                        class="table table-responsive table-bordered border-dark mt-2 ">
+                                                                                        <thead>
+                                                                                            <tr>
+                                                                                                <th scope="col">
+                                                                                                    Horario
+                                                                                                </th>
+                                                                                                <th scope="col">
+                                                                                                    Disponibilidad
+                                                                                                </th>
+                                                                                                <th>RUT</th>
+                                                                                                <th>Telefono</th>
+                                                                                                <th>Estado Pago</th>
+                                                                                            </tr>
+                                                                                        </thead>
+                                                                                        <ng-container
+                                                                                            *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                                                                            <tbody class="text-center"
+                                                                                                *ngFor=" let a of horacancha.canchas">
+                                                                                                <tr
+                                                                                                    *ngIf="a.name === 'Cancha 1' ">
+
+                                                                                                    <td>{{horacancha.horario}}
+                                                                                                    </td>
+                                                                                                    <td
+                                                                                                        *ngIf="horacancha.disponibilidad==true">
+                                                                                                        Disponible</td>
+                                                                                                    <td
+                                                                                                        *ngIf="!horacancha.disponibilidad==true">
+                                                                                                        NO Disponible
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </ng-container>
+                                                                                    </table>
+                                                                              </div>
+                                                                              <div class="carousel-item">
+                                                                                <h1 class="text-center">MARTES</h1>
+                                                                                <table
+                                                                                    class="table table-responsive table-bordered border-dark mt-2 ">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th scope="col">
+                                                                                                Horario
+                                                                                            </th>
+                                                                                            <th scope="col">
+                                                                                                Disponibilidad
+                                                                                            </th>
+                                                                                            <th>RUT</th>
+                                                                                            <th>Telefono</th>
+                                                                                            <th>Estado Pago</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <ng-container
+                                                                                        *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                                                                        <tbody class="text-center"
+                                                                                            *ngFor=" let a of horacancha.canchas">
+                                                                                            <tr
+                                                                                                *ngIf="a.name === 'Cancha 1' ">
+
+                                                                                                <td>{{horacancha.horario}}
+                                                                                                </td>
+                                                                                                <td
+                                                                                                    *ngIf="horacancha.disponibilidad==true">
+                                                                                                    Disponible</td>
+                                                                                                <td
+                                                                                                    *ngIf="!horacancha.disponibilidad==true">
+                                                                                                    NO Disponible
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </ng-container>
+                                                                                </table>
+                                                                              </div>
+                                                                              <div class="carousel-item">
+                                                                                <h1 class="text-center">MIERCOLES</h1>
+                                                                                <table
+                                                                                    class="table table-responsive table-bordered border-dark mt-2 ">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th scope="col">
+                                                                                                Horario
+                                                                                            </th>
+                                                                                            <th scope="col">
+                                                                                                Disponibilidad
+                                                                                            </th>
+                                                                                            <th>RUT</th>
+                                                                                            <th>Telefono</th>
+                                                                                            <th>Estado Pago</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <ng-container
+                                                                                        *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                                                                        <tbody class="text-center"
+                                                                                            *ngFor=" let a of horacancha.canchas">
+                                                                                            <tr
+                                                                                                *ngIf="a.name === 'Cancha 1' ">
+
+                                                                                                <td>{{horacancha.horario}}
+                                                                                                </td>
+                                                                                                <td
+                                                                                                    *ngIf="horacancha.disponibilidad==true">
+                                                                                                    Disponible</td>
+                                                                                                <td
+                                                                                                    *ngIf="!horacancha.disponibilidad==true">
+                                                                                                    NO Disponible
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </ng-container>
+                                                                                </table>
+                                                                              </div>
+                                                                              <div class="carousel-item">
+                                                                                <h1 class="text-center">JUEVES</h1>
+                                                                                <table
+                                                                                    class="table table-responsive table-bordered border-dark mt-2 ">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th scope="col">
+                                                                                                Horario
+                                                                                            </th>
+                                                                                            <th scope="col">
+                                                                                                Disponibilidad
+                                                                                            </th>
+                                                                                            <th>RUT</th>
+                                                                                            <th>Telefono</th>
+                                                                                            <th>Estado Pago</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <ng-container
+                                                                                        *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                                                                        <tbody class="text-center"
+                                                                                            *ngFor=" let a of horacancha.canchas">
+                                                                                            <tr
+                                                                                                *ngIf="a.name === 'Cancha 1' ">
+
+                                                                                                <td>{{horacancha.horario}}
+                                                                                                </td>
+                                                                                                <td
+                                                                                                    *ngIf="horacancha.disponibilidad==true">
+                                                                                                    Disponible</td>
+                                                                                                <td
+                                                                                                    *ngIf="!horacancha.disponibilidad==true">
+                                                                                                    NO Disponible
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </ng-container>
+                                                                                </table>
+                                                                              </div>
+                                                                              <div class="carousel-item">
+                                                                                <h1 class="text-center">VIERNES</h1>
+                                                                                <table
+                                                                                    class="table table-responsive table-bordered border-dark mt-2 ">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th scope="col">
+                                                                                                Horario
+                                                                                            </th>
+                                                                                            <th scope="col">
+                                                                                                Disponibilidad
+                                                                                            </th>
+                                                                                            <th>RUT</th>
+                                                                                            <th>Telefono</th>
+                                                                                            <th>Estado Pago</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <ng-container
+                                                                                        *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                                                                        <tbody class="text-center"
+                                                                                            *ngFor=" let a of horacancha.canchas">
+                                                                                            <tr
+                                                                                                *ngIf="a.name === 'Cancha 1' ">
+
+                                                                                                <td>{{horacancha.horario}}
+                                                                                                </td>
+                                                                                                <td
+                                                                                                    *ngIf="horacancha.disponibilidad==true">
+                                                                                                    Disponible</td>
+                                                                                                <td
+                                                                                                    *ngIf="!horacancha.disponibilidad==true">
+                                                                                                    NO Disponible
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </ng-container>
+                                                                                </table>
+                                                                              </div>
+                                                                              <div class="carousel-item">
+                                                                                <h1 class="text-center">SABADO</h1>
+                                                                                <table
+                                                                                    class="table table-responsive table-bordered border-dark mt-2 ">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th scope="col">
+                                                                                                Horario
+                                                                                            </th>
+                                                                                            <th scope="col">
+                                                                                                Disponibilidad
+                                                                                            </th>
+                                                                                            <th>RUT</th>
+                                                                                            <th>Telefono</th>
+                                                                                            <th>Estado Pago</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <ng-container
+                                                                                        *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                                                                        <tbody class="text-center"
+                                                                                            *ngFor=" let a of horacancha.canchas">
+                                                                                            <tr
+                                                                                                *ngIf="a.name === 'Cancha 1' ">
+
+                                                                                                <td>{{horacancha.horario}}
+                                                                                                </td>
+                                                                                                <td
+                                                                                                    *ngIf="horacancha.disponibilidad==true">
+                                                                                                    Disponible</td>
+                                                                                                <td
+                                                                                                    *ngIf="!horacancha.disponibilidad==true">
+                                                                                                    NO Disponible
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </ng-container>
+                                                                                </table>
+                                                                              </div>
+                                                                              <div class="carousel-item">
+                                                                                <h1 class="text-center">DOMINGO</h1>
+                                                                                <table
+                                                                                    class="table table-responsive table-bordered border-dark mt-2 ">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th scope="col">
+                                                                                                Horario
+                                                                                            </th>
+                                                                                            <th scope="col">
+                                                                                                Disponibilidad
+                                                                                            </th>
+                                                                                            <th>RUT</th>
+                                                                                            <th>Telefono</th>
+                                                                                            <th>Estado Pago</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <ng-container
+                                                                                        *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                                                                        <tbody class="text-center"
+                                                                                            *ngFor=" let a of horacancha.canchas">
+                                                                                            <tr
+                                                                                                *ngIf="a.name === 'Cancha 1' ">
+
+                                                                                                <td>{{horacancha.horario}}
+                                                                                                </td>
+                                                                                                <td
+                                                                                                    *ngIf="horacancha.disponibilidad==true">
+                                                                                                    Disponible</td>
+                                                                                                <td
+                                                                                                    *ngIf="!horacancha.disponibilidad==true">
+                                                                                                    NO Disponible
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </ng-container>
+                                                                                </table>
+                                                                              </div>
+                                                                            </div>
+                                                                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                                                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                                              <span class="visually-hidden">Previous</span>
+                                                                            </button>
+                                                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                                                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                                              <span class="visually-hidden">Next</span>
+                                                                            </button>
+                                                                          </div>
+                                                                                    
+                                                                            
+                                                                                   
+                                                                               
+                                                                             
+
+                                                                    </div>
+                                                                </div>
+                                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+
+        <footer>
+            <div class="footer clearfix mb-0 text-muted">
+                <div class="float-start">
+                    <p>2022 &copy; Boliot</p>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+</div>
+
+<script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/vendors/apexcharts/apexcharts.js"></script>
+<script src="assets/js/pages/dashboard.js"></script>
+
+<script src="assets/js/mazer.js"></script>

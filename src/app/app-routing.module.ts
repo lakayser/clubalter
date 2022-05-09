@@ -25,6 +25,10 @@ import { OrganizacionesAdminComponent } from './vistaAdmin/organizaciones-admin/
 import { CanchasDashboardComponent } from './vistas/canchas-dashboard/canchas-dashboard.component';
 import { CanchasReservarComponent } from './vistas/canchas-reservar/canchas-reservar.component';
 import { CanchasCrudComponent } from './vistas/canchas-crud/canchas-crud.component';
+import { Cancha1Component } from './vistas/canchaEspe/cancha1/cancha1.component';
+import { Cancha2Component } from './vistas/canchaEspe/cancha2/cancha2.component';
+import { Cancha3Component } from './vistas/canchaEspe/cancha3/cancha3.component';
+import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -46,6 +50,10 @@ const routes: Routes = [
   {path: 'canchasGestion', component:CanchasDashboardComponent},
   {path: 'canchasReserva', component:CanchasReservarComponent},
   {path: 'canchasCRUD', component:CanchasCrudComponent},
+  {path: 'cancha1', component:Cancha1Component},
+  {path: 'cancha2', component:Cancha2Component},
+  {path: 'cancha3', component:Cancha3Component},
+  {path: 'vistaSemana', component:VistaSemanaComponent},
 
 
 

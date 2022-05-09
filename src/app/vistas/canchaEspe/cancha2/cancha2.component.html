@@ -40,99 +40,37 @@
         </div>
     </div> -->
     <app-header></app-header>
-    <div id="">
-
+    <div id="main">
         <div class="page-heading">
-            <h3 class="text-center">Estado de Canchas hoy</h3>
+            <h3 class="text-center">Estado de Cancha 2</h3>
         </div>
-
         <div class="page-content">
-
-
             <section class="row">
-
                 <div class="col">
-
-
                     <div class="row align-items-start">
-
                         <div class="col">
-
                             <div class="card">
-
                                 <div class="card-header">
-                                    <h4 class="text-center">Horarios Disponibles</h4>
+                                    <h4 class="text-center">Estado de Cancha 2</h4>
                                 </div>
-
                                 <div class="card-body" id="AAA">
-
                                     <div id="chart-profile-visit">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col">
-
+                                        <!--Formulario Agregar-->
+                                        <div class="row align-items-start">
+                                            <div class="co-5">
+                                                <div class="col-5">
                                                     <div class="card mt-2">
                                                         <div class="card-header">
-                                                            <h4 class="text-center">Cancha 1</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div id="chart-profile-visit">
-
-                                                                <div class="table-responsive-md">
-                                                                    <div class="scrollable">
-                                                                        <table
-                                                                            class="table table-bordered border-dark table-hover text-center">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">
-                                                                                        Horario
-                                                                                    </th>
-                                                                                    <th scope="col">Disponibilidad
-                                                                                    </th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <ng-container
-                                                                                *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
-                                                                                <tbody class="text-center"
-                                                                                    *ngFor=" let a of horacancha.canchas">
-                                                                                    <tr *ngIf="a.name === 'Cancha 1' ">
-
-                                                                                        <td>{{horacancha.horario}}
-                                                                                        </td>
-                                                                                        <td
-                                                                                            *ngIf="horacancha.disponibilidad==true">
-                                                                                            Disponible</td>
-                                                                                        <td
-                                                                                            *ngIf="!horacancha.disponibilidad==true">
-                                                                                            NO Disponible</td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </ng-container>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col">
-
-                                                </div>
-                                                <div class="col">
-                                                    <div class="card mt-2">
-                                                        <div class="card-header">
-                                                            <h4 class="text-center">Cancha 2</h4>
+                                                            <h4 class="text-center">Lunes</h4>
                                                         </div>
                                                         <div class="card-body">
                                                             <div id="chart-profile-visit">
 
                                                                 <div class="">
                                                                     <div class="row justify-content-center">
-                                                                               <div class="table-responsive-md">
-                                                                    <div class="scrollable">
-                                                                        <table
-                                                                            class="table table-bordered border-dark table-hover text-center">
+                                                                        <div class="">
+                                                                            <table
+                                                                                class="table table-responsive table-bordered border-dark mt-2 ">
                                                                                 <thead>
                                                                                     <tr>
                                                                                         <th scope="col">
@@ -147,7 +85,7 @@
                                                                                     <tbody class="text-center"
                                                                                         *ngFor=" let a of horacancha.canchas">
                                                                                         <tr
-                                                                                            *ngIf="a.name === 'Cancha 2' ">
+                                                                                            *ngIf="a.name === 'Cancha 1' ">
 
                                                                                             <td>{{horacancha.horario}}
                                                                                             </td>
@@ -161,7 +99,6 @@
                                                                                     </tbody>
                                                                                 </ng-container>
                                                                             </table>
-                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -171,7 +108,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -193,11 +129,3 @@
         </footer>
     </div>
 </div>
-
-<script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-
-<script src="assets/vendors/apexcharts/apexcharts.js"></script>
-<script src="assets/js/pages/dashboard.js"></script>
-
-<script src="assets/js/mazer.js"></script>
