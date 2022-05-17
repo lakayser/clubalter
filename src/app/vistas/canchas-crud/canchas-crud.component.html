@@ -1,14 +1,14 @@
-<div id="app">
+<div id="">
     <!-- Navbar -->
 
     <!-- fin de navbar -->
-    <app-header></app-header>
+  
 
     <div id="">
      
         <div class="page-content">
             <section class="row">
-                <div class="col-12 col-lg-9">
+                <div class="col-12 col-lg-12">
 
                     <div class="row  justify-content-center">
                         <div class="col-12">
@@ -126,110 +126,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-3">
-                    <div class="col">
-                        <form #horariocanchaForm="ngForm" (ngSubmit)="addHoraCancha(horariocanchaForm)"
-                        class="row g-3 mb-3 ">
-                        <input type="hidden" name="_id"
-                            [(ngModel)]="horariocanchaService.selectedHorarioCancha._id">
-                    
-                        <div class="col-12">
-                            <label for="inputOcupacion" class="form-label">Horario</label>
-                                <select class="form-select" aria-label="Default select example"
-                                name="horario"
-                                [(ngModel)]="horariocanchaService.selectedHorarioCancha.horario">
-                               
-                                <option >09:00-10:00</option>
-                                <option >10:00-11:00</option>
-                                <option >11:00-12:00</option>
-                                <option >12:00-13:00</option>
-                                <option >13:00-14:00</option>
-                                <option >14:00-15:00</option>
-                                <option >15:00-16:00</option>
-                                <option >16:00-17:00</option>
-                                <option >17:00-18:00</option>
-                                <option >18:00-19:00</option>
-                                <option >19:00-20:00</option>
-                                <option >20:00-21:00</option>
-                                <option >21:00-22:00</option>
-                            </select>
-                        </div>
-
-                        <div class="col-12">
-                            <label for="inputOcupacion" class="form-label">Seleccione Dia de
-                                La reserva</label>
-                                <select class="form-select" aria-label="Default select example"
-                                name="dia"
-                                [(ngModel)]="horariocanchaService.selectedHorarioCancha.dia">
-                           
-                                <option >Lunes</option>
-                                <option >Martes</option>
-                                <option >Miercoles</option>
-                                <option >Jueves</option>
-                                <option >Viernes</option>
-                                <option >Sabado</option>
-                                <option >Domingo</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <label for="inputOcupacion" class="form-label">cancha</label>
-                            <select class="form-select" aria-label="Default select example"
-                                name="canchas"
-                                [(ngModel)]="horariocanchaService.selectedHorarioCancha.canchas">
-                                <option *ngFor="let cancha of canchasService.cancha | ObjToArray"
-                                [ngValue]="cancha._id">{{cancha.name}}</option>
-                              
-                            </select>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-danger text-uppercase"
-                                value="Guardar">Agregar
-                               Horario de Cancha</button>
-                        </div>
-                    </form>
-                        
-                        <div class="col">
-                            <table
-                                class="table table-responsive table-bordered border-dark mt-2 text-center">
-
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Nombre de cancha</th>
-                                        <th scope="col">horario</th>
-                                        <th scope="col">dia</th>
-                                        <th scope="col">disponibilidad</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
-                                        <td *ngFor="let a of horacancha.canchas">{{a.name}}</td>
-                                        <td>{{horacancha.horario}}</td>
-                                        <td>{{horacancha.dia}}</td>
-                                        <td *ngIf="horacancha.disponibilidad==true">Disponible</td>
-                                        <td *ngIf="!horacancha.disponibilidad==true">NO Disponible</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-        
-                    <!-- <div class="card">
-                        <div class="card-body py-4 px-5">
-                            <div class="d-flex align-items-center">
-                                <div class="avatar avatar-xl">
-                                    <img src="assets/images/faces/1.jpg" alt="Face 1">
-                                </div>
-                                <div class="ms-3 name" *ngFor="let nombre of usuariosService.nombre | ObjToArray">
-                                    <h5 class="font-bold">{{ nombre.nameUser }}</h5>
-                                    <h6 class="text-muted mb-0">Centro Medico Suyai</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                  
-                </div>
+               
             </section>
         <!-- </div>
         <div class="page-content">

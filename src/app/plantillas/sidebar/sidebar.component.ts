@@ -7,6 +7,8 @@ import{MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 
+import { ApiService } from '../../servicios/api/api.service';
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -17,19 +19,9 @@ export class SidebarComponent implements OnInit {
   @ViewChild(MatSidenav)
  sidenav!: MatSidenav;
 
-  constructor(private observer: BreakpointObserver) {}
+  constructor(private observer: BreakpointObserver, public apiService: ApiService) {}
 
-  ngAfterViewInit() {
-    this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
-      if (res.matches) {
-        this.sidenav.mode = 'over';
-        this.sidenav.close();
-      } else {
-        this.sidenav.mode = 'side';
-        this.sidenav.open();
-      }
-    });
-  }
+  
 
 
   ngOnInit(): void {
