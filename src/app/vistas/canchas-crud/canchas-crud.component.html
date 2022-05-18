@@ -2,10 +2,10 @@
     <!-- Navbar -->
 
     <!-- fin de navbar -->
-  
+
 
     <div id="">
-     
+
         <div class="page-content">
             <section class="row">
                 <div class="col-12 col-lg-12">
@@ -20,69 +20,89 @@
                                     <div id="chart-profile-visit">
                                         <!--Formulario Agregar-->
                                         <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-sm-6">
-                                                
-                                                <div class="">
-                                                <table
-                                                class="table table-responsive table-bordered border-dark mt-2 text-center">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-sm-6">
 
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Nombre de cancha</th>
-                                                     
-                                                        <th scope="col">disponibilidad</th>
-                                                        <th scope="col">Rango Horario</th>
-                                                        <th scope="col">Opciones</th>
+                                                    <div class="table-responsive-md">
+                                                        <div class="scrollable">
+                                                            <table
+                                                                class="table table-bordered border-dark mt-2 text-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Nombre de cancha</th>
 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr *ngFor="let cancha of canchasService.cancha | ObjToArray">
-                                                        <td>{{cancha.name}}</td>
-                                                        <td *ngIf="cancha.disponibilidad==true">Disponible</td>
-                                                        <td *ngIf="!cancha.disponibilidad==true">NO Disponible</td>
-                                                        <td>1 hora</td>
-                                                        <td><button type="button" class="btn btn-warning">Deshabilitar</button> <button type="button" class="btn btn-danger  ml-2 mt-1">Eliminar</button></td>
-                                                    </tr>
-                                                    
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                                
-                                            </div>
-                                            
-                                            <div class="col">
-                                                <form #canchaForm="ngForm" (ngSubmit)="addCancha(canchaForm)"
-                                                class="row g-3 mb-3 ">
-                                                <input type="hidden" name="_id"
-                                                [(ngModel)]="canchasService.selectedCancha._id">
-                                                    <div class="col">
-                                                        <label for="input" class="form-label">Ingrese nombre de nueva cancha</label>
-                                                        <input type="text" class="form-control" name="name"
-                                                        [(ngModel)]="canchasService.selectedCancha.name">
+                                                                        <th scope="col">disponibilidad</th>
+                                                                        <th scope="col">Rango Horario</th>
+                                                                        <th scope="col">Opciones</th>
+
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr
+                                                                        *ngFor="let cancha of canchasService.cancha | ObjToArray">
+                                                                        <td>{{cancha.name}}</td>
+                                                                        <td *ngIf="cancha.disponibilidad==true">
+                                                                            Disponible
+                                                                        </td>
+                                                                        <td *ngIf="!cancha.disponibilidad==true">NO
+                                                                            Disponible</td>
+                                                                        <td>1 hora</td>
+                                                                        <td><button type="button"
+                                                                                class="btn btn-warning"><span
+                                                                                    class="material-icons">
+                                                                                    report_problem
+                                                                                </span>
+
+                                                                                Deshabilitar</button> <button
+                                                                                type="button"
+                                                                                class="btn btn-danger  ml-2 mt-1"> <span
+                                                                                    class="material-icons">
+                                                                                    delete
+                                                                                </span>
+                                                                                Eliminar</button></td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
 
-                                                    <div class="col">
-                                                        <label for="inputOcupacion" class="form-label">Seleccione la duracion de la reserva</label>
-                                                            <select class="form-select" aria-label="Default select example"
-                                                            name="">
-                                                       
-                                                            <option >1 Hora</option>
-                                                            <option >1:30 Horas</option>
-                                                            
-                                                        </select>
-                                                    </div>
+                                                </div>
 
-                                                    <div class="text-center">
-                                                        <button type="submit"
-                                                        class="btn btn-danger text-uppercase mt-2 text-center">Agregar Cancha</button>
-                                                        </div>  
-                                                
-                                                </form>
-                                               
+                                                <div class="col">
+                                                    <form #canchaForm="ngForm" (ngSubmit)="addCancha(canchaForm)"
+                                                        class="row g-3 mb-3 ">
+                                                        <input type="hidden" name="_id"
+                                                            [(ngModel)]="canchasService.selectedCancha._id">
+                                                        <div class="col">
+                                                            <label for="input" class="form-label">Ingrese nombre de
+                                                                nueva cancha</label>
+                                                            <input type="text" class="form-control" name="name"
+                                                                [(ngModel)]="canchasService.selectedCancha.name">
+                                                        </div>
+
+                                                        <div class="col-sm-6">
+                                                            <label for="inputOcupacion" class="form-label">Seleccione la
+                                                                duracion de la reserva</label>
+                                                            <select class="form-select"
+                                                                aria-label="Default select example" name="">
+
+                                                                <option>1 Hora</option>
+                                                                <option>1:30 Horas</option>
+
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="text-center">
+                                                            <button type="submit"
+                                                                class="btn btn-danger text-uppercase mt-2 text-center">Agregar
+                                                                Cancha</button>
+                                                        </div>
+
+                                                    </form>
+
+                                                </div>
                                             </div>
-                                        </div>
                                         </div>
                                         <div>
                                             <div class="container">
@@ -91,28 +111,34 @@
                                                         <h2>Carga masiva de Horas</h2>
                                                         <form>
                                                             <div class="col">
-                                                                <label for="inputOcupacion" class="form-label">Seleccione Cancha</label>
-                                                                    <select class="form-select" aria-label="Default select example"
-                                                                    name="">
-                                                               
-                                                                    <option >Cancha 1</option>
-                                                                    <option >Cancha 2</option>
-                                                                    
+                                                                <label for="inputOcupacion"
+                                                                    class="form-label">Seleccione Cancha</label>
+                                                                <select class="form-select"
+                                                                    aria-label="Default select example" name="">
+
+                                                                    <option>Cancha 1</option>
+                                                                    <option>Cancha 2</option>
+
                                                                 </select>
                                                             </div>
                                                             <div class="col">
-                                                                    <label for="input" class="form-label">Ingrese Fecha de inicio</label>
-                                                                    <input type="date" class="form-control" name="FechaInicio">
+                                                                <label for="input" class="form-label">Ingrese Fecha de
+                                                                    inicio</label>
+                                                                <input type="date" class="form-control"
+                                                                    name="FechaInicio">
                                                             </div>
                                                             <div class="col">
-                                                                <label for="input" class="form-label">Ingrese Fecha de Final</label>
-                                                                <input type="date" class="form-control" name="FechaFinal">
-                                                        </div>
-                                                        <div class="text-center">
-                                                            <button type="submit"
-                                                            class="btn btn-danger text-uppercase mt-2 text-center">Agregar Horarios</button>
-                                                            </div> 
-                                                       
+                                                                <label for="input" class="form-label">Ingrese Fecha de
+                                                                    Final</label>
+                                                                <input type="date" class="form-control"
+                                                                    name="FechaFinal">
+                                                            </div>
+                                                            <div class="text-center">
+                                                                <button type="submit"
+                                                                    class="btn btn-danger text-uppercase mt-2 text-center">Agregar
+                                                                    Horarios</button>
+                                                            </div>
+
                                                         </form>
                                                     </div>
                                                 </div>
@@ -126,9 +152,9 @@
                     </div>
                 </div>
 
-               
+
             </section>
-        <!-- </div>
+            <!-- </div>
         <div class="page-content">
             <section class="row">
                 <div class="col-12 col-lg-9">
@@ -190,22 +216,22 @@
                 </div>
             </section>
         </div> -->
-        <footer>
-            <div class="footer clearfix mb-0 text-muted">
-                <div class="float-start">
-                    <p>2022 &copy; Boliot</p>
-                </div>
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2022 &copy; Boliot</p>
+                    </div>
 
-            </div>
-        </footer>
+                </div>
+            </footer>
+        </div>
+
     </div>
 
-</div>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-<script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="assets/js/pages/dashboard.js"></script>
 
-<script src="assets/vendors/apexcharts/apexcharts.js"></script>
-<script src="assets/js/pages/dashboard.js"></script>
-
-<script src="assets/js/mazer.js"></script>
+    <script src="assets/js/mazer.js"></script>

@@ -1,68 +1,21 @@
 <div id="">
-
-    <!-- Navbar -->
-    <!-- <div id="sidebar" class="active border-right">
-        <div class="sidebar-wrapper active">
-            <div class="sidebar-header">
-                <div class="d-flex justify-content-between">
-                    <div class="logo">
-                        <a routerLink="/dashboard"><img src="../../../assets/Logo-Botmila.png" alt="Logo" srcset=""></a>
-                    </div>
-                    <div class="toggler">
-                        <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="sidebar-menu">
-                <ul class="menu">
-                    <li class="sidebar-title">Menu</li>
-
-                    <li class="sidebar-item ">
-                        <a routerLink="/canchasGestion" class='sidebar-link'>
-                            <i class="bi bi-grid-fill"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item active">
-                        <a routerLink="/canchasReserva" class='sidebar-link'>
-                            <i class="bi bi-stack"></i>
-                            <span>Realizar Reserva</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item ">
-                        <a routerLink="/canchasCRUD" class='sidebar-link'>
-                            <i class="bi bi-stack"></i>
-                            <span>CanchasCrud</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
-        </div>
-    </div> -->
-    <!-- fin de navbar -->
-  
-
     <div id="">
         <div class="page-heading">
             <h3 class="text-center">GESTION DE RESERVAS</h3>
         </div>
         <div class="page-content">
             <section class="row">
-                <div class="col-12 col-lg-12">
+                <div class="col">
 
                     <div class="row  justify-content-center">
-                        <div class="col-12">
+                        <div class="col">
                             <div class="card">
-                                <div class="row align-items-start">
                                     <div class="card-header">
                                         <h4 class="text-center">Horarios Disponibles de Canchas</h4>
                                     </div>
-                                    <div class="container">
+                                    <div class="">
                                         <div class="row">
-
-                                            <div class="col-lg-3 col-sm-3">
+                                            <div class="col-lg-3 col-sm-4">
                                                 <div class="col">
                                                     <div class="card mt-2">
                                                         <div class="card-header">
@@ -95,7 +48,7 @@
                                                                             <div class="table-responsive-md">
                                                                                 <div class="scrollable">
                                                                                     <table
-                                                                                        class="table table-bordered border-dark mt-2 text-center">
+                                                                                        class="table table-bordered border-dark table-hover mt-2 text-center">
                                                                                         <thead>
                                                                                             <tr>
                                                                                                 <th scope="col">
@@ -170,7 +123,7 @@
                                                                             <div class="table-responsive-md">
                                                                             <div class="scrollable">
                                                                             <table
-                                                                                class="table table-bordered border-dark mt-2 text-center">
+                                                                                class="table table-bordered table-hover border-dark mt-2 text-center">
                                                                                 <thead>
                                                                                     <tr>
                                                                                         <th scope="col">
@@ -212,43 +165,38 @@
 
 
                                             <div class="col-lg-6 col-sm-6">
-                                                <div class="card">
+                                                <div class="card mt-2">
                                                     <div class="card-header">
                                                         <h4 class="text-center">Reservar cancha</h4>
                                                     </div>
                                                     <div class="card-body">
-                                                        <div id="chart-profile-visit">
+
                                                             <!--Formulario Agregar-->
-                                                            <div class="row">
-                                                                <div class="col ">
-
-                                                                    <form class="row g-3 mb-3 ">
-
-
-
-
-                                                                        <div class="col-6">
+                                                            <div >
+                                                                <div class="">
+                                                                    <form class="row g-3 mb-3">
+                                                                        <div class="col-md-6">
                                                                             <label for="input" class="form-label">Rut
                                                                                 Del
                                                                                 Cliente</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="rutPaciente">
                                                                         </div>
-                                                                        <div class="col-6">
+                                                                        <div class="col-md-6">
                                                                             <label for="input" class="form-label">Nombre
                                                                                 Del
                                                                                 Cliente</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="nombrePaciente">
                                                                         </div>
-                                                                        <div class="col-6">
+                                                                        <div class="col-md-6">
                                                                             <label for="input" class="form-label">Email
                                                                                 Del
                                                                                 Cliente</label>
                                                                             <input type="text" class="form-control"
                                                                                 name="nombrePaciente">
                                                                         </div>
-                                                                        <div class="col-6">
+                                                                        <div class="col-md-6">
                                                                             <label for="input" class="form-label">Numero
                                                                                 telefonico del
                                                                                 Cliente</label>
@@ -257,7 +205,7 @@
                                                                         </div>
 
 
-                                                                        <div class="col-6 ">
+                                                                        <div class="col-lg-4 col-md-6">
                                                                             <label for="inputOcupacion"
                                                                                 class="form-label">Seleccione Dia de
                                                                                 La reserva</label>
@@ -274,7 +222,7 @@
                                                                                 <option>Domingo</option>
                                                                             </select>
                                                                         </div>
-                                                                        <div class="col-6">
+                                                                        <div class="col-lg-4 col-md-6">
                                                                             <label for="inputOcupacion"
                                                                                 class="form-label">Seleccione
                                                                                 Horario de La reserva</label>
@@ -289,7 +237,7 @@
                                                                                 <option>13:00-14:00</option>
                                                                             </select>
                                                                         </div>
-                                                                        <div class="col-6">
+                                                                        <div class="col-lg-4 col-md-6">
                                                                             <label for="inputOcupacion"
                                                                                 class="form-label">Seleccione Cancha
                                                                                 para reservar</label>
@@ -313,7 +261,7 @@
                                                                 </div>
 
                                                             </div>
-                                                        </div>
+                                                       
                                                     </div>
                                                 </div>
                                             </div>
@@ -322,7 +270,7 @@
 
 
 
-                                </div>
+                              
                             </div>
                         </div>
                     </div>
