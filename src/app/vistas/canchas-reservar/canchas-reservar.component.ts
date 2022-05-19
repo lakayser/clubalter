@@ -11,7 +11,8 @@ import { CanchasService } from 'src/app/servicios/canchas.service';
 })
 export class CanchasReservarComponent implements OnInit {
   constructor(public usuariosService:UsuariosService, public horastomadasService:HorastomadasService,public horariocanchaService: HorarioCanchaService, public canchasService:CanchasService) { }
-
+  disponible="table-success";
+  noDisponible="table-danger";
   ngOnInit(): void {
     this.getHoraTomada();
     this.getHoraCancha();

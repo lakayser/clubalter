@@ -48,36 +48,61 @@
                                                                             <div class="table-responsive-md">
                                                                                 <div class="scrollable">
                                                                                     <table
-                                                                                        class="table table-bordered border-dark table-hover mt-2 text-center">
-                                                                                        <thead>
-                                                                                            <tr>
-                                                                                                <th scope="col">
-                                                                                                    Horario
-                                                                                                </th>
-                                                                                                <th scope="col">Dia</th>
-                                                                                            </tr>
-                                                                                        </thead>
-
-                                                                                        <ng-container
-                                                                                            *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
-                                                                                            <tbody class="text-center"
-                                                                                                *ngFor=" let a of horacancha.canchas">
-                                                                                                <tr
-                                                                                                    *ngIf="a.name === 'Cancha 1' ">
-
-                                                                                                    <td>{{horacancha.horario}}
-                                                                                                    </td>
-                                                                                                    <td
-                                                                                                        *ngIf="horacancha.disponibilidad==true">
-                                                                                                        Disponible</td>
-                                                                                                    <td
-                                                                                                        *ngIf="!horacancha.disponibilidad==true">
-                                                                                                        NO Disponible
-                                                                                                    </td>
-                                                                                                </tr>
-                                                                                            </tbody>
-                                                                                        </ng-container>
-                                                                                    </table>
+                                                                                    class="table table-bordered border-dark table-hover mt-2 text-center">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th scope="col">
+                                                                                                Horario
+                                                                                            </th>
+                                                                                            <th scope="col">Disponibilidad
+                                                                                            </th>
+                                                                                        </tr>
+                                                                                    </thead>
+        
+                                                                                    <ng-container
+                                                                                        *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+        
+                                                                                        <tbody class="text-center"
+                                                                                            *ngFor=" let a of horacancha.canchas">
+                                                                                            <ng-container
+                                                                                                *ngIf="horacancha.disponibilidad==true">
+                                                                                                <ng-container *ngIf="a.name === 'Cancha 1' "
+                                                                                                    >
+                                                                                                    <tr
+                                                                                                    class={{disponible}} >
+        
+                                                                                                        <td>{{horacancha.horario}}
+                                                                                                        </td>
+                                                                                                        <td
+                                                                                                            *ngIf="horacancha.disponibilidad==true">
+                                                                                                            disponible</td>
+                                                                                                        <td
+                                                                                                            *ngIf="!horacancha.disponibilidad==true">
+                                                                                                            NO Disponible</td>
+                                                                                                    </tr>
+                                                                                                </ng-container>
+                                                                                            </ng-container>
+                                                                                            <ng-container
+                                                                                                *ngIf="!horacancha.disponibilidad==true">
+                                                                                                <ng-container *ngIf="a.name === 'Cancha 1' ">
+                                                                                                    <tr
+                                                                                                        
+                                                                                                    class={{noDisponible}}>
+        
+                                                                                                        <td>{{horacancha.horario}}
+                                                                                                        </td>
+                                                                                                        <td
+                                                                                                            *ngIf="horacancha.disponibilidad==true">
+                                                                                                            Disponible</td>
+                                                                                                        <td
+                                                                                                            *ngIf="!horacancha.disponibilidad==true">
+                                                                                                            NO Disponible</td>
+                                                                                                    </tr>
+                                                                                                </ng-container>
+                                                                                            </ng-container>
+                                                                                        </tbody>
+                                                                                    </ng-container>
+                                                                                </table>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -134,23 +159,46 @@
                                                                                 </thead>
 
                                                                                 <ng-container
-                                                                                    *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
-                                                                                    <tbody class="text-center"
-                                                                                        *ngFor=" let a of horacancha.canchas">
-                                                                                        <tr
-                                                                                            *ngIf="a.name === 'Cancha 2' ">
+                                                                                        *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
+                                                                                        <tbody class="text-center"
+                                                                                            *ngFor=" let a of horacancha.canchas">
+                                                                                            <ng-container
+                                                                                            *ngIf="horacancha.disponibilidad==true">
+                                                                                            <ng-container *ngIf="a.name === 'Cancha 2'">
+                                                                                                <tr
+                                                                                                class={{disponible}} >
+    
+                                                                                                    <td>{{horacancha.horario}}
+                                                                                                    </td>
+                                                                                                    <td
+                                                                                                        *ngIf="horacancha.disponibilidad==true">
+                                                                                                        disponible</td>
+                                                                                                    <td
+                                                                                                        *ngIf="!horacancha.disponibilidad==true">
+                                                                                                        NO Disponible</td>
+                                                                                                </tr>
+                                                                                            </ng-container>
+                                                                                        </ng-container>
+                                                                                        <ng-container
+                                                                                        *ngIf="!horacancha.disponibilidad==true">
+                                                                                        <ng-container *ngIf="a.name === 'Cancha 2' "
+                                                                                            >
+                                                                                            <tr
+                                                                                            class={{noDisponible}} >
 
-                                                                                            <td>{{horacancha.horario}}
-                                                                                            </td>
-                                                                                            <td
-                                                                                                *ngIf="horacancha.disponibilidad==true">
-                                                                                                Disponible</td>
-                                                                                            <td
-                                                                                                *ngIf="!horacancha.disponibilidad==true">
-                                                                                                NO Disponible</td>
-                                                                                        </tr>
-                                                                                    </tbody>
-                                                                                </ng-container>
+                                                                                                <td>{{horacancha.horario}}
+                                                                                                </td>
+                                                                                                <td
+                                                                                                    *ngIf="horacancha.disponibilidad==true">
+                                                                                                    disponible</td>
+                                                                                                <td
+                                                                                                    *ngIf="!horacancha.disponibilidad==true">
+                                                                                                    NO Disponible</td>
+                                                                                            </tr>
+                                                                                        </ng-container>
+                                                                                    </ng-container>
+                                                                                        </tbody>
+                                                                                    </ng-container>
                                                                             </table>
                                                                             </div>
                                                                             </div>

@@ -13,6 +13,9 @@ import { HorastomadasService } from 'src/app/servicios/horastomadas.service';
 export class CanchasDashboardComponent implements OnInit {
 
   constructor(public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService, public horastomadasService:HorastomadasService) { }
+  
+  disponible="table-success";
+  noDisponible="table-danger";
 
   ngOnInit(): void {
     this.getHoraTomada();

@@ -161,7 +161,7 @@ label #btnsid{
     }
 
     #wrapper.toggled #page-content-wrapper {
-        position: fixed;
+        position: absolute;
         margin-right: 0;
         height: 100vh;
     }
