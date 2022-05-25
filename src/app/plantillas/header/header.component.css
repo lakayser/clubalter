@@ -38,3 +38,7 @@ a:hover{
 .stat{
     border-right: 1px solid #efefef;
 }
+span {
+    display: inline-flex;
+    vertical-align: middle;
+  }

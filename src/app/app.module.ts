@@ -50,6 +50,7 @@ import { Cancha2Component } from './vistas/canchaEspe/cancha2/cancha2.component'
 import { Cancha3Component } from './vistas/canchaEspe/cancha3/cancha3.component';
 import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
 
+
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 const materialModules = [
@@ -95,6 +96,7 @@ const materialModules = [
     
     
     
+    
   
     // LoginComponent,
     // DashboardComponent
@@ -116,7 +118,8 @@ const materialModules = [
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+  
     
   ],
   exports: [

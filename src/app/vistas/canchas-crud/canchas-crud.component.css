@@ -4,5 +4,7 @@ span {
 }
 .scrollable{
     height: 400px;
-    overflow: scroll;
+    overflow: auto;
+    position: relative;
+    
 }

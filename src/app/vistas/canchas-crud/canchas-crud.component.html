@@ -30,6 +30,7 @@
 
                                                                         <th scope="col">disponibilidad</th>
                                                                         <th scope="col">Rango Horario</th>
+                                                                        <th scope="col">Valor Reserva</th>
                                                                         <th scope="col">Opciones</th>
 
                                                                     </tr>
@@ -43,7 +44,8 @@
                                                                         </td>
                                                                         <td *ngIf="!cancha.disponibilidad==true">NO
                                                                             Disponible</td>
-                                                                        <td>1 hora</td>
+                                                                        <td>{{cancha.rangoHorario}}</td>
+                                                                        <td>{{cancha.precio}}</td>
                                                                         <td><button type="button"
                                                                                 class="btn btn-warning"><span
                                                                                     class="material-icons">
@@ -82,10 +84,12 @@
                                                             <label for="inputOcupacion" class="form-label">Seleccione la
                                                                 duracion de la reserva</label>
                                                             <select class="form-select"
-                                                                aria-label="Default select example" name="">
+                                                                aria-label="Default select example" name="rangoHorario" 
+                                                                [(ngModel)]="canchasService.selectedCancha.rangohorario">
 
-                                                                <option>1 Hora</option>
-                                                                <option>1:30 Horas</option>
+                                                                <option value="1">1 Hora</option>
+                                                                <option value="2">1:30 Horas</option>
+                                                                <option value="3">2 Horas</option>
 
                                                             </select>
                                                         </div>
@@ -106,8 +110,8 @@
                                                 <div class="row">
                                                     <div class="col-sm-6 col-lg-6">
                                                         <h2>Carga masiva de Horas</h2>
-                                                        <form>
-                                                            <div class="col">
+                                                        <form #horamasivaForm="ngForm" (ngSubmit)="addHorasMasiva(horamasivaForm)">
+                                                            <!-- <div class="col">
                                                                 <label for="inputOcupacion"
                                                                     class="form-label">Seleccione Cancha</label>
                                                                 <select class="form-select"
@@ -117,18 +121,34 @@
                                                                     <option>Cancha 2</option>
 
                                                                 </select>
+                                                            </div> -->
+                                                            <div class="col">
+                                                                <label for="inputcancha" class="form-label">Seleccione Cancha</label>
+                                                                <select class="form-select" aria-label="Default select example"
+                                                                    name="canchaId"
+                                                                    [(ngModel)]="horasmasivasService.selectedHorasMasivas.cancha">
+        
+                                                                    <option
+                                                                    *ngFor="let cancha of canchasService.cancha | ObjToArray"
+                                                                        [ngValue]="cancha._id">{{cancha.name}}</option>
+                                                                </select>
                                                             </div>
                                                             <div class="col">
                                                                 <label for="input" class="form-label">Ingrese Fecha de
                                                                     inicio</label>
-                                                                <input type="date" class="form-control"
-                                                                    name="FechaInicio">
+                                                                <input type="date" class="form-control" 
+                                                                    name="horaComienzo"[(ngModel)]="horasmasivasService.selectedHorasMasivas.horacomienzo" >
                                                             </div>
                                                             <div class="col">
                                                                 <label for="input" class="form-label">Ingrese Fecha de
                                                                     Final</label>
                                                                 <input type="date" class="form-control"
-                                                                    name="FechaFinal">
+                                                                    name="horaTermino" [(ngModel)]="horasmasivasService.selectedHorasMasivas.horatermino" >
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="input" class="form-label">Ingrese precio de las horas</label>
+                                                                <input type="number" class="form-control"
+                                                                    name="precio" [(ngModel)]="horasmasivasService.selectedHorasMasivas.precio" >
                                                             </div>
                                                             <div class="text-center">
                                                                 <button type="submit"

@@ -11,7 +11,8 @@ export class CanchasService {
   selectedCancha: Cancha = {
     _id: '',
     name: '',
-    disponibilidad: ''
+    disponibilidad: '',
+    rangohorario: ''
   };
   cancha: Cancha[];
 

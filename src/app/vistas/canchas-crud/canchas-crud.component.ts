@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CanchasService } from 'src/app/servicios/canchas.service';
 import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service'
+import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
+
 
 @Component({
   selector: 'app-canchas-crud',
@@ -10,13 +12,13 @@ import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service'
 })
 export class CanchasCrudComponent implements OnInit {
 
-  constructor(public canchasService: CanchasService, public horariocanchaService: HorarioCanchaService) { }
+  constructor(public canchasService: CanchasService, public horariocanchaService: HorarioCanchaService, public horasmasivasService: HorasmasivasService) { }
 
   ngOnInit(): void {
     this.getCanchas();
     this.getHoraCancha();
+  
   }
-
   getCanchas(){
     this.canchasService.getCanchas().subscribe((res)=>{
       this.canchasService.cancha= res;
@@ -45,6 +47,12 @@ export class CanchasCrudComponent implements OnInit {
     this.horariocanchaService.getHorarioCancha().subscribe((res)=>{
       this.horariocanchaService.horacancha = res;
       console.log(res);
+    })
+  }
+  addHorasMasiva(form:NgForm){
+    this.horasmasivasService.createHoraMasiva(form.value).subscribe((res)=>{
+      console.log(res);
+      form.reset();
     })
   }
 

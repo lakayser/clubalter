@@ -3,6 +3,8 @@ import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service';
 import { CanchasService } from 'src/app/servicios/canchas.service';
 
 import { HorastomadasService } from 'src/app/servicios/horastomadas.service';
+import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
+import * as moment from 'moment';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { HorastomadasService } from 'src/app/servicios/horastomadas.service';
 })
 export class CanchasDashboardComponent implements OnInit {
 
-  constructor(public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService, public horastomadasService:HorastomadasService) { }
+  constructor(public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService, public horastomadasService:HorastomadasService, public horamasivaService: HorasmasivasService) { }
   
   disponible="table-success";
   noDisponible="table-danger";
@@ -21,6 +23,7 @@ export class CanchasDashboardComponent implements OnInit {
     this.getHoraTomada();
     this.getHoraCancha();
     this.getCanchas();
+    this.getHoraMasiva();
   }
 
   getHoraCancha(){
@@ -44,5 +47,11 @@ export class CanchasDashboardComponent implements OnInit {
     })
   
   }
-
+  getHoraMasiva(){
+    this.horamasivaService.getHorasMasivas().subscribe((res)=>{
+      this.horamasivaService.horamasi = res;
+      console.log(res);
+      
+    })
+  }
 }

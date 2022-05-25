@@ -104,7 +104,47 @@
                                                 </div>
 
                                                 <div class="col">
+                                                    <div class="table-responsive-md">
+                                                        <div class="scrollable">
+                                                            <table
+                                                                class="table table-bordered border-dark table-hover text-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">
+                                                                            Hora comienzo
+                                                                        </th>
+                                                                        <th scope="col">
+                                                                            fecha
+                                                                        </th>
+                                                                        <th scope="col">
+                                                                            dia
+                                                                        </th>
+                                                                        <th scope="col">
+                                                                            cancha
+                                                                        </th>
+                                                                        <th scope="col">
+                                                                            precio
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                             
+                                                                    <tbody class="text-center" *ngFor="let horamasi of horamasivaService.horamasi|ObjToArray">
+                                                                        
+                                                                            <tr>
 
+                                                                                <td>{{horamasi.horario}} </td>
+                                                                                <td >{{horamasi.dia}} </td>
+                                                                                <td >{{horamasi.fecha}} </td>
+                                                                                <td>{{horamasi.cancha}} </td>
+                                                                                <td>{{horamasi.precio}} </td>
+                                                                               
+                                                                               
+                                                                            </tr>
+                                                                    </tbody>
+                                                                
+                                                            </table>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="card mt-2">
