@@ -9,26 +9,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HorasmasivasService {
   URL: string = 'https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
 
+  
   selectedHorasMasivas: HorasMasivas={
-    fecha: '',
-    dia: '',
-    disponibilidad: '',
-    horario: '',
+    _id: '',
     cancha: '',
     precio: '',
     horacomienzo: '',
     horatermino: ''
-  } 
+  };
+
+  
   horamasi: HorasMasivas[];
 
   private httpheaders = new HttpHeaders({'Content-Type' : 'aplication/json'});
   constructor(private http:HttpClient) { }
 
-  getHorasMasivas(){
-    return this.http.get<HorasMasivas[]>(`${this.URL}schedule-list`)
-  }
-
-  createHoraMasiva(horamasi:HorasMasivas){
-    return this.http.post(`${this.URL}generar-horas`,horamasi)
+  createHorasMasivas(horamasi:HorasMasivas){
+    return this.http.post(`${this.URL}generar-horas`, horamasi)
   }
 }

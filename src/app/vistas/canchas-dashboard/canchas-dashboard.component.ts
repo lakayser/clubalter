@@ -3,7 +3,7 @@ import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service';
 import { CanchasService } from 'src/app/servicios/canchas.service';
 
 import { HorastomadasService } from 'src/app/servicios/horastomadas.service';
-import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
+import { CargamasivaService } from 'src/app/servicios/cargamasiva.service';
 import * as moment from 'moment';
 
 
@@ -14,7 +14,7 @@ import * as moment from 'moment';
 })
 export class CanchasDashboardComponent implements OnInit {
 
-  constructor(public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService, public horastomadasService:HorastomadasService, public horamasivaService: HorasmasivasService) { }
+  constructor(public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService, public horastomadasService:HorastomadasService, public cargamasivaService:CargamasivaService) { }
   
   disponible="table-success";
   noDisponible="table-danger";
@@ -23,7 +23,7 @@ export class CanchasDashboardComponent implements OnInit {
     this.getHoraTomada();
     this.getHoraCancha();
     this.getCanchas();
-    this.getHoraMasiva();
+    this.getCargaMasiva();
   }
 
   getHoraCancha(){
@@ -47,9 +47,9 @@ export class CanchasDashboardComponent implements OnInit {
     })
   
   }
-  getHoraMasiva(){
-    this.horamasivaService.getHorasMasivas().subscribe((res)=>{
-      this.horamasivaService.horamasi = res;
+  getCargaMasiva(){
+    this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
+      this.cargamasivaService.cargamasi = res;
       console.log(res);
       
     })

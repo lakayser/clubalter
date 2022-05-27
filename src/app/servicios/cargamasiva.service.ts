@@ -9,18 +9,24 @@ export class CargamasivaService {
   URL: string = 'https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
 
   selectedCargaMasiva: CargaMasiva={
-    horascanchas: '',
+    _id:'',
+    fecha: '',
+    dia: '',
+    disponibilidad: '',
+    horario: '',
     cancha: '',
-    rut: ''
-  };
+    precio: ''
+  } 
 
   cargamasi: CargaMasiva[];
 
 private httpheaders = new HttpHeaders({'Content-Type' : 'aplication/json'});
   constructor(private http:HttpClient) { }
 
-  createCargaMasiva(cargamasi:CargaMasiva){
-    return this.http.post(`${this.URL}add-horas-canchas`, cargamasi)
+  getCargaMasiva(){
+    return this.http.get<CargaMasiva[]>(`${this.URL}schedule-list`)
   }
+
 }
+
 

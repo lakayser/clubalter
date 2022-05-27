@@ -26,12 +26,10 @@ html {
     color: #cccccc;
   }
   
-  
-  
   /* STRUCTURE */
   .fondo{
     background: url(../../../assets/Imagen4.jpg);
-    background-size: 100%;
+    background-size: 100vh
   }
   
   .wrapper {

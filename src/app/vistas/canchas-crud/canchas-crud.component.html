@@ -110,22 +110,11 @@
                                                 <div class="row">
                                                     <div class="col-sm-6 col-lg-6">
                                                         <h2>Carga masiva de Horas</h2>
-                                                        <form #horamasivaForm="ngForm" (ngSubmit)="addHorasMasiva(horamasivaForm)">
-                                                            <!-- <div class="col">
-                                                                <label for="inputOcupacion"
-                                                                    class="form-label">Seleccione Cancha</label>
-                                                                <select class="form-select"
-                                                                    aria-label="Default select example" name="">
-
-                                                                    <option>Cancha 1</option>
-                                                                    <option>Cancha 2</option>
-
-                                                                </select>
-                                                            </div> -->
+                                                        <form #horasmasivasForm="ngForm" (ngSubmit)="addHorasCancha(horasmasivasForm)">
                                                             <div class="col">
                                                                 <label for="inputcancha" class="form-label">Seleccione Cancha</label>
                                                                 <select class="form-select" aria-label="Default select example"
-                                                                    name="canchaId"
+                                                                    name="cancha"
                                                                     [(ngModel)]="horasmasivasService.selectedHorasMasivas.cancha">
         
                                                                     <option
@@ -136,13 +125,13 @@
                                                             <div class="col">
                                                                 <label for="input" class="form-label">Ingrese Fecha de
                                                                     inicio</label>
-                                                                <input type="date" class="form-control" 
+                                                                <input type="text" class="form-control" 
                                                                     name="horaComienzo"[(ngModel)]="horasmasivasService.selectedHorasMasivas.horacomienzo" >
                                                             </div>
                                                             <div class="col">
                                                                 <label for="input" class="form-label">Ingrese Fecha de
                                                                     Final</label>
-                                                                <input type="date" class="form-control"
+                                                                <input type="text" class="form-control"
                                                                     name="horaTermino" [(ngModel)]="horasmasivasService.selectedHorasMasivas.horatermino" >
                                                             </div>
                                                             <div class="col">

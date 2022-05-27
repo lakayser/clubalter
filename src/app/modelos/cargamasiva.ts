@@ -1,5 +1,9 @@
 export interface CargaMasiva{
-   horascanchas: '',
+   _id:'',
+   fecha: '',
+   dia: '',
+   disponibilidad: '',
+   horario: '',
    cancha: '',
-   rut: ''
+   precio: ''
 }

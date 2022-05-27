@@ -16,7 +16,6 @@ export class CanchasCrudComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCanchas();
-    this.getHoraCancha();
   
   }
   getCanchas(){
@@ -34,25 +33,11 @@ export class CanchasCrudComponent implements OnInit {
       
     });
   }
-
-  addHoraCancha(form:NgForm){
-    this.horariocanchaService.createHorarioCancha(form.value).subscribe((res)=>{
+  addHorasCancha(form:NgForm){
+    this.horasmasivasService.createHorasMasivas(form.value).subscribe((res)=>{
       console.log(res);
-      this.getHoraCancha();
       form.reset();
       
-    });
-  }
-  getHoraCancha(){
-    this.horariocanchaService.getHorarioCancha().subscribe((res)=>{
-      this.horariocanchaService.horacancha = res;
-      console.log(res);
-    })
-  }
-  addHorasMasiva(form:NgForm){
-    this.horasmasivasService.createHoraMasiva(form.value).subscribe((res)=>{
-      console.log(res);
-      form.reset();
     })
   }
 

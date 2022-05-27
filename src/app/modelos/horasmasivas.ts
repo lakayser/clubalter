@@ -1,8 +1,5 @@
 export interface HorasMasivas {
-    fecha: '',
-    dia: '',
-    disponibilidad: '',
-    horario: '',
+    _id: '',
     cancha: '',
     precio: '',
     horacomienzo: '',

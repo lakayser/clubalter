@@ -222,89 +222,47 @@
                                                             <!--Formulario Agregar-->
                                                             <div >
                                                                 <div class="">
-                                                                    <form class="row g-3 mb-3">
+                                                                    <!-- <form #horasmasivasForm="ngForm" (ngSubmit)="addHoraCancha(horasmasivasForm)" 
+                                                                    class="row g-3 mb-3">
                                                                         <div class="col-md-6">
                                                                             <label for="input" class="form-label">Rut
                                                                                 Del
                                                                                 Cliente</label>
                                                                             <input type="text" class="form-control"
-                                                                                name="rutPaciente">
+                                                                                name="rut"
+                                                                                [(ngModel)]="horamasivaService.rut">
                                                                         </div>
-                                                                        <div class="col-md-6">
-                                                                            <label for="input" class="form-label">Nombre
-                                                                                Del
-                                                                                Cliente</label>
-                                                                            <input type="text" class="form-control"
-                                                                                name="nombrePaciente">
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <label for="input" class="form-label">Email
-                                                                                Del
-                                                                                Cliente</label>
-                                                                            <input type="text" class="form-control"
-                                                                                name="nombrePaciente">
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <label for="input" class="form-label">Numero
-                                                                                telefonico del
-                                                                                Cliente</label>
-                                                                            <input type="text" class="form-control"
-                                                                                name="nombrePaciente">
-                                                                        </div>
-
-
-                                                                        <div class="col-lg-4 col-md-6">
-                                                                            <label for="inputOcupacion"
-                                                                                class="form-label">Seleccione Dia de
-                                                                                La reserva</label>
-                                                                            <select class="form-select"
-                                                                                aria-label="Default select example"
-                                                                                name="ocupation">
-                                                                                <option>Seleccione Dia</option>
-                                                                                <option>Lunes</option>
-                                                                                <option>Martes</option>
-                                                                                <option>Miercoles</option>
-                                                                                <option>Jueves</option>
-                                                                                <option>Viernes</option>
-                                                                                <option>Sabado</option>
-                                                                                <option>Domingo</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="col-lg-4 col-md-6">
-                                                                            <label for="inputOcupacion"
-                                                                                class="form-label">Seleccione
-                                                                                Horario de La reserva</label>
-                                                                            <select class="form-select"
-                                                                                aria-label="Default select example"
-                                                                                name="ocupation">
-                                                                                <option>Seleccione Horas disponibles
-                                                                                </option>
-                                                                                <option>10:00-11:00</option>
-                                                                                <option>11:00-12:00</option>
-                                                                                <option>12:00-13:00</option>
-                                                                                <option>13:00-14:00</option>
-                                                                            </select>
-                                                                        </div>
+                                                                        
                                                                         <div class="col-lg-4 col-md-6">
                                                                             <label for="inputOcupacion"
                                                                                 class="form-label">Seleccione Cancha
                                                                                 para reservar</label>
                                                                             <select class="form-select"
                                                                                 aria-label="Default select example"
-                                                                                name="ocupation">
-                                                                                <option>Seleccione Cancha</option>
-                                                                                <option>Cancha 1</option>
-                                                                                <option>Cancha 2</option>
+                                                                                name="cancha"
+                                                                                [(ngModel)]="cargamasivaService.selectedCargaMasiva.cancha">
+                                                                                <option
+                                                                     *ngFor="let cancha of canchasService.cancha | ObjToArray"
+                                                                        [ngValue]="cancha._id">{{cancha.name}}</option>
 
                                                                             </select>
                                                                         </div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="input" class="form-label">horacancha</label>
+                                                                            <input type="text" class="form-control"
+                                                                                name="horacanhca"
+                                                                                [(ngModel)]="cargamasivaService.selectedCargaMasiva.horascanchas">
+                                                                        </div>
+                                                                        
+                                                                        
+                                                        
                                                                         <div class="text-center">
                                                                             <button type="submit"
                                                                                 class="btn btn-danger text-uppercase">Agendar
                                                                                 Hora</button>
                                                                         </div>
 
-                                                                    </form>
+                                                                    </form> -->
 
                                                                 </div>
 
