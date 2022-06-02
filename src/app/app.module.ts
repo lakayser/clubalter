@@ -49,6 +49,11 @@ import { Cancha1Component } from './vistas/canchaEspe/cancha1/cancha1.component'
 import { Cancha2Component } from './vistas/canchaEspe/cancha2/cancha2.component';
 import { Cancha3Component } from './vistas/canchaEspe/cancha3/cancha3.component';
 import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
+import { DatepickerDirective } from './directivas/datepicker.directive';
+import { UsermoderatorComponent } from './vistaAdmin/usermoderator/usermoderator.component';
+import { UsercrudModeratorComponent } from './vistas/usercrud-moderator/usercrud-moderator.component';
+import { DashboardProfesorComponent } from './profesor-vista/dashboard-profesor/dashboard-profesor.component';
+import { ClaseCrudComponent } from './profesor-vista/clase-crud/clase-crud.component';
 
 
 // import { LoginComponent } from './vistas/login/login.component';
@@ -93,6 +98,11 @@ const materialModules = [
     Cancha2Component,
     Cancha3Component,
     VistaSemanaComponent,
+    DatepickerDirective,
+    UsermoderatorComponent,
+    UsercrudModeratorComponent,
+    DashboardProfesorComponent,
+    ClaseCrudComponent,
     
     
     

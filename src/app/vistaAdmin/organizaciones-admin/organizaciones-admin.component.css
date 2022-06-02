@@ -1,0 +1,10 @@
+span {
+    display: inline-flex;
+    vertical-align: middle;
+}
+.scrollable{
+    height: 400px;
+    overflow: auto;
+    position: relative;
+    
+}

@@ -129,7 +129,7 @@
                                 </div>
                                 <div class="ms-3 name"  *ngFor="let nombre of usuariosService.nombre | ObjToArray">
                                     <h5 class="font-bold" >{{ nombre.nameUser }}</h5>
-                                    <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
+                                    <h6 class="text-muted mb-0" *ngFor="let a of nombre.organization" >{{ a.name }}</h6>
                                 </div>
                             </div>
                         </div>

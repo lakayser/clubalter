@@ -49,13 +49,13 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
+        <div id="sidebar-wrapper" *ngFor="let nombre of usuariosService.nombre | ObjToArray" >
+            <ul class="sidebar-nav" *ngFor="let a of nombre.organization">
                 <li class="sidebar-brand">
                     <span>nombre de empresa</span>
                 </li>
                 <li class="sidebar-item active">
-                    <a routerLink="/canchasGestion" class='sidebar-link'>
+                    <a *ngIf="a.name === 'canchas el bicho' " routerLink="/canchasGestion" class='sidebar-link'>
                         <i><span class="material-icons">
                                 space_dashboard
                             </span></i>
@@ -63,7 +63,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item ">
-                    <a routerLink="/canchasCRUD" class='sidebar-link'>
+                    <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/canchasCRUD" class='sidebar-link'>
                         <i><span class="material-icons">
                                 sports_tennis
                             </span> </i>
@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a routerLink="/canchasReserva" class='sidebar-link'>
+                    <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/canchasReserva" class='sidebar-link'>
                         <i>
                             <span class="material-icons">
                                 edit_calendar
@@ -80,7 +80,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a routerLink="/vistaSemana" class='sidebar-link'>
+                    <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/vistaSemana" class='sidebar-link'>
                         <span class="material-icons">
                             calendar_month
                             </span>  
@@ -88,7 +88,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a routerLink="/cancha1" class='sidebar-link'>
+                    <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/cancha1" class='sidebar-link'>
                         <i> <span class="material-icons">
                                 stadium
                             </span></i>
@@ -96,11 +96,36 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a routerLink="/cancha2" class='sidebar-link'>
+                    <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/cancha2" class='sidebar-link'>
                         <i><span class="material-icons">
                                 stadium
                             </span></i>
                         <span>Cancha 2</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/usercrudModerator" class='sidebar-link'>
+                        <i><span class="material-icons">
+                                stadium
+                            </span></i>
+                        <span>panel de profesores</span>
+                    </a>
+                </li>
+              
+                <li class="sidebar-item">
+                    <a *ngIf="a.name=== 'Boliot' "  routerLink="/orgaAdmin" class='sidebar-link'>
+                        <i><span class="material-icons">
+                                stadium
+                            </span></i>
+                        <span>Organizaciones</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a *ngIf="a.name=== 'Boliot' "  routerLink="/usermoderator" class='sidebar-link'>
+                        <i><span class="material-icons">
+                                stadium
+                            </span></i>
+                        <span>moderadores</span>
                     </a>
                 </li>
             </ul>

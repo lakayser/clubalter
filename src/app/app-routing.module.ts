@@ -29,6 +29,9 @@ import { Cancha1Component } from './vistas/canchaEspe/cancha1/cancha1.component'
 import { Cancha2Component } from './vistas/canchaEspe/cancha2/cancha2.component';
 import { Cancha3Component } from './vistas/canchaEspe/cancha3/cancha3.component';
 import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
+import { UsermoderatorComponent } from './vistaAdmin/usermoderator/usermoderator.component';
+import { UsercrudModeratorComponent } from './vistas/usercrud-moderator/usercrud-moderator.component';
+import { DashboardProfesorComponent } from './profesor-vista/dashboard-profesor/dashboard-profesor.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -54,6 +57,9 @@ const routes: Routes = [
   {path: 'cancha2', component:Cancha2Component},
   {path: 'cancha3', component:Cancha3Component},
   {path: 'vistaSemana', component:VistaSemanaComponent},
+  {path: 'usermoderator', component:UsermoderatorComponent},
+  {path: 'usercrudModerator', component:UsercrudModeratorComponent},
+  {path: 'dashboardprofe', component:DashboardProfesorComponent},
 
 
 

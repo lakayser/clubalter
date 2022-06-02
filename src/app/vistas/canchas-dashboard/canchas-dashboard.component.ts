@@ -4,6 +4,7 @@ import { CanchasService } from 'src/app/servicios/canchas.service';
 
 import { HorastomadasService } from 'src/app/servicios/horastomadas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 import * as moment from 'moment';
 
 
@@ -14,7 +15,7 @@ import * as moment from 'moment';
 })
 export class CanchasDashboardComponent implements OnInit {
 
-  constructor(public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService, public horastomadasService:HorastomadasService, public cargamasivaService:CargamasivaService) { }
+  constructor(public horariocanchaService: HorarioCanchaService,  public usuariosService:UsuariosService, public canchasService: CanchasService, public horastomadasService:HorastomadasService, public cargamasivaService:CargamasivaService) { }
   
   disponible="table-success";
   noDisponible="table-danger";
@@ -24,6 +25,7 @@ export class CanchasDashboardComponent implements OnInit {
     this.getHoraCancha();
     this.getCanchas();
     this.getCargaMasiva();
+    this.getActivo();
   }
 
   getHoraCancha(){
@@ -51,6 +53,13 @@ export class CanchasDashboardComponent implements OnInit {
     this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
       this.cargamasivaService.cargamasi = res;
       console.log(res);
+      
+    })
+  }
+  getActivo(){
+    this.usuariosService.getActivo().subscribe((resp)=>{
+      this.usuariosService.nombre =resp;
+      console.log('respuesta'+ resp)
       
     })
   }

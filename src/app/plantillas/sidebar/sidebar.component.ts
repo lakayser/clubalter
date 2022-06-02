@@ -1,13 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatSidenav} from '@angular/material/sidenav';
+
 import {BreakpointObserver} from '@angular/cdk/layout'
-import{MatButtonModule} from '@angular/material/button'
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
+
 
 import { ApiService } from '../../servicios/api/api.service';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,16 +12,22 @@ import { ApiService } from '../../servicios/api/api.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  
-  @ViewChild(MatSidenav)
- sidenav!: MatSidenav;
 
-  constructor(private observer: BreakpointObserver, public apiService: ApiService) {}
+  constructor(private observer: BreakpointObserver, public apiService: ApiService, public usuariosService: UsuariosService) {}
 
   
 
 
   ngOnInit(): void {
+    this.getActivo();
+  }
+
+  getActivo(){
+    this.usuariosService.getActivo().subscribe((resp)=>{
+      this.usuariosService.nombre =resp;
+      console.log('respuesta'+ resp)
+      
+    })
   }
   
 }

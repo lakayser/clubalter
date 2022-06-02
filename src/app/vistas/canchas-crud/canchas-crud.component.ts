@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { CanchasService } from 'src/app/servicios/canchas.service';
 import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service'
 import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
+import { CargamasivaService } from 'src/app/servicios/cargamasiva.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
 })
 export class CanchasCrudComponent implements OnInit {
 
-  constructor(public canchasService: CanchasService, public horariocanchaService: HorarioCanchaService, public horasmasivasService: HorasmasivasService) { }
+  constructor(public canchasService: CanchasService, public horariocanchaService: HorarioCanchaService, public horasmasivasService: HorasmasivasService, public cargamasivaService: CargamasivaService) { }
 
   ngOnInit(): void {
     this.getCanchas();

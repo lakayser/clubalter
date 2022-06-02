@@ -1,7 +1,7 @@
 <div id="app">
     <div id="">
         <div class="page-heading text-center">
-            <h3>ADMINISTRADOR</h3>
+            <h3>Colaboradores</h3>
         </div>
         <div class="">
             
@@ -11,7 +11,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="text-center">Agregar Un Nuevo Moderador</h4>
+                                    <h4 class="text-center">Agregar Un Nuevo usuario</h4>
                                 </div>
                                 <div class="card-body">
                                     <div id="chart-profile-visit">
@@ -39,7 +39,20 @@
                                                         <input type="text" class="form-control" name="rut"
                                                             [(ngModel)]="usuariosService.selectedUsuario.ocupation">
                                                     </div> -->
+                                                    <!-- <div class="col-lg-6 col-sm-6">
+                                                        <label for="inputOcupacion"
+                                                            class="form-label">Organizacion</label>
+                                                        <select class="form-select"
+                                                            aria-label="Default select example" name="organization"
+                                                            [(ngModel)]="usuariosService.selectedUsuario.organization">
+                                                            <option
+                                                                *ngFor="let organizaciones of organizationService.organizaciones |ObjToArray"
+                                                                [ngValue]="organizaciones._id">{{organizaciones.name}}</option>
 
+
+                                                        </select>
+
+                                                    </div> -->
                                                         <div class="col-lg-6 col-sm-6">
                                                             <label for="inputOcupacion"
                                                                 class="form-label">Ocupacion</label>
@@ -103,7 +116,7 @@
                         <div class="col">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="text-center">Lista De Especialista</h4>
+                                    <h4 class="text-center">Lista De usuarios</h4>
                                 </div>
                                 <div class="card-body">
                                     <div id="chart-profile-visit">
@@ -158,13 +171,3 @@
                     </div>
 
          
-
-
-
-            <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-            <script src="assets/js/bootstrap.bundle.min.js"></script>
-
-            <script src="assets/vendors/apexcharts/apexcharts.js"></script>
-            <script src="assets/js/pages/dashboard.js"></script>
-
-            <script src="assets/js/mazer.js"></script>

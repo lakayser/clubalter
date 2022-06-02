@@ -40,18 +40,13 @@
         </div>
     </div> -->
     <div id="">
-        <header class="mb-3">
-            <a href="#" class="burger-btn d-block d-xl-none">
-                <i class="bi bi-justify fs-3"></i>
-            </a>
-        </header>
-
         <div class="page-heading">
             <h3>ADMINISTRADOR</h3>
         </div>
+
         <div class="page-content">
-            <section class="row" >
-                <div class="col-12 col-lg-9">
+            <section class="row">
+                <div class="col-12 col-lg-12">
 
                     <div class="row  justify-content-center">
                         <div class="col-12">
@@ -59,125 +54,80 @@
                                 <div class="card-header">
                                     <h4 class="text-center">Agregar Una Nueva Organizacion</h4>
                                 </div>
-                                <div class="card-body" id="AAA">
-                                    <div id="chart-profile-visit">
-                                        <!--Formulario Agregar-->
-                                        <div class="row">
-                                            <div class="col-lg-8 offset-md-2">
-
-                                                <form #organizationForm="ngForm" (ngSubmit)="addOrganization(organizationForm) "
-                                                    class="row g-3 mb-3">
-                                                    <input type="hidden" name="_id"
-                                                        [(ngModel)]="organizationService.selectedOrganization._id">
-                                                    <div class="col-6">
-                                                        <label for="inputName" class="form-label">Nombre</label>
-                                                        <input type="text" class="form-control" name="name"
-                                                            [(ngModel)]="organizationService.selectedOrganization.name">
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <label for="inputRut" class="form-label">Rut</label>
-                                                        <input type="text" class="form-control" name="rut"
-                                                           >
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <label for="inputMail" class="form-label">E-mail</label>
-                                                        <input type="email" class="form-control" name="email"
-                                                            >
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <label for="inputTelefono" class="form-label">Telefono</label>
-                                                        <input type="text" class="form-control" name="telefono"
-                                                            >
-                                                    </div>
-                                                    <div class="col-6 ">
-                                                        <label for="inputDireccion" class="form-label">Direccion</label>
-                                                        <input type="text" class="form-control" name="direccion"
-                                                           >
-                                                    </div>
-                                                    <div class="text-center">
-
-                                                        <button type="submit" class="btn btn-danger text-uppercase"
-                                                            value="Guardar">Agregar
-                                                            Especialista</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-12 col-lg-3">
-                    <div class="card">
-                        <div class="card-body py-4 px-5">
-                            <div class="d-flex align-items-center">
-                                <div class="avatar avatar-xl">
-                                    <img src="assets/images/faces/1.jpg" alt="Face 1">
-                                </div>
-                                <div class="ms-3 name"  *ngFor="let nombre of usuariosService.nombre | ObjToArray">
-                                    <h5 class="font-bold" >{{ nombre.nameUser }}</h5>
-                                    <h6 class="text-muted mb-0">{{ nombre.organization }}</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>TARJETA </h4>
-                        </div>
-                        <div class="card-body">
-                            <div id="chart-visitors-profile"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="page-content">
-            <section class="row">
-                <div class="col-12 col-lg-9">
-
-                    <div class="row  justify-content-center">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="text-center">Lista De Especialista</h4>
-                                </div>
                                 <div class="card-body">
                                     <div id="chart-profile-visit">
-                                      
+                                        <!--Formulario Agregar-->
                                         <div class="container">
-                                            <div class="row justify-content-center">
-                                                <div class="col-lg-11">
-                                                    <table
-                                                        class="table table-responsive table-bordered border-dark mt-2">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Nombre</th>
-<!--                                                               
-                                                                <th scope="col">Rut</th>
+                                            <div class="row">
+                                                
+
+                                                <div class="col-lg-6 col-sm-6">
+                                                    <h1 class="text-center">Registar Nueva Organizacion</h1>
+                                                    <form #organizationForm="ngForm"
+                                                        (ngSubmit)="addOrganization(organizationForm) "
+                                                        class="row g-3 mb-3">
+                                                        <input type="hidden" name="_id"
+                                                            [(ngModel)]="organizationService.selectedOrganization._id">
+                                                        <div class="col">
+                                                            <label for="inputName" class="form-label">Nombre</label>
+                                                            <input type="text" class="form-control" name="name"
+                                                                [(ngModel)]="organizationService.selectedOrganization.name">
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <label for="inputRut" class="form-label">Rut</label>
+                                                            <input type="text" class="form-control" name="rut">
+                                                        </div>
+                                                        <div class="">
+                                                            <label for="inputMail" class="form-label">E-mail</label>
+                                                            <input type="email" class="form-control" name="email">
+                                                        </div>
+                                                        <div class="">
+                                                            <label for="inputTelefono"
+                                                                class="form-label">Telefono</label>
+                                                            <input type="text" class="form-control" name="telefono">
+                                                        </div>
+                                                        <div class="">
+                                                            <label for="inputDireccion"
+                                                                class="form-label">Direccion</label>
+                                                            <input type="text" class="form-control" name="direccion">
+                                                        </div>
+                                                        <div class="text-center">
+
+                                                            <button type="submit" class="btn btn-danger text-uppercase"
+                                                                value="Guardar">Agregar Organizacion</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="col">
+                                                    <h1 class="text-center">Organizaciones Registradas</h1>
+                                                    <div class="table-responsive-md">
+                                                        <div class="scrollable">
+                                                            <table
+                                                                class="table table-bordered table-hover border-dark mt-2 text-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Nombre</th>
+                                                                                                                                    
+                                                                <!-- <th scope="col">Rut</th>
                                                                 <th scope="col">E-mail</th>
                                                                 <th scope="col">Telefono</th>
                                                                 <th scope="col">Direccion</th> -->
-                                                              
-                                                                <th scope="col">Opciones</th>
-                                                            </tr>
-                                                        </thead>
 
-                                                        <tbody>
-                                                            <tr *ngFor="let organizaciones of organizationService.organizaciones">
+                                                                    </tr>
+                                                                </thead>
 
-                                                                <td>{{ organizaciones.name}}</td>
-                                                                <!-- <td>{{ users.rut }}</td>
+                                                                <tbody>
+                                                                    <tr
+                                                                        *ngFor="let organizaciones of organizationService.organizaciones">
+
+                                                                        <td>{{ organizaciones.name}}</td>
+                                                                         <!-- <td>{{ organizaciones.rut }}</td>
                                                                 <td>{{ users.email}}</td>
                                                                 <td>{{ users.telefono }}</td>
-                                                                <td>{{ users.direccion }}</td> -->
-                                                               
+                                                                <td>{{ users.direccion }}</td>  -->
 
-                                                                <!-- <div class="btn-group mr-0" role="group"
+
+                                                                        <!-- <div class="btn-group mr-0" role="group"
                                                                     aria-label="Basic mixed styles example">
                                                                     <button type="button" class="btn btn-primary  mr-2"
                                                                         (click)="editUsuario(users)"> Editar</button>
@@ -185,11 +135,13 @@
                                                                         (click)="deleteUsuario(users._id)">Eliminar</button>
                                                                 </div> -->
 
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -197,27 +149,16 @@
                             </div>
                         </div>
                     </div>
-                   
+
                 </div>
-               
+
             </section>
-            <a aria-current="page"  href="#chart-profile-visit">Subir</a>
         </div>
-         <footer>
-            <div class="footer clearfix mb-0 text-muted">
-                <div class="float-start">
-                    <p>2022 &copy; Boliot</p>
-                </div>
 
-            </div>
-        </footer>
-    </div>
-</div>
+        <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-<script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+        <script src="assets/js/pages/dashboard.js"></script>
 
-<script src="assets/vendors/apexcharts/apexcharts.js"></script>
-<script src="assets/js/pages/dashboard.js"></script>
-
-<script src="assets/js/mazer.js"></script>
+        <script src="assets/js/mazer.js"></script>

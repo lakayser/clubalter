@@ -39,7 +39,20 @@
                                                         <input type="text" class="form-control" name="rut"
                                                             [(ngModel)]="usuariosService.selectedUsuario.ocupation">
                                                     </div> -->
+                                                    <div class="col-lg-6 col-sm-6">
+                                                        <label for="inputOcupacion"
+                                                            class="form-label">Organizacion</label>
+                                                        <select class="form-select"
+                                                            aria-label="Default select example" name="organization"
+                                                            [(ngModel)]="usuariosService.selectedUsuario.organization">
+                                                            <option
+                                                                *ngFor="let organizaciones of organizationService.organizaciones |ObjToArray"
+                                                                [ngValue]="organizaciones._id">{{organizaciones.name}}</option>
 
+
+                                                        </select>
+
+                                                    </div>
                                                         <div class="col-lg-6 col-sm-6">
                                                             <label for="inputOcupacion"
                                                                 class="form-label">Ocupacion</label>
@@ -158,13 +171,3 @@
                     </div>
 
          
-
-
-
-            <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-            <script src="assets/js/bootstrap.bundle.min.js"></script>
-
-            <script src="assets/vendors/apexcharts/apexcharts.js"></script>
-            <script src="assets/js/pages/dashboard.js"></script>
-
-            <script src="assets/js/mazer.js"></script>
