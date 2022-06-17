@@ -49,9 +49,15 @@ import { Cancha1Component } from './vistas/canchaEspe/cancha1/cancha1.component'
 import { Cancha2Component } from './vistas/canchaEspe/cancha2/cancha2.component';
 import { Cancha3Component } from './vistas/canchaEspe/cancha3/cancha3.component';
 import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
+import { PagoComponent } from './pagina/pago/pago.component';
+import { Ng2SearchPipe } from 'ng2-search-filter';
 
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
+import { FilterPipe } from './pipes/filter.pipe';
+
+import { TicketComponent } from './ticket/ticket.component';
+import { CitaComponent } from './cita/cita.component';
 const materialModules = [
   MatDatepickerModule,
   MatNativeDateModule,
@@ -92,6 +98,11 @@ const materialModules = [
     Cancha2Component,
     Cancha3Component,
     VistaSemanaComponent,
+    PagoComponent,
+    FilterPipe,
+
+    TicketComponent,
+      CitaComponent,
     
     
     
