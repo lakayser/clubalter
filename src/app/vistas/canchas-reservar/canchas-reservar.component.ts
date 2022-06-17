@@ -15,14 +15,17 @@ export class CanchasReservarComponent implements OnInit {
   constructor(public cargamasivaService:CargamasivaService, public horasmasivasService: HorasmasivasService ,public horastomadasService:HorastomadasService,public horariocanchaService: HorarioCanchaService, public canchasService:CanchasService) { }
   disponible="table-success";
   noDisponible="table-danger";
+   public horatomada: Array<any> =[]
+
   ngOnInit(): void {
     this.getHoraTomada();
-    this.getHoraCancha();
     this.getCanchas();
+
   }
 
-  addHoraCancha(form:NgForm){
-    this.horasmasivasService.createHorasMasivas(form.value).subscribe((res)=>{
+
+  addReserva(form:NgForm){
+    this.horastomadasService.createHoraTomada(form.value).subscribe((res)=>{
       console.log(res);
       form.reset();
       
@@ -34,13 +37,6 @@ export class CanchasReservarComponent implements OnInit {
       this.cargamasivaService.cargamasi = res;
       console.log(res);
       
-    })
-  }
-
-  getHoraCancha(){
-    this.horariocanchaService.getHorarioCancha().subscribe((res)=>{
-      this.horariocanchaService.horacancha = res;
-      console.log(res);
     })
   }
   getCanchas(){
@@ -59,6 +55,17 @@ getHoraTomada(){
   })
 
 }
+deleteHoraTomada(_id: any){
+  if(confirm('Estas seguro de eliminar esta hora reservada?')){
+    this.horastomadasService.deleteHoraTomada(_id).subscribe(
+      (res)=>{this.getHoraTomada();
+    },
+    (err)=>console.log(err)
+    );
+  }
+}
+
+
  
  // getActivo(){
   //   this.usuariosService.getActivo().subscribe((resp)=>{

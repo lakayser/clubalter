@@ -4,6 +4,7 @@ import { CanchasService } from 'src/app/servicios/canchas.service';
 import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service'
 import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service';
+import { Cancha } from 'src/app/modelos/canchas';
 
 
 @Component({
@@ -27,12 +28,35 @@ export class CanchasCrudComponent implements OnInit {
     })
   }
   addCancha(form:NgForm){
-    this.canchasService.createCancha(form.value).subscribe((res)=>{
-      console.log(res);
-      this.getCanchas();
-      form.reset();
-      
+    if(form.value._id){
+      this.canchasService.putCanchas(form.value).subscribe((res)=>{
+        console.log(res);
+        this.getCanchas();
+        form.reset();
+        
+      });
+    }else{
+      this.canchasService.createCancha(form.value).subscribe((res)=>{
+        console.log(res);
+        this.getCanchas();
+        form.reset();
     });
+    }
+  }
+
+  editCancha(cancha: Cancha){
+    this.canchasService.selectedCancha = cancha;
+  }
+  
+  deleteCancha(_id: any){
+    if(confirm('Esta seguro que desea eliminar esta cancha?')){
+      this.canchasService.deleteCanchas(_id).subscribe(
+        (res)=>{
+          this.getCanchas();
+        },
+        (err)=> console.log(err)
+      );
+    }
   }
   addHorasCancha(form:NgForm){
     this.horasmasivasService.createHorasMasivas(form.value).subscribe((res)=>{

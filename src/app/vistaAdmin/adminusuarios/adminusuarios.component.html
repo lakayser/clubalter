@@ -1,7 +1,7 @@
 <div id="app">
     <div id="">
         <div class="page-heading text-center">
-            <h3>ADMINISTRADOR</h3>
+            <h3>ADMINISTRADhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhOR</h3>
         </div>
         <div class="">
             
@@ -20,7 +20,7 @@
                                             <div class="row justify-content-center">
                                                 <div class="col-lg-8 col-sm-6 ">
 
-                                                    <form #usuarioForm="ngForm" (ngSubmit)="addUsuario(usuarioForm) "
+                                                    <form #moderatorForm="ngForm" (ngSubmit)="addModerator(moderatorForm) "
                                                         class="row g-3 mb-3">
                                                         <input type="hidden" name="_id"
                                                             [(ngModel)]="usuariosService.selectedUsuario._id">
@@ -115,12 +115,12 @@
                                                         <thead>
                                                             <tr>
                                                                 <th scope="col">Nombre</th>
+                                                                <th scope="col">Organizacion</th>
                                                                 <th scope="col">Ocupacion</th>
                                                                 <th scope="col">Rut</th>
                                                                 <th scope="col">E-mail</th>
                                                                 <th scope="col">Telefono</th>
                                                                 <th scope="col">Direccion</th>
-                                                                <th scope="col">Valor Hora</th>
                                                                 <th scope="col">Opciones</th>
                                                             </tr>
                                                         </thead>
@@ -130,12 +130,13 @@
                                                                 *ngFor="let users of usuariosService.users | ObjToArray">
 
                                                                 <td>{{ users.nameUser }}</td>
-                                                                <td *ngFor="let a of users.ocupation">{{ a.name }}</td>
+                                                                <td >{{ users.organization}}</td>
+                                                                <td >{{ users.ocupation }}</td>
                                                                 <td>{{ users.rut }}</td>
                                                                 <td>{{ users.email}}</td>
                                                                 <td>{{ users.telefono }}</td>
                                                                 <td>{{ users.direccion }}</td>
-                                                                <td>{{ users.payment }}</td>
+                                                             
 
                                                                 <div class="btn-group mr-0" role="group"
                                                                     aria-label="Basic mixed styles example">

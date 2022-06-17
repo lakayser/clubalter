@@ -1,4 +1,5 @@
 export interface Organization{
     _id: '',
-    name: ''
+    name: '',
+    estado: ''
 }

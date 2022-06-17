@@ -6,11 +6,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class OrganizationService {
-  URL: string = 'https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
+  URL: string = 'https://botmila-api.herokuapp.com/botmilaAPI/admin/';
 
   selectedOrganization: Organization={
     _id: '',
-    name: ''
+    name: '',
+    estado: ''
   };
   organizaciones: Organization[];
 
@@ -24,8 +25,13 @@ export class OrganizationService {
     return this.http.get<Organization[]>(`${this.URL}list-organization`)
   }
 
-  createOrganization(organization:Organization){
+  createOrganization(organization: Organization){
     return this.http.post(`${this.URL}create-organization`, organization)
   }
-
+  putOrganization(organization:Organization){
+    return this.http.put(`${this.URL}edit-organization/${organization._id}`, organization)
+  }
+  deleteOrganization(id: string){
+    return this.http.delete(`${this.URL}delete-organization/${id}`)
+  }
 }

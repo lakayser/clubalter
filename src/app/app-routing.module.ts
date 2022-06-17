@@ -32,6 +32,7 @@ import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-sem
 import { UsermoderatorComponent } from './vistaAdmin/usermoderator/usermoderator.component';
 import { UsercrudModeratorComponent } from './vistas/usercrud-moderator/usercrud-moderator.component';
 import { DashboardProfesorComponent } from './profesor-vista/dashboard-profesor/dashboard-profesor.component';
+import { ClaseCrudComponent } from './profesor-vista/clase-crud/clase-crud.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -60,6 +61,8 @@ const routes: Routes = [
   {path: 'usermoderator', component:UsermoderatorComponent},
   {path: 'usercrudModerator', component:UsercrudModeratorComponent},
   {path: 'dashboardprofe', component:DashboardProfesorComponent},
+  {path: 'clases-crud', component:ClaseCrudComponent},
+
 
 
 

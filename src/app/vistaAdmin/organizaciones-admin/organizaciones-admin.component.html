@@ -107,6 +107,7 @@
                                                                 <thead>
                                                                     <tr>
                                                                         <th scope="col">Nombre</th>
+                                                                        <th scope="col">Estado</th>
                                                                                                                                     
                                                                 <!-- <th scope="col">Rut</th>
                                                                 <th scope="col">E-mail</th>
@@ -121,19 +122,20 @@
                                                                         *ngFor="let organizaciones of organizationService.organizaciones">
 
                                                                         <td>{{ organizaciones.name}}</td>
+                                                                        <td>{{ organizaciones.estado}}</td>
                                                                          <!-- <td>{{ organizaciones.rut }}</td>
                                                                 <td>{{ users.email}}</td>
                                                                 <td>{{ users.telefono }}</td>
                                                                 <td>{{ users.direccion }}</td>  -->
 
 
-                                                                        <!-- <div class="btn-group mr-0" role="group"
+                                                                        <div class="btn-group mr-0" role="group"
                                                                     aria-label="Basic mixed styles example">
                                                                     <button type="button" class="btn btn-primary  mr-2"
-                                                                        (click)="editUsuario(users)"> Editar</button>
+                                                                        (click)="editOrganization(organizaciones)"> Editar</button>
                                                                     <button type="button" class="btn btn-danger"
-                                                                        (click)="deleteUsuario(users._id)">Eliminar</button>
-                                                                </div> -->
+                                                                        (click)="deleteOrganization(organizaciones._id)">Eliminar</button>
+                                                                </div>
 
                                                                     </tr>
                                                                 </tbody>
@@ -142,6 +144,85 @@
                                                     </div>
                                                 </div>
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="text-center">Agregar Una Especialidad</h4>
+                                    </div>
+                                    <div class="card-body" id="AAA">
+                                        <div id="chart-profile-visit">
+                                            <!--Formulario Agregar-->
+                                            <div class="row align-items-start">
+                                                <div class="col-6">
+                                                    <form #ocupationForm="ngForm" (ngSubmit)="addOcupation(ocupationForm)"
+                                                        class="row g-3 mb-3">
+    
+                                                        <input type="hidden" name="_id"
+                                                            [(ngModel)]="ocupationService.selectedOcupation._id">
+                                                        <div class="col-12">
+                                                            <label for="inputName" class="form-label">Nombre de la
+                                                                Especialidad</label>
+                                                            <input type="text" class="form-control" name="name"
+                                                                [(ngModel)]="ocupationService.selectedOcupation.name">
+                                                        </div>
+                                                        <div class="text-center">
+                                                            <button type="submit" class="btn btn-danger text-uppercase"
+                                                                value="Guardar">Agregar Nueva
+                                                                Especialidad</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="col-5 mt-2">
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <h4 class="text-center">Lista De Especialidades</h4>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div id="chart-profile-visit">
+    
+                                                                <div class="container">
+                                                                    <div class="row justify-content-center">
+                                                                        <div class="col">
+                                                                            <table
+                                                                                class="table table-responsive table-bordered border-dark mt-2">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th scope="col">Nombre</th>
+    
+    
+                                                                                    </tr>
+                                                                                </thead>
+    
+                                                                                <tbody class="text-center">
+                                                                                    <tr
+                                                                                        *ngFor="let ocupa of ocupationService.ocupa">
+    
+                                                                                        <td>{{ ocupa.name }}</td>
+    
+    
+                                                                                        <!-- <div class="btn-group mr-0" role="group"
+                                                                                            aria-label="Basic mixed styles example">
+                                                                                            <button type="button" class="btn btn-primary  mr-2"
+                                                                                                (click)="editUsuario(users)"> Editar</button>
+                                                                                            <button type="button" class="btn btn-danger"
+                                                                                                (click)="deleteUsuario(users._id)">Eliminar</button>
+                                                                                        </div> -->
+    
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
+    
                                             </div>
                                         </div>
                                     </div>

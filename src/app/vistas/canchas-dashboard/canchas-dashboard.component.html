@@ -135,7 +135,7 @@
                                                                                 <td>{{cargamasi.horario}} </td>
                                                                                 <td>{{cargamasi.dia}} </td>
                                                                                 <td>{{cargamasi.fecha}} </td>
-                                                                                <td>{{cargamasi.cancha}} </td>
+                                                                                <td *ngFor="let a of cargamasi.cancha ">{{a.name }} </td>
                                                                                 <td>{{cargamasi.precio}} </td>
                                                                                
                                                                                

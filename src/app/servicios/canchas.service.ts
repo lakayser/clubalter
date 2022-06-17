@@ -26,5 +26,10 @@ export class CanchasService {
   getCanchas() {
     return this.http.get<Cancha[]>(`${this.URL}list-canchas`)
   }
-
+  putCanchas(cancha: Cancha){
+    return this.http.put(`${this.URL}edit-canchas/${cancha._id}`, cancha)
+  }
+  deleteCanchas(id: string){
+    return this.http.delete(`${this.URL}delete-canchas/${id}`)
+  }
 }

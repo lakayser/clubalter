@@ -23,7 +23,7 @@ export class UsercrudModeratorComponent implements OnInit {
     this.getUsuarios();
     this.getActivo();
     this.getOcupation();
-    this.getOrganization();
+  
   }
 
   getOrganization(){
@@ -43,6 +43,7 @@ export class UsercrudModeratorComponent implements OnInit {
   getUsuarios() {
     this.usuariosService.getUsuarios().subscribe((res) => {
         this.usuariosService.users = res;
+        console.log(res);
       }); 
   } 
 
@@ -83,7 +84,5 @@ export class UsercrudModeratorComponent implements OnInit {
   }
   editUsuario(users: Usuario) {
     this.usuariosService.selectedUsuario = users;
-
-
   }
 }

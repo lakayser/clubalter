@@ -108,10 +108,18 @@
                         <i><span class="material-icons">
                                 stadium
                             </span></i>
-                        <span>panel de profesores</span>
+                        <span>panel de profes</span>
                     </a>
-                </li>
-              
+                    </li>
+                    <li class="sidebar-item">
+                        <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/clases-crud" class='sidebar-link'>
+                            <i><span class="material-icons">
+                                    stadium
+                                </span></i>
+                            <span>Clases</span>
+                        </a>
+                    </li>
+                
                 <li class="sidebar-item">
                     <a *ngIf="a.name=== 'Boliot' "  routerLink="/orgaAdmin" class='sidebar-link'>
                         <i><span class="material-icons">
@@ -121,7 +129,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a *ngIf="a.name=== 'Boliot' "  routerLink="/usermoderator" class='sidebar-link'>
+                    <a *ngIf="a.name=== 'Boliot' "  routerLink="/usersAdmin" class='sidebar-link'>
                         <i><span class="material-icons">
                                 stadium
                             </span></i>

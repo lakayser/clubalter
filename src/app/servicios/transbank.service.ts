@@ -6,7 +6,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 })
 export class TransbankService {
 
-  _url = 'https://botmila-api.herokuapp.com/botmilaAPI/webpay/payment';
+  _url = 'https://botmila-api.herokuapp.com/botmilaAPI/webpay/payment/:id';
   constructor(
 
     private http: HttpClient

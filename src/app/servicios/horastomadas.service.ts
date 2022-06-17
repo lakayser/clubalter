@@ -13,17 +13,22 @@ export class HorastomadasService {
   selectedHorasTomadas: HorasTomadas={
     horascanchas: '',
     cancha: '',
-    rut: ''
+    rut: '',
+    id: ''
   }
+  
   horatomada:HorasTomadas[];
   private httpheaders = new HttpHeaders({'Content-Type' : 'aplication/json'});
   constructor(private http:HttpClient) { }
 
-  // createHoraTomada(horasTomada: HorasTomadas){
-  //   return this.http.post(`${this.URL}add-horas-canchas`, horasTomada)
-  // }
+  createHoraTomada(horasTomada: HorasTomadas){
+    return this.http.post(`${this.URL}agendar-hora`, horasTomada)
+  }
 
   getHoraTomada(){
-    return this.http.get<HorasTomadas[]>(`${this.URL}list-horas-tomadas`)
+    return this.http.get<HorasTomadas[]>(`${this.URL}agendar-hora-listar`)
+  }
+  deleteHoraTomada(id:string){
+    return this.http.delete(`${this.URL}eliminar-hora-agendada/${id}`)
   }
 }

@@ -12,6 +12,7 @@ import { OcupationService } from 'src/app/servicios/ocupation.service';
   templateUrl: './adminusuarios.component.html',
   styleUrls: ['./adminusuarios.component.css']
 })
+
 export class AdminusuariosComponent implements OnInit {
 
   constructor(private router: Router, public usuariosService: UsuariosService, public organization:OrganizationService, public ocupationService:OcupationService) { }
@@ -20,40 +21,34 @@ export class AdminusuariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsuarios();
-    this.getActivo();
+    
     this.getOcupation();
   }
 
   getOcupation(){
-    this.ocupationService.getOcupation().subscribe((res)=>{
+    this.ocupationService.getOcupationAdmin().subscribe((res)=>{
       this.ocupationService.ocupa=res;
       console.log('ocupation'+res);
       
     })
   }
   getUsuarios() {
-    this.usuariosService.getUsuarios().subscribe((res) => {
+    this.usuariosService.getUsuarioAdmin().subscribe((res) => {
         this.usuariosService.users = res;
+        console.log(res);
       }); 
   } 
 
-  getActivo(){
-    this.usuariosService.getActivo().subscribe((resp)=>{
-      this.usuariosService.nombre =resp;
-      console.log('respuesta'+ resp)
-      
-    })
-  }
 
-  addUsuario(form: NgForm) {
+  addModerator(form: NgForm) {
     if (form.value._id) {
-      this.usuariosService.putUsuario(form.value).subscribe((res) => {
+      this.usuariosService.putUsuarioAdmin(form.value).subscribe((res) => {
         console.log(res);
         this.getUsuarios();
         form.reset();
       });
     } else {
-      this.usuariosService.createUsuario(form.value).subscribe((res) => {
+      this.usuariosService.createUsuarioAdmin(form.value).subscribe((res) => {
         console.log(res); 
         this.getUsuarios();
         form.reset();
@@ -63,7 +58,7 @@ export class AdminusuariosComponent implements OnInit {
 
   deleteUsuario(_id: any) {
     if (confirm('Esta seguro que desea eliminar esta reserva?')) {
-      this.usuariosService.deleteUsuario(_id).subscribe(
+      this.usuariosService.deleteUsuarioAdmin(_id).subscribe(
         (res) => {
           this.getUsuarios();
         },
@@ -74,7 +69,5 @@ export class AdminusuariosComponent implements OnInit {
   }
   editUsuario(users: Usuario) {
     this.usuariosService.selectedUsuario = users;
-
-
   }
 }

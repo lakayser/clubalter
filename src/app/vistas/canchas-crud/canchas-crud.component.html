@@ -30,7 +30,7 @@
 
                                                                         <th scope="col">disponibilidad</th>
                                                                         <th scope="col">Rango Horario</th>
-                                                                        <th scope="col">Valor Reserva</th>
+                                                                  
                                                                         <th scope="col">Opciones</th>
 
                                                                     </tr>
@@ -44,21 +44,28 @@
                                                                         </td>
                                                                         <td *ngIf="!cancha.disponibilidad==true">NO
                                                                             Disponible</td>
-                                                                        <td>{{cancha.rangoHorario}}</td>
-                                                                        <td>{{cancha.precio}}</td>
+                                                                            <td *ngIf="cancha.rangoHorario == '1' ">
+                                                                                1 Hora
+                                                                            </td>
+                                                                            <td *ngIf="cancha.rangoHorario == '2' ">
+                                                                                1:30 Horas
+                                                                            </td>
+                                                                            <td *ngIf="cancha.rangoHorario == '3' ">
+                                                                                2 Horas
+                                                                            </td>
+                                                                        
+                                                                        
                                                                         <td><button type="button"
-                                                                                class="btn btn-warning"><span
+                                                                                class="btn btn-warning" (click)="deleteCancha(cancha._id)"><span
                                                                                     class="material-icons">
                                                                                     report_problem
                                                                                 </span>
 
-                                                                                Deshabilitar</button> <button
-                                                                                type="button"
-                                                                                class="btn btn-danger  ml-2 mt-1"> <span
-                                                                                    class="material-icons">
+                                                                                Deshabilitar</button>
+                                                                                <button type="button" class="btn btn-danger  ml-2 mt-1" (click)="editCancha(cancha)"> <span class="material-icons" >
                                                                                     delete
                                                                                 </span>
-                                                                                Eliminar</button></td>
+                                                                                Editar</button></td>
                                                                     </tr>
 
                                                                 </tbody>

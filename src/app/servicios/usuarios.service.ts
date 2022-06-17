@@ -10,7 +10,10 @@ import { RouteReuseStrategy } from '@angular/router';
 export class UsuariosService {
 
   URL: string ='https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
+  
   URL2: string = 'https://botmila-api.herokuapp.com/botmilaAPI/';
+
+  URL3: string = 'https://botmila-api.herokuapp.com/botmilaAPI/admin/';
 
   selectedUsuario: Usuario ={
     _id: '',
@@ -44,14 +47,26 @@ export class UsuariosService {
   }
 
   createUsuario(usuario: Usuario){
-    return this.http.post(`${this.URL}register-users`, usuario)
+    return this.http.post(`${this.URL}register-users`, usuario);
 
   }
   putUsuario(usuario: Usuario){
-    return this.http.put(`${this.URL}edit-user/${usuario._id}`, usuario)
+    return this.http.put(`${this.URL}edit-user/${usuario._id}`, usuario);
   }
   deleteUsuario(id: string){
-    return this.http.delete(`${this.URL}delete-user/${id}`)
+    return this.http.delete(`${this.URL}delete-user/${id}`);
   }
-  
+
+  getUsuarioAdmin(){
+    return this.http.get<Usuario[]>(`${this.URL3}list-users`);
+  }
+  createUsuarioAdmin(usuario: Usuario){
+    return this.http.post(`${this.URL3}register-moderators`, usuario);
+  }
+  deleteUsuarioAdmin(id: string){
+    return this.http.delete(`${this.URL3}delete-users/${id}`);
+  }
+  putUsuarioAdmin(usuario: Usuario){
+    return this.http.put(`${this.URL3}edit-users/${usuario._id}`, usuario);
+  }
 }
