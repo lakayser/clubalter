@@ -49,17 +49,14 @@ import { Cancha1Component } from './vistas/canchaEspe/cancha1/cancha1.component'
 import { Cancha2Component } from './vistas/canchaEspe/cancha2/cancha2.component';
 import { Cancha3Component } from './vistas/canchaEspe/cancha3/cancha3.component';
 import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
-<<<<<<< HEAD
 import { DatepickerDirective } from './directivas/datepicker.directive';
 import { UsermoderatorComponent } from './vistaAdmin/usermoderator/usermoderator.component';
 import { UsercrudModeratorComponent } from './vistas/usercrud-moderator/usercrud-moderator.component';
 import { DashboardProfesorComponent } from './profesor-vista/dashboard-profesor/dashboard-profesor.component';
 import { ClaseCrudComponent } from './profesor-vista/clase-crud/clase-crud.component';
 
-=======
 import { PagoComponent } from './pagina/pago/pago.component';
-import { Ng2SearchPipe } from 'ng2-search-filter';
->>>>>>> dada0578b7cec6fc4f6aa7b62ca61e4c7fe0801b
+// import { Ng2SearchPipe } from 'ng2-search-filter';
 
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
@@ -107,20 +104,17 @@ const materialModules = [
     Cancha2Component,
     Cancha3Component,
     VistaSemanaComponent,
-<<<<<<< HEAD
     DatepickerDirective,
     UsermoderatorComponent,
     UsercrudModeratorComponent,
     DashboardProfesorComponent,
     ClaseCrudComponent,
     
-=======
     PagoComponent,
     FilterPipe,
 
     TicketComponent,
       CitaComponent,
->>>>>>> dada0578b7cec6fc4f6aa7b62ca61e4c7fe0801b
     
     
     
