@@ -145,22 +145,26 @@
       </p>
       <div class="row">
         <div class="col-lg-8">
-          <form class="row g-3 mb-3" id="form">
-            <div class="col-md-6">
+          <form #emailForm="ngForm" (ngSubmit)="enviarEmail(emailForm)" class="row g-3 mb-3">
+            <!--
+               <div class="col-md-6">
               <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="nombre" name="nombre">
-            </div>
+              <input type="text" class="form-control" id="nombre1" name="nombre">
+              </div>
+            -->
+           
+
             <div class="col-md-6">
               <label for="email" class="form-label">E-mail</label>
-              <input type="email" class="form-control" id="email" name="email">
+              <input [(ngModel)]="mailService.selectedEmail.emailPersona" type="email" class="form-control"  name="emailPersona">
             </div>
             <div class="col-12">
               <label for="Asunto" class="form-label">Asunto</label>
-              <input type="text" class="form-control" id="Asunto" name="asunto">
+              <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
             </div>
             <div class="form-group">
               <label for="mensaje">Mensaje</label>
-              <textarea class="form-control" id="mensaje" name="asunto" rows="5"></textarea>
+              <textarea [(ngModel)]="mailService.selectedEmail.mensaje" class="form-control" name="mensaje" rows="5"></textarea>
             </div>
             <div class="text-center">
               <button type="submit" class="btn btn-danger text-uppercase">Enviar</button>

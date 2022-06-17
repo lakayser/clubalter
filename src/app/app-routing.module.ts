@@ -1,4 +1,4 @@
-import { NgModule }             from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent }       from './vistas/login/login.component';
 import { DashboardComponent }   from './vistas/dashboard/dashboard.component';
@@ -29,10 +29,18 @@ import { Cancha1Component } from './vistas/canchaEspe/cancha1/cancha1.component'
 import { Cancha2Component } from './vistas/canchaEspe/cancha2/cancha2.component';
 import { Cancha3Component } from './vistas/canchaEspe/cancha3/cancha3.component';
 import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
+<<<<<<< HEAD
 import { UsermoderatorComponent } from './vistaAdmin/usermoderator/usermoderator.component';
 import { UsercrudModeratorComponent } from './vistas/usercrud-moderator/usercrud-moderator.component';
 import { DashboardProfesorComponent } from './profesor-vista/dashboard-profesor/dashboard-profesor.component';
 import { ClaseCrudComponent } from './profesor-vista/clase-crud/clase-crud.component';
+=======
+import { PagoComponent } from './pagina/pago/pago.component';
+import { CitaComponent } from './cita/cita.component';
+
+
+
+>>>>>>> dada0578b7cec6fc4f6aa7b62ca61e4c7fe0801b
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -58,10 +66,15 @@ const routes: Routes = [
   {path: 'cancha2', component:Cancha2Component},
   {path: 'cancha3', component:Cancha3Component},
   {path: 'vistaSemana', component:VistaSemanaComponent},
+<<<<<<< HEAD
   {path: 'usermoderator', component:UsermoderatorComponent},
   {path: 'usercrudModerator', component:UsercrudModeratorComponent},
   {path: 'dashboardprofe', component:DashboardProfesorComponent},
   {path: 'clases-crud', component:ClaseCrudComponent},
+=======
+  {path: 'rut',component:PagoComponent},
+  {path: 'cita',component:CitaComponent},
+>>>>>>> dada0578b7cec6fc4f6aa7b62ca61e4c7fe0801b
 
 
 

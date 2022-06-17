@@ -1,0 +1,123 @@
+
+<app-header></app-header>
+
+
+
+  <div class="container">
+    <h1>[PLACEHOLDER NOMBRE]</h1>
+      <h2>Ingrese su rut</h2>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <!--<input type="text" class="form-control" id="myInput" ng-keyup="myFunction()" placeholder="Buscar" >-->
+            <!--<input type="text" id="myInput" ng-keyup="myFunction()" placeholder="Search for names..">-->
+            <!-- <button type="button" class="btn btn-primary">Buscar</button> -->
+            <input type="text" class="form-control" id="myInput" [(ngModel)]="filterPost" placeholder="Buscar" >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table table-striped" id="myTable">
+            <thead>
+              <tr>
+                <th>RUT</th>
+                <th>Nombre de la cancha</th>
+                <th>Día</th>
+                <th>Hora</th>
+                <th>Estado</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            
+
+            
+            <tbody *ngFor="let horastomadas of horastomadasService.horatomada |ObjToArray|filter:filterPost">
+            
+           
+    
+              <ng-container *ngFor=" let a of horastomadas.horascanchas">
+                  <ng-container *ngIf= "a.disponibilidad==true;">
+                    <tr class={{disponible}}>
+                      <td >{{horastomadas.rut}}</td>
+                      <td *ngFor="let a of horastomadas.cancha" >{{ a.name}}</td>
+                      <td *ngFor="let a of horastomadas.horascanchas">{{a.dia}}</td>
+                      <td *ngFor="let a of horastomadas.horascanchas">{{a.horario}}</td>
+                      <td
+                          *ngIf="a.disponibilidad==true">
+                          Disponible</td>
+                          <td
+                          *ngIf="!a.disponibilidad==true">
+                          NO Disponible</td>
+                      <td><button type="button" class="btn btn-light">Ver pago</button></td>  
+                      <td><button type="button" class="btn btn-light">Cancelar</button></td>
+                    </tr>
+                      
+                  </ng-container>                           
+                </ng-container>
+
+                <ng-container *ngFor=" let a of horastomadas.horascanchas">
+                  <ng-container *ngIf= "a.disponibilidad==false;">
+                    <tr class={{noDisponible}}>
+                      <td >{{horastomadas.rut}}</td>
+                      <td *ngFor="let a of horastomadas.cancha" >{{ a.name}}</td>
+                      <td *ngFor="let a of horastomadas.horascanchas">{{a.dia}}</td>
+                      <td *ngFor="let a of horastomadas.horascanchas">{{a.horario}}</td>
+                      <td
+                          *ngIf="a.disponibilidad==true">
+                          Disponible</td>
+                          <td
+                          *ngIf="!a.disponibilidad==true">
+                          NO Disponible</td>
+                      <td><button type="button" class="btn btn-light">Ver pago</button></td>
+                      <td><button type="button" class="btn btn-light">Cancelar</button></td>  
+                   
+                    </tr>
+                      
+                  </ng-container>                           
+                </ng-container>
+                
+                
+              
+          
+             
+            </tbody>
+          
+          </table>
+        </div>
+      </div>
+    </div>
+
+    
+
+<script>
+  function myFunction($scope) {
+   $scope.myInput = function()
+   {
+     // Declare variables
+     var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+   }
+  }
+  </script>
+      
+      
+
+    <!--<app-footer></app-footer>-->
