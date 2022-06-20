@@ -2,5 +2,6 @@ export interface HorasTomadas{
     horascanchas: '',
     cancha: '',
     rut: '',
-    id: ''
+    id: '',
+    codigoVenta: ''
 }

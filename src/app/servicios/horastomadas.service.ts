@@ -15,7 +15,8 @@ export class HorastomadasService {
     horascanchas: '',
     cancha: '',
     rut: '',
-    id: ''
+    id: '',
+    codigoVenta: ''
   }
   
   horatomada:HorasTomadas[];

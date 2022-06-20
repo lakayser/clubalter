@@ -11,13 +11,11 @@ export class BoxComponent{
   public datos: Array<any> =[];
  
   constructor(
-    private transbankServices: TransbankService
+    
   ) { 
-    this.transbankServices.getTransbank().subscribe((res: any) => {
-      this.datos=res
-      console.log(res)
+
       
-    })
+    
   }
 
   ngOnInit(): void {
