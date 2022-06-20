@@ -1,0 +1,88 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <!--<input type="text" class="form-control" id="myInput" ng-keyup="myFunction()" placeholder="Buscar" >-->
+        <!--<input type="text" id="myInput" ng-keyup="myFunction()" placeholder="Search for names..">-->
+        
+        <input type="text" class="form-control" id="myInput" placeholder="Buscar" style="margin-top: 12px;">
+        <div class="col">
+          <button type="button" class="btn btn-primary" style="margin-top: 12px;">Buscar</button> 
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped" id="myTable">
+        <thead>
+          <tr>
+            <th>RUT</th>
+            <th>Nombre de la cancha</th>
+            <th>Día</th>
+            <th>Hora</th>
+            <th>Estado</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        
+
+        
+        <tbody *ngFor="let horastomadas of horastomadasService.horatomada |ObjToArray|filter:filterPost">
+        
+       
+
+          <ng-container *ngFor=" let a of horastomadas.horascanchas">
+              <ng-container *ngIf= "a.disponibilidad==true;">
+                <tr class={{disponible}}>
+                  <td >{{horastomadas.rut}}</td>
+                  <td *ngFor="let a of horastomadas.cancha" >{{ a.name}}</td>
+                  <td *ngFor="let a of horastomadas.horascanchas">{{a.dia}}</td>
+                  <td *ngFor="let a of horastomadas.horascanchas">{{a.horario}}</td>
+                  <td
+                      *ngIf="a.disponibilidad==true">
+                      Disponible</td>
+                      <td
+                      *ngIf="!a.disponibilidad==true">
+                      NO Disponible</td>
+                  <td><button type="button" class="btn btn-light">Ver pago</button></td>  
+                  <td><button type="button" class="btn btn-light">Reagendar</button></td>
+                </tr>
+                  
+              </ng-container>                           
+            </ng-container>
+
+            <ng-container *ngFor=" let a of horastomadas.horascanchas">
+              <ng-container *ngIf= "a.disponibilidad==false;">
+                <tr class={{noDisponible}}>
+                  <td >{{horastomadas.rut}}</td>
+                  <td *ngFor="let a of horastomadas.cancha" >{{ a.name}}</td>
+                  <td *ngFor="let a of horastomadas.horascanchas">{{a.dia}}</td>
+                  <td *ngFor="let a of horastomadas.horascanchas">{{a.horario}}</td>
+                  <td
+                      *ngIf="a.disponibilidad==true">
+                      Disponible</td>
+                      <td
+                      *ngIf="!a.disponibilidad==true">
+                      NO Disponible</td>
+                  <td><button type="button" class="btn btn-light">Ver pago</button></td>
+                  <td><button type="button" class="btn btn-light">Cancelar</button></td>  
+               
+                </tr>
+                  
+              </ng-container>                           
+            </ng-container>
+            
+            
+          
+      
+         
+        </tbody>
+      
+      </table>
+    </div>
+  </div>
+</div>

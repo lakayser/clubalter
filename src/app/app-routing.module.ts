@@ -1,4 +1,4 @@
-import { NgModule }             from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent }       from './vistas/login/login.component';
 import { DashboardComponent }   from './vistas/dashboard/dashboard.component';
@@ -33,6 +33,11 @@ import { UsermoderatorComponent } from './vistaAdmin/usermoderator/usermoderator
 import { UsercrudModeratorComponent } from './vistas/usercrud-moderator/usercrud-moderator.component';
 import { DashboardProfesorComponent } from './profesor-vista/dashboard-profesor/dashboard-profesor.component';
 import { ClaseCrudComponent } from './profesor-vista/clase-crud/clase-crud.component';
+import { PagoComponent } from './pagina/pago/pago.component';
+import { CitaComponent } from './cita/cita.component';
+
+
+
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -62,6 +67,8 @@ const routes: Routes = [
   {path: 'usercrudModerator', component:UsercrudModeratorComponent},
   {path: 'dashboardprofe', component:DashboardProfesorComponent},
   {path: 'clases-crud', component:ClaseCrudComponent},
+  {path: 'rut',component:PagoComponent},
+  {path: 'cita',component:CitaComponent},
 
 
 

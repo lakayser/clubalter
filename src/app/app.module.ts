@@ -55,9 +55,15 @@ import { UsercrudModeratorComponent } from './vistas/usercrud-moderator/usercrud
 import { DashboardProfesorComponent } from './profesor-vista/dashboard-profesor/dashboard-profesor.component';
 import { ClaseCrudComponent } from './profesor-vista/clase-crud/clase-crud.component';
 
+import { PagoComponent } from './pagina/pago/pago.component';
+// import { Ng2SearchPipe } from 'ng2-search-filter';
 
 // import { LoginComponent } from './vistas/login/login.component';
 // import { DashboardComponent } from './vistas/dashboard/dashboard.component';
+import { FilterPipe } from './pipes/filter.pipe';
+
+import { TicketComponent } from './ticket/ticket.component';
+import { CitaComponent } from './cita/cita.component';
 const materialModules = [
   MatDatepickerModule,
   MatNativeDateModule,
@@ -104,6 +110,11 @@ const materialModules = [
     DashboardProfesorComponent,
     ClaseCrudComponent,
     
+    PagoComponent,
+    FilterPipe,
+
+    TicketComponent,
+      CitaComponent,
     
     
     

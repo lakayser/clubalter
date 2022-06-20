@@ -9,6 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class HorastomadasService {
   URL: string = 'https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
+  filtro:'';
 
   selectedHorasTomadas: HorasTomadas={
     horascanchas: '',
@@ -30,5 +31,9 @@ export class HorastomadasService {
   }
   deleteHoraTomada(id:string){
     return this.http.delete(`${this.URL}eliminar-hora-agendada/${id}`)
+  }
+  read(query='')
+  {
+    return this.http.get<HorasTomadas[]>('https://botmila-api.herokuapp.com/botmilaAPI/moderator/', {params:{buscar: query}});
   }
 }
