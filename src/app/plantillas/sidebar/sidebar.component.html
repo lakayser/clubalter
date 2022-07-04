@@ -52,7 +52,7 @@
         <div id="sidebar-wrapper" *ngFor="let nombre of usuariosService.nombre | ObjToArray" >
             <ul class="sidebar-nav" *ngFor="let a of nombre.organization">
                 <li class="sidebar-brand">
-                    <span>nombre de empresa</span>
+                   <span><h4>{{a.name}}</h4></span>
                 </li>
                 <li class="sidebar-item active">
                     <a *ngIf="a.name === 'canchas el bicho' " routerLink="/canchasGestion" class='sidebar-link'>
@@ -134,6 +134,33 @@
                                 stadium
                             </span></i>
                         <span>moderadores</span>
+                    </a>
+                </li>
+
+
+                <li class="sidebar-item active">
+                    <a *ngIf="a.name === 'Tenis Monte Blanco' " routerLink="/canchasGestion" class='sidebar-link'>
+                        <i><span class="material-icons">
+                                space_dashboard
+                            </span></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item ">
+                    <a *ngIf="a.name === 'Tenis Monte Blanco' "  routerLink="/canchasCRUD" class='sidebar-link'>
+                        <i><span class="material-icons">
+                                sports_tennis
+                            </span> </i>
+                        <span>CanchasCrud</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a *ngIf="a.name === 'Tenis Monte Blanco' "  routerLink="/canchasReserva" class='sidebar-link'>
+                        <i>
+                            <span class="material-icons">
+                                edit_calendar
+                            </span></i>
+                        <span>Realizar Reserva</span>
                     </a>
                 </li>
             </ul>

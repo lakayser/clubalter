@@ -5,6 +5,7 @@ import { CanchasService } from 'src/app/servicios/canchas.service';
 import { HorastomadasService } from 'src/app/servicios/horastomadas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import { CargaMasiva } from 'src/app/modelos/cargamasiva';
 import * as moment from 'moment';
 
 
@@ -20,12 +21,14 @@ export class CanchasDashboardComponent implements OnInit {
   disponible="table-success";
   noDisponible="table-danger";
 
+
   ngOnInit(): void {
     this.getHoraTomada();
     this.getHoraCancha();
     this.getCanchas();
     this.getCargaMasiva();
     this.getActivo();
+
   }
 
   getHoraCancha(){
@@ -53,13 +56,14 @@ export class CanchasDashboardComponent implements OnInit {
     this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
       this.cargamasivaService.cargamasi = res;
       console.log(res);
-      
+      let prueba = res.map(dato=>dato.fecha)
+      console.log(prueba);
     })
   }
   getActivo(){
     this.usuariosService.getActivo().subscribe((resp)=>{
       this.usuariosService.nombre =resp;
-      console.log('respuesta'+ resp)
+      console.log(resp)
       
     })
   }

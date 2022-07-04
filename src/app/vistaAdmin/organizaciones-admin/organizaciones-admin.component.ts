@@ -52,7 +52,7 @@ export class OrganizacionesAdminComponent implements OnInit {
   getActivo(){
     this.usuariosService.getActivo().subscribe((resp)=>{
       this.usuariosService.nombre =resp;
-      console.log('respuesta'+ resp)
+      console.log(resp)
       
     })
   }
@@ -80,7 +80,7 @@ export class OrganizacionesAdminComponent implements OnInit {
   getOcupation(){
     this.ocupationService.getOcupationAdmin().subscribe((res)=>{
       this.ocupationService.ocupa=res;
-      console.log('ocupation'+res);
+      console.log(res);
       
     })
   }

@@ -31,7 +31,7 @@ export class TransbankService {
    
    
    getTransbank(horatomada:HorasTomadas){
-     return this.http.get(`${this._url}payment/${horatomada.codigoVenta}`, horatomada);
+    //  return this.http.get(`${this._url}payment/${horatomada.codigoVenta}`, horatomada);
  
     }
 }

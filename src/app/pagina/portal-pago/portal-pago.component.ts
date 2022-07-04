@@ -12,11 +12,11 @@ export class PortalPagoComponent {
   constructor(
     private transbankServices: TransbankService
   ) { 
-    this.transbankServices.getTransbank().subscribe((res: any) => {
-      this.datos=res
-      console.log(res)
+    // this.transbankServices.getTransbank().subscribe((res: any) => {
+    //   this.datos=res
+    //   console.log(res)
       
-    })
+    // })
   }
 
   
