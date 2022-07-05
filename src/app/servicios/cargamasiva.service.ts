@@ -12,10 +12,11 @@ export class CargamasivaService {
     _id:'',
     fecha: '',
     dia: '',
-    disponibilidad: '',
+    disponibilidad: true,
     horario: '',
     cancha: '',
-    precio: ''
+    precio: 0,
+    semana: 0,
   } 
 
   cargamasi: CargaMasiva[];

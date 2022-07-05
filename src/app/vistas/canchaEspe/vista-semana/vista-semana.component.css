@@ -1,0 +1,32 @@
+#header {
+  text-align: center;
+  letter-spacing: 4px;
+  font-family: nevis;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-shadow: 0px 1px 1px #333333;
+  margin-bottom: 15px;
+}
+.dia {
+  border: 1px solid white;
+  background-color: #9cd2b7;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 5px;
+  color: black;
+}
+.horas {
+  border: 1px solid white;
+  color: black;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  height: 40px;
+  line-height: 50px;
+  width: 148px;
+  padding-left: 24px;
+  line-height: 40px;
+}

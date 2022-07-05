@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service';
 import { CanchasService } from 'src/app/servicios/canchas.service';
+import { CargamasivaService } from 'src/app/servicios/cargamasiva.service'
 
 @Component({
   selector: 'app-vista-semana',
@@ -9,11 +10,12 @@ import { CanchasService } from 'src/app/servicios/canchas.service';
 })
 export class VistaSemanaComponent implements OnInit {
 
-  constructor(public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService) { }
+  constructor(public cargamasivaService: CargamasivaService, public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService) { }
 
   ngOnInit(): void {
     this.getHoraCancha();
     this.getCanchas();
+    this.getCargaMasiva();
   }
 
   getHoraCancha(){
@@ -29,5 +31,10 @@ export class VistaSemanaComponent implements OnInit {
       
     })
   }
-
+  getCargaMasiva(){
+    this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
+      this.cargamasivaService.cargamasi = res;
+      console.log(res);
+    })
+  }
 }

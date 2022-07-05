@@ -1,156 +1,130 @@
-<div id="app">
-    <div id="">
-       
-        <div class="page-content">
-            <section class="row">
-                <div class="col">
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="text-center">Estado de Canchas Semanal</h4>
-                                </div>
-                                <div class="card-body" id="AAA">
-                                    <div id="chart-profile-visit">
-                                        <div class="">
-                                            <div class="row">
-                                                <div class="col">
+<div class="row">
+  <header class="col" id="header">
+    <h2>Cancha 1</h2>
+  </header>
+</div>
 
-                                        <!--Formulario Agregar-->
-                                        <div class="row align-items-start">
-                                            <div class="col">
-                                                <div class="col-12 col-sm-12 col-md-7">
-                                                    <div class="card mt-2">
-                                                        <div class="card-header">
-                                                            <h4 class="text-center">Cancha 1</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div id="chart-profile-visit">
+<div class="row">
+  <span class="col dia">Lunes</span>
+  <span class="col dia">Martes</span>
+  <span class="col dia">Miercoles</span>
+  <span class="col dia">Jueves</span>
+  <span class="col dia">Viernes</span>
+  <span class="col dia">Sabado</span>
+  <span class="col dia">Domingo</span>
+</div>
 
-                                                                <div class="table-responsive-md">
-                                                                    <div class="scrollable">
-                                                                        <table
-                                                                        class="table table-bordered table-hover border-dark mt-2 text-center">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th scope="col">
-                                                                                    lunes
-                                                                                </th>
-                                                                                <th scope="col">martes
-                                                                                </th>
-                                                                                <th scope="col">Miercoles</th>
-                                                                                <th scope="col">Jueves</th>
-                                                                                <th scope="col">Viernes</th>
-                                                                                <th scope="col">Sabado</th>
-                                                                                <th scope="col">Domingo</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <ng-container
-                                                                            *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
-                                                                            <tbody class="text-center"
-                                                                                *ngFor=" let a of horacancha.canchas">
-                                                                                <tr
-                                                                                    *ngIf="a.name === 'Cancha 1' ">
-
-                                                                                    <td>{{horacancha.horario}}</td>
-                                                                                    <td>{{horacancha.horario}}</td>
-                                                                                    <td>{{horacancha.horario}}</td>
-                                                                                    <td>{{horacancha.horario}}</td>
-                                                                                    <td>{{horacancha.horario}}</td>
-                                                                                    <td>{{horacancha.horario}}</td>
-                                                                                    <td>{{horacancha.horario}}</td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </ng-container>
-                                                                    </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                               
-                                                <div class="col">
-                                                    <div class="card mt-2">
-                                                        <div class="card-header">
-                                                            <h4 class="text-center">Cancha 2</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div id="chart-profile-visit">
-
-                                                                <div class="table-responsive-md">
-                                                                    <div class="scrollable">
-                                            </div>
-                                            <div class="col-12 col-sm-12 col-md-8">
-                                                <div class="card mt-2">
-                                                    <div class="card-header">
-                                                        <h4 class="text-center">Cancha 2</h4>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <div id="chart-profile-visit">
-
-                                                            <div class="">
-                                                                <div class="row justify-content-center">
-                                                                    <div class="">
-                                                                        <table
-                                                                            class="table table-bordered table-hover border-dark mt-2 text-center">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">
-                                                                                        lunes
-                                                                                    </th>
-                                                                                    <th scope="col">martes
-                                                                                    </th>
-                                                                                    <th scope="col">Miercoles</th>
-                                                                                    <th scope="col">Jueves</th>
-                                                                                    <th scope="col">Viernes</th>
-                                                                                    <th scope="col">Sabado</th>
-                                                                                    <th scope="col">Domingo</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <ng-container
-                                                                                *ngFor="let horacancha of horariocanchaService.horacancha |ObjToArray">
-                                                                                <tbody class="text-center"
-                                                                                    *ngFor=" let a of horacancha.canchas">
-                                                                                    <tr
-                                                                                        *ngIf="a.name === 'Cancha 1' ">
-
-                                                                                        <td>{{horacancha.horario}}</td>
-                                                                                        <td>{{horacancha.horario}}</td>
-                                                                                        <td>{{horacancha.horario}}</td>
-                                                                                        <td>{{horacancha.horario}}</td>
-                                                                                        <td>{{horacancha.horario}}</td>
-                                                                                        <td>{{horacancha.horario}}</td>
-                                                                                        <td>{{horacancha.horario}}</td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </ng-container>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-        </div>
-
-        <footer>
-            <div class="footer clearfix mb-0 text-muted">
-                <div class="float-start">
-                    <p>2022 &copy; Boliot</p>
-                </div>
-
-            </div>
-        </footer>
-    </div>
+<div class="row">
+  <div class="col">
+    <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
+      <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
+        <ng-container *ngIf="cargamasi.semana === 27">
+          <ng-container *ngIf="cargamasi.dia === 'lunes'">
+            <ng-container *ngIf="cargamasi.disponibilidad === true">
+              <span class="row horas bg-success">{{ cargamasi.horario }}</span>
+            </ng-container>
+            <ng-container *ngIf="cargamasi.disponibilidad === false">
+              <span class="row horas bg-danger">{{ cargamasi.horario }}</span>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="col">
+    <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
+      <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
+        <ng-container *ngIf="cargamasi.semana === 27">
+          <ng-container *ngIf="cargamasi.dia === 'martes'">
+            <ng-container *ngIf="cargamasi.disponibilidad === true">
+              <span class="row horas bg-success">{{ cargamasi.horario }}</span>
+            </ng-container>
+            <ng-container *ngIf="cargamasi.disponibilidad === false">
+              <span class="row horas bg-danger">{{ cargamasi.horario }}</span>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="col">
+    <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
+      <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
+        <ng-container *ngIf="cargamasi.semana === 27">
+          <ng-container *ngIf="cargamasi.dia === 'miercoles'">
+            <ng-container *ngIf="cargamasi.disponibilidad === true">
+              <span class="row horas bg-success">{{ cargamasi.horario }}</span>
+            </ng-container>
+            <ng-container *ngIf="cargamasi.disponibilidad === false">
+              <span class="row horas bg-danger">{{ cargamasi.horario }}</span>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="col">
+    <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
+      <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
+        <ng-container *ngIf="cargamasi.semana === 27">
+          <ng-container *ngIf="cargamasi.dia === 'jueves'">
+            <ng-container *ngIf="cargamasi.disponibilidad === true">
+              <span class="row horas bg-success">{{ cargamasi.horario }}</span>
+            </ng-container>
+            <ng-container *ngIf="cargamasi.disponibilidad === false">
+              <span class="row horas bg-danger">{{ cargamasi.horario }}</span>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="col">
+    <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
+      <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
+        <ng-container *ngIf="cargamasi.semana === 27">
+          <ng-container *ngIf="cargamasi.dia === 'viernes'">
+            <ng-container *ngIf="cargamasi.disponibilidad === true">
+              <span class="row horas bg-success">{{ cargamasi.horario }}</span>
+            </ng-container>
+            <ng-container *ngIf="cargamasi.disponibilidad === false">
+              <span class="row horas bg-danger">{{ cargamasi.horario }}</span>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="col">
+    <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
+      <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
+        <ng-container *ngIf="cargamasi.semana === 27">
+          <ng-container *ngIf="cargamasi.dia === 'sabado'">
+            <ng-container *ngIf="cargamasi.disponibilidad === true">
+              <span class="row horas bg-success">{{ cargamasi.horario }}</span>
+            </ng-container>
+            <ng-container *ngIf="cargamasi.disponibilidad === false">
+              <span class="row horas bg-danger">{{ cargamasi.horario }}</span>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="col">
+    <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
+      <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
+        <ng-container *ngIf="cargamasi.semana === 27">
+          <ng-container *ngIf="cargamasi.dia === 'domingo'">
+            <ng-container *ngIf="cargamasi.disponibilidad === true">
+              <span class="row horas bg-success">{{ cargamasi.horario }}</span>
+            </ng-container>
+            <ng-container *ngIf="cargamasi.disponibilidad === false">
+              <span class="row horas bg-danger">{{ cargamasi.horario }}</span>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
 </div>

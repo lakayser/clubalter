@@ -1,9 +1,10 @@
 export interface CargaMasiva{
-   _id:'',
-   fecha: '',
-   dia: '',
-   disponibilidad: '',
-   horario: '',
-   cancha: '',
-   precio: ''
+   _id: String,
+   fecha: String,
+   dia: String,
+   disponibilidad: Boolean,
+   horario: String,
+   cancha: String,
+   precio: Number,
+   semana: Number,
 }
