@@ -32,4 +32,9 @@ export class CanchasService {
   deleteCanchas(id: string){
     return this.http.delete(`${this.URL}delete-canchas/${id}`)
   }
+  postReserva(cancha: Cancha){
+    return this.http.post(`${this.URL}agendar-hora-cancha/${cancha._id}`, cancha)
+  }
+
+
 }

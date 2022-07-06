@@ -1,0 +1,93 @@
+<div id="">
+   
+
+    <div id="">
+
+        <div class="page-content">
+            <section class="row">
+                <div class="col-12 col-lg-12">
+
+                    <div class="row  justify-content-center">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="text-center">Reservar una hora</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="chart-profile-visit">
+                                        <!--Formulario Agregar-->
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-sm-6">
+
+                                                    <div class="table-responsive-md">
+                                                        <div class="scrollable">
+                                                            <table
+                                                                class="table table-bordered border-dark mt-2 text-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Nombre de cancha</th>
+
+                                                                        <th scope="col">disponibilidad</th>
+                                                                        <th scope="col">Rango Horario</th>
+                                                                  
+                                                                        <th scope="col">Opciones</th>
+
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr
+                                                                        *ngFor="let cancha of canchasService.cancha | ObjToArray">
+                                                                        <td>{{cancha.name}}</td>
+                                                                        <td *ngIf="cancha.disponibilidad==true">
+                                                                            Disponible
+                                                                        </td>
+                                                                        <td *ngIf="!cancha.disponibilidad==true">NO
+                                                                            Disponible</td>
+                                                                            <td *ngIf="cancha.rangoHorario == '1' ">
+                                                                                1 Hora
+                                                                            </td>
+                                                                            <td *ngIf="cancha.rangoHorario == '2' ">
+                                                                                1:30 Horas
+                                                                            </td>
+                                                                            <td *ngIf="cancha.rangoHorario == '3' ">
+                                                                                2 Horas
+                                                                            </td>
+                                                                        
+                                                                        
+                                                                        <td><button type="button"
+                                                                                class="btn btn-danger" (click)="pasarcancha(cancha._id)"><span
+                                                                                    class="material-icons" href="reservaselect">
+                                                                                    report_problem
+                                                                                </span>
+
+                                                                                seleccionar</button>
+                                                                                </td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div>
+                                         
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+       
+        </div>
+
+    </div>

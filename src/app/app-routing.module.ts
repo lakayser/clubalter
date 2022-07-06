@@ -35,6 +35,8 @@ import { DashboardProfesorComponent } from './profesor-vista/dashboard-profesor/
 import { ClaseCrudComponent } from './profesor-vista/clase-crud/clase-crud.component';
 import { PagoComponent } from './pagina/pago/pago.component';
 import { CitaComponent } from './cita/cita.component';
+import { SelectCanchasComponent } from './vistas/select-canchas/select-canchas.component';
+import { SelectReservaComponent } from './vistas/select-reserva/select-reserva.component';
 
 
 
@@ -69,6 +71,9 @@ const routes: Routes = [
   {path: 'clases-crud', component:ClaseCrudComponent},
   {path: 'rut',component:PagoComponent},
   {path: 'cita',component:CitaComponent},
+  {path: 'canchaselect', component:SelectCanchasComponent},
+  {path: 'reservaselect', component:SelectReservaComponent},
+
 
 
 

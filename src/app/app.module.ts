@@ -64,6 +64,8 @@ import { FilterPipe } from './pipes/filter.pipe';
 
 import { TicketComponent } from './ticket/ticket.component';
 import { CitaComponent } from './cita/cita.component';
+import { SelectCanchasComponent } from './vistas/select-canchas/select-canchas.component';
+import { SelectReservaComponent } from './vistas/select-reserva/select-reserva.component';
 const materialModules = [
   MatDatepickerModule,
   MatNativeDateModule,
@@ -115,6 +117,8 @@ const materialModules = [
 
     TicketComponent,
       CitaComponent,
+      SelectCanchasComponent,
+      SelectReservaComponent,
     
     
     
