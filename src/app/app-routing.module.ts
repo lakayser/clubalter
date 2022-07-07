@@ -72,7 +72,7 @@ const routes: Routes = [
   {path: 'rut',component:PagoComponent},
   {path: 'cita',component:CitaComponent},
   {path: 'canchaselect', component:SelectCanchasComponent},
-  {path: 'reservaselect', component:SelectReservaComponent},
+  {path: 'reservaselect/:_id', component:SelectReservaComponent},
 
 
 

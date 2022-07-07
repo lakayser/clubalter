@@ -5,6 +5,7 @@ import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service'
 import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service';
 import { Cancha } from 'src/app/modelos/canchas';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-select-canchas',
@@ -12,13 +13,27 @@ import { Cancha } from 'src/app/modelos/canchas';
   styleUrls: ['./select-canchas.component.css']
 })
 export class SelectCanchasComponent implements OnInit {
+ 
 
-  constructor(public canchasService: CanchasService, public horariocanchaService: HorarioCanchaService, public horasmasivasService: HorasmasivasService, public cargamasivaService: CargamasivaService) { }
+  constructor(private router: Router, private route: ActivatedRoute ,public canchasService: CanchasService, public horariocanchaService: HorarioCanchaService, public horasmasivasService: HorasmasivasService, public cargamasivaService: CargamasivaService) { }
 
   ngOnInit(): void {
     this.getCanchas();
-  
   }
+
+  // pasarcancha(form:NgForm){
+  //   this.canchasService.postReserva(form.value).subscribe((res)=>{
+  //     this.router.navigate(['/reservaselect', res])
+  //     console.log(res)
+      
+  //   })
+  // }
+  onSelect(cancha:Cancha){
+    this.router.navigate(['/reservaselect', cancha._id])
+  }
+  // goToVista(_id:any){
+  //   this.router.navigate(['/reservaselect', _id])
+  // }
   getCanchas(){
     this.canchasService.getCanchas().subscribe((res)=>{
       this.canchasService.cancha= res;
@@ -47,28 +62,7 @@ export class SelectCanchasComponent implements OnInit {
     this.canchasService.selectedCancha = cancha;
   }
   
-  deleteCancha(_id: any){
-    if(confirm('Esta seguro que desea eliminar esta cancha?')){
-      this.canchasService.deleteCanchas(_id).subscribe(
-        (res)=>{
-          this.getCanchas();
-        },
-        (err)=> console.log(err)
-      );
-    }
-  }
-  addHorasCancha(form:NgForm){
-    this.horasmasivasService.createHorasMasivas(form.value).subscribe((res)=>{
-      console.log(res);
-      form.reset();
-      
-    })
-  }
-  pasarcancha(form:NgForm){
-    this.canchasService.postReserva(form.value).subscribe((res)=>{
-      console.log(res)
-      
-    })
-  }
+  
+
 
 }
