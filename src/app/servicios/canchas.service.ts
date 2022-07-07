@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Cancha } from '../modelos/canchas';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,7 @@ export class CanchasService {
     return this.http.delete(`${this.URL}delete-canchas/${id}`)
   }
 
-  postReserva(cancha:any){
+  postReserva(cancha:Cancha){
     return this.http.get(`${this.URL}agendar-hora-cancha/${cancha._id}`)
   }
  
