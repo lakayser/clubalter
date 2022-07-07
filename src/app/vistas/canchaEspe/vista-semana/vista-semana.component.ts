@@ -12,12 +12,16 @@ export class VistaSemanaComponent implements OnInit {
 
   constructor(public cargamasivaService: CargamasivaService, public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService) { }
 
+  contador = 0;
+
+  canchas = ['Cancha 1', 'Cancha 2', 'Cancha 3']
+
   ngOnInit(): void {
     this.getHoraCancha();
     this.getCanchas();
     this.getCargaMasiva();
+    console.log(this.numSemana)
   }
-
   getHoraCancha(){
     this.horariocanchaService.getHorarioCancha().subscribe((res)=>{
       this.horariocanchaService.horacancha = res;
@@ -26,9 +30,11 @@ export class VistaSemanaComponent implements OnInit {
   }
   getCanchas(){
     this.canchasService.getCanchas().subscribe((res)=>{
-      this.canchasService.cancha= res;
+      this.canchasService.cancha = res;
       console.log(res)
-      
+
+      let prueba: any = res.map(dato => dato.name)
+      console.log(prueba)
     })
   }
   getCargaMasiva(){
@@ -36,5 +42,29 @@ export class VistaSemanaComponent implements OnInit {
       this.cargamasivaService.cargamasi = res;
       console.log(res);
     })
+  }
+  obtenerNumeroSemana (fecha: any) {
+    let fechaAuxiliar: any = new Date(fecha.valueOf());
+    let numeroDia = (fecha.getDay() + 6) % 7;
+
+    fechaAuxiliar.setDate(fechaAuxiliar.getDay() - numeroDia + 3);
+    let primerMartes = fechaAuxiliar.valueOf();
+
+    fechaAuxiliar.setMonth(0, 1);
+
+    if (fechaAuxiliar.getDay() != 4) {
+      fechaAuxiliar.setMonth(0, 1 + (4 - fechaAuxiliar.getDay() + 7) % 7);
+    }
+
+    return 1 + Math.ceil((primerMartes - fechaAuxiliar) / 604800000)
+  }
+  numSemana = this.obtenerNumeroSemana(new Date())
+
+  nextCancha () {
+  this.canchasService.getCanchas().subscribe((res)=>{
+    this.canchasService.cancha = res;
+    let prueba: any = res.map(dato => dato.name)
+    console.log(prueba)
+  })
   }
 }

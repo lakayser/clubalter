@@ -6,6 +6,8 @@ import { CanchasService } from 'src/app/servicios/canchas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service';
 import { NgForm } from '@angular/forms';
 import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
+import { Observable } from "rxjs";
+
 @Component({
   selector: 'app-canchas-reservar',
   templateUrl: './canchas-reservar.component.html',
@@ -20,18 +22,13 @@ export class CanchasReservarComponent implements OnInit {
   ngOnInit(): void {
     this.getHoraTomada();
     this.getCanchas();
-
   }
-
-
   addReserva(form:NgForm){
     this.horastomadasService.createHoraTomada(form.value).subscribe((res)=>{
       console.log(res);
       form.reset();
-      
     })
   }
-
   getCargaMasiva(){
     this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
       this.cargamasivaService.cargamasi = res;
@@ -43,10 +40,11 @@ export class CanchasReservarComponent implements OnInit {
     this.canchasService.getCanchas().subscribe((res)=>{
       this.canchasService.cancha= res;
       console.log(res)
-      
+
+      var prueba = res.map(dato => dato._id);
+      console.log(prueba)
     })
   }
- 
 getHoraTomada(){
   this.horastomadasService.getHoraTomada().subscribe((res)=>{
     this.horastomadasService.horatomada=res;
@@ -65,16 +63,13 @@ deleteHoraTomada(_id: any){
   }
 }
 
+onSelect(_id:any) {
+  this.canchasService.getCanchas().subscribe((res)=>{
+    this.canchasService.cancha= res;
 
- 
- // getActivo(){
-  //   this.usuariosService.getActivo().subscribe((resp)=>{
-  //     this.usuariosService.nombre =resp;
-  //     console.log('respuesta'+ resp)
-      
-  //   })
-  // }
-
-
+    var prueba = res.map(dato => dato._id);
+    console.log(_id)
+  })
+}
 
 }

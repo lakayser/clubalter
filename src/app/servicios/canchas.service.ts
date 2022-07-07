@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Cancha } from '../modelos/canchas';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class CanchasService {
   createCancha(cancha: Cancha) {
     return this.http.post(`${this.URL}add-canchas`, cancha)
   }
-  getCanchas() {
+  getCanchas(): Observable<Cancha[]> {
     return this.http.get<Cancha[]>(`${this.URL}list-canchas`)
   }
   putCanchas(cancha: Cancha){

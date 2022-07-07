@@ -1,6 +1,6 @@
 <div class="row">
   <header class="col" id="header">
-    <h2>Cancha 1</h2>
+    <h2>{{ canchas[0] }}</h2>
   </header>
 </div>
 
@@ -18,7 +18,7 @@
   <div class="col">
     <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
       <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
-        <ng-container *ngIf="cargamasi.semana === 27">
+        <ng-container *ngIf="cargamasi.semana === numSemana ">
           <ng-container *ngIf="cargamasi.dia === 'lunes'">
             <ng-container *ngIf="cargamasi.disponibilidad === true">
               <span class="row horas bg-success">{{ cargamasi.horario }}</span>
@@ -34,7 +34,7 @@
   <div class="col">
     <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
       <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
-        <ng-container *ngIf="cargamasi.semana === 27">
+        <ng-container *ngIf="cargamasi.semana === numSemana">
           <ng-container *ngIf="cargamasi.dia === 'martes'">
             <ng-container *ngIf="cargamasi.disponibilidad === true">
               <span class="row horas bg-success">{{ cargamasi.horario }}</span>
@@ -50,7 +50,7 @@
   <div class="col">
     <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
       <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
-        <ng-container *ngIf="cargamasi.semana === 27">
+        <ng-container *ngIf="cargamasi.semana === numSemana">
           <ng-container *ngIf="cargamasi.dia === 'miercoles'">
             <ng-container *ngIf="cargamasi.disponibilidad === true">
               <span class="row horas bg-success">{{ cargamasi.horario }}</span>
@@ -66,7 +66,7 @@
   <div class="col">
     <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
       <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
-        <ng-container *ngIf="cargamasi.semana === 27">
+        <ng-container *ngIf="cargamasi.semana === numSemana">
           <ng-container *ngIf="cargamasi.dia === 'jueves'">
             <ng-container *ngIf="cargamasi.disponibilidad === true">
               <span class="row horas bg-success">{{ cargamasi.horario }}</span>
@@ -82,7 +82,7 @@
   <div class="col">
     <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
       <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
-        <ng-container *ngIf="cargamasi.semana === 27">
+        <ng-container *ngIf="cargamasi.semana === numSemana">
           <ng-container *ngIf="cargamasi.dia === 'viernes'">
             <ng-container *ngIf="cargamasi.disponibilidad === true">
               <span class="row horas bg-success">{{ cargamasi.horario }}</span>
@@ -98,7 +98,7 @@
   <div class="col">
     <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
       <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
-        <ng-container *ngIf="cargamasi.semana === 27">
+        <ng-container *ngIf="cargamasi.semana === numSemana">
           <ng-container *ngIf="cargamasi.dia === 'sabado'">
             <ng-container *ngIf="cargamasi.disponibilidad === true">
               <span class="row horas bg-success">{{ cargamasi.horario }}</span>
@@ -114,7 +114,7 @@
   <div class="col">
     <ng-container *ngFor="let cargamasi of cargamasivaService.cargamasi | ObjToArray">
       <ng-container *ngFor="let c of cargamasi.cancha | ObjToArray">
-        <ng-container *ngIf="cargamasi.semana === 27">
+        <ng-container *ngIf="cargamasi.semana === numSemana">
           <ng-container *ngIf="cargamasi.dia === 'domingo'">
             <ng-container *ngIf="cargamasi.disponibilidad === true">
               <span class="row horas bg-success">{{ cargamasi.horario }}</span>
