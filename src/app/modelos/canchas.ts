@@ -1,5 +1,5 @@
 export interface Cancha{
-    _id: '',
+    _id?: '',
     name: '',
     disponibilidad: '',
     rangohorario: ''
