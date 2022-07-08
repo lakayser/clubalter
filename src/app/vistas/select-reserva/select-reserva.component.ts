@@ -15,7 +15,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SelectReservaComponent implements OnInit {
 
-  constructor(private router: Router, private route:ActivatedRoute ,public cargamasivaService:CargamasivaService, public horasmasivasService: HorasmasivasService ,public horastomadasService:HorastomadasService,public horariocanchaService: HorarioCanchaService, public canchasService:CanchasService) { }
+  constructor(private router: Router, private route:ActivatedRoute ,public cargamasivaService:CargamasivaService, public horasmasivasService: HorasmasivasService ,public horastomadasService:HorastomadasService,public horariocanchaService: HorarioCanchaService, public canchasService:CanchasService) {
+
+   }
   disponible="table-success";
   noDisponible="table-danger";
    public horatomada: Array<any> =[]
@@ -23,16 +25,13 @@ export class SelectReservaComponent implements OnInit {
   ngOnInit(): void {
     this.getHoraTomada();
     this.getCanchas();
-    this.getID('');
-    // const id = this.route.snapshot.paramMap.get('cancha');
+
+    this.route.paramMap.subscribe(params => {
+      var id = params.get('id');
+      this.getID(id);
+    });
     
-    // this.canchasService.postReserva(id)
-    // .subscribe(cancha=>{
-    //   this. = cancha,
-    //   this.getID(cancha._id)
-    // })
   }
-   
 
   addReserva(form:NgForm){
     this.horastomadasService.createHoraTomada(form.value).subscribe((res)=>{
@@ -42,11 +41,10 @@ export class SelectReservaComponent implements OnInit {
     })
   }
 
-  getID(_id: any){
-    this.canchasService.postReserva(_id).subscribe((res:any)=>{
+  getID(id: any){
+    this.canchasService.postReserva(id).subscribe((res:any)=>{
       this.canchasService.cancha=res;
       console.log(res);
-      
     })
   }
 
