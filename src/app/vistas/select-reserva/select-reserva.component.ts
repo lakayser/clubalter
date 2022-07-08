@@ -25,19 +25,28 @@ export class SelectReservaComponent implements OnInit {
   ngOnInit(): void {
     this.getHoraTomada();
     this.getCanchas();
+    this.getCargaMasiva();
 
     this.route.paramMap.subscribe(params => {
       var id = params.get('id');
       this.getID(id);
     });
     
+    
+    
   }
 
-  addReserva(form:NgForm){
-    this.horastomadasService.createHoraTomada(form.value).subscribe((res)=>{
-      console.log(res);
-      form.reset();
+  // addReserva(form:NgForm){
+  //   this.horastomadasService.createHoraTomada(form.value).subscribe((res)=>{
+  //     console.log(res);
+  //     form.reset();
       
+  //   })
+  // }
+  addReserva(form:NgForm, id:any){
+    this.canchasService.postReserva(id).subscribe((res:any)=>{
+      this.canchasService.cancha=res;
+      console.log(res);
     })
   }
 

@@ -30,6 +30,8 @@
                                                             <form #reservaForm="ngForm"
                                                                 (ngSubmit)="addReserva(reservaForm)"
                                                                 class="row g-3 mb-3">
+                                                                <input type="hidden" name="cancha" id="id"
+                                                            [(ngModel)]="horastomadasService.selectedHorasTomadas.cancha">
                                                                 <div class="col-md-6">
                                                                     <label for="input" class="form-label">Rut
                                                                         Del
@@ -37,43 +39,26 @@
                                                                     <input type="text" class="form-control" name="rut"
                                                                         [(ngModel)]="horastomadasService.selectedHorasTomadas.rut">
                                                                 </div>
-                                                                <div class="col-lg-6 col-md-6">
+                                                       
+                                                                <div class="col-lg-4 col-md-6">
                                                                     <label for="inputOcupacion"
-                                                                        class="form-label">Seleccione dia y horario</label>
+                                                                        class="form-label">Seleccione horarios Disponibles</label>
                                                                     <select class="form-select"
                                                                         aria-label="Default select example"
-                                                                        name="hora"
-                                                                      >
-                                                                        <option>lunes 15 21:00-22:00</option>
-                                                                        <option>martes 16 10:00-11:00</option>
-                                                                        <option>martes 16 11:00-12:00</option>
-                                                           
-                                                                            
-                                                                        
-                                                                    </select>
-                                                                </div>
-
-                                                                <!-- <div class="col-lg-4 col-md-6">
-                                                                    <label for="inputOcupacion"
-                                                                        class="form-label">Seleccione Cancha
-                                                                        para reservar</label>
-                                                                    <select class="form-select"
-                                                                        aria-label="Default select example"
-                                                                        name="cancha"
+                                                                        name="horascanchas"
                                                                         [(ngModel)]="horastomadasService.selectedHorasTomadas.horascanchas">
                                                                         <option
-                                                                            *ngFor="let cancha of canchasService.cancha | ObjToArray"
-                                                                            [ngValue]="cancha._id">{{cancha.name}}
-                                                                        </option>
+                                                                        *ngFor="let cargamasi of cargamasivaService.cargamasi|ObjToArray"
+
+                                                                            [ngValue]="cargamasi._id"> {{cargamasi.fecha}} {{cargamasi.dia}} {{cargamasi.horario}}
+                                                                        </option> 
 
                                                                     </select>
-                                                                </div> -->
+                                                                </div>
                                                              
-
-
                                                                 <div class="text-center">
                                                                     <button type="submit"
-                                                                        class="btn btn-danger text-uppercase disabled">Agendar
+                                                                        class="btn btn-danger text-uppercase ">Agendar
                                                                         Hora</button>
                                                                 </div>
 
@@ -100,6 +85,7 @@
                                                             </th>
                                                             <th scope="col">cancha
                                                             </th>
+                                                            <th>dia</th>
                                                             <th>rut</th>
                                                         </tr>
                                                     </thead>
