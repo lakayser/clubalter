@@ -14,6 +14,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./select-reserva.component.css']
 })
 export class SelectReservaComponent implements OnInit {
+  cosa: any={};
 
   constructor(private router: Router, private route:ActivatedRoute ,public cargamasivaService:CargamasivaService, public horasmasivasService: HorasmasivasService ,public horastomadasService:HorastomadasService,public horariocanchaService: HorarioCanchaService, public canchasService:CanchasService) {
 
@@ -26,6 +27,9 @@ export class SelectReservaComponent implements OnInit {
     this.getHoraTomada();
     this.getCanchas();
     this.getCargaMasiva();
+    let BN = this.route.snapshot.paramMap.get('id');
+    this.cosa = BN;
+    console.log(this.cosa)
 
     this.route.paramMap.subscribe(params => {
       var id = params.get('id');
@@ -36,19 +40,19 @@ export class SelectReservaComponent implements OnInit {
     
   }
 
-  // addReserva(form:NgForm){
-  //   this.horastomadasService.createHoraTomada(form.value).subscribe((res)=>{
-  //     console.log(res);
-  //     form.reset();
-      
-  //   })
-  // }
-  addReserva(form:NgForm, id:any){
-    this.canchasService.postReserva(id).subscribe((res:any)=>{
-      this.canchasService.cancha=res;
+  addReserva(form:NgForm){
+    this.horastomadasService.createHoraTomada(form.value).subscribe((res)=>{
       console.log(res);
+      form.reset();
+      
     })
   }
+  // addReserva(form:NgForm, id:any){
+  //   this.canchasService.postReserva(id).subscribe((res:any)=>{
+  //     this.canchasService.cancha=res;
+  //     console.log(res);
+  //   })
+  // }
 
   getID(id: any){
     this.canchasService.postReserva(id).subscribe((res:any)=>{
