@@ -4,7 +4,7 @@ import { HorastomadasService } from 'src/app/servicios/horastomadas.service';
 import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service';
 import { CanchasService } from 'src/app/servicios/canchas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -15,13 +15,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SelectReservaComponent implements OnInit {
   cosa: any={};
+  reservaForm!: FormGroup;
 
-  constructor(private router: Router, private route:ActivatedRoute ,public cargamasivaService:CargamasivaService, public horasmasivasService: HorasmasivasService ,public horastomadasService:HorastomadasService,public horariocanchaService: HorarioCanchaService, public canchasService:CanchasService) {
+  constructor(private readonly fb:FormBuilder,private router: Router, private route:ActivatedRoute ,public cargamasivaService:CargamasivaService, public horasmasivasService: HorasmasivasService ,public horastomadasService:HorastomadasService,public horariocanchaService: HorarioCanchaService, public canchasService:CanchasService) {
 
    }
   disponible="table-success";
   noDisponible="table-danger";
    public horatomada: Array<any> =[]
+
 
   ngOnInit(): void {
     this.getHoraTomada();
@@ -36,8 +38,27 @@ export class SelectReservaComponent implements OnInit {
       this.getID(id);
     });
     
+    this.reservaForm =this.initForm();
     
+  }
+  onSubmit():void{
+    this.horastomadasService.createHoraTomada(this.reservaForm.value).subscribe((res)=>{
+      console.log(res);
+    console.log(this.reservaForm.value);
+    this.getHoraTomada();
+    this.reservaForm.reset();
+    })
     
+  }
+  
+
+  initForm(): FormGroup {
+    return this.fb.group({
+      cancha: [this.cosa, [Validators.required, Validators.minLength(5)]],
+      rut: ['', [Validators.required, Validators.minLength(5)]],
+      horascanchas: ['', [Validators.required]]
+
+    })
   }
 
   addReserva(form:NgForm){
@@ -47,12 +68,6 @@ export class SelectReservaComponent implements OnInit {
       
     })
   }
-  // addReserva(form:NgForm, id:any){
-  //   this.canchasService.postReserva(id).subscribe((res:any)=>{
-  //     this.canchasService.cancha=res;
-  //     console.log(res);
-  //   })
-  // }
 
   getID(id: any){
     this.canchasService.postReserva(id).subscribe((res:any)=>{
@@ -60,6 +75,7 @@ export class SelectReservaComponent implements OnInit {
       console.log(res);
     })
   }
+  
 
   getCargaMasiva(){
     this.cargamasivaService.getCargaMasiva().subscribe((res)=>{

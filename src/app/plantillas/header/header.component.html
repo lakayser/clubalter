@@ -30,7 +30,16 @@
        
         <ng-template #loggedIn>
            
-         
+         <li class="nav-item"> 
+          
+                <button type="button" id="menu-toggle" class="btn btn-warning ml-2" onclick="toggleSideBar()" value="sidebar">
+                    <span class="material-icons" id="btnsid">
+                        menu_open
+                        </span>
+                </button>
+              
+
+         </li>
           <li class="nav-item">
             
             <button type="button" class="btn btn-danger ml-2" (click)="apiService.logout()">

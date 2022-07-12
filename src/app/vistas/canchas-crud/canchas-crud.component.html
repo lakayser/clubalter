@@ -13,7 +13,7 @@
                                 <div class="card-header">
                                     <h4 class="text-center">Canchas CRUD</h4>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body  mt-3">
                                     <div id="chart-profile-visit">
                                         <!--Formulario Agregar-->
                                         <div class="container">
@@ -23,7 +23,7 @@
                                                     <div class="table-responsive-md">
                                                         <div class="scrollable">
                                                             <table
-                                                                class="table table-bordered border-dark mt-2 text-center">
+                                                                class="table table-bordered border-dark table-hover text-center">
                                                                 <thead>
                                                                     <tr>
                                                                         <th scope="col">Nombre de cancha</th>
@@ -87,7 +87,7 @@
                                                                 [(ngModel)]="canchasService.selectedCancha.name">
                                                         </div>
 
-                                                        <div class="col-sm-6">
+                                                        <div class="col">
                                                             <label for="inputOcupacion" class="form-label">Seleccione la
                                                                 duracion de la reserva</label>
                                                             <select class="form-select"
@@ -115,6 +115,7 @@
                                         <div>
                                             <div class="container">
                                                 <div class="row">
+                                                    <div class="col-3"></div>
                                                     <div class="col-sm-6 col-lg-6">
                                                         <h2>Carga masiva de Horas</h2>
                                                         <form #horasmasivasForm="ngForm" (ngSubmit)="addHorasCancha(horasmasivasForm)">
@@ -168,14 +169,7 @@
 
             </section>
        
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2022 &copy; Boliot</p>
-                    </div>
-
-                </div>
-            </footer>
+            
         </div>
 
     </div>

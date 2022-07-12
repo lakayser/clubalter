@@ -6,6 +6,7 @@ import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service';
 import { Cancha } from 'src/app/modelos/canchas';
 import { Router, ActivatedRoute } from '@angular/router';
+import { HorastomadasService } from 'src/app/servicios/horastomadas.service';
 
 @Component({
   selector: 'app-select-canchas',
@@ -15,10 +16,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SelectCanchasComponent implements OnInit {
  
 
-  constructor(private router: Router, private route: ActivatedRoute ,public canchasService: CanchasService, public horariocanchaService: HorarioCanchaService, public horasmasivasService: HorasmasivasService, public cargamasivaService: CargamasivaService) { }
+  constructor(private router: Router, private route: ActivatedRoute ,public canchasService: CanchasService, public horariocanchaService: HorarioCanchaService, public horasmasivasService: HorasmasivasService, public cargamasivaService: CargamasivaService, public horastomadasService: HorastomadasService) { }
 
   ngOnInit(): void {
     this.getCanchas();
+    this.getHoraTomada();
   }
 
   // pasarcancha(form:NgForm){
@@ -61,7 +63,23 @@ export class SelectCanchasComponent implements OnInit {
   editCancha(cancha: Cancha){
     this.canchasService.selectedCancha = cancha;
   }
+  getHoraTomada(){
+    this.horastomadasService.getHoraTomada().subscribe((res)=>{
+      this.horastomadasService.horatomada=res;
+      console.log(res);
+      
+    })
   
+  }
+  deleteHoraTomada(_id: any){
+    if(confirm('Estas seguro de eliminar esta hora reservada?')){
+      this.horastomadasService.deleteHoraTomada(_id).subscribe(
+        (res)=>{this.getHoraTomada();
+      },
+      (err)=>console.log(err)
+      );
+    }
+  }
   
 
 
