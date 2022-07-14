@@ -66,6 +66,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { CitaComponent } from './cita/cita.component';
 import { SelectCanchasComponent } from './vistas/select-canchas/select-canchas.component';
 import { SelectReservaComponent } from './vistas/select-reserva/select-reserva.component';
+import { CommitComponent } from './vistas/commit/commit.component';
 const materialModules = [
   MatDatepickerModule,
   MatNativeDateModule,
@@ -119,6 +120,7 @@ const materialModules = [
       CitaComponent,
       SelectCanchasComponent,
       SelectReservaComponent,
+      CommitComponent,
     
     
     

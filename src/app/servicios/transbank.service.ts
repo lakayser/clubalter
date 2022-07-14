@@ -8,6 +8,7 @@ import { HorasTomadas } from '../modelos/horastomadas';
 export class TransbankService {
 
   _url = 'https://botmila-api.herokuapp.com/botmilaAPI/webpay/';
+  
 
   selectedHorasTomadas: HorasTomadas={
     horascanchas: '',
@@ -16,23 +17,20 @@ export class TransbankService {
     id: '',
     codigoVenta: ''
   }
-  
+  transb: HorasTomadas[];
+
   private  header = new HttpHeaders()
   .set('Type-content', 'aplication/json')
   
-  constructor(
-
-    private http: HttpClient
-  ) {
-
-    console.log('trasbank andando');
-    
-   }
+  constructor(private http: HttpClient) {console.log('trasbank andando');}
    
-   
-   getTransbank(horatomada:HorasTomadas){
-    //  return this.http.get(`${this._url}payment/${horatomada.codigoVenta}`, horatomada);
- 
+   getTransbank(codigoVenta: any){
+     return this.http.get(`${this._url}payment/${codigoVenta}`);
     }
+  getCommit(){
+      return this.http.get(`${this._url}commit`)
+    }
+
 }
+
 

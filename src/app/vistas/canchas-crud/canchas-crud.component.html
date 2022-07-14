@@ -75,19 +75,19 @@
 
                                                 </div>
 
-                                                <div class="col">
+                                                <div class="col mt-3">
                                                     <form #canchaForm="ngForm" (ngSubmit)="addCancha(canchaForm)"
                                                         class="row g-3 mb-3 ">
                                                         <input type="hidden" name="_id"
                                                             [(ngModel)]="canchasService.selectedCancha._id">
-                                                        <div class="col">
+                                                        <div class="col col-sm-6">
                                                             <label for="input" class="form-label">Ingrese nombre de
                                                                 nueva cancha</label>
                                                             <input type="text" class="form-control" name="name"
                                                                 [(ngModel)]="canchasService.selectedCancha.name">
                                                         </div>
 
-                                                        <div class="col">
+                                                        <div class="col-sm-6">
                                                             <label for="inputOcupacion" class="form-label">Seleccione la
                                                                 duracion de la reserva</label>
                                                             <select class="form-select"

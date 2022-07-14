@@ -37,6 +37,7 @@ import { PagoComponent } from './pagina/pago/pago.component';
 import { CitaComponent } from './cita/cita.component';
 import { SelectCanchasComponent } from './vistas/select-canchas/select-canchas.component';
 import { SelectReservaComponent } from './vistas/select-reserva/select-reserva.component';
+import { CommitComponent } from './vistas/commit/commit.component';
 
 
 
@@ -54,7 +55,8 @@ const routes: Routes = [
   {path: 'box', component: BoxComponent, canActivate: [AuthGuard]},
   {path: 'agendarpaciente', component: AgendarPacienteComponent },
   {path: 'lugar', component: LugarComponent},
-  {path: 'pagos', component:PortalPagoComponent},
+  {path: 'pagos/:CodigoVenta', component:PortalPagoComponent},
+  {path: 'webpay_plus/commit', component:CommitComponent},
   {path: 'hora', component:AgendarhoraComponent,canActivate: [AuthGuard]},
   {path: 'ocupation', component:OcupationComponent },
   {path: 'organization', component:OrganizationComponent},
