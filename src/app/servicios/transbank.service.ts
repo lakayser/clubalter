@@ -43,8 +43,13 @@ export class TransbankService {
    getTransbank(codigoVenta: any){
      return this.http.get(`${this._url}payment/${codigoVenta}`);
     }
+    
   getCommit(transb:ViewData){
       return this.http.post(`${this._url}commit`, transb)
+    }
+
+  getCommits(){
+      return this.http.get(`${this._url}commit`)
     }
 
 }

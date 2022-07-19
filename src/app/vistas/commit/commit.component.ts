@@ -13,12 +13,20 @@ export class CommitComponent implements OnInit {
   constructor(private router: Router, private route:ActivatedRoute, private transbankServices: TransbankService) { }
 
   ngOnInit(): void {
-    this.getcommit(this.datos);
-  
+    // this.getcommit(this.datos);
+  this.estesiesunget();
   }
 
-  getcommit(datos:any){
-    this.transbankServices.getCommit(datos.value).subscribe((res:any) =>{
+  // getcommit(datos:any){
+  //   this.transbankServices.getCommit(datos.value).subscribe((res:any) =>{
+  //     console.log(res);
+      
+  //   })
+  // }
+
+  estesiesunget(){
+    this.transbankServices.getCommits().subscribe((res:any)=>{
+      this.transbankServices.transb = res;
       console.log(res);
       
     })
