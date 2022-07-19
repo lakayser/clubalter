@@ -11,17 +11,31 @@
 
     <!-- Login Form -->
     <form (submit)="signin()">
+      
       <input type="text" id="login" class="fadeIn second" placeholder="login" name="nameUser" [(ngModel)]="user.nameUser">
       <input type="password" id="password" class="fadeIn third" placeholder="password" name="password" [(ngModel)]="user.password">
       <!-- <input type="text" class="fadeIn third" placeholder="rol" formControlName="roles"> -->
-      <input type="submit" class="fadeIn fourth" value="Log In">
+      <input type="submit" id="btn1" class="fadeIn fourth" value="Log In">
     </form>
-
+    
     <!-- Remind Passowrd -->
     <div id="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
     </div>
+    
 
   </div>
 </div>
+<input type="button" id="btn2"  value="Log In">
+<script>
+  $("#btn2").click(function(){
+  // Swal.fire({
+  // icon: 'error',
+  // title: 'Oops...',
+  // text: 'Something went wrong!',
+  // footer: '<a href="">Why do I have this issue?</a>'
+  alert("Mensaje con Alert");    
+// })
+});	
+</script>
 <app-footer></app-footer>
