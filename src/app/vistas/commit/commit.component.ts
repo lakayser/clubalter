@@ -14,7 +14,7 @@ export class CommitComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getcommit(this.datos);
-  this.estesiesunget();
+   this.estesiesunget();
   }
 
   // getcommit(datos:any){
@@ -25,8 +25,8 @@ export class CommitComponent implements OnInit {
   // }
 
   estesiesunget(){
-    this.transbankServices.getCommits().subscribe((res:any)=>{
-      this.transbankServices.transb = res;
+    this.transbankServices.getCommits().subscribe((res)=>{
+     
       console.log(res);
       
     })
