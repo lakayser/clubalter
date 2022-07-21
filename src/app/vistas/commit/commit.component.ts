@@ -17,17 +17,18 @@ export class CommitComponent implements OnInit {
       var token = params['token_ws'];
       console.log(token);
       this.estesiesunget(`${token}`)
+      // this.postcommit(`${token}`);
     });
-    // this.getcommit(this.datos);
+    // this.postcommit(this.datos);
   //  this.estesiesunget();
   }
 
-  // getcommit(datos:any){
-  //   this.transbankServices.getCommit(datos.value).subscribe((res:any) =>{
-  //     console.log(res);
+  postcommit(datos:any){
+    this.transbankServices.postCommit(datos.value).subscribe((res:any) =>{
+      console.log(res);
       
-  //   })
-  // }
+    })
+  }
 
   estesiesunget(token:string){
     this.transbankServices.getCommits(token).subscribe((res: any)=>{

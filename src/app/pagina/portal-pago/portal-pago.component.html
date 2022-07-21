@@ -59,19 +59,21 @@
                             </div>
                             <div class="card-body">
                                 <!-- <h3 class="font-weight-medium mb-3">Reserva</h3> -->
-                                <div class=" " *ngFor="let d of dato.horaCancha">
+                                <div class=" " >
 
-                                    <h4 >Reserva para el dia {{d.dia}}</h4>
+                                    <h4 >Reserva para el dia {{dato.dia}}</h4>
                                     
                                 </div>
-                                <div class="" *ngFor="let d of dato.horaCancha">
+                                <div class="">
 
-                                    <h4 *ngFor="let a of dato.cancha">Cancha Reservada: {{a.name}}</h4>
+                                    <h4 >Cancha Reservada: {{dato.nombreCancha}}</h4>
                                 </div>
 
                                 <div class=" justify-content-between">
-                                    <h4 *ngFor="let d of dato.horaCancha"> Horario de la reserva {{d.horario}}</h4>
-                                    <h4 *ngFor="let x of dato.organizacion">Reserva realizada en {{x.name}}</h4>
+                                    <h4 > Horario de la reserva: {{dato.hora}}</h4>
+                                    <h4 > Cancha reservada por el rut: {{dato.rut}}</h4>
+
+                                    <h4 >Reserva realizada en {{dato.organizacion}}</h4>
                                 </div>
 
                                 <hr class="mt-0">
