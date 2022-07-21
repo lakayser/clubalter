@@ -12,9 +12,14 @@ export class CommitComponent implements OnInit {
 
   constructor(private router: Router, private route:ActivatedRoute, private transbankServices: TransbankService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.route.queryParams.subscribe( params => {
+      var token = params['token_ws'];
+      console.log(token);
+      this.estesiesunget(`${token}`)
+    });
     // this.getcommit(this.datos);
-   this.estesiesunget();
+  //  this.estesiesunget();
   }
 
   // getcommit(datos:any){
@@ -24,9 +29,9 @@ export class CommitComponent implements OnInit {
   //   })
   // }
 
-  estesiesunget(){
-    this.transbankServices.getCommits().subscribe((res)=>{
-     
+  estesiesunget(token:string){
+    this.transbankServices.getCommits(token).subscribe((res: any)=>{
+     this.datos = res;
       console.log(res);
       
     })

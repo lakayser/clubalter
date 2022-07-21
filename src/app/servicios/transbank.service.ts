@@ -8,7 +8,8 @@ import { ViewData } from '../modelos/viewdata'
 })
 export class TransbankService {
 
-  _url = 'https://botmila-api.herokuapp.com/botmilaAPI/webpay/';
+  // _url = 'https://botmila-api.herokuapp.com/botmilaAPI/webpay/';
+  _url = 'http://localhost:8080/botmilaAPI/webpay/';
   
 
   selectedHorasTomadas: HorasTomadas={
@@ -50,8 +51,8 @@ export class TransbankService {
   //     return this.http.post(`${this._url}commit`, viewdata)
   //   }
 
-  getCommits(){
-      return this.http.get(`${this._url}commit`)
+  getCommits(token: string){
+      return this.http.get(`${this._url}commit/${token}`)
     }
 
 }
