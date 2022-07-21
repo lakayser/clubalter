@@ -9,7 +9,7 @@ import { ViewData } from '../modelos/viewdata'
 export class TransbankService {
 
   // _url = 'https://botmila-api.herokuapp.com/botmilaAPI/webpay/';
-  _url = 'http://localhost:8080/botmilaAPI/webpay/';
+  _url = 'https://botmila-api.herokuapp.com/botmilaAPI/webpay/';
   
 
   selectedHorasTomadas: HorasTomadas={
