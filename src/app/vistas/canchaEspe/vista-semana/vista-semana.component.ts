@@ -12,59 +12,91 @@ export class VistaSemanaComponent implements OnInit {
 
   constructor(public cargamasivaService: CargamasivaService, public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService) { }
 
-  contador = 0;
+  contador = -1
 
-  canchas = ['Cancha 1', 'Cancha 2', 'Cancha 3']
+  canchas: String[] = []
+  horaLunes: String[] = []
+  cancha: any[] = []
+  carga: any[] = []
 
   ngOnInit(): void {
-    this.getHoraCancha();
-    this.getCanchas();
-    this.getCargaMasiva();
-    console.log(this.numSemana)
+    console.log(this.numero)
+    this.getCanchas()
+    this.getHoras(this.numero)
   }
-  getHoraCancha(){
-    this.horariocanchaService.getHorarioCancha().subscribe((res)=>{
-      this.horariocanchaService.horacancha = res;
-      console.log(res);
-    })
+
+  getNomCancha() {
+    this.canchasService.getCanchas().subscribe((res)=>{
+      this.canchasService.cancha = res;
+   })
   }
+
   getCanchas(){
     this.canchasService.getCanchas().subscribe((res)=>{
       this.canchasService.cancha = res;
-      console.log(res)
-
-      let prueba: any = res.map(dato => dato.name)
-      console.log(prueba)
+      for(let a of res) {
+        this.cancha.push(a)
+        this.canchas.push(a.name)
+      }
+      console.log(this.canchas)
     })
   }
-  getCargaMasiva(){
+
+  getHoras(numSemana:Number) {
     this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
-      this.cargamasivaService.cargamasi = res;
-      console.log(res);
+      this.cargamasivaService.cargamasi = res
+      for(let b of res) {
+        this.carga.push(b)
+      }
+      this.carga.forEach(x => {
+        for(let cancha of x.cancha) {
+          if(x.semana === numSemana) {
+            if(cancha.name === this.canchas[0]) {
+              if(x.dia === 'lunes') {
+                this.horaLunes.push(x.horario)
+              }
+            }
+          }
+        }
+      })
     })
   }
-  obtenerNumeroSemana (fecha: any) {
-    let fechaAuxiliar: any = new Date(fecha.valueOf());
-    let numeroDia = (fecha.getDay() + 6) % 7;
 
-    fechaAuxiliar.setDate(fechaAuxiliar.getDay() - numeroDia + 3);
-    let primerMartes = fechaAuxiliar.valueOf();
-
-    fechaAuxiliar.setMonth(0, 1);
-
-    if (fechaAuxiliar.getDay() != 4) {
-      fechaAuxiliar.setMonth(0, 1 + (4 - fechaAuxiliar.getDay() + 7) % 7);
+  numeroSemana (fecha: any) {
+    const dia_en_mili_segundos = 1000 * 60 * 60 * 24,
+      dias_que_tiene_una_semana = 7,
+      jueves = 4
+    fecha = new Date(Date.UTC(fecha.getFullYear(), fecha.getMonth(), fecha.getDate()))
+    let dia_de_la_semana = fecha.getUTCDay()
+    if (dia_de_la_semana === 0) {
+      dia_de_la_semana = 7
     }
-
-    return 1 + Math.ceil((primerMartes - fechaAuxiliar) / 604800000)
+    fecha.setUTCDate(fecha.getUTCDate() - dia_de_la_semana + jueves)
+    const inicio_de_ano: any = new Date(Date.UTC(fecha.getUTCFullYear(), 0, 1))
+    const diferencia_de_fechas_en_milisegundos = fecha - inicio_de_ano
+    return Math.ceil(((diferencia_de_fechas_en_milisegundos / dia_en_mili_segundos) + 1) / dias_que_tiene_una_semana)
   }
-  numSemana = this.obtenerNumeroSemana(new Date())
+
+  fecha = new Date()
+
+  numero = this.numeroSemana(this.fecha)
 
   nextCancha () {
-  this.canchasService.getCanchas().subscribe((res)=>{
-    this.canchasService.cancha = res;
-    let prueba: any = res.map(dato => dato.name)
-    console.log(prueba)
-  })
+  //   this.contador += 1
+  //   if (this.contador == 3) {
+  //     this.contador = 0
+  //   }
+  // })
   }
+  // prevCancha () {
+  // this.canchasService.getCanchas().subscribe((res)=>{
+  //   this.canchasService.cancha = res;
+  //   this.canchas = res.map(dato => dato.name)
+  //   if (this.contador === 0) {
+  //     this.contador = 2
+  //   } else {
+  //     this.contador -= 1
+  //   }
+  // })
+  // }
 }
