@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service';
 import { CanchasService } from 'src/app/servicios/canchas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service'
@@ -8,7 +8,7 @@ import { CargamasivaService } from 'src/app/servicios/cargamasiva.service'
   templateUrl: './vista-semana.component.html',
   styleUrls: ['./vista-semana.component.css']
 })
-export class VistaSemanaComponent implements OnInit {
+export class VistaSemanaComponent implements OnInit, AfterViewInit {
 
   constructor(public cargamasivaService: CargamasivaService, public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService) { }
 
@@ -16,6 +16,13 @@ export class VistaSemanaComponent implements OnInit {
 
   canchas: String[] = []
   horaLunes: String[] = []
+  horaLunesF: String[] = []
+  horaMartes: String[] = []
+  horaMiercoles: String[] = []
+  horaJueves: String[] = []
+  horaViernes: String[] = []
+  horaSabado: String[] = []
+  horaDomingo: String[] = []
   cancha: any[] = []
   carga: any[] = []
 
@@ -24,6 +31,66 @@ export class VistaSemanaComponent implements OnInit {
     this.getCanchas()
     this.getHoras(this.numero)
   }
+
+  @ViewChild("hl") miTag: ElementRef
+  @ViewChild("hm") miTag2: ElementRef
+  @ViewChild("hmi") miTag3: ElementRef
+
+  ngAfterViewInit(): void {
+    this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
+      this.cargamasivaService.cargamasi = res
+      for(let b of res) {
+        this.carga.push(b)
+      }
+      this.carga.forEach(x => {
+        for(let cancha of x.cancha) {
+          if(x.semana === 29) {
+            if(cancha.name === this.canchas[0]) {
+              if(x.dia === 'lunes') {
+                if(cancha.disponibilidad === true) {
+                  this.horaLunes.push(x.horario)
+                  this.miTag.nativeElement.innerHTML = ''
+                  for(let i = 0; i < this.horaLunes.length; i ++) {
+                    this.miTag.nativeElement.innerHTML += '<p class="bg-danger">' + this.horaLunes[i] + '</p>'
+                  }
+                }
+                if(cancha.disponibilidad === false) {
+                  this.horaLunesF.push(x.horario)
+                }
+              }
+              if(x.dia === 'martes') {
+                this.horaMartes.push(x.horario)
+                this.miTag2.nativeElement.innerHTML = ''
+                for(let i = 0; i < this.horaMartes.length; i++) {
+                  this.miTag2.nativeElement.innerHTML += '<p>' + this.horaMartes[i] + '</p>'
+                }
+              }
+              if(x.dia === 'miercoles') {
+                this.horaMiercoles.push(x.horario)
+                this.miTag3.nativeElement.innerHTML = ''
+                for(let i = 0; i < this.horaMiercoles.length; i++) {
+                  this.miTag3.nativeElement.innerHTML += '<li>' + this.horaMiercoles[i] + '</li>'
+                }
+              }
+              if(x.dia === 'jueves') {
+                this.horaJueves.push(x.horario)
+              }
+              if(x.dia === 'viernes') {
+                this.horaViernes.push(x.horario)
+              }
+              if(x.dia === 'sabado') {
+                this.horaSabado.push(x.horario)
+              }
+              if(x.dia === 'domingo') {
+                this.horaDomingo.push(x.horario)
+              }
+            }
+          }
+        }
+      })
+    })
+  }
+
 
   getNomCancha() {
     this.canchasService.getCanchas().subscribe((res)=>{
@@ -43,23 +110,6 @@ export class VistaSemanaComponent implements OnInit {
   }
 
   getHoras(numSemana:Number) {
-    this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
-      this.cargamasivaService.cargamasi = res
-      for(let b of res) {
-        this.carga.push(b)
-      }
-      this.carga.forEach(x => {
-        for(let cancha of x.cancha) {
-          if(x.semana === numSemana) {
-            if(cancha.name === this.canchas[0]) {
-              if(x.dia === 'lunes') {
-                this.horaLunes.push(x.horario)
-              }
-            }
-          }
-        }
-      })
-    })
   }
 
   numeroSemana (fecha: any) {
