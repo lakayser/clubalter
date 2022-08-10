@@ -1,7 +1,7 @@
 <div id="app">
     <div id="">
         <div class="page-heading text-center">
-            <h3>ADMINISTRADhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhOR</h3>
+            <h3>ADMINISTRADOR</h3>
         </div>
         <div class="">
             
@@ -34,11 +34,21 @@
                                                             <input type="text" class="form-control" name="rut"
                                                                 [(ngModel)]="usuariosService.selectedUsuario.rut">
                                                         </div>
-                                                        <!-- <div class="col-6">
-                                                        <label for="inputRut" class="form-label">ocupacion</label>
-                                                        <input type="text" class="form-control" name="rut"
-                                                            [(ngModel)]="usuariosService.selectedUsuario.ocupation">
-                                                    </div> -->
+                                                        
+                                                        <div class="col-lg-6 col-sm-6">
+                                                            <label for="inputOcupacion"
+                                                                class="form-label">Organizacion</label>
+                                                            <select class="form-select"
+                                                                aria-label="Default select example" name="organization"
+                                                                [(ngModel)]="usuariosService.selectedUsuario.organization">
+                                                                <option
+                                                                    *ngFor="let organizaciones of organizationService.organizaciones |ObjToArray"
+                                                                    [ngValue]="organizaciones._id">{{organizaciones.name}}</option>
+    
+    
+                                                            </select>
+    
+                                                        </div>
 
                                                         <div class="col-lg-6 col-sm-6">
                                                             <label for="inputOcupacion"
@@ -80,7 +90,7 @@
 
                                                         <div class="text-center">
 
-                                                            <button type="submit" class="btn btn-danger text-uppercase"
+                                                            <button type="submit" class="btn btn-primary text-uppercase"
                                                                 value="Guardar">Agregar Usuario</button>
                                                         </div>
                                                     </form>
@@ -103,7 +113,7 @@
                         <div class="col">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="text-center">Lista De Especialista</h4>
+                                    <h4 class="text-center">Lista De Usuarios</h4>
                                 </div>
                                 <div class="card-body">
                                     <div id="chart-profile-visit">
@@ -125,13 +135,14 @@
                                                             </tr>
                                                         </thead>
 
-                                                        <tbody>
-                                                            <tr
-                                                                *ngFor="let users of usuariosService.users | ObjToArray">
+                                                        <tbody
+                                                        *ngFor="let users of usuariosService.users | ObjToArray">
+
+                                                            <tr *ngIf="users.estado==true">
 
                                                                 <td>{{ users.nameUser }}</td>
-                                                                <td >{{ users.organization}}</td>
-                                                                <td >{{ users.ocupation }}</td>
+                                                                <td *ngFor="let a of users.organization" >{{ a.name}}</td>
+                                                                <td *ngFor="let b of users.ocupation">{{ b.name }}</td>
                                                                 <td>{{ users.rut }}</td>
                                                                 <td>{{ users.email}}</td>
                                                                 <td>{{ users.telefono }}</td>

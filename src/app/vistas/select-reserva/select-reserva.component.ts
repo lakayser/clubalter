@@ -7,6 +7,7 @@ import { CargamasivaService } from 'src/app/servicios/cargamasiva.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-select-reserva',
@@ -43,11 +44,27 @@ export class SelectReservaComponent implements OnInit {
   }
   onSubmit():void{
     this.horastomadasService.createHoraTomada(this.reservaForm.value).subscribe((res)=>{
-      console.log(res);
+       console.log(res);
     console.log(this.reservaForm.value);
     this.getHoraTomada();
     this.reservaForm.reset();
+    
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: res ,
+      showConfirmButton: false,
+      timer: 1200,
+      timerProgressBar: true,
     })
+    },
+    err => { Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: err.error.message,
+      timer:2500
+    }); }
+    )
     
   }
   
@@ -63,16 +80,17 @@ export class SelectReservaComponent implements OnInit {
 
   addReserva(form:NgForm){
     this.horastomadasService.createHoraTomada(form.value).subscribe((res)=>{
-      console.log(res);
+      // console.log(res);
       form.reset();
-      
+
+    
     })
   }
 
   getID(id: any){
     this.canchasService.postReserva(id).subscribe((res:any)=>{
       this.canchasService.cancha=res;
-      console.log(res);
+      // console.log(res);
     })
   }
   
@@ -80,14 +98,14 @@ export class SelectReservaComponent implements OnInit {
   getCargaMasiva(){
     this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
       this.cargamasivaService.cargamasi = res;
-      console.log(res);
+      // console.log(res);
       
     })
   }
   getCanchas(){
     this.canchasService.getCanchas().subscribe((res)=>{
       this.canchasService.cancha= res;
-      console.log(res)
+      // console.log(res)
       
     })
   }
@@ -95,19 +113,57 @@ export class SelectReservaComponent implements OnInit {
 getHoraTomada(){
   this.horastomadasService.getHoraTomada().subscribe((res)=>{
     this.horastomadasService.horatomada=res;
-    console.log(res);
+    // console.log(res);
     
   })
 
 }
-deleteHoraTomada(_id: any){
-  if(confirm('Estas seguro de eliminar esta hora reservada?')){
-    this.horastomadasService.deleteHoraTomada(_id).subscribe(
-      (res)=>{this.getHoraTomada();
+
+deleteHoraTomada(id: any){
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
     },
-    (err)=>console.log(err)
-    );
-  }
+    buttonsStyling: false
+  })
+  Swal.fire({
+    title: 'Estas seguro que deseas elimianr este registro?',
+    text: "No podras revertir esta accion",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Si, Eliminar!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.horastomadasService.deleteHoraTomada(id).subscribe(
+        (res)=>{this.getHoraTomada();
+          Swal.fire(
+            'Eliminado!',
+            'Reserva Eliminada Con exito',
+            'success'
+          )})
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Cancelado',
+        'hora agendada a salvo',
+        'error'
+      )
+    }
+  })
+  // if(confirm('Estas seguro de eliminar esta hora reservada?')){
+  //   this.horastomadasService.deleteHoraTomada(id).subscribe(
+  //     (res)=>{
+  //       this.getHoraTomada();
+  //   },
+  //   (err)=>console.log(err)
+  //   );
+  // }
 }
 
 

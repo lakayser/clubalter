@@ -19,7 +19,7 @@
                                                 <div class="col-lg-12 col-sm-6">
 
                                                     <div class="table-responsive-md">
-                                                        <div class="">
+                                                        <div class="scrollable">
                                                             <table
                                                                 class="table table-bordered border-dark table-hover text-center">
                                                                 <thead>
@@ -53,7 +53,7 @@
                                                                         </td>
 
 
-                                                                        <td><button type="button" class="btn btn-danger"
+                                                                        <td><button type="button" class="btn btn-primary"
                                                                                 (click)="onSelect(cancha)"><span
                                                                                     class="material-icons">
                                                                                     report_problem
@@ -100,22 +100,23 @@
                                         </tr>
                                     </thead>
                                     <tbody class="text-center"
-                                        *ngFor="let horatomada of horastomadasService.horatomada |ObjToArray">
-                                        <td *ngFor="let a of horatomada.horascanchas">{{a.horario}}
-                                        </td>
-                                        <td *ngFor="let a of horatomada.cancha">{{a.name}}</td>
-                                        <td *ngFor="let x of horatomada.horascanchas">{{x.dia}}</td>
-                                        <td>{{horatomada.rut}}</td>
-                                        <td class="btn-group" role="group"
-                                            aria-label="Basic mixed styles example">
-                                            <button type="button" class="btn btn-danger active"
-                                                (click)="deleteHoraTomada(horatomada._id)">eliminar</button>
+                                    *ngFor="let horatomada of horastomadasService.horatomada |ObjToArray">
+                                    <tr *ngIf="horatomada.estado==true">
+                                    <td *ngFor="let a of horatomada.horascanchas">{{a.horario}}
+                                    </td>
+                                    <td *ngFor="let a of horatomada.cancha">{{a.name}}</td>
+                                    <td *ngFor="let x of horatomada.horascanchas">{{x.dia}}</td>
+                                    <td>{{horatomada.rut}}</td>
+                                    <td class="btn-group" role="group"
+                                        aria-label="Basic mixed styles example">
+                                        <button type="button" class="btn btn-danger active"
+                                            (click)="deleteHoraTomada(horatomada._id)">eliminar</button>
 
-                                            <button type="button"
-                                                class="btn btn-success active">Editar</button>
-                                        </td>
-                                    </tbody>
-
+                                      
+                                            
+                                    </td>
+                                </tr>
+                                </tbody>
                                 </table>
                             </div>
                         </div>

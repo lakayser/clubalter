@@ -8,50 +8,7 @@
                 <img src="../../../assets/logo-tienda.png" alt="" width="350" height="250">
                 </div>
                 <div class="col-lg-6 ml-3 text-center">
-                    <!-- <h3>Detalles de Reserva</h3>
-                    <div class="table-responsive-md">
-                        <div class="scrollable">
-                            <table class="table table-bordered border-dark table-hover text-center">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Rut Cliente</th>
-                                        <th scope="col">Cancha</th>
-                                        <th scope="col">Organización</th>
-                                        
-
-                                    </tr>
-                                </thead>
-                                <tbody *ngFor="let dato of datos | ObjToArray">
-                                    <td>{{dato.rut}}</td>
-                                    <td *ngFor="let a of dato.cancha">{{a.name}}</td>
-                                    <td *ngFor="let x of dato.organizacion">{{x.name}}</td>
-                                   
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="table-responsive-md">
-                        <div class="scrollable">
-                            <table class="table table-bordered border-dark table-hover text-center">
-                                <thead>
-                                    <tr>
-
-                                        <th scope="col">Horario</th>
-                                        <th scope="col">Dia</th>
-                                        <th scope="col">Valor</th>
-                                    </tr>
-                                </thead>
-                                <tbody *ngFor="let dato of datos | ObjToArray">
-                                  
-                                    <td *ngFor="let d of dato.horaCancha">{{d.horario}}</td>
-                                    <td *ngFor="let d of dato.horaCancha">{{d.dia}}</td>
-                                    <td>${{dato.amount}}</td>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div> -->
+                   
                     <div class="col-lg-12" *ngFor="let dato of datos | ObjToArray">
                         <div class="card border-secondary mb-5">
                             <div class="card-header bg-light border-0">
@@ -93,7 +50,7 @@
                     <div class="">
                         <form *ngFor="let dato of datos | ObjToArray" ngNoForm action="{{dato.url}}" method="post">
 
-                            <input type="text" name="token_ws" value="{{dato.token}}">
+                            <input type="hidden" name="token_ws" value="{{dato.token}}">
                             <button type="submit" class="btn btn-danger btn-lg col-3">PAGAR</button>
                            
                         </form>

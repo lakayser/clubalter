@@ -14,7 +14,7 @@ import { Usuario } from 'src/app/modelos/usuario';
   styleUrls: ['./agendar-paciente.component.css']
 })
 export class AgendarPacienteComponent implements OnInit {
-  public selectedOcupation: Ocupation = {_id: '', name: ''};
+  public selectedOcupation: Ocupation = {_id: '', name: '', organization: ''};
   public especilidad: Ocupation[];
   public usuarios:Usuario[];
 

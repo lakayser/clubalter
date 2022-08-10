@@ -40,7 +40,7 @@
         </div>
     </div> -->
     <div id="">
-        <div class="page-heading">
+        <div class="page-heading text-center">
             <h3>ADMINISTRADOR</h3>
         </div>
 
@@ -93,7 +93,7 @@
                                                         </div>
                                                         <div class="text-center">
 
-                                                            <button type="submit" class="btn btn-danger text-uppercase"
+                                                            <button type="submit" class="btn btn-primary text-uppercase"
                                                                 value="Guardar">Agregar Organizacion</button>
                                                         </div>
                                                     </form>
@@ -119,10 +119,13 @@
 
                                                                 <tbody>
                                                                     <tr
-                                                                        *ngFor="let organizaciones of organizationService.organizaciones">
+                                                                        *ngFor="let organizaciones of organizationService.organizaciones |ObjToArray">
 
                                                                         <td>{{ organizaciones.name}}</td>
-                                                                        <td>{{ organizaciones.estado}}</td>
+                                                                        <td *ngIf="!organizaciones.estado==true "> No Disponible</td>
+                                                                        <td *ngIf="organizaciones.estado == true"> Disponible</td>
+                                                                        
+                                                                        
                                                                          <!-- <td>{{ organizaciones.rut }}</td>
                                                                 <td>{{ users.email}}</td>
                                                                 <td>{{ users.telefono }}</td>
@@ -150,59 +153,77 @@
                                 </div>
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="text-center">Agregar Una Especialidad</h4>
+                                        <h4 class="text-center">Agregar Una Ocupacion</h4>
                                     </div>
                                     <div class="card-body" id="AAA">
                                         <div id="chart-profile-visit">
                                             <!--Formulario Agregar-->
                                             <div class="row align-items-start">
-                                                <div class="col-6">
+                                                <div class="col">
                                                     <form #ocupationForm="ngForm" (ngSubmit)="addOcupation(ocupationForm)"
                                                         class="row g-3 mb-3">
     
                                                         <input type="hidden" name="_id"
                                                             [(ngModel)]="ocupationService.selectedOcupation._id">
-                                                        <div class="col-12">
+
+                                                            <div class="col-lg-6 col-sm-6">
+                                                                <label for="inputOcupacion"
+                                                                    class="form-label">Organizacion</label>
+                                                                <select class="form-select"
+                                                                    aria-label="Default select example" name="organization"
+                                                                    [(ngModel)]="ocupationService.selectedOcupation.organization">
+                                                                    <option
+                                                                        *ngFor="let orga of organizationService.organizaciones |ObjToArray"
+                                                                        [ngValue]="orga._id">{{orga.name}}</option>
+    
+    
+                                                                </select>
+    
+                                                            </div>
+                                                        <div class="col-lg-6 col-sm-6">
                                                             <label for="inputName" class="form-label">Nombre de la
                                                                 Especialidad</label>
                                                             <input type="text" class="form-control" name="name"
                                                                 [(ngModel)]="ocupationService.selectedOcupation.name">
                                                         </div>
                                                         <div class="text-center">
-                                                            <button type="submit" class="btn btn-danger text-uppercase"
+                                                            <button type="submit" class="btn btn-primary text-uppercase"
                                                                 value="Guardar">Agregar Nueva
                                                                 Especialidad</button>
                                                         </div>
                                                     </form>
                                                 </div>
-                                                <div class="col-5 mt-2">
+                                                <div class="col">
                                                     <div class="card">
                                                         <div class="card-header">
-                                                            <h4 class="text-center">Lista De Especialidades</h4>
+                                                            <h4 class="text-center">Lista De Ocupaciones </h4>
                                                         </div>
                                                         <div class="card-body">
                                                             <div id="chart-profile-visit">
-    
+                
                                                                 <div class="container">
                                                                     <div class="row justify-content-center">
-                                                                        <div class="col">
-                                                                            <table
-                                                                                class="table table-responsive table-bordered border-dark mt-2">
+                                                                        <div class="table-responsive-md">
+                                                                            <div class="scrollable">
+                                                                                <table
+                                                                                    class="table table-bordered table-hover border-dark mt-2 text-center">
                                                                                 <thead>
                                                                                     <tr>
                                                                                         <th scope="col">Nombre</th>
-    
-    
+                                                                                        <th scope="col">organizacion</th>
+                
+                
                                                                                     </tr>
                                                                                 </thead>
-    
+                
                                                                                 <tbody class="text-center">
                                                                                     <tr
-                                                                                        *ngFor="let ocupa of ocupationService.ocupa">
-    
+                                                                                        *ngFor="let ocupa of ocupationService.ocupa | ObjToArray">
+                
                                                                                         <td>{{ ocupa.name }}</td>
-    
-    
+                                                                                        <td *ngFor="let x of ocupa.organization" >{{ x.name }}</td>
+                
+                
                                                                                         <!-- <div class="btn-group mr-0" role="group"
                                                                                             aria-label="Basic mixed styles example">
                                                                                             <button type="button" class="btn btn-primary  mr-2"
@@ -210,10 +231,11 @@
                                                                                             <button type="button" class="btn btn-danger"
                                                                                                 (click)="deleteUsuario(users._id)">Eliminar</button>
                                                                                         </div> -->
-    
+                
                                                                                     </tr>
                                                                                 </tbody>
                                                                             </table>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -227,6 +249,7 @@
                                         </div>
                                     </div>
                                 </div>
+                           
                             </div>
                         </div>
                     </div>
@@ -235,11 +258,3 @@
 
             </section>
         </div>
-
-        <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-
-        <script src="assets/vendors/apexcharts/apexcharts.js"></script>
-        <script src="assets/js/pages/dashboard.js"></script>
-
-        <script src="assets/js/mazer.js"></script>

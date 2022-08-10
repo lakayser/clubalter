@@ -81,10 +81,10 @@
                                                         <input type="hidden" name="_id"
                                                             [(ngModel)]="canchasService.selectedCancha._id">
                                                         <div class="col col-sm-6">
-                                                            <label for="input" class="form-label">Ingrese nombre de
+                                                            <label for="input" class="form-label" >Ingrese nombre de
                                                                 nueva cancha</label>
                                                             <input type="text" class="form-control" name="name"
-                                                                [(ngModel)]="canchasService.selectedCancha.name">
+                                                                [(ngModel)]="canchasService.selectedCancha.name" required>
                                                         </div>
 
                                                         <div class="col-sm-6">
@@ -92,7 +92,7 @@
                                                                 duracion de la reserva</label>
                                                             <select class="form-select"
                                                                 aria-label="Default select example" name="rangoHorario" 
-                                                                [(ngModel)]="canchasService.selectedCancha.rangohorario">
+                                                                [(ngModel)]="canchasService.selectedCancha.rangohorario" required>
 
                                                                 <option value="1">1 Hora</option>
                                                                 <option value="2">1:30 Horas</option>
