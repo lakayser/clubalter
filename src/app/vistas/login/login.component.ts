@@ -11,7 +11,8 @@ export class LoginComponent implements OnInit {
 
   user = {
     nameUser: '',
-    password: ''
+    password: '',
+    email: '',
   }
 
   constructor(private api   :ApiService,

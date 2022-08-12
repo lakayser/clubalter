@@ -26,6 +26,7 @@ export class Cancha1Component implements OnInit {
   }
   getCanchas(){
     this.canchasService.getCanchas().subscribe((res)=>{
+
       this.canchasService.cancha= res;
       console.log(res)
       

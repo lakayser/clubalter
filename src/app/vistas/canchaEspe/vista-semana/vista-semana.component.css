@@ -1,0 +1,32 @@
+#prev,
+#nomCancha,
+#next
+ {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.2rem;
+}
+
+#nomCancha {
+  margin-top: 0.3rem;
+  color: rgb(73, 89, 177);
+  letter-spacing: 0.1rem;
+}
+
+#prev span,
+#next span {
+  font-size: 1.4rem;
+  color: rgb(73, 177, 113);
+  text-shadow: 0.1rem 0.1rem 0.1rem rgb(73, 177, 113);
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+
+#prev span:hover,
+#next span:hover {
+  cursor: pointer;
+  color: rgb(194, 37, 37);
+  text-shadow: rgb(194, 37, 37);
+}
