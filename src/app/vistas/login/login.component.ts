@@ -15,11 +15,7 @@ export class LoginComponent implements OnInit {
   user = {
     nameUser: '',
     password: '',
-<<<<<<< HEAD
-    email: ''
-=======
     email: '',
->>>>>>> 446c86cb0bb89a3faf0da79579c5a64d12e28487
   }
    passwordForm!: FormGroup;
   constructor(private api   :ApiService,

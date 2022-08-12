@@ -19,6 +19,7 @@ import { PagoComponent }                from './pagina/pago/pago.component';
 import { SelectCanchasComponent }       from './vistas/select-canchas/select-canchas.component';
 import { SelectReservaComponent }       from './vistas/select-reserva/select-reserva.component';
 import { CommitComponent }              from './vistas/commit/commit.component';
+import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
 const routes: Routes = [
   /**
    * @AUTH canActivate: [AuthGuard] AGREGAR
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'canchaselect'       , component: SelectCanchasComponent },
   { path: 'reservaselect/:id'  , component: SelectReservaComponent },
   { path: 'dashboardAdmin'     , component: DashboardadminComponent },
+  { path: 'vistaSemana'     , component: VistaSemanaComponent },//vistaSemana
   { path: 'usersAdmin'         , component: AdminusuariosComponent },
   { path: 'orgaAdmin'          , component: OrganizacionesAdminComponent },
   { path: '**'                 , redirectTo: '', pathMatch: 'full' }
