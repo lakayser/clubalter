@@ -43,34 +43,59 @@
 
     <div class="row row-cols-7 d-flex justify-content-center text-center fw-bold">
       <div class="col">
-        <div #hl>
+        <div *ngFor="let l of aloProbando" class="bg-success pt-3 pb-1 mt-1">
+          <p>{{ l }}</p>
+        </div>
+        <div *ngFor="let l of aloProbandoF" class="bg-danger pt-3 pb-1 mt-1">
+          <p>{{ l }}</p>
         </div>
       </div>
       <div class="col">
-        <ng-container *ngFor="let m of aloProbando2">
-          <div class="bg-success">
-            <p>{{ m }}</p>
-          </div>
-        </ng-container>
-      </div>
-      <div class="col">
-        <div #hmi>
+        <div *ngFor="let m of aloProbando2" class="bg-success pt-3 pb-1 mt-1">
+          <p>{{ m }}</p>
+        </div>
+        <div *ngFor="let m of aloProbando2F" class="bg-danger pt-3 pb-1 mt-1">
+          <p>{{ m }}</p>
         </div>
       </div>
       <div class="col">
-        <div #hj>
+        <div *ngFor="let mi of aloProbando3" class="bg-success pt-3 pb-1 mt-1">
+          <p>{{ mi }}</p>
+        </div>
+        <div *ngFor="let mi of aloProbando3F" class="bg-danger pt-3 pb-1 mt-1">
+          <p>{{ mi }}</p>
         </div>
       </div>
       <div class="col">
-        <div #hv>
+        <div *ngFor="let j of aloProbando4" class="bg-success pt-3 pb-1 mt-1">
+          <p>{{ j }}</p>
+        </div>
+        <div *ngFor="let j of aloProbando4F" class="bg-danger pt-3 pb-1 mt-1">
+          <p>{{ j }}</p>
         </div>
       </div>
       <div class="col">
-        <div #hs>
+        <div *ngFor="let v of aloProbando5" class="bg-success pt-3 pb-1 mt-1">
+          <p>{{ v }}</p>
+        </div>
+        <div *ngFor="let v of aloProbando5F" class="bg-danger pt-3 pb-1 mt-1">
+          <p>{{ v }}</p>
         </div>
       </div>
       <div class="col">
-        <div #hd>
+        <div *ngFor="let s of aloProbando6" class="bg-success pt-3 pb-1 mt-1">
+          <p>{{ s }}</p>
+        </div>
+        <div *ngFor="let s of aloProbando6F" class="bg-danger pt-3 pb-1 mt-1">
+          <p>{{ s }}</p>
+        </div>
+      </div>
+      <div class="col">
+        <div *ngFor="let d of aloProbando7" class="bg-success pt-3 pb-1 mt-1">
+          <p>{{ d }}</p>
+        </div>
+        <div *ngFor="let d of aloProbando7F" class="bg-danger pt-3 pb-1 mt-1">
+          <p>{{ d }}</p>
         </div>
       </div>
     </div>
