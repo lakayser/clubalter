@@ -1,0 +1,103 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+
+<div class="container">
+
+  <div class="row d-flex justify-content-center text-center fw-bold text-uppercase">
+
+        <div class="col-1 text-end" id="prev">
+          <span>&#9664;</span>
+        </div>
+        <div class="col-2" id="nomCancha">
+          <p>{{ canchas[contador] }}</p>
+        </div>
+        <div class="col-1 text-start" id="next">
+          <span (click)="nextd()" #next>&#9654;</span>
+        </div>
+      </div>
+
+    <div class="row row-cols-7 d-flex justify-content-center text-center fw-bold">
+      <div class="col dias">
+        <p class="pt-3 pb-3 bg-danger">Lun</p>
+      </div>
+      <div class="col dias">
+        <p class="pt-3 pb-3 bg-danger">Mar</p>
+      </div>
+      <div class="col dias">
+        <p class="pt-3 pb-3 bg-danger">Mie</p>
+      </div>
+      <div class="col dias">
+        <p class="pt-3 pb-3 bg-danger">Jue</p>
+      </div>
+      <div class="col dias">
+        <p class="pt-3 pb-3 bg-danger">Vie</p>
+      </div>
+      <div class="col dias">
+        <p class="pt-3 pb-3 bg-danger">Sab</p>
+      </div>
+      <div class="col dias">
+        <p class="pt-3 pb-3 bg-danger">Dom</p>
+      </div> 
+    </div>
+
+    <div class="row row-cols-7 d-flex justify-content-center text-center fw-bold">
+      <div class="col">
+        <div #hl>
+        </div>
+      </div>
+      <div class="col">
+        <ng-container *ngFor="let m of aloProbando2">
+          <div class="bg-success">
+            <p>{{ m }}</p>
+          </div>
+        </ng-container>
+      </div>
+      <div class="col">
+        <div #hmi>
+        </div>
+      </div>
+      <div class="col">
+        <div #hj>
+        </div>
+      </div>
+      <div class="col">
+        <div #hv>
+        </div>
+      </div>
+      <div class="col">
+        <div #hs>
+        </div>
+      </div>
+      <div class="col">
+        <div #hd>
+        </div>
+      </div>
+    </div>
+
+      <!-- <div class="row d-flex justify-content-center text-center fw-bold">
+        <div #hl class="col">
+
+        </div>
+        <div #hm class="col">
+
+        </div>
+        <div #hmi class="col">
+
+        </div>
+        <div #hj class="col">
+
+        </div>
+        <div #hv class="col">
+
+        </div>
+        <div #hs class="col">
+
+        </div>
+        <div #hd class="col">
+
+        </div>
+      </div> -->
+
+
+</div>
