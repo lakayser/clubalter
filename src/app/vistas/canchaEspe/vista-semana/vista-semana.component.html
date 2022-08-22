@@ -1,128 +1,62 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
+  rel="stylesheet"
+/>
 
-<div class="container">
-
-  <div class="row d-flex justify-content-center text-center fw-bold text-uppercase">
-
-        <div class="col-1 text-end" id="prev">
-          <span>&#9664;</span>
-        </div>
-        <div class="col-2" id="nomCancha">
-          <p>{{ canchas[contador] }}</p>
-        </div>
-        <div class="col-1 text-start" id="next">
-          <span (click)="nextd()" #next>&#9654;</span>
-        </div>
-      </div>
-
-    <div class="row row-cols-7 d-flex justify-content-center text-center fw-bold">
-      <div class="col dias">
-        <p class="pt-3 pb-3 bg-danger">Lun</p>
-      </div>
-      <div class="col dias">
-        <p class="pt-3 pb-3 bg-danger">Mar</p>
-      </div>
-      <div class="col dias">
-        <p class="pt-3 pb-3 bg-danger">Mie</p>
-      </div>
-      <div class="col dias">
-        <p class="pt-3 pb-3 bg-danger">Jue</p>
-      </div>
-      <div class="col dias">
-        <p class="pt-3 pb-3 bg-danger">Vie</p>
-      </div>
-      <div class="col dias">
-        <p class="pt-3 pb-3 bg-danger">Sab</p>
-      </div>
-      <div class="col dias">
-        <p class="pt-3 pb-3 bg-danger">Dom</p>
-      </div> 
+<div class="container" #content>
+  <div
+    class="row d-flex justify-content-center text-center fw-bold text-uppercase"
+  >
+    <div class="col-1 text-end" id="prev">
+      <span>&#9664;</span>
     </div>
+    <div class="col-2" id="nomCancha">
+      <p>Cancha 1</p>
+    </div>
+    <div class="col-1 text-start" id="next">
+      <span>&#9654;</span>
+    </div>
+    <div></div>
+  </div>
 
-    <div class="row row-cols-7 d-flex justify-content-center text-center fw-bold">
-      <div class="col">
-        <div *ngFor="let l of aloProbando" class="bg-success pt-3 pb-1 mt-1">
-          <p>{{ l }}</p>
-        </div>
-        <div *ngFor="let l of aloProbandoF" class="bg-danger pt-3 pb-1 mt-1">
-          <p>{{ l }}</p>
-        </div>
-      </div>
-      <div class="col">
-        <div *ngFor="let m of aloProbando2" class="bg-success pt-3 pb-1 mt-1">
-          <p>{{ m }}</p>
-        </div>
-        <div *ngFor="let m of aloProbando2F" class="bg-danger pt-3 pb-1 mt-1">
-          <p>{{ m }}</p>
-        </div>
-      </div>
-      <div class="col">
-        <div *ngFor="let mi of aloProbando3" class="bg-success pt-3 pb-1 mt-1">
-          <p>{{ mi }}</p>
-        </div>
-        <div *ngFor="let mi of aloProbando3F" class="bg-danger pt-3 pb-1 mt-1">
-          <p>{{ mi }}</p>
-        </div>
-      </div>
-      <div class="col">
-        <div *ngFor="let j of aloProbando4" class="bg-success pt-3 pb-1 mt-1">
-          <p>{{ j }}</p>
-        </div>
-        <div *ngFor="let j of aloProbando4F" class="bg-danger pt-3 pb-1 mt-1">
-          <p>{{ j }}</p>
-        </div>
-      </div>
-      <div class="col">
-        <div *ngFor="let v of aloProbando5" class="bg-success pt-3 pb-1 mt-1">
-          <p>{{ v }}</p>
-        </div>
-        <div *ngFor="let v of aloProbando5F" class="bg-danger pt-3 pb-1 mt-1">
-          <p>{{ v }}</p>
-        </div>
-      </div>
-      <div class="col">
-        <div *ngFor="let s of aloProbando6" class="bg-success pt-3 pb-1 mt-1">
-          <p>{{ s }}</p>
-        </div>
-        <div *ngFor="let s of aloProbando6F" class="bg-danger pt-3 pb-1 mt-1">
-          <p>{{ s }}</p>
-        </div>
-      </div>
-      <div class="col">
-        <div *ngFor="let d of aloProbando7" class="bg-success pt-3 pb-1 mt-1">
-          <p>{{ d }}</p>
-        </div>
-        <div *ngFor="let d of aloProbando7F" class="bg-danger pt-3 pb-1 mt-1">
-          <p>{{ d }}</p>
-        </div>
+  <div class="row row-cols-7">
+    <div class="col">
+      <div>
+        <p class="bg-success text-center pt-2 pb-2">Lun</p>
       </div>
     </div>
-
-      <!-- <div class="row d-flex justify-content-center text-center fw-bold">
-        <div #hl class="col">
-
-        </div>
-        <div #hm class="col">
-
-        </div>
-        <div #hmi class="col">
-
-        </div>
-        <div #hj class="col">
-
-        </div>
-        <div #hv class="col">
-
-        </div>
-        <div #hs class="col">
-
-        </div>
-        <div #hd class="col">
-
-        </div>
-      </div> -->
-
-
+    <div class="col">
+      <div>
+        <p class="bg-success text-center pt-2 pb-2">Mar</p>
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <p class="bg-success text-center pt-2 pb-2">Mie</p>
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <p class="bg-success text-center pt-2 pb-2">Jue</p>
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <p class="bg-success text-center pt-2 pb-2">Vie</p>
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <p class="bg-success text-center pt-2 pb-2">Sab</p>
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <p class="bg-success text-center pt-2 pb-2">Dom</p>
+      </div>
+    </div>
+  </div>
 </div>
+

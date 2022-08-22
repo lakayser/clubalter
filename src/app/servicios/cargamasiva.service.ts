@@ -8,13 +8,13 @@ import { CargaMasiva } from '../modelos/cargamasiva';
 export class CargamasivaService {
   URL: string = 'https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
 
-  selectedCargaMasiva: CargaMasiva={
+  selectedCargaMasiva: CargaMasiva = {
     _id:'',
     fecha: '',
     dia: '',
     disponibilidad: true,
     horario: '',
-    cancha: '',
+    cancha: [],
     precio: 0,
     semana: 0,
   } 
