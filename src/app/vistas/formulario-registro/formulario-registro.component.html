@@ -1,0 +1,160 @@
+<div class="container">
+  <h1>Formulario de Registro</h1>
+  <form (ngSubmit)="submit()" [formGroup]="multistep" class="row g-3 mb-3">
+    <div *ngIf="step == 1" >
+      <div class="col-md-6">
+        <label for="nombre" class="form-label">Nombre Razon social</label>
+        <input type="text" class="form-control" formControlName="nombreRazon" id="nombre1" name="nombre">
+      </div>
+      <div class="col-md-6">
+        <label for="rut" class="form-label">Rut Empresa</label>
+        <input type="text" class="form-control" formControlName="rut" name="rut">
+      </div>
+      <div class="col-md-6">
+        <label for="text" class="form-label">Giro de la empresa</label>
+        <input type="text" class="form-control" formControlName="giro" name="giro">
+      </div>
+      <div class="col-md-6">
+        <label for="Asunto" class="form-label">Nombre Representante Legal</label>
+        <input type="text" class="form-control" formControlName="nombre" name="nombreRepre">
+      </div>
+      <div class="col-md-6">
+        <label for="Asunto" class="form-label">E-mail Representante Legal</label>
+        <input type="email" class="form-control" formControlName="email" name="email">
+      </div>
+      <div class="col-md-6">
+        <label for="Asunto" class="form-label">Telefono Representante legal</label>
+        <input type="text" class="form-control" formControlName="telefono" name="telefono">
+      </div>
+      <div class="col-md-6">
+        <label for="Asunto" class="form-label">Direccion Comercial</label>
+        <input type="text" class="form-control" formControlName="direccion" name="Direccion">
+      </div>
+    </div>
+
+    <div *ngIf="step == 2" >
+      <h1>Custom Bot</h1>
+      <div class="col-md-6">
+        <label for="Asunto" class="form-label">Nombre del centro deportivo</label>
+        <input type="text" class="form-control" formControlName="nombreNegocio" name="nombreNegocio">
+      </div>
+      <div class="col-md-6">
+        <label for="Asunto" class="form-label">Logo del centro deportivo</label>
+        <input class="form-control" type="file" formControlName="logo" id="formFile">
+      </div>
+      <div class="col-md-6">
+        <label for="Asunto" class="form-label">Logo del centro deportivo</label>
+        <input class="form-control" type="file" formControlName="fondo" id="formFile2">
+      </div>
+      <h1>Custom admin</h1>
+      <div class="col-md-6">
+        <label for="Asunto" class="form-label">tiene un administrador para el sitio? digite el rut</label>
+        <input type="text" class="form-control" formControlName="administrador" name="asunto">
+      </div>
+    </div>
+    <div *ngIf="step == 3" >
+      <h1>Custom Canchas</h1>
+      <div class="col-md-6">
+        <label for="Asunto" class="form-label">Nombre de canchas de canchas si es que aplica</label>
+        <input type="text" class="form-control" formControlName="nombreCancha" name="asunto">
+      </div>
+      <div class="col-md-6">
+        <label for="Asunto" class="form-label">Numero de canchas</label>
+        <input type="text" class="form-control" formControlName="numeroCanchas" name="asunto">
+      </div>
+      <div class="col-md-6">
+        <label for="Asunto" class="form-label">Rangos horarios</label>
+        <input type="text" class="form-control" formControlName="rangosHorarios" name="asunto">
+      </div>
+      <h1>¿Tiene un horario fijo o AM y PM?</h1>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" onclick="Mostrar();" name="inlineRadioOptions" id="inlineRadio1" formControlName="tieneHorario" value="si tiene horario fijo">
+        <label class="form-check-label" for="inlineRadio1" >SI</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" onclick="Ocultar();" name="inlineRadioOptions" id="inlineRadio2" formControlName="tieneHorario" value="no tiene horario">
+        <label class="form-check-label" for="inlineRadio2">NO</label>
+      </div>
+      
+      <div class="col-md-6" id="Horario">
+        <label for="Asunto" class="form-label">Horario de esas canchas</label>
+        <input type="text" class="form-control" formControlName="horaCancha" name="asunto">
+        <div class="col" >
+          <label for="Asunto" class="form-label">rangos horarios</label>
+          <input type="text" class="form-control" formControlName="rango" name="asunto">
+        </div>
+      </div>
+      <h1>Se Realizan clases?</h1>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" onclick="MostrarClases();" name="inlineRadioOptions"  formControlName="tieneClase" id="inlineRadio1" value="SiTieneClases">
+        <label class="form-check-label" for="inlineRadio1">SI</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" onclick="OcultarClases();" name="inlineRadioOptions"  formControlName="tieneClase" id="inlineRadio2" value="NoTieneClases">
+        <label class="form-check-label" for="inlineRadio2">NO</label>
+      </div>
+      <div class="col-md-6" id="Clases">
+        <label for="Asunto" class="form-label">Cuantos profesores tienen</label>
+        <input type="text" class="form-control" formControlName="numProf" name="asunto">
+        <div class="col">
+          <label for="Asunto" class="form-label">Ingrese sus rut</label>
+          <input type="text" class="form-control" formControlName="rutProf" name="asunto">
+        </div>
+        <div class="col" >
+          <label for="Asunto" class="form-label">Horario de clases</label>
+          <input type="text" class="form-control" name="asunto">
+        </div>
+        <div class="col">
+          <label for="Asunto" class="form-label">Seleccionar canchas donde se realiza la clase</label>
+          <input type="text" class="form-control" name="asunto">
+        </div>
+        <div class="col">
+          <label for="Asunto" class="form-label">Valor de las clases</label>
+          <input type="text" class="form-control" name="asunto">
+        </div>
+        <h1>Tiene un limite de participantes?</h1>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" onclick="MostrarParticipantes();" name="inlineRadioOptions"  formControlName="participante" id="inlineRadio1" value="SI">
+          <label class="form-check-label" for="inlineRadio1">SI</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" onclick="OcultarParticipantes();" name="inlineRadioOptions"  formControlName="participante" id="inlineRadio2" value="NO">
+          <label class="form-check-label" for="inlineRadio2">NO</label>
+        </div>
+        <div class="col-md-6" id="Participantes">
+          <label for="Asunto" class="form-label">ingrese limite</label>
+          <input type="number" class="form-control" name="asunto">
+        </div>
+      </div>
+     
+      
+</div>
+
+      <div *ngIf="step == 4" >
+        <h1>existe un plan mensual de clases?</h1>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" onclick="MostrarMensual();" name="inlineRadioOptions" formControlName="planMensual" id="inlineRadio1" value="Si">
+          <label class="form-check-label" for="inlineRadio1">SI</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" onclick="OcultarMensual();" name="inlineRadioOptions" formControlName="planMensual" id="inlineRadio2" value="NO">
+          <label class="form-check-label" for="inlineRadio2">NO</label>
+        </div>
+        <div class="form-group" id="Mensual">
+          <label for="mensaje">Ingrese los detalles del plan mensual</label>
+          <textarea class="form-control"formControlName="detalles" name="mensaje" rows="5"></textarea>
+        </div>
+      </div>
+    <div class="">
+      <a class="btn btn-primary mx-2" *ngIf="step != 1" (click)="volver()">Volver</a>
+    </div>
+    <div class="">
+      <button type="submit" class="btn btn-danger text-uppercase" *ngIf="step != 4">Siguiente</button>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-danger text-uppercase" *ngIf="step == 4">Enviar</button>
+    </div>
+    <br>
+    <pre>{{multistep.value | json}}</pre>
+  </form>
+</div>

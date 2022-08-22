@@ -40,6 +40,8 @@ import { FilterPipe }                             from './pipes/filter.pipe';
 import { SelectCanchasComponent }                 from './vistas/select-canchas/select-canchas.component';
 import { SelectReservaComponent }                 from './vistas/select-reserva/select-reserva.component';
 import { CommitComponent }                        from './vistas/commit/commit.component';
+import { FormularioRegistroComponent } from './vistas/formulario-registro/formulario-registro.component';
+import { PrimerForemularioComponent } from './vistas/primer-foremulario/primer-foremulario.component';
 
 const materialModules = [
   MatDatepickerModule,
@@ -53,7 +55,7 @@ const materialModules = [
                   ObjToArrayPipe, SidebarComponent, PortalPagoComponent, AdminusuariosComponent, DashboardadminComponent,
                   OrganizacionesAdminComponent, CanchasDashboardComponent, CanchasCrudComponent, UsermoderatorComponent,
                   DashboardProfesorComponent, ClaseCrudComponent, PagoComponent, FilterPipe, SelectCanchasComponent,
-                  SelectReservaComponent, CommitComponent,
+                  SelectReservaComponent, CommitComponent, FormularioRegistroComponent, PrimerForemularioComponent,
                 ],
   imports: [
     BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpClientModule, NgChartsModule,

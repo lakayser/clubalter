@@ -2,10 +2,20 @@
     <div class="container ">
         <div class="row">
             <div class="row g-3 align-items-center row d-flex justify-content-center" *ngFor="let dato of datos | ObjToArray">
+              <!-- <ng-container *ngIf="!dato"> 
+                <h1>xsssssssssssssssssssssssssssss</h1>
+              </ng-container> -->
+             
+              <!-- <div *ngIf="mensajeError" class="alert alert-danger animated fadeIn">
+                <h3>Error</h3>
+                <p>
+                  {{mensajeError}}
+                </p>
+              </div> -->
                 <ng-container *ngIf="dato.response_code === 0; else Error">
                 <div class="card-header text-center border-0 bg-light">
                     <h1 class="display-4">Compra exitosa</h1>
-                    <!-- <h2 class="display-6">*placeholder Logo*</h2> -->
+                    
                 <img src="../../../assets/logo-tienda.png" alt="" width="350" height="250">
                 </div>
                 <div class="col-lg-6 ml-3 text-center">
@@ -16,9 +26,9 @@
                                 <h4 class="font-weight-semi-bold m-0">Detalles de la compra</h4>
                             </div>
                             <div class="card-body">
-                                <!-- <h3 class="font-weight-medium mb-3">Reserva</h3> -->
+                            
                                 <div class=" " >
-
+                                  
                                   <h4>Su compra fue realizada con exito, recibiras un correo de confirmacion
                                   </h4>
                                     
@@ -67,7 +77,7 @@
                             
                             <svg class="monkey-hammer-hat" xmlns="http://www.w3.org/2000/svg" width="359.997" height="330" viewBox="0 0 95.249 87.313">
                               <g transform="matrix(.99747 0 0 1.05652 -16.368 -190.133)">
-                                <!-- give an identifier to the group to be affected in css -->
+                               
                                 <g id="arm" transform="matrix(1.01003 -.0263 .02138 1.00115 -3.841 .738)">
                                   <path d="M59.068 203.392l5.855 4.981c-6.396 13.585-4.114 13.727-24.452 31.094l-5.855-4.981c23.116-18.726 17.356-17.124 24.452-31.094z" fill="purple"/>
                                   <g transform="matrix(.256 -.1843 .19541 .27145 -14.22 217.94)">

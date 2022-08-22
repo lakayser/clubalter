@@ -20,6 +20,8 @@ import { SelectCanchasComponent }       from './vistas/select-canchas/select-can
 import { SelectReservaComponent }       from './vistas/select-reserva/select-reserva.component';
 import { CommitComponent }              from './vistas/commit/commit.component';
 import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
+import { FormularioRegistroComponent } from './vistas/formulario-registro/formulario-registro.component';
+import { PrimerForemularioComponent } from './vistas/primer-foremulario/primer-foremulario.component';
 const routes: Routes = [
   /**
    * @AUTH canActivate: [AuthGuard] AGREGAR
@@ -40,10 +42,13 @@ const routes: Routes = [
   { path: 'canchaselect'       , component: SelectCanchasComponent },
   { path: 'reservaselect/:id'  , component: SelectReservaComponent },
   { path: 'dashboardAdmin'     , component: DashboardadminComponent },
-  { path: 'vistaSemana'     , component: VistaSemanaComponent },//vistaSemana
+  { path: 'vistaSemana'        , component: VistaSemanaComponent },//vistaSemana
   { path: 'usersAdmin'         , component: AdminusuariosComponent },
   { path: 'orgaAdmin'          , component: OrganizacionesAdminComponent },
+  { path: 'registro'           , component: PrimerForemularioComponent},
+  { path: 'formregistro'       , component: FormularioRegistroComponent},
   { path: '**'                 , redirectTo: '', pathMatch: 'full' }
+ 
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

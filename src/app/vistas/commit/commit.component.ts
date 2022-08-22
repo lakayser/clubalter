@@ -9,6 +9,7 @@ import { TransbankService } from 'src/app/servicios/transbank.service';
 export class CommitComponent implements OnInit {
 
   public datos: Array<any> = [];
+  
 
   constructor(private router: Router, private route:ActivatedRoute, private transbankServices: TransbankService) { }
 
@@ -21,6 +22,7 @@ export class CommitComponent implements OnInit {
     });
     // this.postcommit(this.datos);
   //  this.estesiesunget();
+
   }
 
   postcommit(datos:any){
@@ -35,6 +37,8 @@ export class CommitComponent implements OnInit {
      this.datos = res;
       console.log(res);
       
+    }, err => {
+      err.error.error;
     })
   }
 }

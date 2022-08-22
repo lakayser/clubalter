@@ -50,7 +50,8 @@ export class LoginComponent implements OnInit {
           title: 'Error',
           text: err.error.message,
           timer:2500
-        }); }
+        });
+       }
       )
   }
   onSubmit():void{
@@ -71,22 +72,5 @@ export class LoginComponent implements OnInit {
       mensaje:['Esta Cuenta Intenta Recuperar Su Contraseña',[Validators.required]],
     })
   }
-
-  // showModal() {
-  //   this.api.signIn(this.user)
-  //   .subscribe(
-  //     res => {
-  //       console.log(res);
-  //       localStorage.setItem('token', res.token);
-  //       this.router.navigate(['/canchasGestion']);
-  //     },
-  //     err => { Swal.fire({
-  //       title: 'Error!',
-  //       text: 'Credenciales incorrectas',
-  //       timer:2000
-  //     }); }
-  //   )
-    
-  // }
 
 }
