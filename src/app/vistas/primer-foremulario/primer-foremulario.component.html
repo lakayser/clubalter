@@ -1,136 +1,46 @@
-<p>primer-foremulario works!</p>
-
-
-
-<form (ngSubmit)="submit()" [formGroup]="multistep">
-  <h1>Registro de nuevo cliente</h1>
-  <div *ngIf="step == 1" >
-    <h1>Paso 1</h1>
-    <div class="form-group">
-      <label for="nombre" class="form-label">Nombre </label>
-      <input type="text" class="form-control" formControlName="nombre" id="nombre" name="nombre"
-        placeholder="Ingrese su nombre">
-    </div>
-    <div class="form-group">
-      <label for="apellido" class="form-label">Apellido</label>
-      <input formControlName="apellido" type="text" class="form-control" placeholder="ingrese su apellido">
-    </div>
-  </div>
-  <div *ngIf="step == 2" >
-    <h1>Paso 2</h1>
-    <div class="form-group">
-      <label for="Asunto" class="form-label">Email</label>
-      <input type="text" formControlName="email" class="form-control" name="asunto">
-    </div>
-    <div class="form-group">
-      <label for="Asunto" class="form-label">Rut</label>
-      <input type="text" formControlName="rut" class="form-control" name="asunto">
-    </div>
-    <div class="form-group">
-      <label for="Asunto" class="form-label">Fecha de nacimiento</label>
-      <input type="text" formControlName="fecha" class="form-control" name="asunto">
-    </div>
-    <div class="form-group">
-      <label for="Asunto" class="form-label">Telefono</label>
-      <input type="text" formControlName="telefono" class="form-control" name="asunto">
-    </div>
-  </div>
-  <div *ngIf="step == 3" >
-    <h1>Paso3</h1>
-
-    <div class="form-group">
-      <label for="Asunto" class="form-label">Contraseña</label>
-      <input type="text" formControlName="contraseña" class="form-control" name="asunto">
-    </div>
-    <div class="form-group">
-      <label for="Asunto" class="form-label">Volver a ingresar la Contraseña</label>
-      <input type="text" formControlName="contraseña2" class="form-control" name="asunto">
+<body>
+  <div class="registration-form">
+    <form (ngSubmit)="submit()" [formGroup]="multistep">
+      <div class="form-icon">
+       <img class="img-fluid rounded-start" loading="lazy" src="assets/asistente.png" />
+      </div>
+      <div class="a">
+      <h4>Registro nuevo usuario</h4>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control item" id="username" formControlName="nombre"
+          placeholder="Nombre y Apellido">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control item" formControlName="email" id="email" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control item" formControlName="rut" id="rut"
+          placeholder="Rut sin puntos y con guion: 5555555-5">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control item" id="phone-number" formControlName="telefono"
+          placeholder="Numero de Contacto">
+      </div>
+      <div class="form-group">
+        <input type="date" class="form-control item" formControlName="fecha" id="birth-date"
+          placeholder="Fecha de nacimiento">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control item"  formControlName="contraseña"
+          placeholder="Contraseña">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control item"  formControlName="contraseña2"
+          placeholder="Ingrese Nuevamente su Contraseña">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-block create-account">Crear Cuenta</button>
+      </div>
+    </form>
+    <div class="social-media">
+      <h5>Ya tienes cuenta?</h5>
+      <button type="submit" class="btn btn-block create-account">Iniciar Sesion</button>
     </div>
   </div>
-  <div class="">
-    <a class="btn btn-primary mx-2" *ngIf="step != 1" (click)="volver()">Volver</a>
-  </div>
-  <div class="">
-    <button type="submit" class="btn btn-danger text-uppercase" *ngIf="step != 3">Siguiente</button>
-  </div>
-  <div class="text-center">
-    <button type="submit" class="btn btn-danger text-uppercase" *ngIf="step == 3">Enviar</button>
-  </div>
-  <br>
-  <pre>{{multistep.value | json}}</pre>
-  <!-- <div class="col-md-6">
-     <label for="Asunto" class="form-label">Logo del centro deportivo</label>
-     <input class="form-control" type="file" id="formFile">
-   </div> 
-    <div class="col-md-6">
-     <label for="Asunto" class="form-label">Logo del centro deportivo</label>
-     <input class="form-control" type="file" id="formFile">
-   </div>
-   <h1>Custom admin</h1>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">tiene un administrador para el sitio? digite el rut</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <h1>Custom Canchas</h1>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">Nombre de canchas de canchas si es que aplica</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">Numero de canchas</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">Rangos horarios</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">Numero de canchas</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <h1>¿Tiene un horario fijo o AM y PM? Dependiendo de lo que seleccione se debe completar:</h1>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">rangos horarios</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">Se realizan clases</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">Cuantos profesores tienen</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">Ingrese sus rut</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <h1>Configurar clases</h1>
-   <div class="col-md-6"> 
-     <label for="Asunto" class="form-label">Horario de clases</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">Seleccionar canchas donde se realiza la clase</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">Valor de las clases</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">Tiene limite de participantes?</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <div class="col-md-6">
-     <label for="Asunto" class="form-label">existe un plan mensual de clases?</label>
-     <input [(ngModel)]="mailService.selectedEmail.asunto" type="text" class="form-control"  name="asunto">
-   </div>
-   <div class="form-group">
-   <label for="mensaje">Mensaje</label>
-   <textarea [(ngModel)]="mailService.selectedEmail.mensaje" class="form-control" name="mensaje" rows="5"></textarea>
- </div>
- <div class="text-center">
-   <button type="submit" class="btn btn-danger text-uppercase">Enviar</button>
- </div>-->
-</form>
+</body>

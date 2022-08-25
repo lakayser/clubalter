@@ -12,12 +12,10 @@ import { MailService } from 'src/app/servicios/mail.service';
 })
 export class PrimerForemularioComponent implements OnInit {
 
-  step: any = 1;
-  // multistep!: FormGroup;
   multistep = new FormGroup({
       
         nombre: new FormControl(''),
-        apellido: new FormControl(''),
+        // apellido: new FormControl(''),
         email: new FormControl(''),
         rut: new FormControl(''),
         fecha: new FormControl(''),
@@ -43,20 +41,17 @@ export class PrimerForemularioComponent implements OnInit {
   // }
 
   submit() {
-    this.step = this.step + 1;
-    if(this.step == 4){
       // console.log('form-> ', this.multistep.value);
       this.formularioService.enviarRegistro(this.multistep.value).subscribe((res)=>{
+
         console.log(res);
       })  
-    }
-  }
-  volver() {
-    this.step = this.step - 1;
+
   }
  addRegistro(form:NgForm){
   this.formularioService.enviarRegistro(form.value).subscribe((res)=>{
     console.log(res)
   })
  }
+ 
 }
