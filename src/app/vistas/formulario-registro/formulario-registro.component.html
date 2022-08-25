@@ -1,160 +1,290 @@
+<!-- <iframe
+    width="1700"
+    height="1000"
+    frameborder="0"
+    src="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdoom.jsdos?anonymous=1"
+    allowfullscreen>
+</iframe>
+
+   -->
+
+
 <div class="container">
   <h1>Formulario de Registro</h1>
   <form (ngSubmit)="submit()" [formGroup]="multistep" class="row g-3 mb-3">
-    <div *ngIf="step == 1" >
-      <div class="col-md-6">
+    <div *ngIf="step == 1" class="row g-3">
+      <div class="col-md-4">
         <label for="nombre" class="form-label">Nombre Razon social</label>
-        <input type="text" class="form-control" formControlName="nombreRazon" id="nombre1" name="nombre">
+        <input type="text" class="form-control" formControlName="nombreRazon" placeholder="tenis el tejar">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <label for="rut" class="form-label">Rut Empresa</label>
-        <input type="text" class="form-control" formControlName="rut" name="rut">
+        <input type="text" class="form-control" formControlName="rut" name="rut" placeholder="5555555-5">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <label for="text" class="form-label">Giro de la empresa</label>
         <input type="text" class="form-control" formControlName="giro" name="giro">
       </div>
       <div class="col-md-6">
-        <label for="Asunto" class="form-label">Nombre Representante Legal</label>
-        <input type="text" class="form-control" formControlName="nombre" name="nombreRepre">
+        <label for="nombre" class="form-label">Nombre Representante Legal</label>
+        <input type="text" class="form-control" formControlName="nombre" name="nombreRepre" placeholder="Eduardo Quintanilla">
       </div>
       <div class="col-md-6">
-        <label for="Asunto" class="form-label">E-mail Representante Legal</label>
-        <input type="email" class="form-control" formControlName="email" name="email">
+        <label for="email" class="form-label">E-mail Representante Legal</label>
+        <input type="email" class="form-control" formControlName="email" name="email" placeholder="email@email.com">
       </div>
       <div class="col-md-6">
-        <label for="Asunto" class="form-label">Telefono Representante legal</label>
-        <input type="text" class="form-control" formControlName="telefono" name="telefono">
+        <label for="Telefono" class="form-label">Telefono Representante legal</label>
+        <input type="tel" class="form-control" formControlName="telefono" name="telefono" placeholder="+56977777777">
       </div>
       <div class="col-md-6">
-        <label for="Asunto" class="form-label">Direccion Comercial</label>
-        <input type="text" class="form-control" formControlName="direccion" name="Direccion">
+        <label for="Direccion" class="form-label">Direccion Comercial</label>
+        <input type="text" class="form-control" formControlName="direccion" name="Direccion" placeholder="Avenida Collin 365">
       </div>
     </div>
 
-    <div *ngIf="step == 2" >
-      <h1>Custom Bot</h1>
-      <div class="col-md-6">
+    <div *ngIf="step == 2">
+      <h1>Configuraciones del BOT</h1>
+      <div class="col-md-6 mt-2">
         <label for="Asunto" class="form-label">Nombre del centro deportivo</label>
-        <input type="text" class="form-control" formControlName="nombreNegocio" name="nombreNegocio">
+        <input type="text" class="form-control" formControlName="nombreNegocio" name="nombreNegocio" placeholder=" Pádel San Carlos">
       </div>
-      <div class="col-md-6">
-        <label for="Asunto" class="form-label">Logo del centro deportivo</label>
-        <input class="form-control" type="file" formControlName="logo" id="formFile">
+      <div class="row g-3 mt-2">
+        <div class="col-md-4 ">
+          <label for="Asunto" class="form-label">Logo del centro deportivo</label>
+          <input class="form-control" type="file" formControlName="logo" id="formFile">
+        </div>
+        <div class="col-md-4 ">
+          <label for="Asunto" class="form-label">imagen para usar en publicaciones</label>
+          <input class="form-control" type="file" formControlName="fondo" id="formFile2">
+        </div>
       </div>
-      <div class="col-md-6">
-        <label for="Asunto" class="form-label">Logo del centro deportivo</label>
-        <input class="form-control" type="file" formControlName="fondo" id="formFile2">
-      </div>
-      <h1>Custom admin</h1>
-      <div class="col-md-6">
-        <label for="Asunto" class="form-label">tiene un administrador para el sitio? digite el rut</label>
-        <input type="text" class="form-control" formControlName="administrador" name="asunto">
+
+      <h1 class="mt-3">Administrador del sistema</h1>
+      <div class="col-md-6 mt-3">
+        <label for="rut" class="form-label">digite el rut de quien usara frecuentemente el sistema</label>
+        <input type="text" class="form-control" formControlName="administrador" name="asunto" placeholder="3333333-3">
       </div>
     </div>
-    <div *ngIf="step == 3" >
-      <h1>Custom Canchas</h1>
-      <div class="col-md-6">
+
+    <div *ngIf="step == 3">
+
+      <h1>Detalles de Canchas</h1>
+      <div class="col-md-4 box" >
+        <label for="Asunto" class="form-label">Numero de canchas</label> 
+        <input type="range" #time (input)="time.value" list="tickmarks" formControlName="numeroCanchas" id="time" min="0" max="20">
+        <datalist id="tickmarks">
+          <option value="1"></option>
+          <option value="2"></option>
+          <option value="3"></option>
+          <option value="4"></option>
+          <option value="5"></option>
+          <option value="6"></option>
+          <option value="7"></option>
+          <option value="8"></option>
+          <option value="9"></option>
+          <option value="10"></option>
+          <option value="11"></option>
+          <option value="12"></option>
+          <option value="13"></option>
+          <option value="14"></option>
+          <option value="15"></option>
+          <option value="16"></option>
+          <option value="17"></option>
+          <option value="18"></option>
+          <option value="19"></option>
+          <option value="20"></option>
+        </datalist>
+        <label for="time" id="valor">Canchas Seleccionadas: {{ time.value }}</label>
+      </div>
+      <!-- <div class="col-md-6">
         <label for="Asunto" class="form-label">Nombre de canchas de canchas si es que aplica</label>
         <input type="text" class="form-control" formControlName="nombreCancha" name="asunto">
+      </div> -->
+      <div class="col-md-6 mt-3">
+        <h2>Rangos Horarios</h2>
+        <label for="Asunto" class="form-label">marque a continuacion las opciones de rango de arriendo que apliquen para
+          sus canchas, por ejemplo: la cancha 1 tiene arriendos de 1 hora (de 09:00 a 10:00) pero la cancha 2 tiene
+          arriendos de 2 horas(de 09:00 a 11:00)</label>
+        <label for="Asunto" class="form-label">en ese caso deberia marcar la primera y ultima opcion</label>
+        <label for="Asunto" class="form-label"></label>
       </div>
-      <div class="col-md-6">
-        <label for="Asunto" class="form-label">Numero de canchas</label>
-        <input type="text" class="form-control" formControlName="numeroCanchas" name="asunto">
+      <div class="">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" formControlName="rangoHorario1"
+            value="1">
+          <label class="form-check-label" for="inlineCheckbox1">1 Hora</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" formControlName="rangoHorario2"
+            value="1,3">
+          <label class="form-check-label" for="inlineCheckbox2">1:30 Hrs</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" formControlName="rangoHorario3"
+            value="2">
+          <label class="form-check-label" for="inlineCheckbox3">2 Horas</label>
+        </div>
       </div>
-      <div class="col-md-6">
-        <label for="Asunto" class="form-label">Rangos horarios</label>
-        <input type="text" class="form-control" formControlName="rangosHorarios" name="asunto">
-      </div>
+
       <h1>¿Tiene un horario fijo o AM y PM?</h1>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" onclick="Mostrar();" name="inlineRadioOptions" id="inlineRadio1" formControlName="tieneHorario" value="si tiene horario fijo">
-        <label class="form-check-label" for="inlineRadio1" >SI</label>
+        <input class="form-check-input" type="radio" onclick="Mostrar();" name="tieneHorario" id="inlineRadio1"
+          formControlName="tieneHorario" value="si tiene horario fijo">
+        <label class="form-check-label" for="inlineRadio1">Horario Fijo</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" onclick="Ocultar();" name="inlineRadioOptions" id="inlineRadio2" formControlName="tieneHorario" value="no tiene horario">
-        <label class="form-check-label" for="inlineRadio2">NO</label>
+        <input class="form-check-input" type="radio" onclick="Ocultar();" name="tieneHorario" id="inlineRadio2"
+          formControlName="tieneHorario" value="tiene AM PM">
+        <label class="form-check-label" for="inlineRadio2">Horario Dividido en AM o PM</label>
       </div>
-      
       <div class="col-md-6" id="Horario">
-        <label for="Asunto" class="form-label">Horario de esas canchas</label>
-        <input type="text" class="form-control" formControlName="horaCancha" name="asunto">
-        <div class="col" >
-          <label for="Asunto" class="form-label">rangos horarios</label>
-          <input type="text" class="form-control" formControlName="rango" name="asunto">
+        <label for="Asunto" class="form-label">Valor de arriendo de esas horas</label>
+        <input type="number" class="form-control" formControlName="horaCancha" name="asunto">
+      </div>
+      <!-- <div class="col-md-6">
+        <div class="input-group">
+          <span class="input-group-text" id="inputGroupPrepend">$</span>
+          <input type="text" class="form-control" aria-describedby="inputGroupPrepend">
+        </div>
+      </div> -->
+
+      <div class="col-md-6" id="HorAMAP">
+        <label for="Asunto" class="form-label">Valor de arriendo AM</label>
+        <input type="number" class="form-control" formControlName="horaCanchaAM" name="asunto" placeholder="5000">
+        <div class="col">
+          <label for="Asunto" class="form-label">Valor de arriendo PM</label>
+          <input type="number" class="form-control" formControlName="horaCanchaPM" name="asunto"  placeholder="5000">
         </div>
       </div>
+
       <h1>Se Realizan clases?</h1>
+
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" onclick="MostrarClases();" name="inlineRadioOptions"  formControlName="tieneClase" id="inlineRadio1" value="SiTieneClases">
-        <label class="form-check-label" for="inlineRadio1">SI</label>
+        <input class="form-check-input" type="radio" onclick="MostrarClases();" name="tieneClase"
+          formControlName="tieneClase" id="inlineRadio3" value="SiTieneClases">
+        <label class="form-check-label" for="inlineRadio3">SI</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" onclick="OcultarClases();" name="inlineRadioOptions"  formControlName="tieneClase" id="inlineRadio2" value="NoTieneClases">
-        <label class="form-check-label" for="inlineRadio2">NO</label>
+        <input class="form-check-input" type="radio" onclick="OcultarClases();" name="tieneClase"
+          formControlName="tieneClase" id="inlineRadio4" value="NoTieneClases">
+        <label class="form-check-label" for="inlineRadio4">NO</label>
       </div>
-      <div class="col-md-6" id="Clases">
-        <label for="Asunto" class="form-label">Cuantos profesores tienen</label>
-        <input type="text" class="form-control" formControlName="numProf" name="asunto">
-        <div class="col">
-          <label for="Asunto" class="form-label">Ingrese sus rut</label>
-          <input type="text" class="form-control" formControlName="rutProf" name="asunto">
+      <div class="col" id="Clases">
+        <div class="col-md-4 box">
+          <label for="Asunto" class="form-label">Cuantas clases tienen a la semana?</label>
+          <!-- <select class="form-select" aria-label="Default select example" formControlName="numClases">
+            <option selected>Seleccione una opcion</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select> -->
+          <input type="range" #space (input)="space.value" list="tickmarks" formControlName="numClases" id="time" min="0" max="10">
+          <datalist id="tickmarks">
+            <option value="1" ></option>
+            <option value="2" ></option>
+            <option value="3" ></option>
+            <option value="4" ></option>
+            <option value="5" ></option>
+            <option value="6" ></option>
+            <option value="7" ></option>
+            <option value="8" ></option>
+            <option value="9" ></option>
+            <option value="10" ></option>
+          </datalist>
+          <label for="time" id="valor">Clases Seleccionadas: {{ space.value }}</label>
         </div>
-        <div class="col" >
-          <label for="Asunto" class="form-label">Horario de clases</label>
-          <input type="text" class="form-control" name="asunto">
+        <h2>Cuenta con una cancha techada para las clases?</h2>
+        <div class="col-md-6">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="canchaClases" formControlName="canchaClases"
+              id="inlineRadio3" value="Si">
+            <label class="form-check-label" for="inlineRadio3">SI</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="canchaClases" formControlName="canchaClases"
+              id="inlineRadio4" value="No">
+            <label class="form-check-label" for="inlineRadio4">NO</label>
+          </div>
         </div>
-        <div class="col">
-          <label for="Asunto" class="form-label">Seleccionar canchas donde se realiza la clase</label>
-          <input type="text" class="form-control" name="asunto">
+        <div class="col-md-6">
+         <h2>Tiene un horario especifico para las clases?</h2>
         </div>
-        <div class="col">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" onclick="MostrarHoraClase();" name="horarioClase"
+            formControlName="horarioClase" id="inlineRadio3" value="Si">
+          <label class="form-check-label" for="inlineRadio3">SI</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" onclick="OcultarHoraClase();" name="horarioClase"
+            formControlName="horarioClase" id="inlineRadio4" value="NO">
+          <label class="form-check-label" for="inlineRadio4">NO</label>
+        </div>
+
+        <div class="col-md-4" id="HoraClase">
+          <label for="mensaje">Ingrese los detalles del horario especifico para clases</label>
+          <textarea class="form-control" formControlName="detalleHorario" name="mensaje" rows="5"></textarea>
+        </div>
+        <!-- <div class="col-md-6">
+            <label for="Asunto" class="form-label">Seleccionar canchas donde se realiza la clase</label>
+            <input type="text" class="form-control" formControlName="canchaClase" name="asunto">
+          </div> -->
+        <div class="col-md-6">
           <label for="Asunto" class="form-label">Valor de las clases</label>
-          <input type="text" class="form-control" name="asunto">
+          <input type="number" class="form-control" formControlName="valorClase" placeholder="5.000">
+
         </div>
+
         <h1>Tiene un limite de participantes?</h1>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" onclick="MostrarParticipantes();" name="inlineRadioOptions"  formControlName="participante" id="inlineRadio1" value="SI">
-          <label class="form-check-label" for="inlineRadio1">SI</label>
+          <input class="form-check-input" type="radio" onclick="MostrarParticipantes();" name="participante"
+            formControlName="participante" id="inlineRadio5" value="SI">
+          <label class="form-check-label" for="inlineRadio5">SI</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" onclick="OcultarParticipantes();" name="inlineRadioOptions"  formControlName="participante" id="inlineRadio2" value="NO">
-          <label class="form-check-label" for="inlineRadio2">NO</label>
+          <input class="form-check-input" type="radio" onclick="OcultarParticipantes();" name="participante"
+            formControlName="participante" id="inlineRadio6" value="NO">
+          <label class="form-check-label" for="inlineRadio6">NO</label>
         </div>
         <div class="col-md-6" id="Participantes">
           <label for="Asunto" class="form-label">ingrese limite</label>
-          <input type="number" class="form-control" name="asunto">
-        </div>
-      </div>
-     
-      
-</div>
+          <input type="number" class="form-control" formControlName="participante" name="asunto">
 
-      <div *ngIf="step == 4" >
-        <h1>existe un plan mensual de clases?</h1>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" onclick="MostrarMensual();" name="inlineRadioOptions" formControlName="planMensual" id="inlineRadio1" value="Si">
-          <label class="form-check-label" for="inlineRadio1">SI</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" onclick="OcultarMensual();" name="inlineRadioOptions" formControlName="planMensual" id="inlineRadio2" value="NO">
-          <label class="form-check-label" for="inlineRadio2">NO</label>
-        </div>
-        <div class="form-group" id="Mensual">
-          <label for="mensaje">Ingrese los detalles del plan mensual</label>
-          <textarea class="form-control"formControlName="detalles" name="mensaje" rows="5"></textarea>
         </div>
       </div>
-    <div class="">
-      <a class="btn btn-primary mx-2" *ngIf="step != 1" (click)="volver()">Volver</a>
     </div>
-    <div class="">
-      <button type="submit" class="btn btn-danger text-uppercase" *ngIf="step != 4">Siguiente</button>
-    </div>
+
+    <!-- <div *ngIf="step == 4">
+      <h1>existe un plan mensual de clases?</h1>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" onclick="MostrarMensual();" name="inlineRadioOptions"
+          formControlName="planMensual" id="inlineRadio7" value="Si">
+        <label class="form-check-label" for="inlineRadio7">SI</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" onclick="OcultarMensual();" name="inlineRadioOptions"
+          formControlName="planMensual" id="inlineRadio8" value="NO">
+        <label class="form-check-label" for="inlineRadio8">NO</label>
+      </div>
+      <div class="form-group" id="Mensual">
+        <label for="mensaje">Ingrese los detalles del plan mensual</label>
+        <textarea class="form-control" formControlName="detalles" name="mensaje" rows="5"></textarea>
+      </div>
+    </div> -->
+  
     <div class="text-center">
-      <button type="submit" class="btn btn-danger text-uppercase" *ngIf="step == 4">Enviar</button>
+      <a class="btn btn-primary text-uppercase mx-2 mt-3 mb-4" *ngIf="step != 1" (click)="volver()">Volver</a>
+      
+      <button type="submit" class="btn btn-danger text-uppercase mx-2 mt-3 mb-4" *ngIf="step == 3">Enviar</button>
+      <button type="submit" class="btn btn-danger text-uppercase mx-2 mt-3 mb-4" *ngIf="step != 3">Siguiente</button>
     </div>
-    <br>
-    <pre>{{multistep.value | json}}</pre>
+
   </form>
 </div>

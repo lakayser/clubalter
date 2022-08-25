@@ -22,6 +22,7 @@ import { CommitComponent }              from './vistas/commit/commit.component';
 import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
 import { FormularioRegistroComponent } from './vistas/formulario-registro/formulario-registro.component';
 import { PrimerForemularioComponent } from './vistas/primer-foremulario/primer-foremulario.component';
+import { GraciasComponent } from './vistas/gracias/gracias.component';
 const routes: Routes = [
   /**
    * @AUTH canActivate: [AuthGuard] AGREGAR
@@ -47,6 +48,7 @@ const routes: Routes = [
   { path: 'orgaAdmin'          , component: OrganizacionesAdminComponent },
   { path: 'registro'           , component: PrimerForemularioComponent},
   { path: 'formregistro'       , component: FormularioRegistroComponent},
+  {path:  'Gracias'            , component: GraciasComponent},
   { path: '**'                 , redirectTo: '', pathMatch: 'full' }
  
 ];

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
 })
 export class FormularioRegistroComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
   step: any = 1;
   multistep = new FormGroup({
       nombreRazon: new FormControl(''),
@@ -25,25 +26,35 @@ export class FormularioRegistroComponent implements OnInit {
       fondo: new FormControl(''),
       administrador: new FormControl(''),
   
-      nombreCancha: new FormControl(''),
+      // nombreCancha: new FormControl(''),
       numeroCanchas: new FormControl(''),
-      rangosHorarios: new FormControl(''),
+    
+      rangoHorario1: new FormControl(''),
+      rangoHorario2: new FormControl(''),
+      rangoHorario3: new FormControl(''),
+
       tieneHorario: new FormControl(''),
       horaCancha: new FormControl(''),
-      rango: new FormControl(''),
+      horaCanchaAM: new FormControl(''),
+      horaCanchaPM: new FormControl(''),
       tieneClase:new FormControl(''),
-      numProf: new FormControl(''),
-      rutProf: new FormControl(''),
+      numClases: new FormControl(''),
+      canchaClases: new FormControl(''),
+      detalleHorario: new FormControl(''),
       participante: new FormControl(''),
-      planMensual: new FormControl(''),
-      detalles: new FormControl(''),
+      valorClase: new FormControl(''),
+      horarioClase: new FormControl(''),
+      // canchaClase: new FormControl(''),
+      // planMensual: new FormControl(''),
+      // detalles: new FormControl(''),
     })
 
   ngOnInit(): void {
   }
   submit() {
     this.step = this.step + 1;
-    if(this.step == 5){
+    if(this.step == 4){
+      // this.route.navigate(['/Gracias'])
       console.log('form-> ', this.multistep.value);
     }
   }

@@ -10,3 +10,25 @@
 #Mensual{
     display:none
 }
+#HorAMAP{
+    display: none;
+}
+#HoraClase{
+    display: none;
+}
+.box input{
+    width: 150%;
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+label {
+    font-weight: 600;
+    font-family: sans-serif;
+}
+#valor{
+    font-size: 20px;
+    font-weight: 600;
+
+}
