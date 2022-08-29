@@ -4,7 +4,7 @@ import { CanchasService } from 'src/app/servicios/canchas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service'
 import { timer } from 'rxjs';
 import { tap } from 'rxjs';
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-vista-semana',
@@ -76,19 +76,19 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
     })
   }
 
-  jpg() {
-    const screenshotTarget = this.el.nativeElement;
-    html2canvas( screenshotTarget ).then( ( canvas: any ) => {
-      setInterval( function() {
-        const base64image = canvas.toDataURL( "image/jpg" )
-        let anchor = document.createElement('a');
-        anchor.setAttribute( 'href', base64image );
-        anchor.setAttribute( 'download', 'my-image.jpg' )
-        anchor.click();
-        anchor.remove();
-      }, 6000 )
-    } )
-  }
+  // jpg() {
+  //   const screenshotTarget = this.el.nativeElement;
+  //   html2canvas( screenshotTarget ).then( ( canvas: any ) => {
+  //     setInterval( function() {
+  //       const base64image = canvas.toDataURL( "image/jpg" )
+  //       let anchor = document.createElement('a');
+  //       anchor.setAttribute( 'href', base64image );
+  //       anchor.setAttribute( 'download', 'my-image.jpg' )
+  //       anchor.click();
+  //       anchor.remove();
+  //     }, 6000 )
+  //   } )
+  // }
 
   numeroSemana (fecha: any) {
     const dia_en_mili_segundos = 1000 * 60 * 60 * 24,
