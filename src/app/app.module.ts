@@ -43,6 +43,7 @@ import { CommitComponent }                        from './vistas/commit/commit.c
 import { FormularioRegistroComponent } from './vistas/formulario-registro/formulario-registro.component';
 import { PrimerForemularioComponent } from './vistas/primer-foremulario/primer-foremulario.component';
 import { GraciasComponent } from './vistas/gracias/gracias.component';
+import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
 
 const materialModules = [
   MatDatepickerModule,
@@ -56,7 +57,7 @@ const materialModules = [
                   ObjToArrayPipe, SidebarComponent, PortalPagoComponent, AdminusuariosComponent, DashboardadminComponent,
                   OrganizacionesAdminComponent, CanchasDashboardComponent, CanchasCrudComponent, UsermoderatorComponent,
                   DashboardProfesorComponent, ClaseCrudComponent, PagoComponent, FilterPipe, SelectCanchasComponent,
-                  SelectReservaComponent, CommitComponent, FormularioRegistroComponent, PrimerForemularioComponent, GraciasComponent,
+                  SelectReservaComponent, CommitComponent, FormularioRegistroComponent, PrimerForemularioComponent, GraciasComponent,VistaSemanaComponent,
                 ],
   imports: [
     BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpClientModule, NgChartsModule,
