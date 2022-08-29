@@ -57,10 +57,7 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
   ngOnInit(): void {
     console.log(this.numero);
     this.getCanchas();
-    this.loadCanchas()
-    .subscribe( () => {
-      this.next();
-    }) 
+    this.next();
   }
 
   @ViewChild('content', { static: true }) el!: ElementRef<HTMLImageElement> 
@@ -79,13 +76,12 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
   jpg() {
     const screenshotTarget = this.el.nativeElement;
     html2canvas( screenshotTarget ).then( ( canvas: any ) => {
-      setInterval( function() {
+      setTimeout( function() {
         const base64image = canvas.toDataURL( "image/jpg" )
         let anchor = document.createElement('a');
         anchor.setAttribute( 'href', base64image );
         anchor.setAttribute( 'download', 'my-image.jpg' )
         anchor.click();
-        anchor.remove();
       }, 6000 )
     } )
   }
