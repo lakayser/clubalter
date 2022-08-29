@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2, AfterViewInit } fr
 import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service';
 import { CanchasService } from 'src/app/servicios/canchas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service'
-import { fromEvent, Subscription } from 'rxjs';
-import { style } from '@angular/animations';
+import { timer } from 'rxjs';
+import { tap } from 'rxjs';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-vista-semana',
@@ -15,26 +16,9 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
 
   constructor(public cargamasivaService: CargamasivaService, public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService, public renderer: Renderer2) { }
 
-
-  carga: any[] = []
-
-  pruebaMil: any[] = []
-
-  contador:number = -1
-
-  canchas: String[] = []
-  horaLunes: String[] = []
-  horaLunesF: String[] = []
-  horaMartes: String[] = []
-  horaMiercoles: String[] = []
-  horaJueves: String[] = []
-  horaViernes: String[] = []
-  horaSabado: String[] = []
-  horaDomingo: String[] = []
-  cancha: any[] = []
-  arrNomCanchas: any[] = []
-  arrCarga: any[] = []
-  arrHorario: any[] = []
+  contador:number = -1;
+  canchas: any[] = [];
+  canchas2: any[] = [];
 
   horasL:string[] = []
   horasLF:string[] = []
@@ -50,41 +34,61 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
   horasSF:string[] = []
   horasD:string[] = []
   horasDF:string[] = []
-  
-  aloProbando: any[] = []
-  aloProbando2: any[] = []
-  aloProbando3: any[] = []
-  aloProbando4: any[] = []
-  aloProbando5: any[] = []
-  aloProbando6: any[] = []
-  aloProbando7: any[] = []
-  aloProbandoF: any[] = []
-  aloProbando2F: any[] = []
-  aloProbando3F: any[] = []
-  aloProbando4F: any[] = []
-  aloProbando5F: any[] = []
-  aloProbando6F: any[] = []
-  aloProbando7F: any[] = []
 
+  arr: any[] = [];
+  l: any[] = [];
+  lf: any[] = [];
+  m: any[] = [];
+  mf: any[] = [];
+  mi: any[] = [];
+  mif: any[] = [];
+  j: any[] = [];
+  jf: any[] = [];
+  v: any[] = [];
+  vf: any[] = [];
+  s: any[] = [];
+  sf: any[] = [];
+  d: any[] = [];
+  df: any[] = [];
+
+  numbers: any[] = [];
+  contadore: number = -1
+  
   ngOnInit(): void {
     console.log(this.numero);
     this.getCanchas();
-    this.getNomCancha();
-    this.nextd();
+    this.loadCanchas()
+    .subscribe( () => {
+      this.next();
+    }) 
   }
 
-  @ViewChild("hl") miTag: ElementRef
-  @ViewChild("hlF") miTagF: ElementRef
-  @ViewChild("hm") miTag2: ElementRef
-  @ViewChild("hmF") miTag2F: ElementRef
-  @ViewChild("hmi") miTag3: ElementRef
-  @ViewChild("hj") miTag4: ElementRef
-  @ViewChild("hv") miTag5: ElementRef
-  @ViewChild("hs") miTag6: ElementRef
-  @ViewChild("hd") miTag7: ElementRef
-  @ViewChild('next') next: ElementRef
-  @ViewChild('prev') prev: ElementRef
-  @ViewChild('f') f: ElementRef
+  // @ViewChild('content', { static: true }) el!: ElementRef<HTMLImageElement> 
+  // @ViewChild('dl') dl: ElementRef
+
+  getCanchas(){
+    this.canchasService.getCanchas().subscribe((res)=>{
+      this.canchasService.cancha = res;
+      this.canchas = [];
+      for(let a of res) {
+        this.canchas.push( a.name );
+      }
+    })
+  }
+
+  // jpg() {
+  //   const screenshotTarget = this.el.nativeElement;
+  //   html2canvas( screenshotTarget ).then( ( canvas: any ) => {
+  //     setInterval( function() {
+  //       const base64image = canvas.toDataURL( "image/jpg" )
+  //       let anchor = document.createElement('a');
+  //       anchor.setAttribute( 'href', base64image );
+  //       anchor.setAttribute( 'download', 'my-image.jpg' )
+  //       anchor.click();
+  //       anchor.remove();
+  //     }, 6000 )
+  //   } )
+  // }
 
   numeroSemana (fecha: any) {
     const dia_en_mili_segundos = 1000 * 60 * 60 * 24,
@@ -105,272 +109,173 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
 
   numero = this.numeroSemana(this.fecha)
 
-  nextd () {
+  calendar () {
+    this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
+      this.cargamasivaService.cargamasi = res
+      this.arr = res;
+      let arrCalendar: any[] = [];
+      arrCalendar = res;
+      for( let carga of arrCalendar ) {
+        for( let cancha of carga.cancha ) {
+          if( cancha.name === this.canchas[this.contador] ) {
+            if( carga.semana === this.numero ) {
+              if( carga.dia === 'lunes' ) {
+                if( carga.disponibilidad === true ) {
+                  this.l.push( carga.horario )
+                  this.horasL = this.l;
+                }
+                if( carga.disponibilidad === false ) {
+                  this.lf.push( carga.horario )
+                  this.horasLF = this.lf;
+                }
+              }
+              if( carga.dia === 'martes' ) {
+                if( carga.disponibilidad === true ) {
+                  this.m.push( carga.horario )
+                  this.horasM = this.m;
+                }
+                if( carga.disponibilidad === false ) {
+                  this.mf.push( carga.horario )
+                  this.horasMF = this.mf;
+                }
+              }
+              if( carga.dia === 'miércoles' ) {
+                if( carga.disponibilidad === true ) {
+                  this.mi.push( carga.horario )
+                  this.horasMi = this.mi;
+                }
+                if( carga.disponibilidad === false ) {
+                  this.mif.push( carga.horario )
+                  this.horasMiF = this.mif;
+                }
+              }
+              if( carga.dia === 'jueves' ) {
+                if( carga.disponibilidad === true ) {
+                  this.j.push( carga.horario )
+                  this.horasJ = this.j;
+                }
+                if( carga.disponibilidad === false ) {
+                  this.jf.push( carga.horario )
+                  this.horasJF = this.jf;
+                }
+              }
+              if( carga.dia === 'viernes' ) {
+                if( carga.disponibilidad === true ) {
+                  this.v.push( carga.horario )
+                  this.horasV = this.v;
+                }
+                if( carga.disponibilidad === false ) {
+                  this.vf.push( carga.horario )
+                  this.horasVF = this.vf;
+                }
+              }
+              if( carga.dia === 'sábado' ) {
+                if( carga.disponibilidad === true ) {
+                  this.s.push( carga.horario )
+                  this.horasS = this.s;
+                }
+                if( carga.disponibilidad === false ) {
+                  this.sf.push( carga.horario )
+                  this.horasSF = this.sf;
+                }
+              }
+              if( carga.dia === 'domingo' ) {
+                if( carga.disponibilidad === true ) {
+                  this.d.push( carga.horario )
+                  this.horasD = this.d;
+                }
+                if( carga.disponibilidad === false ) {
+                  this.df.push( carga.horario )
+                  this.horasDF = this.df;
+                }
+              }
+            }
+          }
+        }
+      }
+  })
+  }
+
+  next () {
     this.contador += 1
+    this.canchas[this.contador];
     if (this.contador === this.canchas.length) {
       this.contador = 0
     }
-
-    this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
-      this.cargamasivaService.cargamasi = res
-      this.arrCarga = res
-      this.horasL = []
-      this.horasM = []
-      this.horasMi = []
-      this.horasJ = []
-      this.horasV = []
-      this.horasS = []
-      this.horasD = []
-      this.horasLF = []
-      this.horasMF = []
-      this.horasMiF = []
-      this.horasJF = []
-      this.horasVF = []
-      this.horasSF = []
-      this.horasDF = []
-      this.aloProbando = []
-      this.aloProbandoF = []
-      this.aloProbando2 = []
-      this.aloProbando2F = []
-      this.aloProbando3 = []
-      this.aloProbando3F = []
-      this.aloProbando4 = []
-      this.aloProbando4F = []
-      this.aloProbando5 = []
-      this.aloProbando5F = []
-      this.aloProbando6 = []
-      this.aloProbando6F = []
-      this.aloProbando7 = []
-      this.aloProbando7F = []
-      for (let a of this.arrCarga) {
-        for (let b of a.cancha) {
-          if (b.name === this.canchas[this.contador]) {
-            if (a.semana === this.numero) {
-              if (a.dia === 'lunes') {
-                if (a.disponibilidad === true) {
-                  this.horasL.push(a.horario)
-                  this.aloProbando = this.horasL
-                }
-                if (a.disponibilidad === false) {
-                  this.horasLF.push(a.horario)
-                  this.aloProbandoF = this.horasLF
-                }
-              }
-              if (a.dia === 'martes') {
-                if (a.disponibilidad === true) {
-                  this.horasM.push(a.horario)
-                  this.aloProbando2 = this.horasM
-                }
-                if (a.disponibilidad === false) {
-                  this.horasMF.push(a.horario)
-                  this.aloProbando2F = this.horasMF
-                }
-              }
-              if (a.dia === 'miercoles') {
-                if (a.disponibilidad === true) {
-                  this.horasMi.push(a.horario)
-                  this.aloProbando3 = this.horasMi
-                }
-                if (a.disponibilidad === false) {
-                  this.horasMiF.push(a.horario)
-                  this.aloProbando3F = this.horasMiF
-                }
-              }
-              if (a.dia === 'jueves') {
-                if(a.disponibilidad === true) {
-                  this.horasJ.push(a.horario)
-                  this.aloProbando4 = this.horasJ
-                }
-                if (a.disponibilidad === false) {
-                  this.horasJF.push(a.horario)
-                  this.aloProbando4F = this.horasJF
-                }
-              }
-              if (a.dia === 'viernes') {
-                if(a.disponibilidad === true) {
-                  this.horasV.push(a.horario)
-                  this.aloProbando5 = this.horasV
-                }
-                if(a.disponibilidad === false) {
-                  this.horasVF.push(a.horario)
-                  this.aloProbando5F = this.horasVF
-                }
-              }
-              if (a.dia === 'sabado') {
-                if(a.disponibilidad === true) {
-                  this.horasS.push(a.horario)
-                  this.aloProbando6 = this.horasS
-                }
-                if(a.disponibilidad === false) {
-                  this.horasSF.push(a.horario)
-                  this.aloProbando6F = this.horasSF
-                }
-              }
-              if (a.dia === 'domingo') {
-                if(a.disponibilidad === true) {
-                  this.horasD.push(a.horario)
-                  this.aloProbando7 = this.horasD
-                }
-                if(a.disponibilidad === false) {
-                  this.horasDF.push(a.horario)
-                  this.aloProbando7F = this.horasDF
-                }
-              }
-            }
-          }
-        }
-      }
-    })
+    this.horasL = [];
+    this.horasLF = [];
+    this.horasM = [];
+    this.horasMF = [];
+    this.horasMi = [];
+    this.horasMiF = [];
+    this.horasJ = [];
+    this.horasJF = [];
+    this.horasV = [];
+    this.horasVF = [];
+    this.horasS = [];
+    this.horasSF = [];
+    this.horasD = [];
+    this.horasDF = [];
+    this.l = [];
+    this.lf = [];
+    this.m = [];
+    this.mf = [];
+    this.mi = [];
+    this.mif = [];
+    this.j = [];
+    this.jf = [];
+    this.v = [];
+    this.vf = [];
+    this.s = [];
+    this.sf = [];
+    this.d = [];
+    this.df = [];
+    this.calendar();
   }
 
-  getNomCancha() {
-    this.canchasService.getCanchas().subscribe((res)=>{
-      this.canchasService.cancha = res;
-      this.arrNomCanchas = res;
-   })
+  back() {
+    this.contador -= 1;
+    if( this.contador < 0 ) {
+      this.contador = this.canchas.length;
+      this.contador -= 1;
+    }
+
+    this.horasL = [];
+    this.horasLF = [];
+    this.horasM = [];
+    this.horasMF = [];
+    this.horasMi = [];
+    this.horasMiF = [];
+    this.horasJ = [];
+    this.horasJF = [];
+    this.horasV = [];
+    this.horasVF = [];
+    this.horasS = [];
+    this.horasSF = [];
+    this.horasD = [];
+    this.horasDF = [];
+    this.l = [];
+    this.lf = [];
+    this.m = [];
+    this.mf = [];
+    this.mi = [];
+    this.mif = [];
+    this.j = [];
+    this.jf = [];
+    this.v = [];
+    this.vf = [];
+    this.s = [];
+    this.sf = [];
+    this.d = [];
+    this.df = [];
+    this.calendar();
   }
 
-  getCanchas(){
-    this.canchasService.getCanchas().subscribe((res)=>{
-      this.canchasService.cancha = res;
-      for(let a of res) {
-        this.cancha.push(a)
-        this.canchas.push(a.name)
-      }
-      console.log('nom canchas',this.canchas[this.contador]);
-    })
-  }
-
-  getCarga () {
-  }
-
-  ngAfterViewInit(): void {
-
-    this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
-      this.cargamasivaService.cargamasi = res
-      for(let b of res) {
-        this.carga.push(b)
-      }
-      this.carga.forEach(x => {
-        for(let cancha of x.cancha) {
-          if(x.semana === this.numero) {
-            if(cancha.name === this.canchas[this.contador]) {
-              if(x.dia === 'lunes') {
-                if(cancha.disponibilidad === true) {
-                  this.horaLunes.push(x.horario)
-                  this.miTag.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaLunes.length; i ++) {
-                    this.miTag.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-success"> <p>' + this.horaLunes[i] + '</p> </div>'
-                  }
-                }
-                if(cancha.disponibilidad === false) {
-                  this.horaLunesF.push(x.horario)
-                  this.miTag.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaLunesF.length; i ++) {
-                    this.miTag.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-danger"> <p>' + this.horaLunesF[i] + '</p> </div>'
-                  }
-                }
-              }
-              if(x.dia === 'martes') {
-                if(cancha.disponibilidad === true) {
-                  this.horaMartes.push(x.horario)
-                  this.miTag2.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaMartes.length; i ++) {
-                    this.miTag2.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-success"> <p>' + this.horaMartes[i] + '</p> </div>'
-                  }
-                }
-                if(cancha.disponibilidad === false) {
-                  this.horaMartes.push(x.horario)
-                  this.miTag2.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaMartes.length; i ++) {
-                    this.miTag2.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-danger"> <p>' + this.horaMartes[i] + '</p> </div>'
-                  }
-                }
-              }
-              if(x.dia === 'miercoles') {
-                if(cancha.disponibilidad === true) {
-                  this.horaMiercoles.push(x.horario)
-                  this.miTag3.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaMiercoles.length; i ++) {
-                    this.miTag3.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-success"> <p>' + this.horaMiercoles[i] + '</p> </div>'
-                  }
-                }
-                if(cancha.disponibilidad === false) {
-                  this.horaMiercoles.push(x.horario)
-                  this.miTag3.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaMiercoles.length; i ++) {
-                    this.miTag3.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-danger"> <p>' + this.horaMiercoles[i] + '</p> </div>'
-                  }
-                }
-              }
-              if(x.dia === 'jueves') {
-                if(cancha.disponibilidad === true) {
-                  this.horaJueves.push(x.horario)
-                  this.miTag4.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaJueves.length; i ++) {
-                    this.miTag4.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-success"> <p>' + this.horaJueves[i] + '</p> </div>'
-                  }
-                }
-                if(cancha.disponibilidad === false) {
-                  this.horaJueves.push(x.horario)
-                  this.miTag4.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaJueves.length; i ++) {
-                    this.miTag4.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-danger"> <p>' + this.horaJueves[i] + '</p> </div>'
-                  }
-                }
-              }
-              if(x.dia === 'viernes') {
-                if(cancha.disponibilidad === true) {
-                  this.horaViernes.push(x.horario)
-                  this.miTag5.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaViernes.length; i ++) {
-                    this.miTag5.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-success"> <p>' + this.horaViernes[i] + '</p> </div>'
-                  }
-                }
-                if(cancha.disponibilidad === false) {
-                  this.horaViernes.push(x.horario)
-                  this.miTag5.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaViernes.length; i ++) {
-                    this.miTag5.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-danger"> <p>' + this.horaViernes[i] + '</p> </div>'
-                  }
-                }
-              }
-              if(x.dia === 'Sabado') {
-                if(cancha.disponibilidad === true) {
-                  this.horaSabado.push(x.horario)
-                  this.miTag6.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaSabado.length; i ++) {
-                    this.miTag6.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-success"> <p>' + this.horaSabado[i] + '</p> </div>'
-                  }
-                }
-                if(cancha.disponibilidad === false) {
-                  this.horaSabado.push(x.horario)
-                  this.miTag6.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaSabado.length; i ++) {
-                    this.miTag6.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-danger"> <p>' + this.horaSabado[i] + '</p> </div>'
-                  }
-                }
-              }
-              if(x.dia === 'domingo') {
-                if(cancha.disponibilidad === true) {
-                  this.horaDomingo.push(x.horario)
-                  this.miTag7.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaDomingo.length; i ++) {
-                    this.miTag7.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-success"> <p>' + this.horaDomingo[i] + '</p> </div>'
-                  }
-                }
-                if(cancha.disponibilidad === false) {
-                  this.horaDomingo.push(x.horario)
-                  this.miTag7.nativeElement.innerHTML = ''
-                  for(let i = 0; i < this.horaDomingo.length; i ++) {
-                    this.miTag7.nativeElement.innerHTML += '<div class="mb-1 pt-3 pb-1 bg-danger"> <p>' + this.horaDomingo[i] + '</p> </div>'
-                  }
-                }
-              }
-            }
-          }
-        }
+  loadCanchas() {
+    return timer( 1000 ).pipe(
+      tap( () => {
+        this.canchas[this.contador]
       })
-    })
+    )
   }
 }
