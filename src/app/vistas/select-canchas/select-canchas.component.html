@@ -1,0 +1,131 @@
+<div id="">
+
+
+    <div id="">
+
+        <div class="page-content">
+            <section class="row">
+                <div class="col-12 col-lg-12">
+
+                    <div class="row  justify-content-center">
+                        <div class="col-12">
+                            <div >
+                               
+                                <div class="card-body">
+                                    <div id="chart-profile-visit">
+                                        <!--Formulario Agregar-->
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-sm-6">
+
+                                                    <div class="table-responsive-md">
+                                                        <div class="scrollable">
+                                                            <table
+                                                                class="table table-bordered border-dark table-hover text-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Nombre de cancha</th>
+
+                                                                        <th scope="col">disponibilidad</th>
+                                                                        <th scope="col">Rango Horario</th>
+
+                                                                        <th scope="col">Opciones</th>
+
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr
+                                                                        *ngFor="let cancha of canchasService.cancha | ObjToArray">
+                                                                        <td>{{cancha.name}}</td>
+                                                                        <td *ngIf="cancha.disponibilidad==true">
+                                                                            Disponible
+                                                                        </td>
+                                                                        <td *ngIf="!cancha.disponibilidad==true">NO
+                                                                            Disponible</td>
+                                                                        <td *ngIf="cancha.rangoHorario == '1' ">
+                                                                            1 Hora
+                                                                        </td>
+                                                                        <td *ngIf="cancha.rangoHorario == '2' ">
+                                                                            1:30 Horas
+                                                                        </td>
+                                                                        <td *ngIf="cancha.rangoHorario == '3' ">
+                                                                            2 Horas
+                                                                        </td>
+
+
+                                                                        <td><button type="button" class="btn btn-primary"
+                                                                                (click)="onSelect(cancha)"><span
+                                                                                    class="material-icons">
+                                                                                    report_problem
+                                                                                </span>
+
+                                                                                seleccionar</button>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h1>horas ya agendadas</h1>
+                        <div class="table-responsive-md">
+                            <div class="scrollable">
+                                <table
+                                    class="table table-bordered border-dark table-hover text-center">
+                                    <thead>
+                                        <tr>
+                                            <th >
+                                                Horario
+                                            </th>
+                                            <th>cancha
+                                            </th>
+                                            <th>dia</th>
+                                            <th>rut</th>
+                                            <th>opciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-center"
+                                    *ngFor="let horatomada of horastomadasService.horatomada |ObjToArray">
+                                    <tr *ngIf="horatomada.estado==true">
+                                    <td *ngFor="let a of horatomada.horascanchas">{{a.horario}}
+                                    </td>
+                                    <td *ngFor="let a of horatomada.cancha">{{a.name}}</td>
+                                    <td *ngFor="let x of horatomada.horascanchas">{{x.dia}}</td>
+                                    <td>{{horatomada.rut}}</td>
+                                    <td class="btn-group" role="group"
+                                        aria-label="Basic mixed styles example">
+                                        <button type="button" class="btn btn-danger active"
+                                            (click)="deleteHoraTomada(horatomada._id)">eliminar</button>
+
+                                      
+                                            
+                                    </td>
+                                </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+
+        </div>
+
+    </div>

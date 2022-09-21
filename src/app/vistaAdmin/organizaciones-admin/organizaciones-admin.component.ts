@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms';
 import { OrganizationService } from 'src/app/servicios/organization.service';
 import { Organization } from 'src/app/modelos/organization';
 import { OcupationService } from 'src/app/servicios/ocupation.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-organizaciones-admin',
@@ -18,13 +19,14 @@ export class OrganizacionesAdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOcupation();
-    this.getActivo();
+    // this.getActivo();
     this.getOrganization();
   }
 
   getOrganization(){
     this.organizationService.getOrganization().subscribe((res)=>{
       this.organizationService.organizaciones=res;
+      console.log(res) 
     });
   }
     addOrganization(form:NgForm){
@@ -40,7 +42,22 @@ export class OrganizacionesAdminComponent implements OnInit {
           console.log(res);
           this.getOrganization();
           form.reset();
-        });
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: res,
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+          })
+        }, err => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: err.error.Message,
+            timer: 2500
+          });
+      });
       }
 
     }
@@ -56,16 +73,45 @@ export class OrganizacionesAdminComponent implements OnInit {
       
     })
   }
-  deleteOrganization(_id: any){ 
-    if (confirm('Esta seguro que desea eliminar esta reserva?')) {
-      this.organizationService.deleteOrganization(_id).subscribe((res)=>{
-        this.getOrganization();
-      },
-      (err)=> console.log(err)
-      );
-    
-
-  }
+  deleteOrganization(_id: any){
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
+  
+  Swal.fire({
+    title: 'Estas seguro que deseas elimianr esta Organizacion?',
+    text: "No podras revertir esta accion",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Si, Eliminar!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.organizationService.deleteOrganization(_id).subscribe(
+        (res)=>{ 
+          this.getOrganization();
+          Swal.fire(
+            'Eliminado!',
+            'Organizacion Eliminada Con exito',
+            'success'
+          )})
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Cancelado',
+        'La Organizacion esta a salvo',
+        'error'
+      )
+    }
+  })
 }
 
 
@@ -74,7 +120,21 @@ export class OrganizacionesAdminComponent implements OnInit {
       console.log(res);
       this.getOcupation();
       form.reset();
-      
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: res,
+        showConfirmButton: false,
+        timer: 1200,
+        timerProgressBar: true,
+      })
+    }, err => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: err.error.Message,
+        timer: 2500
+      });
     })
   }
   getOcupation(){

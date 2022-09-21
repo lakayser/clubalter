@@ -1,298 +1,231 @@
 <div id="app">
 
     <div id="">
-
         <div class="page-heading">
             <h3 class="text-center">Estado de Canchas hoy</h3>
         </div>
-
         <div class="page-content">
-
-
             <section class="row">
-
                 <div class="col">
-
-
                     <div class="row align-items-start">
-
                         <div class="col">
+                            <div class="card-body" id="AAA">
 
-                            <div class="card">
+                                <div id="chart-profile-visit">
+                                    <div class="container">
 
-                                <div class="card-header">
-                                    <h4 class="text-center">Horarios Disponibles</h4>
-                                </div>
+                                        <div class="row">
+                                            <div class="col">
 
-                                <div class="card-body" id="AAA">
+                                                <div class="card mt-2">
+                                                    <div class="card-header">
+                                                        <h4 class="text-center">Cancha 1</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div id="chart-profile-visit">
 
-                                    <div id="chart-profile-visit">
-                                        <div class="container">
-                                            
-                                            <div class="row">
-                                                <div class="col" >
+                                                            <div class="table-responsive-md">
+                                                                <div class="scrollable">
+                                                                    <table
+                                                                        class="table table-bordered border-dark table-hover text-center">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">
+                                                                                    Horario
+                                                                                </th>
+                                                                                <th scope="col">Dia
+                                                                                </th>
+                                                                                <th>Fecha</th>
+                                                                                <th scope="col">Disponibilidad
+                                                                                </th>
 
-                                                    <div class="card mt-2">
-                                                        <div class="card-header">
-                                                            <h4 class="text-center">Cancha 1</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div id="chart-profile-visit">
 
-                                                                <div class="table-responsive-md">
-                                                                    <div class="scrollable">
-                                                                        <table
-                                                                            class="table table-bordered border-dark table-hover text-center">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">
-                                                                                        Horario
-                                                                                    </th>
-                                                                                    <th scope="col">Dia
-                                                                                    </th>
-                                                                                    <th>Fecha</th>
-                                                                                    <th scope="col">Disponibilidad
-                                                                                    </th>
+                                                                            </tr>
+                                                                        </thead>
 
-                                                                                </tr>
-                                                                            </thead>
+                                                                        <ng-container
+                                                                            *ngFor="let cargamasi of cargamasivaService.cargamasi|ObjToArray">
 
-                                                                            <ng-container
-                                                                                *ngFor="let cargamasi of cargamasivaService.cargamasi|ObjToArray">
+                                                                            <tbody class="text-center"
+                                                                                *ngFor=" let a of cargamasi.cancha">
+                                                                                <ng-container
+                                                                                    *ngFor="let x of a.organization">
 
-                                                                                <tbody class="text-center"
-                                                                                    *ngFor=" let a of cargamasi.cancha">
                                                                                     <ng-container
-                                                                                        *ngFor="let x of a.organization">
+                                                                                        *ngIf="cargamasi.disponibilidad==true">
                                                                                         <ng-container
-                                                                                            *ngIf="x === '62b5f74b24d99eaad44d121d' ">
-                                                                                            <ng-container
-                                                                                                *ngIf="cargamasi.disponibilidad==true">
-                                                                                                <ng-container
-                                                                                                    *ngIf="a.name === 'Cancha 1' ">
-                                                                                                    <tr
-                                                                                                        class={{disponible}}>
+                                                                                            *ngIf="a.name === 'Cancha 1' ">
+                                                                                            <tr class={{disponible}}>
 
-                                                                                                        <td>{{cargamasi.horario}}
-                                                                                                        </td>
-                                                                                                        <td>{{cargamasi.dia}}
-                                                                                                        </td>
-                                                                                                        <td>{{cargamasi.fecha}}
-                                                                                                        </td>
-                                                                                                        <td
-                                                                                                            *ngIf="cargamasi.disponibilidad==true">
-                                                                                                            disponible
-                                                                                                        </td>
-                                                                                                        <td
-                                                                                                            *ngIf="!cargamasi.disponibilidad==true">
-                                                                                                            NO
-                                                                                                            Disponible
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                </ng-container>
-                                                                                            </ng-container>
+                                                                                                <td>{{cargamasi.horario}}
+                                                                                                </td>
+                                                                                                <td>{{cargamasi.dia}}
+                                                                                                </td>
+                                                                                                <td>{{cargamasi.fecha}}
+                                                                                                </td>
+
+                                                                                                <td
+                                                                                                    *ngIf="cargamasi.disponibilidad==true">
+                                                                                                    disponible
+                                                                                                </td>
+                                                                                                <td
+                                                                                                    *ngIf="!cargamasi.disponibilidad==true">
+                                                                                                    NO
+                                                                                                    Disponible
+                                                                                                </td>
+                                                                                            </tr>
                                                                                         </ng-container>
                                                                                     </ng-container>
-                                                                                    <ng-container
-                                                                                        *ngFor="let x of a.organization">
-                                                                                        <ng-container
-                                                                                            *ngIf="x === '62b5f74b24d99eaad44d121d' ">
-                                                                                            <ng-container
-                                                                                                *ngIf="!cargamasi.disponibilidad==true">
-                                                                                                <ng-container
-                                                                                                    *ngIf="a.name === 'Cancha 1' ">
-                                                                                                    <tr
-                                                                                                        class={{noDisponible}}>
 
-                                                                                                        <td>{{cargamasi.horario}}
-                                                                                                        </td>
-                                                                                                        <td>{{cargamasi.dia}}
-                                                                                                        </td>
-                                                                                                        <td>{{cargamasi.fecha}}
-                                                                                                        </td>
-                                                                                                        <td
-                                                                                                            *ngIf="cargamasi.disponibilidad==true">
-                                                                                                            Disponible
-                                                                                                        </td>
-                                                                                                        <td
-                                                                                                            *ngIf="!cargamasi.disponibilidad==true">
-                                                                                                            NO
-                                                                                                            Disponible
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                </ng-container>
-                                                                                            </ng-container>
+                                                                                </ng-container>
+                                                                                <ng-container
+                                                                                    *ngFor="let x of a.organization">
+
+                                                                                    <ng-container
+                                                                                        *ngIf="!cargamasi.disponibilidad==true">
+                                                                                        <ng-container
+                                                                                            *ngIf="a.name === 'Cancha 1' ">
+                                                                                            <tr class={{noDisponible}}>
+
+                                                                                                <td>{{cargamasi.horario}}
+                                                                                                </td>
+                                                                                                <td>{{cargamasi.dia}}
+                                                                                                </td>
+                                                                                                <td>{{cargamasi.fecha}}
+                                                                                                </td>
+                                                                                                <td
+                                                                                                    *ngIf="cargamasi.disponibilidad==true">
+                                                                                                    Disponible
+                                                                                                </td>
+                                                                                                <td
+                                                                                                    *ngIf="!cargamasi.disponibilidad==true">
+                                                                                                    NO
+                                                                                                    Disponible
+                                                                                                </td>
+                                                                                            </tr>
                                                                                         </ng-container>
                                                                                     </ng-container>
-                                                                                </tbody>
-                                                                            </ng-container>
-                                                                        </table>
-                                                                    </div>
+
+                                                                                </ng-container>
+                                                                            </tbody>
+                                                                        </ng-container>
+                                                                    </table>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="col">
-                                                    <div class="card mt-2">
-                                                        <div class="card-header">
-                                                            <h4 class="text-center">Canchas</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div id="chart-profile-visit">
-
-                                                                <div class="">
-                                                                    <div class="row justify-content-center">
-                                                                        <div class="table-responsive-md">
-                                                                            <div class="scrollable">
-                                                                                <table
-                                                                                    class="table table-bordered border-dark table-hover text-center">
-                                                                                    <thead>
-                                                                                        <tr>
-                                                                                            <th scope="col">
-                                                                                                Horario
-                                                                                            </th>
-                                                                                            <th scope="col">
-                                                                                                Dia
-                                                                                            </th>
-                                                                                            <th>Fecha</th>
-                                                                                            <th scope="col">
-                                                                                                cancha
-                                                                                            </th>
-                                                                                        </tr>
-                                                                                    </thead>
-                                                                                    <ng-container
-                                                                                        *ngFor="let cargamasi of cargamasivaService.cargamasi|ObjToArray">
-
-                                                                                        <tbody class="text-center">
-                                                                                            <td>{{cargamasi.horario}}</td>
-                                                                                            <td>{{cargamasi.dia}}</td>
-                                                                                            <td>{{cargamasi.fecha}}</td>
-                                                                                            <td *ngFor="let x of cargamasi.cancha">{{x.name}}</td>
-
-                                                                                        </tbody>
-                                                                                    </ng-container>
-                                                                                </table>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="card mt-2">
-                                                        <div class="card-header">
-                                                            <h4 class="text-center">Cancha 2</h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div id="chart-profile-visit">
-
-                                                                <div class="">
-                                                                    <div class="row justify-content-center">
-                                                                        <div class="table-responsive-md">
-                                                                            <div class="scrollable">
-                                                                                <table
-                                                                                    class="table table-bordered border-dark table-hover text-center">
-                                                                                    <thead>
-                                                                                        <tr>
-                                                                                            <th scope="col">
-                                                                                                Horario
-                                                                                            </th>
-                                                                                            <th scope="col">
-                                                                                                Dia
-                                                                                            </th>
-                                                                                            <th>Fecha</th>
-                                                                                            <th scope="col">
-                                                                                                Disponibilidad
-                                                                                            </th>
-                                                                                        </tr>
-                                                                                    </thead>
-                                                                                    <ng-container
-                                                                                        *ngFor="let cargamasi of cargamasivaService.cargamasi|ObjToArray">
-
-                                                                                        <tbody class="text-center"
-                                                                                            *ngFor=" let a of cargamasi.cancha">
-                                                                                            <ng-container
-                                                                                                *ngFor="let x of a.organization">
-                                                                                                <ng-container
-                                                                                                    *ngIf="x === '62b5f74b24d99eaad44d121d' ">
-                                                                                                    <ng-container
-                                                                                                        *ngIf="cargamasi.disponibilidad==true">
-                                                                                                        <ng-container
-                                                                                                            *ngIf="a.name === 'Cancha sur' ">
-                                                                                                            <tr
-                                                                                                                class={{disponible}}>
-
-                                                                                                                <td>{{cargamasi.horario}}
-                                                                                                                </td>
-                                                                                                                <td>{{cargamasi.dia}}
-                                                                                                                </td>
-                                                                                                                <td>{{cargamasi.fecha}}
-                                                                                                                </td>
-                                                                                                                <td
-                                                                                                                    *ngIf="cargamasi.disponibilidad==true">
-                                                                                                                    disponible
-                                                                                                                </td>
-                                                                                                                <td
-                                                                                                                    *ngIf="!cargamasi.disponibilidad==true">
-                                                                                                                    NO
-                                                                                                                    Disponible
-                                                                                                                </td>
-                                                                                                            </tr>
-                                                                                                        </ng-container>
-                                                                                                    </ng-container>
-                                                                                                </ng-container>
-                                                                                              
-                                                                                                        <ng-container
-                                                                                                            *ngIf="!cargamasi.disponibilidad==true">
-                                                                                                            <ng-container
-                                                                                                                *ngIf="a.name === 'Cancha sur' ">
-                                                                                                                <tr
-                                                                                                                    class={{noDisponible}}>
-
-                                                                                                                    <td>{{cargamasi.horario}}
-                                                                                                                    </td>
-                                                                                                                    <td>{{cargamasi.dia}}
-                                                                                                                    </td>
-                                                                                                                    <td>{{cargamasi.fecha}}
-                                                                                                                    </td>
-                                                                                                                    <td
-                                                                                                                        *ngIf="cargamasi.disponibilidad==true">
-                                                                                                                        Disponible
-                                                                                                                    </td>
-                                                                                                                    <td
-                                                                                                                        *ngIf="!cargamasi.disponibilidad==true">
-                                                                                                                        NO
-                                                                                                                        Disponible
-                                                                                                                    </td>
-                                                                                                                </tr>
-                                                                                                            </ng-container>
-                                                                                                        </ng-container>
-                                                                                                   
-                                                                                                
-                                                                                            </ng-container>
-
-                                                                                        </tbody>
-                                                                                    </ng-container>
-                                                                                </table>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
                                             </div>
-                                        </div>
 
+
+                                            <div class="col">
+                                                <div class="card mt-2">
+                                                    <div class="card-header">
+                                                        <h4 class="text-center">Cancha 2</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div id="chart-profile-visit">
+
+                                                            <div class="">
+                                                                <div class="row justify-content-center">
+                                                                    <div class="table-responsive-md">
+                                                                        <div class="scrollable">
+                                                                            <table
+                                                                                class="table table-bordered border-dark table-hover text-center">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th scope="col">
+                                                                                            Horario
+                                                                                        </th>
+                                                                                        <th scope="col">
+                                                                                            Dia
+                                                                                        </th>
+                                                                                        <th>Fecha</th>
+                                                                                        <th scope="col">
+                                                                                            Disponibilidad
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+
+                                                                                <ng-container
+                                                                                    *ngFor="let cargamasi of cargamasivaService.cargamasi|ObjToArray">
+
+                                                                                    <tbody class="text-center"
+                                                                                        *ngFor=" let a of cargamasi.cancha">
+                                                                                        <ng-container
+                                                                                            *ngIf="cargamasi.disponibilidad==true">
+                                                                                            <ng-container
+                                                                                                *ngIf="a.name === 'Cancha 2' ">
+                                                                                                <tr
+                                                                                                    class={{disponible}}>
+
+                                                                                                    <td>{{cargamasi.horario}}
+                                                                                                    </td>
+                                                                                                    <td>{{cargamasi.dia}}
+                                                                                                    </td>
+                                                                                                    <td>{{cargamasi.fecha}}
+                                                                                                    </td>
+                                                                                                    <td
+                                                                                                        *ngIf="cargamasi.disponibilidad==true">
+                                                                                                        disponible
+                                                                                                    </td>
+                                                                                                    <td
+                                                                                                        *ngIf="!cargamasi.disponibilidad==true">
+                                                                                                        NO
+                                                                                                        Disponible
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </ng-container>
+                                                                                        </ng-container>
+
+                                                                                        <ng-container
+                                                                                            *ngIf="!cargamasi.disponibilidad==true">
+                                                                                            <ng-container
+                                                                                                *ngIf="a.name === 'Cancha 2' ">
+                                                                                                <tr
+                                                                                                    class={{noDisponible}}>
+
+                                                                                                    <td>{{cargamasi.horario}}
+                                                                                                    </td>
+                                                                                                    <td>{{cargamasi.dia}}
+                                                                                                    </td>
+                                                                                                    <td>{{cargamasi.fecha}}
+                                                                                                    </td>
+                                                                                                    <td
+                                                                                                        *ngIf="cargamasi.disponibilidad==true">
+                                                                                                        Disponible
+                                                                                                    </td>
+                                                                                                    <td
+                                                                                                        *ngIf="!cargamasi.disponibilidad==true">
+                                                                                                        NO
+                                                                                                        Disponible
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </ng-container>
+                                                                                        </ng-container>
+
+
+
+
+                                                                                    </tbody>
+                                                                                </ng-container>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
+
                         </div>
                     </div>
 

@@ -27,27 +27,27 @@ export class CanchasDashboardComponent implements OnInit {
     this.getHoraCancha();
     this.getCanchas();
     this.getCargaMasiva();
-    this.getActivo();
+    
 
   }
 
   getHoraCancha(){
     this.horariocanchaService.getHorarioCancha().subscribe((res)=>{
       this.horariocanchaService.horacancha = res;
-      console.log(res);
+      // console.log(res);
     })
   }
   getCanchas(){
     this.canchasService.getCanchas().subscribe((res)=>{
       this.canchasService.cancha= res;
-      console.log(res)
+      // console.log(res)
       
     })
   }
   getHoraTomada(){
     this.horastomadasService.getHoraTomada().subscribe((res)=>{
       this.horastomadasService.horatomada=res;
-      console.log(res);
+      // console.log(res);
       
     })
   
@@ -55,15 +55,15 @@ export class CanchasDashboardComponent implements OnInit {
   getCargaMasiva(){
     this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
       this.cargamasivaService.cargamasi = res;
-      console.log(res);
+      // console.log(res);
       let prueba = res.map(dato=>dato.fecha)
-      console.log(prueba);
+      // console.log(prueba);
     })
   }
   getActivo(){
     this.usuariosService.getActivo().subscribe((resp)=>{
       this.usuariosService.nombre =resp;
-      console.log(resp)
+      // console.log(resp)
       
     })
   }

@@ -12,7 +12,8 @@ URL2: string ='https://botmila-api.herokuapp.com/botmilaAPI/admin/';
 
 selectedOcupation: Ocupation={
   _id: '',
-  name: ''
+    name: '',
+    organization: ''
 };
 
 ocupa: Ocupation[];

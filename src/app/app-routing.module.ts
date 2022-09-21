@@ -1,91 +1,64 @@
-import { NgModule, Component } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent }       from './vistas/login/login.component';
-import { DashboardComponent }   from './vistas/dashboard/dashboard.component';
-import { ProfileComponent }     from './vistas/profile/profile.component';
-import { AuthGuard }            from './auth.guard';
-
-
-import { IndexComponent } from './pagina/index/index.component';
-import { KbotAgendaComponent } from './pagina/kbot-agenda/kbot-agenda.component';
-import { KbotMarketComponent } from './pagina/kbot-market/kbot-market.component';
-import { KbotPersonalizadoComponent } from './pagina/kbot-personalizado/kbot-personalizado.component';
-import { EspecialistasComponent } from './vistas/especialistas/especialistas.component';
-import { HorarioComponent } from './vistas/horario/horario.component';
-import { BoxComponent } from './vistas/box/box.component';
-import { LugarComponent } from './vistas/lugar/lugar.component';
-import { PortalPagoComponent } from './pagina/portal-pago/portal-pago.component';
-import { AgendarhoraComponent } from './vistas/agendarhora/agendarhora.component';
-import { AgendarPacienteComponent } from './vistas/agendar-paciente/agendar-paciente.component';
-import { OcupationComponent } from './vistas/ocupation/ocupation.component';
-import { OrganizationComponent } from './vistas/organization/organization.component';
-import { DashboardadminComponent } from './vistaAdmin/dashboardadmin/dashboardadmin.component';
-import { AdminusuariosComponent } from './vistaAdmin/adminusuarios/adminusuarios.component';
+import { NgModule }                     from '@angular/core';
+import { RouterModule, Routes }         from '@angular/router';
+import { LoginComponent }               from './vistas/login/login.component';
+import { AuthGuard }                    from './auth.guard';
+import { IndexComponent }               from './pagina/index/index.component';
+import { KbotAgendaComponent }          from './pagina/kbot-agenda/kbot-agenda.component';
+import { KbotMarketComponent }          from './pagina/kbot-market/kbot-market.component';
+import { KbotPersonalizadoComponent }   from './pagina/kbot-personalizado/kbot-personalizado.component';
+import { PortalPagoComponent }          from './pagina/portal-pago/portal-pago.component';
+import { DashboardadminComponent }      from './vistaAdmin/dashboardadmin/dashboardadmin.component';
+import { AdminusuariosComponent }       from './vistaAdmin/adminusuarios/adminusuarios.component';
 import { OrganizacionesAdminComponent } from './vistaAdmin/organizaciones-admin/organizaciones-admin.component';
-import { CanchasDashboardComponent } from './vistas/canchas-dashboard/canchas-dashboard.component';
-import { CanchasReservarComponent } from './vistas/canchas-reservar/canchas-reservar.component';
-import { CanchasCrudComponent } from './vistas/canchas-crud/canchas-crud.component';
-import { Cancha1Component } from './vistas/canchaEspe/cancha1/cancha1.component';
-import { Cancha2Component } from './vistas/canchaEspe/cancha2/cancha2.component';
-import { Cancha3Component } from './vistas/canchaEspe/cancha3/cancha3.component';
+import { CanchasDashboardComponent }    from './vistas/canchas-dashboard/canchas-dashboard.component';
+import { CanchasCrudComponent }         from './vistas/canchas-crud/canchas-crud.component';
+import { UsermoderatorComponent }       from './vistaAdmin/usermoderator/usermoderator.component';
+import { DashboardProfesorComponent }   from './profesor-vista/dashboard-profesor/dashboard-profesor.component';
+import { ClaseCrudComponent }           from './profesor-vista/clase-crud/clase-crud.component';
+import { PagoComponent }                from './pagina/pago/pago.component';
+import { SelectCanchasComponent }       from './vistas/select-canchas/select-canchas.component';
+import { SelectReservaComponent }       from './vistas/select-reserva/select-reserva.component';
+import { CommitComponent }              from './vistas/commit/commit.component';
 import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
-import { UsermoderatorComponent } from './vistaAdmin/usermoderator/usermoderator.component';
-import { UsercrudModeratorComponent } from './vistas/usercrud-moderator/usercrud-moderator.component';
-import { DashboardProfesorComponent } from './profesor-vista/dashboard-profesor/dashboard-profesor.component';
-import { ClaseCrudComponent } from './profesor-vista/clase-crud/clase-crud.component';
-import { PagoComponent } from './pagina/pago/pago.component';
-import { CitaComponent } from './cita/cita.component';
-
-
-
-
+import { FormularioRegistroComponent } from './vistas/formulario-registro/formulario-registro.component';
+import { PrimerForemularioComponent } from './vistas/primer-foremulario/primer-foremulario.component';
+import { GraciasComponent } from './vistas/gracias/gracias.component';
+import { CrudsubadminComponent } from './vistas/crudsubadmin/crudsubadmin.component';
+import { CanchasbichoComponent } from './vistas/subdominios/canchasbicho/canchasbicho.component';
 const routes: Routes = [
-  { path: '', component: IndexComponent },
-
-  {path: 'kbot-market', component:KbotMarketComponent},
-  {path: 'kbot-agenda', component: KbotAgendaComponent},
-  {path: 'kbot-personalizado', component: KbotPersonalizadoComponent},
-  {path: 'login',      component: LoginComponent },
-  {path: 'dashboard',      component: DashboardComponent},
-  {path: 'especialistas', component: EspecialistasComponent, canActivate: [AuthGuard]},
-  {path: 'horario', component: HorarioComponent, canActivate: [AuthGuard]},
-  {path: 'box', component: BoxComponent, canActivate: [AuthGuard]},
-  {path: 'agendarpaciente', component: AgendarPacienteComponent },
-  {path: 'lugar', component: LugarComponent},
-  {path: 'pagos', component:PortalPagoComponent},
-  {path: 'hora', component:AgendarhoraComponent,canActivate: [AuthGuard]},
-  {path: 'ocupation', component:OcupationComponent },
-  {path: 'organization', component:OrganizationComponent},
-  {path: 'canchasGestion', component:CanchasDashboardComponent},
-  {path: 'canchasReserva', component:CanchasReservarComponent},
-  {path: 'canchasCRUD', component:CanchasCrudComponent},
-  {path: 'cancha1', component:Cancha1Component},
-  {path: 'cancha2', component:Cancha2Component},
-  {path: 'cancha3', component:Cancha3Component},
-  {path: 'vistaSemana', component:VistaSemanaComponent},
-  {path: 'usermoderator', component:UsermoderatorComponent},
-  {path: 'usercrudModerator', component:UsercrudModeratorComponent},
-  {path: 'dashboardprofe', component:DashboardProfesorComponent},
-  {path: 'clases-crud', component:ClaseCrudComponent},
-  {path: 'rut',component:PagoComponent},
-  {path: 'cita',component:CitaComponent},
-
-
-
-
-
-
-  {path: 'dashboardAdmin', component:DashboardadminComponent},
-  {path: 'usersAdmin', component:AdminusuariosComponent},
-  {path: 'orgaAdmin', component:OrganizacionesAdminComponent},
-
-  {path: '**', redirectTo: '', pathMatch: 'full'}
+  /**
+   * @AUTH canActivate: [AuthGuard] AGREGAR
+   */
+  { path: ''                   , component: IndexComponent },
+  { path: 'kbot-market'        , component:KbotMarketComponent },
+  { path: 'kbot-agenda'        , component: KbotAgendaComponent },
+  { path: 'kbot-personalizado' , component: KbotPersonalizadoComponent },
+  { path: 'login'              , component: LoginComponent },
+  { path: 'pagos/:CodigoVenta' , component: PortalPagoComponent },
+  { path: 'webpay_plus/commit' , component: CommitComponent},
+  { path: 'canchasGestion'     , component: CanchasDashboardComponent },
+  { path: 'canchasCRUD'        , component: CanchasCrudComponent },
+  { path: 'usermoderator'      , component: UsermoderatorComponent },
+  { path: 'dashboardprofe'     , component: DashboardProfesorComponent },
+  { path: 'clases-crud'        , component: ClaseCrudComponent },
+  { path: 'rut'                , component: PagoComponent },
+  { path: 'canchaselect'       , component: SelectCanchasComponent },
+  { path: 'reservaselect/:id'  , component: SelectReservaComponent },
+  { path: 'dashboardAdmin'     , component: DashboardadminComponent },
+  { path: 'vistaSemana'        , component: VistaSemanaComponent },//vistaSemana
+  { path: 'usersAdmin'         , component: AdminusuariosComponent },
+  { path: 'orgaAdmin'          , component: OrganizacionesAdminComponent },
+  { path: 'registro'           , component: PrimerForemularioComponent},
+  { path: 'formregistro'       , component: FormularioRegistroComponent},
+  { path: 'Gracias'            , component: GraciasComponent},
+  { path: 'crudsub'            , component:CrudsubadminComponent},
+  { path: 'canchaselbicho/inicio', component:CanchasbichoComponent},
+  { path: '**'                 , redirectTo: '', pathMatch: 'full' }
+ 
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-export const routingComponents = [LoginComponent, DashboardComponent]
+export const routingComponents = [LoginComponent]

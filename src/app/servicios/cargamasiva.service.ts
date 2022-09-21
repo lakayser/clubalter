@@ -28,6 +28,7 @@ private httpheaders = new HttpHeaders({'Content-Type' : 'aplication/json'});
     return this.http.get<CargaMasiva[]>(`${this.URL}schedule-list`)
   }
 
+ 
 }
 
 

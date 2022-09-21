@@ -1,5 +1,0 @@
-<select [(ngModel)]="canchasService.selectedCancha._id" (ngModelChange)="onSelect($event.target.value)">
-  <option *ngFor="let cancha of canchasService.cancha | ObjToArray" value="cancha._id">
-    {{ cancha.name }}
-  </option>
-</select>

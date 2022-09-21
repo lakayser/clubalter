@@ -1,3 +1,4 @@
 export interface responseI {
-    token: string;
+    status: string;
+    response:string;
 }
