@@ -14,6 +14,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!--iconos-->
+
+
+
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:title" content="Intense">
+  <meta property="og:description" content="The smartest and the most flexible Bootstrap template">
+  <meta property="og:image" content="images/banners/banner-01-620x360.png">
+  <meta property="og:url" content="https://www.templatemonster.com/intense-multipurpose-html-template.html">
+  <link rel="preload" href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" as="image">
+
+  <link rel="preload" href="../../../assets/js/plantillacore.js" as="script">
+  <link rel="preload" href="../../../assets/js/plantillascript.js" as="script">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <script src="../../../assets/js/plantillacore.js"></script>
+  <script src="../../../assets/js/plantillascript.js"></script>
 </head>
 <body></body>
   <app-root></app-root>
@@ -26,19 +42,25 @@
   
   function showTab(n) {
     var x = document.getElementsByClassName("tab");
+    console.log(x);
     x[n].style.display = "block";
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
         document.getElementById("enviar").style.display = "none";
+        document.getElementById("Proceso").style.display = "inline";
     } else {
         document.getElementById("prevBtn").style.display = "inline";
+        document.getElementById("nextBtn").style.display = "inline";
         document.getElementById("enviar").style.display = "none";
+        document.getElementById("Proceso").style.display = "inline";
     }
     if (n == (x.length - 1)) {
         document.getElementById("nextBtn").style.display = "none";
+        document.getElementById("Proceso").style.display = "none";
         document.getElementById("enviar").style.display = "inline";
     } else {
-        document.getElementById("nextBtn").innerHTML = "Siguiente";
+        document.getElementById("nextBtn").innerHTML = "Siguiente"; 
+        document.getElementById("Proceso").style.display = "inline";
     }
     fixStepIndicator(n)
 }

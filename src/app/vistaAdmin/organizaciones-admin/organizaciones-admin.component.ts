@@ -19,7 +19,7 @@ export class OrganizacionesAdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOcupation();
-    this.getActivo();
+    // this.getActivo();
     this.getOrganization();
   }
 

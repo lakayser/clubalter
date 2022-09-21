@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
 import { OrganizationService } from 'src/app/servicios/organization.service';
 import { OcupationService } from 'src/app/servicios/ocupation.service';
 import Swal from 'sweetalert2';
+import { RolesService } from 'src/app/servicios/roles.service';
 
 @Component({
   selector: 'app-adminusuarios',
@@ -16,7 +17,7 @@ import Swal from 'sweetalert2';
 
 export class AdminusuariosComponent implements OnInit {
 
-  constructor(private router: Router, public usuariosService: UsuariosService, public organizationService:OrganizationService, public ocupationService:OcupationService) { }
+  constructor(public roleservice:RolesService, private router: Router, public usuariosService: UsuariosService, public organizationService:OrganizationService, public ocupationService:OcupationService) { }
   
   public ocupations: Array<any> = [];
 
@@ -24,6 +25,7 @@ export class AdminusuariosComponent implements OnInit {
     this.getUsuarios();
     this.getOrganization();
     this.getOcupation();
+    this.getrol();
   }
 
   getOcupation(){
@@ -39,7 +41,12 @@ export class AdminusuariosComponent implements OnInit {
         console.log(res);
       }); 
   } 
-
+  getrol(){
+    this.roleservice.getRoleAdm().subscribe((res)=>{
+      this.roleservice.roles=res;
+      console.log(res);
+    })
+  }
 
   addModerator(form: NgForm) {
     if (form.value._id) {

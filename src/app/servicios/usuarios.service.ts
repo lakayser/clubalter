@@ -15,6 +15,8 @@ export class UsuariosService {
 
   URL3: string = 'https://botmila-api.herokuapp.com/botmilaAPI/admin/';
 
+  URL4: string = 'https://botmila-api.herokuapp.com/botmilaAPI/subadmin/';
+
   selectedUsuario: Usuario ={
     _id: '',
     nameUser: '',
@@ -25,8 +27,8 @@ export class UsuariosService {
     telefono: '',
     direccion: '',
     email: '',
-    service: ''
-
+    service: '',
+    roles: ''
   };
 
   users: Usuario[];
@@ -69,4 +71,21 @@ export class UsuariosService {
   putUsuarioAdmin(usuario: Usuario){
     return this.http.put(`${this.URL3}edit-users/${usuario._id}`, usuario);
   }
+
+  getUsuarioSubA(){
+    return this.http.get<Usuario[]>(`${this.URL4}ver-usuarios`);
+  }
+  createUsuarioSubA(usuario: Usuario){
+    return this.http.post(`${this.URL4}crear-usuarios`, usuario);
+  }
+  deleteUsuarioSubA(id: string){
+    return this.http.delete(`${this.URL4}eliminar-usuario/${id}`);
+  }
+  putUsuarioSubA(usuario: Usuario){
+    return this.http.put(`${this.URL4}editar-usuarios/${usuario._id}`, usuario);
+  }
+
+
+
+  
 }

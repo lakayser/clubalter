@@ -1,38 +1,13 @@
 <ng-container *ngIf="!apiService.loggedIn(); else loggedIn">
 
+    <app-header>
 
+    </app-header>
     <div id="" class="toggled">
 
-        <!-- Sidebar -->
-        <!-- <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                </li>
-                <li>
-                    <a routerLink="/parameters/area">Dashboard</a>
-                </li>
-                <li>
-                    <a routerLink="/parameters/faculty">Gestion de Canchas</a>
-                </li>
-                <li>
-                    <a routerLink="/courses/course-list/">Realizar reserva</a>
-                </li>
-                <li>
-                    <a routerLink="/courses/section-list/">Vista Semana</a>
-                </li>
-                <li>
-                    <a routerLink="/courses/section-list/">Cancha 1</a>
-                </li>
-                <li>
-                    <a routerLink="/courses/section-list/">Cancha 2</a>
-                </li>
-            </ul>
-        </div> -->
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
+
                 <router-outlet>
 
                 </router-outlet>
@@ -45,12 +20,16 @@
 </ng-container>
 
 <ng-template #loggedIn>
+    <app-header>
 
-    <div id="wrapper">
+    </app-header>
+
+    <div id="wrapper" *ngFor="let nombre of usuariosService.nombre | ObjToArray">
 
         <!-- Sidebar -->
-        <div id="sidebar-wrapper" *ngFor="let nombre of usuariosService.nombre | ObjToArray" >
-            <ul class="sidebar-nav" *ngFor="let a of nombre.organization">
+        <div id="sidebar-wrapper" *ngFor="let a of nombre.organization">
+
+            <!-- <ul class="sidebar-nav" *ngFor="let a of nombre.organization">
                 <li class="sidebar-brand">
                    <span><h4>{{a.name}}</h4></span>
                 </li>
@@ -71,6 +50,14 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/crudsub" class='sidebar-link'>
+                        <i><span class="material-icons">
+                                stadium
+                            </span></i>
+                        <span>Crud Subadmin</span>
+                    </a>
+                    </li>
+                <li class="sidebar-item">
                     <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/canchaselect" class='sidebar-link'>
                         <i>
                             <span class="material-icons">
@@ -87,30 +74,8 @@
                         <span>Vista Semana</span>
                     </a>
                 </li>
-                <!-- <li class="sidebar-item">
-                    <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/cancha1" class='sidebar-link'>
-                        <i> <span class="material-icons">
-                                stadium
-                            </span></i>
-                        <span>Cancha 1</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/cancha2" class='sidebar-link'>
-                        <i><span class="material-icons">
-                                stadium
-                            </span></i>
-                        <span>Cancha 2</span>
-                    </a>
-                </li> -->
-                <li class="sidebar-item">
-                    <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/usercrudModerator" class='sidebar-link'>
-                        <i><span class="material-icons">
-                                stadium
-                            </span></i>
-                        <span>panel de profes</span>
-                    </a>
-                    </li>
+          
+                    
                     <li class="sidebar-item">
                         <a *ngIf="a.name === 'canchas el bicho' "  routerLink="/clases-crud" class='sidebar-link'>
                             <i><span class="material-icons">
@@ -136,10 +101,16 @@
                         <span>moderadores</span>
                     </a>
                 </li>
-
-
+             -->
+            <ul class="sidebar-nav" *ngIf="jk =='1'  ">
+                <!-- MODERATOR -->
+                <li class="sidebar-brand">
+                    <span>
+                        <h4>{{a.name}}</h4>
+                    </span>
+                </li>
                 <li class="sidebar-item active">
-                    <a *ngIf="a.name === 'Tenis Monte Blanco' " routerLink="/canchasGestion" class='sidebar-link'>
+                    <a routerLink="/canchasGestion" class='sidebar-link'>
                         <i><span class="material-icons">
                                 space_dashboard
                             </span></i>
@@ -147,7 +118,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item ">
-                    <a *ngIf="a.name === 'Tenis Monte Blanco' "  routerLink="/canchasCRUD" class='sidebar-link'>
+                    <a  routerLink="/canchasCRUD" class='sidebar-link'>
                         <i><span class="material-icons">
                                 sports_tennis
                             </span> </i>
@@ -155,7 +126,15 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a *ngIf="a.name === 'Tenis Monte Blanco' "  routerLink="/canchasReserva" class='sidebar-link'>
+                    <a  routerLink="/crudsub" class='sidebar-link'>
+                        <i><span class="material-icons">
+                                stadium
+                            </span></i>
+                        <span>Crud Subadmin</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a routerLink="/canchaselect" class='sidebar-link'>
                         <i>
                             <span class="material-icons">
                                 edit_calendar
@@ -163,6 +142,83 @@
                         <span>Realizar Reserva</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a  routerLink="/vistaSemana" class='sidebar-link'>
+                        <span class="material-icons">
+                            calendar_month
+                        </span>
+                        <span>Vista Semana</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a routerLink="/clases-crud" class='sidebar-link'>
+                        <i><span class="material-icons">
+                                stadium
+                            </span></i>
+                        <span>Clases</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- SUBADMIN -->
+            <ul class="sidebar-nav" *ngIf="jk =='2' ">
+                <li class="sidebar-brand">
+                    <span>
+                        <h4>{{a.name}}</h4>
+                    </span>
+                </li>
+                <li class="sidebar-item">
+                    <a  routerLink="/vistaSemana" class='sidebar-link'>
+                        <span class="material-icons">
+                            calendar_month
+                        </span>
+                        <span>Vista Semana</span>
+                    </a>
+                </li>
+                <li class="sidebar-item ">
+                    <a  class='sidebar-link'>
+                        <i><span class="material-icons">
+                                sports_tennis
+                            </span> </i>
+                        <span>CanchasCrud</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a  routerLink="/crudsub" class='sidebar-link'>
+                        <i><span class="material-icons">
+                                stadium
+                            </span></i>
+                        <span>Crud Subadmin</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Superadmin -->
+            <ul class="sidebar-nav" *ngIf="jk =='4' ">
+                <li class="sidebar-brand" >
+                    <span>
+                        <h4>{{a.name}}</h4>
+                      
+                    </span>
+                </li>
+                <li class="sidebar-item">
+                    <a  routerLink="/orgaAdmin" class='sidebar-link'>
+                        <i><span class="material-icons">
+                                stadium
+                            </span></i>
+                        <span>Organizaciones</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a   routerLink="/usersAdmin" class='sidebar-link'>
+                        <i><span class="material-icons">
+                                stadium
+                            </span></i>
+                        <span>moderadores</span>
+                    </a>
+                </li>
+               
+
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -170,11 +226,11 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                
 
                 <router-outlet>
 
                 </router-outlet>
+
             </div>
         </div>
         <!-- /#page-content-wrapper -->

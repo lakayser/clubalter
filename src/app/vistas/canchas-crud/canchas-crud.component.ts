@@ -20,7 +20,7 @@ export class CanchasCrudComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCanchas();
-
+    
   }
   getCanchas() {
     this.canchasService.getCanchas().subscribe((res) => {
@@ -69,15 +69,47 @@ export class CanchasCrudComponent implements OnInit {
   }
 
   deleteCancha(_id: any) {
-    if (confirm('Esta seguro que desea eliminar esta cancha?')) {
-      this.canchasService.deleteCanchas(_id).subscribe(
-        (res) => {
-          this.getCanchas();
-        },
-        (err) => console.log(err)
-      );
-    }
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    Swal.fire({
+      title: 'Estas seguro que deseas elimianr esta cancha?',
+      text: "No podras revertir esta accion",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Si, Eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.canchasService.deleteCanchas(_id).subscribe(
+          (res) => {
+            this.getCanchas();
+            Swal.fire(
+              'Eliminado!',
+              'Cancha Eliminada Con exito',
+              'success'
+            )
+          },)
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'Cancha a salvo',
+          'error'
+        )
+      }
+    })
   }
+
+
   addHorasCancha(form: NgForm) {
     this.horasmasivasService.createHorasMasivas(form.value).subscribe((res) => {
 

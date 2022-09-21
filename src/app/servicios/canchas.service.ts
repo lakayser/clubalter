@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class CanchasService {
 
   URL: string = 'https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
+  URL2: string = 'https://botmila-api.herokuapp.com/botmilaAPI/';
   selectedCancha: Cancha = {
     _id: '',
     name: '',
@@ -35,6 +36,22 @@ export class CanchasService {
   }
 
   postReserva(id: string){
+    return this.http.get(`${this.URL}agendar-hora-cancha/${id}`)
+  }
+  createCanchaSubA(cancha: Cancha) {
+    return this.http.post(`${this.URL}add-canchas`, cancha)
+  }
+  getCanchasSubA(): Observable<Cancha[]> {
+    return this.http.get<Cancha[]>(`${this.URL}list-canchas`)
+  }
+  putCanchasSubA(cancha: Cancha){
+    return this.http.put(`${this.URL}edit-canchas/${cancha._id}`, cancha)
+  }
+  deleteCanchasSubA(id: string){
+    return this.http.delete(`${this.URL}delete-canchas/${id}`)
+  }
+
+  postReservaSubA(id: string){
     return this.http.get(`${this.URL}agendar-hora-cancha/${id}`)
   }
  

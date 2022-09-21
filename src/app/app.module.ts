@@ -1,15 +1,6 @@
 import { NgModule }                               from '@angular/core';
 import { BrowserModule }                          from '@angular/platform-browser';
 import { NgChartsModule }                         from 'ng2-charts';
-import { MatDatepickerModule }                    from '@angular/material/datepicker';
-import { MatNativeDateModule }                    from '@angular/material/core';
-import { MatFormFieldModule }                     from '@angular/material/form-field';
-import { MatInputModule }                         from '@angular/material/input';
-import { MatToolbarModule }                       from '@angular/material/toolbar';
-import { MatSidenavModule }                       from '@angular/material/sidenav';
-import { MatButtonModule }                        from '@angular/material/button'
-import { MatIconModule}                           from '@angular/material/icon';
-import { MatDividerModule }                       from '@angular/material/divider';
 import { AppRoutingModule, routingComponents }    from './app-routing.module';
 import { AppComponent }                           from './app.component';
 import { HeaderComponent }                        from './plantillas/header/header.component';
@@ -44,28 +35,23 @@ import { FormularioRegistroComponent } from './vistas/formulario-registro/formul
 import { PrimerForemularioComponent } from './vistas/primer-foremulario/primer-foremulario.component';
 import { GraciasComponent } from './vistas/gracias/gracias.component';
 import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
+import { CrudsubadminComponent } from './vistas/crudsubadmin/crudsubadmin.component';
+import { CanchasbichoComponent } from './vistas/subdominios/canchasbicho/canchasbicho.component';
 
-const materialModules = [
-  MatDatepickerModule,
-  MatNativeDateModule,
-  MatFormFieldModule,
-  MatInputModule
-];
+
 @NgModule({
   declarations: [ AppComponent, HeaderComponent, FooterComponent, routingComponents,
                   IndexComponent, KbotAgendaComponent, KbotMarketComponent, KbotPersonalizadoComponent,
                   ObjToArrayPipe, SidebarComponent, PortalPagoComponent, AdminusuariosComponent, DashboardadminComponent,
                   OrganizacionesAdminComponent, CanchasDashboardComponent, CanchasCrudComponent, UsermoderatorComponent,
                   DashboardProfesorComponent, ClaseCrudComponent, PagoComponent, FilterPipe, SelectCanchasComponent,
-                  SelectReservaComponent, CommitComponent, FormularioRegistroComponent, PrimerForemularioComponent, GraciasComponent,VistaSemanaComponent,
+                  SelectReservaComponent, CommitComponent, FormularioRegistroComponent, PrimerForemularioComponent, GraciasComponent,VistaSemanaComponent, CrudsubadminComponent, CanchasbichoComponent,
                 ],
   imports: [
     BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpClientModule, NgChartsModule,
-    BrowserAnimationsModule, CommonModule, materialModules,MatDatepickerModule, MatNativeDateModule, MatInputModule,
-    MatToolbarModule, MatSidenavModule, MatButtonModule, MatIconModule, MatDividerModule,
-  ],
+    BrowserAnimationsModule, CommonModule,  ],
   exports: [
-    materialModules
+   
   ],
   providers: [ AuthGuard, {
     provide: HTTP_INTERCEPTORS,

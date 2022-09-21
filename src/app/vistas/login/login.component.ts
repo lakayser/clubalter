@@ -11,27 +11,50 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  Uruarioz: any;
   user = {
     nameUser: '',
     password: '',
     email: '',
   }
-   passwordForm!: FormGroup;
-  constructor(private api   :ApiService,
-              private router:Router, public mailService: MailService, private readonly fb:FormBuilder ) { }
 
+  passwordForm!: FormGroup;
+  constructor(private api: ApiService,
+    private router: Router, public mailService: MailService, private readonly fb: FormBuilder) { }
+    jk: any;
   ngOnInit(): void {
     this.passwordForm = this.initForm();
   }
 
-  signin (){
+  signin() {
     this.api.signIn(this.user)
       .subscribe(
         res => {
           console.log(res);
-          localStorage.setItem('token', res.token);
-          this.router.navigate(['/canchasGestion']);
+          localStorage.setItem('token', res.token,);
+          localStorage.setItem('organization', res.organization,);
+          localStorage.setItem('rol', res.rol);
+          var orga = localStorage.getItem('organization');
+          var rol = localStorage.getItem('rol');
+          if (orga === '623c92c697790a694cdc6959') {
+            if (rol === '620c0d94b83e4a21f81253d7') {
+              this.router.navigate(['/canchasGestion'])
+               
+            } else {
+              if (rol === '63111b712b21bfd30c4d9e02') {
+                this.router.navigate(['/vistaSemana']);
+              } else {
+                if (rol === '620c0d94b83e4a21f81253d6') {
+                  this.router.navigate(['/vistaSemana'])
+                }
+              }
+            }
+          }
+          if (orga === '624f01c7f0bc4892296abfe7') {
+            this.router.navigate(['/orgaAdmin'])
+          }
+
+
 
           Swal.fire({
             position: 'center',
@@ -40,37 +63,39 @@ export class LoginComponent implements OnInit {
             showConfirmButton: false,
             timer: 1200,
             timerProgressBar: true,
+
             
-            
-          })
+          }).then(() => {
+            window.location.reload()});
 
         },
-        err => { Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: err.error.message,
-          timer:2500
-        });
-       }
+        err => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: err.error.message,
+            timer: 2500
+          });
+        }
       )
   }
-  onSubmit():void{
-    this.mailService.postEmail(this.passwordForm.value).subscribe((res)=>{
- console.log(this.passwordForm.value);
+  onSubmit(): void {
+    this.mailService.postEmail(this.passwordForm.value).subscribe((res) => {
+      console.log(this.passwordForm.value);
     })
   }
-  enviarEmail(form:NgForm)
-  {
-      this.mailService.postEmail(form.value).subscribe((res)=>{
-        console.log(res);
-        form.reset();
+  enviarEmail(form: NgForm) {
+    this.mailService.postEmail(form.value).subscribe((res) => {
+      console.log(res);
+      form.reset();
     });;
   }
-  initForm(): FormGroup{
+  initForm(): FormGroup {
     return this.fb.group({
-      emailPersona:['',[Validators.required]],
-      mensaje:['Esta Cuenta Intenta Recuperar Su Contraseña',[Validators.required]],
+      emailPersona: ['', [Validators.required]],
+      mensaje: ['Esta Cuenta Intenta Recuperar Su Contraseña', [Validators.required]],
     })
   }
+  
 
 }

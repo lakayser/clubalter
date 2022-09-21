@@ -9,6 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class HorastomadasService {
   URL: string = 'https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
+  URL2: string = 'https://botmila-api.herokuapp.com/botmilaAPI/';
   filtro:'';
 
   selectedHorasTomadas: HorasTomadas={
@@ -37,4 +38,20 @@ export class HorastomadasService {
   {
     return this.http.get<HorasTomadas[]>('https://botmila-api.herokuapp.com/botmilaAPI/moderator/', {params:{buscar: query}});
   }
+  
+  createHoraTomadaSubA(horasTomada: HorasTomadas){
+    return this.http.post(`${this.URL}agendar-hora`, horasTomada)
+  }
+
+  getHoraTomadaSubA(){
+    return this.http.get<HorasTomadas[]>(`${this.URL}agendar-hora-listar`)
+  }
+  deleteHoraTomadaSubA(id:string){
+    return this.http.delete(`${this.URL}eliminar-hora-agendada/${id}`)
+  }
+  readSubA(query='')
+  {
+    return this.http.get<HorasTomadas[]>('https://botmila-api.herokuapp.com/botmilaAPI/moderator/', {params:{buscar: query}});
+  }
+
 }

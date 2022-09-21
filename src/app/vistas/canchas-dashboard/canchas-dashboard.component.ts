@@ -27,7 +27,7 @@ export class CanchasDashboardComponent implements OnInit {
     this.getHoraCancha();
     this.getCanchas();
     this.getCargaMasiva();
-    this.getActivo();
+    
 
   }
 

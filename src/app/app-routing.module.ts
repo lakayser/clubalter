@@ -23,6 +23,8 @@ import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-sem
 import { FormularioRegistroComponent } from './vistas/formulario-registro/formulario-registro.component';
 import { PrimerForemularioComponent } from './vistas/primer-foremulario/primer-foremulario.component';
 import { GraciasComponent } from './vistas/gracias/gracias.component';
+import { CrudsubadminComponent } from './vistas/crudsubadmin/crudsubadmin.component';
+import { CanchasbichoComponent } from './vistas/subdominios/canchasbicho/canchasbicho.component';
 const routes: Routes = [
   /**
    * @AUTH canActivate: [AuthGuard] AGREGAR
@@ -48,7 +50,9 @@ const routes: Routes = [
   { path: 'orgaAdmin'          , component: OrganizacionesAdminComponent },
   { path: 'registro'           , component: PrimerForemularioComponent},
   { path: 'formregistro'       , component: FormularioRegistroComponent},
-  {path:  'Gracias'            , component: GraciasComponent},
+  { path: 'Gracias'            , component: GraciasComponent},
+  { path: 'crudsub'            , component:CrudsubadminComponent},
+  { path: 'canchaselbicho/inicio', component:CanchasbichoComponent},
   { path: '**'                 , redirectTo: '', pathMatch: 'full' }
  
 ];
