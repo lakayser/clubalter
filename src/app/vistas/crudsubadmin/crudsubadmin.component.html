@@ -1,158 +1,117 @@
-<div id="app">
-    <div id="">
-        <div class="page-heading text-center">
-                  
-            <ng-container *ngFor="let nombre of usuariosService.nombre |ObjToArray">
-                <div *ngFor="let a of nombre.roles"><h3>{{a.name}}</h3></div>
-             </ng-container>
-            
-        </div>
-        <div class="">
-            
-                <div class="col-12 col-lg-12">
+<body>
+    <section>
+        <div class="container text-center">
+            <br>
+            <h1>Agregar Colaborador</h1>
+            <br>
+            <div class=" burbuja">
 
-                    <div class="row  justify-content-center">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="text-center">Agregar Un Nuevo Colaborador </h4>
-                                </div>
-                                <div class="card-body">
-                                    <div id="chart-profile-visit">
-                                        <!--Formulario Agregar-->
-                                        <div class="container">
-                                            <div class="row justify-content-center">
-                                                <div class="col-lg-8 col-sm-6 ">
+                <form #usuarioForm="ngForm" (ngSubmit)="addUsuario(usuarioForm) " class="row g-3 mb-3">
+                    <input type="hidden" name="_id" [(ngModel)]="usuariosService.selectedUsuario._id">
+                    <div class="col-lg-6 col-sm-6">
+                        <label for="inputName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="nameUser"
+                            [(ngModel)]="usuariosService.selectedUsuario.nameUser">
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <label for="inputRut" class="form-label">Rut</label>
+                        <input type="text" class="form-control" name="rut"
+                            [(ngModel)]="usuariosService.selectedUsuario.rut">
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <label for="inputroles" class="form-label">ROL</label>
+                        <select class="form-select" aria-label="Default select example" name="roles"
+                            [(ngModel)]="usuariosService.selectedUsuario.roles">
+                            <option *ngFor="let roles of roleservice.roles |ObjToArray" [ngValue]="roles._id">
+                                {{roles.name}}</option>
+                        </select>
 
-                                                    <form #usuarioForm="ngForm" (ngSubmit)="addUsuario(usuarioForm) "
-                                                        class="row g-3 mb-3">
-                                                        <input type="hidden" name="_id"
-                                                            [(ngModel)]="usuariosService.selectedUsuario._id">
-                                                        <div class="col-lg-6 col-sm-6">
-                                                            <label for="inputName" class="form-label">Nombre</label>
-                                                            <input type="text" class="form-control" name="nameUser"
-                                                                [(ngModel)]="usuariosService.selectedUsuario.nameUser">
-                                                        </div>
-                                                        <div class="col-lg-6 col-sm-6">
-                                                            <label for="inputRut" class="form-label">Rut</label>
-                                                            <input type="text" class="form-control" name="rut"
-                                                                [(ngModel)]="usuariosService.selectedUsuario.rut">
-                                                        </div>
-                                                        <div class="col-lg-6 col-sm-6">
-                                                            <label for="inputroles"
-                                                                class="form-label">ROL</label>
-                                                            <select class="form-select"
-                                                                aria-label="Default select example" name="roles"
-                                                                [(ngModel)]="usuariosService.selectedUsuario.roles">
-                                                                <option
-                                                                    *ngFor="let roles of roleservice.roles |ObjToArray"
-                                                                    [ngValue]="roles._id">{{roles.name}}</option>
-                                                            </select>
-    
-                                                        </div>
-                                                      
-                                                        <div class="col-lg-6 col-sm-6">
-                                                            <label for="inputpassword"
-                                                                class="form-label">Contraseña</label>
-                                                            <input type="password" class="form-control" name="password"
-                                                                [(ngModel)]="usuariosService.selectedUsuario.password">
-                                                        </div>
-                                                        <div class="col-lg-6 col-sm-6">
-                                                            <label for="inputMail" class="form-label">E-mail</label>
-                                                            <input type="email" class="form-control" name="email"
-                                                                [(ngModel)]="usuariosService.selectedUsuario.email">
-                                                        </div>
-                                                        <div class="col-lg-6 col-sm-6">
-                                                            <label for="inputTelefono"
-                                                                class="form-label">Telefono</label>
-                                                            <input type="text" class="form-control" name="telefono"
-                                                                [(ngModel)]="usuariosService.selectedUsuario.telefono">
-                                                        </div>
-                                                        <div class="col-lg-6 col-sm-6">
-                                                            <label for="inputDireccion"
-                                                                class="form-label">Direccion</label>
-                                                            <input type="text" class="form-control" name="direccion"
-                                                                [(ngModel)]="usuariosService.selectedUsuario.direccion">
-                                                        </div>
-
-                                                        <div class="text-center">
-
-                                                            <button type="submit" class="btn btn-danger text-uppercase"
-                                                                value="Guardar">Agregar Usuario</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
+                    <div class="col-lg-6 col-sm-6">
+                        <label for="inputpassword" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" name="password"
+                            [(ngModel)]="usuariosService.selectedUsuario.password">
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <label for="inputMail" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" name="email"
+                            [(ngModel)]="usuariosService.selectedUsuario.email">
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <label for="inputTelefono" class="form-label">Telefono</label>
+                        <input type="text" class="form-control" name="telefono"
+                            [(ngModel)]="usuariosService.selectedUsuario.telefono">
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <label for="inputDireccion" class="form-label">Direccion</label>
+                        <input type="text" class="form-control" name="direccion"
+                            [(ngModel)]="usuariosService.selectedUsuario.direccion">
+                    </div>
+
+                    <div class="text-center mb-3">
+
+                        <button type="submit" class="btn btn-danger text-uppercase" value="Guardar">Agregar
+                            Usuario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </section>
+    <section>
+        <br>
+        <h1 class="text-center">Lista De Colaboradores </h1>
+        <br>
+
+        <div class="container text-center">
+
+            <div class="col burbuja">
+                <br>
+                <div class="table-responsive-md">
+                    <div class="scrollable">
+                        <table class="table table-bordered table-hover border-dark mt-2 text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Rut</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Telefono</th>
+                                    <th scope="col">Direccion</th>
+
+                                    <th scope="col">Opciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody *ngFor="let users of usuariosService.users | ObjToArray">
+                                <tr *ngIf="users.estado==true">
+
+                                    <td>{{ users.nameUser }}</td>
+
+                                    <td>{{ users.rut }}</td>
+                                    <td>{{ users.email}}</td>
+                                    <td>{{ users.telefono }}</td>
+                                    <td>{{ users.direccion }}</td>
+
+                                    <div class="btn-group mr-0" role="group"
+                                        aria-label="Basic mixed styles example">
+                                        <button type="button" class="btn btn-primary  mr-2"
+                                            (click)="editUsuario(users)"> Editar</button>
+                                        <button type="button" class="btn btn-danger"
+                                            (click)="deleteUsuario(users._id)">Eliminar</button>
+                                    </div>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
-        
+                <br>
+            </div>
         </div>
-        <div class="col">
-        
-                    <div class="row  justify-content-center">
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="text-center">Lista De Colaboradores
 
-                                    </h4>
-                                </div>
-                                <div class="card-body">
-                                    <div id="chart-profile-visit">
+    </section>
 
-                                        <div class="table-responsive-md">
-                                            <div class="scrollable">
-                                                    <table
-                                                        class="table table-bordered table-hover border-dark mt-2 text-center">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Nombre</th>
-                                                                
-                                                                <th scope="col">Rut</th>
-                                                                <th scope="col">E-mail</th>
-                                                                <th scope="col">Telefono</th>
-                                                                <th scope="col">Direccion</th>
-                                                           
-                                                                <th scope="col">Opciones</th>
-                                                            </tr>
-                                                        </thead>
 
-                                                        <tbody>
-                                                            <tr
-                                                                *ngFor="let users of usuariosService.users | ObjToArray">
 
-                                                                <td>{{ users.nameUser }}</td>
-                                                          
-                                                                <td>{{ users.rut }}</td>
-                                                                <td>{{ users.email}}</td>
-                                                                <td>{{ users.telefono }}</td>
-                                                                <td>{{ users.direccion }}</td>
-
-                                                                <div class="btn-group mr-0" role="group"
-                                                                    aria-label="Basic mixed styles example">
-                                                                    <button type="button" class="btn btn-primary  mr-2"
-                                                                        (click)="editUsuario(users)"> Editar</button>
-                                                                    <button type="button" class="btn btn-danger"
-                                                                        (click)="deleteUsuario(users._id)">Eliminar</button>
-                                                                </div>
-
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-         
+</body>

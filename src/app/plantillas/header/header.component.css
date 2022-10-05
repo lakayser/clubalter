@@ -85,6 +85,7 @@ nav-link{
     padding-left: 0.5rem;
 }
 
+
 @media (max-width:700px){
     header{
         flex-direction: column;

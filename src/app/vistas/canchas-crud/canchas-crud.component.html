@@ -1,183 +1,150 @@
-<div id="">
-   
+<body>
+    <section>
+        <!--Formulario Agregar-->
+        <div class="container">
+            <div class="row">
+                <div class="container text-center">
+                    <h1>Crud Canchas</h1>
 
-    <div id="">
+                </div>
+                <div class="col-lg-6 col-sm-6 burbuja">
 
-        <div class="page-content">
-            <section class="row">
-                <div class="col-12 col-lg-12">
+                    <div class="table-responsive-md">
+                        <div class="scrollable">
+                            <table class="table table-bordered border-dark table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nombre de cancha</th>
 
-                    <div class="row  justify-content-center">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="text-center">Canchas CRUD</h4>
-                                </div>
-                                <div class="card-body  mt-3">
-                                    <div id="chart-profile-visit">
-                                        <!--Formulario Agregar-->
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-sm-6">
+                                        <th scope="col">disponibilidad</th>
+                                        <th scope="col">Rango Horario</th>
 
-                                                    <div class="table-responsive-md">
-                                                        <div class="scrollable">
-                                                            <table
-                                                                class="table table-bordered border-dark table-hover text-center">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th scope="col">Nombre de cancha</th>
+                                        <th scope="col">Opciones</th>
 
-                                                                        <th scope="col">disponibilidad</th>
-                                                                        <th scope="col">Rango Horario</th>
-                                                                  
-                                                                        <th scope="col">Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let cancha of canchasService.cancha | ObjToArray">
+                                        <td>{{cancha.name}}</td>
+                                        <td *ngIf="cancha.disponibilidad==true">
+                                            Disponible
+                                        </td>
+                                        <td *ngIf="!cancha.disponibilidad==true">NO
+                                            Disponible</td>
+                                        <td *ngIf="cancha.rangoHorario == '1' ">
+                                            1 Hora
+                                        </td>
+                                        <td *ngIf="cancha.rangoHorario == '2' ">
+                                            1:30 Horas
+                                        </td>
+                                        <td *ngIf="cancha.rangoHorario == '3' ">
+                                            2 Horas
+                                        </td>
 
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr
-                                                                        *ngFor="let cancha of canchasService.cancha | ObjToArray">
-                                                                        <td>{{cancha.name}}</td>
-                                                                        <td *ngIf="cancha.disponibilidad==true">
-                                                                            Disponible
-                                                                        </td>
-                                                                        <td *ngIf="!cancha.disponibilidad==true">NO
-                                                                            Disponible</td>
-                                                                            <td *ngIf="cancha.rangoHorario == '1' ">
-                                                                                1 Hora
-                                                                            </td>
-                                                                            <td *ngIf="cancha.rangoHorario == '2' ">
-                                                                                1:30 Horas
-                                                                            </td>
-                                                                            <td *ngIf="cancha.rangoHorario == '3' ">
-                                                                                2 Horas
-                                                                            </td>
-                                                                        
-                                                                        
-                                                                        <td><button type="button"
-                                                                                class="btn btn-warning" (click)="deleteCancha(cancha._id)"><span
-                                                                                    class="material-icons">
-                                                                                    report_problem
-                                                                                </span>
 
-                                                                                Deshabilitar</button>
-                                                                                <button type="button" class="btn btn-primary ml-2 mt-1" (click)="editCancha(cancha)"> <span class="material-icons" >
-                                                                                    delete
-                                                                                </span>
-                                                                                Editar</button></td>
-                                                                    </tr>
+                                        <td><button type="button" class="btn btn-warning"
+                                                (click)="deleteCancha(cancha._id)"><span class="material-icons">
+                                                    report_problem
+                                                </span>
 
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
+                                                Deshabilitar</button>
+                                            <button type="button" class="btn btn-primary ml-2 mt-1"
+                                                (click)="editCancha(cancha)"> <span class="material-icons">
+                                                    delete
+                                                </span>
+                                                Editar</button>
+                                        </td>
+                                    </tr>
 
-                                                </div>
-
-                                                <div class="col mt-3">
-                                                    <form #canchaForm="ngForm" (ngSubmit)="addCancha(canchaForm)"
-                                                        class="row g-3 mb-3 ">
-                                                        <input type="hidden" name="_id"
-                                                            [(ngModel)]="canchasService.selectedCancha._id">
-                                                        <div class="col col-sm-6">
-                                                            <label for="input" class="form-label" >Ingrese nombre de
-                                                                nueva cancha</label>
-                                                            <input type="text" class="form-control" name="name"
-                                                                [(ngModel)]="canchasService.selectedCancha.name" required>
-                                                        </div>
-
-                                                        <div class="col-sm-6">
-                                                            <label for="inputOcupacion" class="form-label">Seleccione la
-                                                                duracion de la reserva</label>
-                                                            <select class="form-select"
-                                                                aria-label="Default select example" name="rangoHorario" 
-                                                                [(ngModel)]="canchasService.selectedCancha.rangohorario" required>
-
-                                                                <option value="1">1 Hora</option>
-                                                                <option value="2">1:30 Horas</option>
-                                                                <option value="3">2 Horas</option>
-
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="text-center">
-                                                            <button type="submit"
-                                                                class="btn btn-danger text-uppercase mt-2 text-center">Agregar
-                                                                Cancha</button>
-                                                        </div>
-
-                                                    </form>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-3"></div>
-                                                    <div class="col-sm-6 col-lg-6">
-                                                        <h2>Carga masiva de Horas</h2>
-                                                        <form #horasmasivasForm="ngForm" (ngSubmit)="addHorasCancha(horasmasivasForm)">
-                                                            <div class="col">
-                                                                <label for="inputcancha" class="form-label">Seleccione Cancha</label>
-                                                                <select class="form-select" aria-label="Default select example"
-                                                                    name="cancha"
-                                                                    [(ngModel)]="horasmasivasService.selectedHorasMasivas.cancha">
-        
-                                                                    <option
-                                                                    *ngFor="let cancha of canchasService.cancha | ObjToArray"
-                                                                        [ngValue]="cancha._id">{{cancha.name}}</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col">
-                                                                <label for="input" class="form-label">Ingrese Fecha de
-                                                                    inicio</label>
-                                                                <input type="date" class="form-control" 
-                                                                    name="horaComienzo"[(ngModel)]="horasmasivasService.selectedHorasMasivas.horacomienzo" >
-                                                            </div>
-                                                            <div class="col">
-                                                                <label for="input" class="form-label">Ingrese Fecha de
-                                                                    Final</label>
-                                                                <input type="date" class="form-control"
-                                                                    name="horaTermino" [(ngModel)]="horasmasivasService.selectedHorasMasivas.horatermino" >
-                                                            </div>
-                                                            <div class="col">
-                                                                <label for="input" class="form-label">Ingrese precio de las horas</label>
-                                                                <input type="number" class="form-control"
-                                                                    name="precio" [(ngModel)]="horasmasivasService.selectedHorasMasivas.precio" >
-                                                            </div>
-                                                            <div class="text-center">
-                                                                <button type="submit"
-                                                                    class="btn btn-danger text-uppercase mt-2 text-center">Agregar
-                                                                    Horarios</button>
-                                                            </div>
-
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+
                 </div>
+                <div class="col-1"></div>
+                <div class="col-lg-5 col-sm-5 burbuja ">
+                    <form #canchaForm="ngForm" (ngSubmit)="addCancha(canchaForm)">
+                        <input type="hidden" name="_id" [(ngModel)]="canchasService.selectedCancha._id">
+                        <div class="col mt-4">
+                            <label for="input" class="form-label">Ingrese nombre de
+                                nueva cancha</label>
+                            <input type="text" class="form-control" name="name"
+                                [(ngModel)]="canchasService.selectedCancha.name" required>
+                        </div>
 
+                        <div class="col mt-4">
+                            <label for="inputOcupacion" class="form-label">Seleccione la
+                                duracion de la reserva</label>
+                            <select class="form-select" aria-label="Default select example" name="rangoHorario"
+                                [(ngModel)]="canchasService.selectedCancha.rangohorario" required>
 
-            </section>
-       
-            
+                                <option value="1">1 Hora</option>
+                                <option value="2">1:30 Horas</option>
+                                <option value="3">2 Horas</option>
+
+                            </select>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-danger text-uppercase mt-2 text-center">Agregar
+                                Cancha</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-sm-6 col-lg-6 burbuja ">
+                        <h2 class="text-center">Carga masiva de Horas</h2>
+                        <form #horasmasivasForm="ngForm" (ngSubmit)="addHorasCancha(horasmasivasForm)" class="mb-3">
+                            <div class="col">
+                                <label for="inputcancha" class="form-label">Seleccione Cancha</label>
+                                <select class="form-select" aria-label="Default select example" name="cancha"
+                                    [(ngModel)]="horasmasivasService.selectedHorasMasivas.cancha">
+
+                                    <option *ngFor="let cancha of canchasService.cancha | ObjToArray"
+                                        [ngValue]="cancha._id">{{cancha.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="input" class="form-label">Ingrese Fecha de
+                                    inicio</label>
+                                <input type="date" class="form-control" name="horaComienzo"
+                                    [(ngModel)]="horasmasivasService.selectedHorasMasivas.horacomienzo">
+                            </div>
+                            <div class="col">
+                                <label for="input" class="form-label">Ingrese Fecha de
+                                    Final</label>
+                                <input type="date" class="form-control" name="horaTermino"
+                                    [(ngModel)]="horasmasivasService.selectedHorasMasivas.horatermino">
+                            </div>
+                            <div class="col">
+                                <label for="input" class="form-label">Ingrese precio de las horas</label>
+                                <input type="number" class="form-control" name="precio"
+                                    [(ngModel)]="horasmasivasService.selectedHorasMasivas.precio">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-danger text-uppercase mt-2 text-center">Agregar
+                                    Horarios</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-    </div>
+    </section>
 
-    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
 
-    <script src="assets/js/mazer.js"></script>
+
+
+</body>

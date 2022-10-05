@@ -25,6 +25,9 @@ import { PrimerForemularioComponent } from './vistas/primer-foremulario/primer-f
 import { GraciasComponent } from './vistas/gracias/gracias.component';
 import { CrudsubadminComponent } from './vistas/crudsubadmin/crudsubadmin.component';
 import { CanchasbichoComponent } from './vistas/subdominios/canchasbicho/canchasbicho.component';
+import { IniciosubadmincanchaComponent } from './vistas/iniciosubadmincancha/iniciosubadmincancha.component';
+import { IniciomodcanchaComponent } from './vistas/iniciomodcancha/iniciomodcancha.component';
+import { IniciousercanchaComponent } from './vistas/iniciousercancha/iniciousercancha.component';
 const routes: Routes = [
   /**
    * @AUTH canActivate: [AuthGuard] AGREGAR
@@ -53,6 +56,9 @@ const routes: Routes = [
   { path: 'Gracias'            , component: GraciasComponent},
   { path: 'crudsub'            , component:CrudsubadminComponent},
   { path: 'canchaselbicho/inicio', component:CanchasbichoComponent},
+  { path: 'canchaselbicho/dashboardsub', component:IniciosubadmincanchaComponent},
+  { path: 'canchaselbicho/dashboardmod', component:IniciomodcanchaComponent},
+  { path: 'canchaselbicho/dashboarduser', component:IniciousercanchaComponent},
   { path: '**'                 , redirectTo: '', pathMatch: 'full' }
  
 ];
@@ -61,4 +67,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
 export const routingComponents = [LoginComponent]

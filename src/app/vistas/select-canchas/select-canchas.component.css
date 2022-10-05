@@ -4,3 +4,23 @@
     position: relative;
     
 }
+body{
+    background-color: #f5fffa;
+    font-family: 'Montserrat', sans-serif;
+    }
+    .burbuja{
+    
+        background-color: white;
+        margin-bottom: 20px;
+        box-shadow: 10px 10px 2px 5px rgba(0, 0, 0,.1);
+        border-radius: 15px;
+    }
+    table {
+        border-collapse: collapse;
+        border-radius: 1em;
+        overflow: hidden;
+      }
+      th, td {
+        padding: 1em;
+        border-bottom: 2px solid white; 
+      }

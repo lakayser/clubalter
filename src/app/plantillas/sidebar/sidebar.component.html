@@ -110,7 +110,7 @@
                     </span>
                 </li>
                 <li class="sidebar-item active">
-                    <a routerLink="/canchasGestion" class='sidebar-link'>
+                    <a routerLink="/canchaselbicho/dashboardmod" class='sidebar-link'>
                         <i><span class="material-icons">
                                 space_dashboard
                             </span></i>
@@ -118,7 +118,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item ">
-                    <a  routerLink="/canchasCRUD" class='sidebar-link'>
+                    <a routerLink="/canchasCRUD" class='sidebar-link'>
                         <i><span class="material-icons">
                                 sports_tennis
                             </span> </i>
@@ -126,24 +126,23 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a  routerLink="/crudsub" class='sidebar-link'>
-                        <i><span class="material-icons">
-                                stadium
-                            </span></i>
-                        <span>Crud Subadmin</span>
+                    <a routerLink="/crudsub" class='sidebar-link'>
+                        <span class="material-icons">
+                            account_circle
+                        </span>
+                        <span>Crud subadm</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a routerLink="/canchaselect" class='sidebar-link'>
-                        <i>
-                            <span class="material-icons">
-                                edit_calendar
-                            </span></i>
-                        <span>Realizar Reserva</span>
+                        <span class="material-icons">
+                            edit_calendar
+                        </span>
+                        <span>Reservar</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a  routerLink="/vistaSemana" class='sidebar-link'>
+                    <a routerLink="/vistaSemana" class='sidebar-link'>
                         <span class="material-icons">
                             calendar_month
                         </span>
@@ -168,15 +167,31 @@
                     </span>
                 </li>
                 <li class="sidebar-item">
-                    <a  routerLink="/vistaSemana" class='sidebar-link'>
+                    <a routerLink="/canchaselbicho/dashboardsub" class='sidebar-link'>
+                        <span class="material-icons">
+                            home
+                        </span>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a routerLink="/vistaSemana" class='sidebar-link'>
                         <span class="material-icons">
                             calendar_month
                         </span>
                         <span>Vista Semana</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a routerLink="/canchaselect" class='sidebar-link'>
+                        <span class="material-icons">
+                            edit_calendar
+                        </span>
+                        <span>Reservar</span>
+                    </a>
+                </li>
                 <li class="sidebar-item ">
-                    <a  class='sidebar-link'>
+                    <a routerLink="/canchasCRUD" class='sidebar-link'>
                         <i><span class="material-icons">
                                 sports_tennis
                             </span> </i>
@@ -184,9 +199,9 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a  routerLink="/crudsub" class='sidebar-link'>
+                    <a routerLink="/crudsub" class='sidebar-link'>
                         <i><span class="material-icons">
-                                stadium
+                                account_circle
                             </span></i>
                         <span>Crud Subadmin</span>
                     </a>
@@ -195,14 +210,14 @@
 
             <!-- Superadmin -->
             <ul class="sidebar-nav" *ngIf="jk =='4' ">
-                <li class="sidebar-brand" >
+                <li class="sidebar-brand">
                     <span>
                         <h4>{{a.name}}</h4>
-                      
+
                     </span>
                 </li>
                 <li class="sidebar-item">
-                    <a  routerLink="/orgaAdmin" class='sidebar-link'>
+                    <a routerLink="/orgaAdmin" class='sidebar-link'>
                         <i><span class="material-icons">
                                 stadium
                             </span></i>
@@ -210,22 +225,25 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a   routerLink="/usersAdmin" class='sidebar-link'>
+                    <a routerLink="/usersAdmin" class='sidebar-link'>
                         <i><span class="material-icons">
                                 stadium
                             </span></i>
                         <span>moderadores</span>
                     </a>
                 </li>
-               
+
 
             </ul>
+           
+            
+           
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <div class="container-fluid">
+            <div class="container-fluid" style="padding-top: 80px;" >
 
                 <router-outlet>
 

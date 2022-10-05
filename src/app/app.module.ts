@@ -37,7 +37,10 @@ import { GraciasComponent } from './vistas/gracias/gracias.component';
 import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
 import { CrudsubadminComponent } from './vistas/crudsubadmin/crudsubadmin.component';
 import { CanchasbichoComponent } from './vistas/subdominios/canchasbicho/canchasbicho.component';
-
+import { IniciosubadmincanchaComponent } from './vistas/iniciosubadmincancha/iniciosubadmincancha.component';
+import { IniciomodcanchaComponent } from './vistas/iniciomodcancha/iniciomodcancha.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { IniciousercanchaComponent } from './vistas/iniciousercancha/iniciousercancha.component'
 
 @NgModule({
   declarations: [ AppComponent, HeaderComponent, FooterComponent, routingComponents,
@@ -45,11 +48,11 @@ import { CanchasbichoComponent } from './vistas/subdominios/canchasbicho/canchas
                   ObjToArrayPipe, SidebarComponent, PortalPagoComponent, AdminusuariosComponent, DashboardadminComponent,
                   OrganizacionesAdminComponent, CanchasDashboardComponent, CanchasCrudComponent, UsermoderatorComponent,
                   DashboardProfesorComponent, ClaseCrudComponent, PagoComponent, FilterPipe, SelectCanchasComponent,
-                  SelectReservaComponent, CommitComponent, FormularioRegistroComponent, PrimerForemularioComponent, GraciasComponent,VistaSemanaComponent, CrudsubadminComponent, CanchasbichoComponent,
+                  SelectReservaComponent, CommitComponent, FormularioRegistroComponent, PrimerForemularioComponent, GraciasComponent,VistaSemanaComponent, CrudsubadminComponent, CanchasbichoComponent, IniciosubadmincanchaComponent, IniciomodcanchaComponent, IniciousercanchaComponent,
                 ],
   imports: [
     BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpClientModule, NgChartsModule,
-    BrowserAnimationsModule, CommonModule,  ],
+    BrowserAnimationsModule, CommonModule, NgxChartsModule  ],
   exports: [
    
   ],
