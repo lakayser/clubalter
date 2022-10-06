@@ -16,9 +16,12 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
 
   constructor(public cargamasivaService: CargamasivaService, public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService, public renderer: Renderer2) { }
 
-  contador:number = -1;
-  canchas: any[] = [];
-  canchas2: any[] = [];
+  contador:     number = -1;
+  contador2:    number = 0;
+  canchas:      any[] = [];
+  horasDias: any[] = [];
+  canchas2:     any[] = [];
+  diasCalendar: string[] = [ 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo' ];
 
   horasL:string[] = []
   horasLF:string[] = []
@@ -53,17 +56,14 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
 
   numbers: any[] = [];
   contadore: number = -1
-  
+
   ngOnInit(): void {
     console.log(this.numero);
     this.getCanchas();
-    this.loadCanchas()
-    .subscribe( () => {
-      this.next();
-    }) 
+    this.next();
   }
 
-  @ViewChild('content', { static: true }) el!: ElementRef<HTMLImageElement> 
+  @ViewChild('content', { static: true }) el!: ElementRef<HTMLImageElement>
   @ViewChild('dl') dl: ElementRef
 
   getCanchas(){
@@ -79,13 +79,12 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
   jpg() {
     const screenshotTarget = this.el.nativeElement;
     html2canvas( screenshotTarget ).then( ( canvas: any ) => {
-      setInterval( function() {
+      setTimeout( function() {
         const base64image = canvas.toDataURL( "image/jpg" )
         let anchor = document.createElement('a');
         anchor.setAttribute( 'href', base64image );
         anchor.setAttribute( 'download', 'my-image.jpg' )
         anchor.click();
-        anchor.remove();
       }, 6000 )
     } )
   }
@@ -194,14 +193,6 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
         }
       }
   })
-  }
-
-  next () {
-    this.contador += 1
-    this.canchas[this.contador];
-    if (this.contador === this.canchas.length) {
-      this.contador = 0
-    }
     this.horasL = [];
     this.horasLF = [];
     this.horasM = [];
@@ -230,7 +221,48 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
     this.sf = [];
     this.d = [];
     this.df = [];
+  }
+
+
+  calendarDia () {
+    this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
+      this.cargamasivaService.cargamasi = res
+      this.arr = res;
+      let arrCalendar: any[] = [];
+      arrCalendar = res;
+      var horasD: any[] = [];
+      for( let carga of arrCalendar ) {
+        for( let cancha of carga.cancha ) {
+          if( cancha.name === this.canchas[this.contador] ) {
+            if( carga.semana === this.numero ) {
+              if( carga.dia === this.diasCalendar[ this.contador2 ] ) {
+                this.horasD.push( carga.horario )
+                this.horasDias = this.horasD;
+              }
+            }
+          }
+        }
+      }
+  })
+  this.horasDias = [];
+  }
+  next () {
+    this.contador += 1
+    this.canchas[this.contador];
+    if (this.contador === this.canchas.length) {
+      this.contador = 0
+    }
     this.calendar();
+    this.calendarDia();
+  }
+
+  nextDia(){
+    this.contador2 += 1;
+    this.diasCalendar[ this.contador2 ];
+    if( this.contador2 === this.diasCalendar.length ){
+      this.contador2 = 0;
+    }
+    this.calendarDia();
   }
 
   back() {
@@ -239,43 +271,6 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
       this.contador = this.canchas.length;
       this.contador -= 1;
     }
-
-    this.horasL = [];
-    this.horasLF = [];
-    this.horasM = [];
-    this.horasMF = [];
-    this.horasMi = [];
-    this.horasMiF = [];
-    this.horasJ = [];
-    this.horasJF = [];
-    this.horasV = [];
-    this.horasVF = [];
-    this.horasS = [];
-    this.horasSF = [];
-    this.horasD = [];
-    this.horasDF = [];
-    this.l = [];
-    this.lf = [];
-    this.m = [];
-    this.mf = [];
-    this.mi = [];
-    this.mif = [];
-    this.j = [];
-    this.jf = [];
-    this.v = [];
-    this.vf = [];
-    this.s = [];
-    this.sf = [];
-    this.d = [];
-    this.df = [];
     this.calendar();
-  }
-
-  loadCanchas() {
-    return timer( 1000 ).pipe(
-      tap( () => {
-        this.canchas[this.contador]
-      })
-    )
   }
 }

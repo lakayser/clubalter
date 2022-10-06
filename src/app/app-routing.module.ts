@@ -1,7 +1,6 @@
 import { NgModule }                     from '@angular/core';
 import { RouterModule, Routes }         from '@angular/router';
 import { LoginComponent }               from './vistas/login/login.component';
-import { AuthGuard }                    from './auth.guard';
 import { IndexComponent }               from './pagina/index/index.component';
 import { KbotAgendaComponent }          from './pagina/kbot-agenda/kbot-agenda.component';
 import { KbotMarketComponent }          from './pagina/kbot-market/kbot-market.component';
@@ -60,7 +59,7 @@ const routes: Routes = [
   { path: 'canchaselbicho/dashboardmod', component:IniciomodcanchaComponent},
   { path: 'canchaselbicho/dashboarduser', component:IniciousercanchaComponent},
   { path: '**'                 , redirectTo: '', pathMatch: 'full' }
- 
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -68,4 +67,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [LoginComponent]
+

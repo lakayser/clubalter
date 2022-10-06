@@ -1,3 +1,7 @@
+.cont{
+  background-color: #F8F5F5;
+}
+
 #prev,
 #nomCancha,
 #next
@@ -32,7 +36,31 @@
 }
 
 .dias {
-  background-color: rgb(73, 89, 177);
+  background-color: #9FABEE;
+  border-radius: 0.4rem;
+  font-size: 0.79rem;
+}
+
+.diasDisp{
+  background-color: #33CC86;
+  border-radius: 0.4rem;
+}
+
+.diasNoDisp{
+  background-color: #E4E4E4;
+  border-radius: 0.4rem;
+}
+
+#disp{
+  font-size: 0.8rem;
+}
+
+#textDisp{
+  font-size: 0.7rem;
+}
+
+.shadowB{
+  box-shadow: 0rem 0.1rem 0.1rem #303030;
 }
 body{
   background-color: #f5fffa;
