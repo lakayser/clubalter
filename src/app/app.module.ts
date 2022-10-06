@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 import { AuthGuard }                              from './auth.guard';
 import { TokenInterceptorService }                from './servicios/token-interceptor.service';
 import { CommonModule }                           from '@angular/common';
+
 import { PlantillasModule } from './plantillas/plantillas.module';
 import { PipesModule } from './pipes/pipes.module';
 import { PaginaModule } from './pagina/pagina.module';
@@ -52,6 +53,7 @@ import { SubdominiosModule } from './vistas/subdominios/subdominios.module';
     SelectReservaModule,
     SubdominiosModule,
   ],
+
   exports: [
   ],
   providers: [ AuthGuard, {

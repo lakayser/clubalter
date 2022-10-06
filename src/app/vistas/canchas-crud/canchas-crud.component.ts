@@ -57,7 +57,7 @@ export class CanchasCrudComponent implements OnInit {
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: err.error,
+          text: err.error.message,
           timer: 2500
         });
       });
@@ -126,6 +126,13 @@ export class CanchasCrudComponent implements OnInit {
 
 
       })
+    }, err => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: err.error,
+        timer: 2500
+      });
     })
   }
 

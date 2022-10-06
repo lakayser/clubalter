@@ -1,260 +1,160 @@
-<div id="app">
-    <!-- <div id="sidebar" class="active">
-        <div class="sidebar-wrapper active">
-            <div class="sidebar-header">
-                <div class="d-flex justify-content-between">
-                    <div class="logo">
-                        <a routerLink="/dashboard"><img src="../../../assets/Logo-Botmila.png" alt="Logo" srcset=""></a>
-                    </div>
-                    <div class="toggler">
-                        <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
-                    </div>
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <h3>ADMINISTRADOR</h3>
+                <div class="col-xl-5 col-sm-12 col-md-12 burbuja">
+                    <h4 class="text-center">Agregar Una Nueva Organizacion</h4>
+
+                    <h1 class="text-center">Registar Nueva Organizacion</h1>
+                    <form #organizationForm="ngForm" (ngSubmit)="addOrganization(organizationForm) "
+                        class="row g-3 mb-3">
+                        <input type="hidden" name="_id" [(ngModel)]="organizationService.selectedOrganization._id">
+                        <div class="col">
+                            <label for="inputName" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" name="name"
+                                [(ngModel)]="organizationService.selectedOrganization.name">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputRut" class="form-label">Rut</label>
+                            <input type="text" class="form-control" name="rut">
+                        </div>
+                        <div class="">
+                            <label for="inputMail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        <div class="">
+                            <label for="inputTelefono" class="form-label">Telefono</label>
+                            <input type="text" class="form-control" name="telefono">
+                        </div>
+                        <div class="">
+                            <label for="inputDireccion" class="form-label">Direccion</label>
+                            <input type="text" class="form-control" name="direccion">
+                        </div>
+                        <div class="text-center">
+
+                            <button type="submit" class="btn btn-primary text-uppercase" value="Guardar">Agregar
+                                Organizacion</button>
+                        </div>
+                    </form>
+
                 </div>
-            </div>
-            <div class="sidebar-menu">
-                <ul class="menu">
-                    <li class="sidebar-title">Menu</li>
+                <div class="col-1">
 
-                    <li class="sidebar-item">
-                        <a routerLink="/dashboardAdmin" class='sidebar-link'>
-                            <i class="bi bi-grid-fill"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
+                </div>
+                <div class="col-xl-6 col-sm-12 col-md-12 burbuja">
+                    <h1 class="text-center">Organizaciones Registradas</h1>
+                    <div class="table-responsive-md">
+                        <div class="scrollable">
+                            <table class="table table-bordered table-hover border-dark mt-2 text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Estado</th>
 
-                    <li class="sidebar-item">
-                        <a routerLink="/usersAdmin" class='sidebar-link'>
-                            <i class="bi bi-stack"></i>
-                            <span>CRUD USUARIOS</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item active">
-                        <a routerLink="/orgaAdmin" class='sidebar-link'>
-                            <i class="bi bi-stack"></i>
-                            <span>ORGANIZACIONES</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
-        </div>
-    </div> -->
-    <div id="">
-        <div class="page-heading text-center">
-            <h3>ADMINISTRADOR</h3>
-        </div>
+                                        <!-- <th scope="col">Rut</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Direccion</th> -->
 
-        <div class="page-content">
-            <section class="row">
-                <div class="col-12 col-lg-12">
+                                    </tr>
+                                </thead>
 
-                    <div class="row  justify-content-center">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="text-center">Agregar Una Nueva Organizacion</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div id="chart-profile-visit">
-                                        <!--Formulario Agregar-->
-                                        <div class="container">
-                                            <div class="row">
-                                                
+                                <tbody>
+                                    <tr *ngFor="let organizaciones of organizationService.organizaciones |ObjToArray">
 
-                                                <div class="col-lg-6 col-sm-6">
-                                                    <h1 class="text-center">Registar Nueva Organizacion</h1>
-                                                    <form #organizationForm="ngForm"
-                                                        (ngSubmit)="addOrganization(organizationForm) "
-                                                        class="row g-3 mb-3">
-                                                        <input type="hidden" name="_id"
-                                                            [(ngModel)]="organizationService.selectedOrganization._id">
-                                                        <div class="col">
-                                                            <label for="inputName" class="form-label">Nombre</label>
-                                                            <input type="text" class="form-control" name="name"
-                                                                [(ngModel)]="organizationService.selectedOrganization.name">
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <label for="inputRut" class="form-label">Rut</label>
-                                                            <input type="text" class="form-control" name="rut">
-                                                        </div>
-                                                        <div class="">
-                                                            <label for="inputMail" class="form-label">E-mail</label>
-                                                            <input type="email" class="form-control" name="email">
-                                                        </div>
-                                                        <div class="">
-                                                            <label for="inputTelefono"
-                                                                class="form-label">Telefono</label>
-                                                            <input type="text" class="form-control" name="telefono">
-                                                        </div>
-                                                        <div class="">
-                                                            <label for="inputDireccion"
-                                                                class="form-label">Direccion</label>
-                                                            <input type="text" class="form-control" name="direccion">
-                                                        </div>
-                                                        <div class="text-center">
-
-                                                            <button type="submit" class="btn btn-primary text-uppercase"
-                                                                value="Guardar">Agregar Organizacion</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="col">
-                                                    <h1 class="text-center">Organizaciones Registradas</h1>
-                                                    <div class="table-responsive-md">
-                                                        <div class="scrollable">
-                                                            <table
-                                                                class="table table-bordered table-hover border-dark mt-2 text-center">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th scope="col">Nombre</th>
-                                                                        <th scope="col">Estado</th>
-                                                                                                                                    
-                                                                <!-- <th scope="col">Rut</th>
-                                                                <th scope="col">E-mail</th>
-                                                                <th scope="col">Telefono</th>
-                                                                <th scope="col">Direccion</th> -->
-
-                                                                    </tr>
-                                                                </thead>
-
-                                                                <tbody>
-                                                                    <tr
-                                                                        *ngFor="let organizaciones of organizationService.organizaciones |ObjToArray">
-
-                                                                        <td>{{ organizaciones.name}}</td>
-                                                                        <td *ngIf="!organizaciones.estado==true "> No Disponible</td>
-                                                                        <td *ngIf="organizaciones.estado == true"> Disponible</td>
-                                                                        
-                                                                        
-                                                                         <!-- <td>{{ organizaciones.rut }}</td>
-                                                                <td>{{ users.email}}</td>
-                                                                <td>{{ users.telefono }}</td>
-                                                                <td>{{ users.direccion }}</td>  -->
+                                        <td>{{ organizaciones.name}}</td>
+                                        <td *ngIf="!organizaciones.estado==true "> No Disponible</td>
+                                        <td *ngIf="organizaciones.estado == true"> Disponible</td>
 
 
-                                                                        <div class="btn-group mr-0" role="group"
-                                                                    aria-label="Basic mixed styles example">
-                                                                    <button type="button" class="btn btn-primary  mr-2"
-                                                                        (click)="editOrganization(organizaciones)"> Editar</button>
-                                                                    <button type="button" class="btn btn-danger"
-                                                                        (click)="deleteOrganization(organizaciones._id)">Eliminar</button>
-                                                                </div>
+                                        <!-- <td>{{ organizaciones.rut }}</td>
+                                <td>{{ users.email}}</td>
+                                <td>{{ users.telefono }}</td>
+                                <td>{{ users.direccion }}</td>  -->
 
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
-                                            </div>
+                                        <div class="btn-group mr-0" role="group"
+                                            aria-label="Basic mixed styles example">
+                                            <button type="button" class="btn btn-primary  mr-2"
+                                                (click)="editOrganization(organizaciones)"> Editar</button>
+                                            <button type="button" class="btn btn-danger"
+                                                (click)="deleteOrganization(organizaciones._id)">Eliminar</button>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="text-center">Agregar Una Ocupacion</h4>
-                                    </div>
-                                    <div class="card-body" id="AAA">
-                                        <div id="chart-profile-visit">
-                                            <!--Formulario Agregar-->
-                                            <div class="row align-items-start">
-                                                <div class="col">
-                                                    <form #ocupationForm="ngForm" (ngSubmit)="addOcupation(ocupationForm)"
-                                                        class="row g-3 mb-3">
-    
-                                                        <input type="hidden" name="_id"
-                                                            [(ngModel)]="ocupationService.selectedOcupation._id">
 
-                                                            <div class="col-lg-6 col-sm-6">
-                                                                <label for="inputOcupacion"
-                                                                    class="form-label">Organizacion</label>
-                                                                <select class="form-select"
-                                                                    aria-label="Default select example" name="organization"
-                                                                    [(ngModel)]="ocupationService.selectedOcupation.organization">
-                                                                    <option
-                                                                        *ngFor="let orga of organizationService.organizaciones |ObjToArray"
-                                                                        [ngValue]="orga._id">{{orga.name}}</option>
-    
-    
-                                                                </select>
-    
-                                                            </div>
-                                                        <div class="col-lg-6 col-sm-6">
-                                                            <label for="inputName" class="form-label">Nombre de la
-                                                                Especialidad</label>
-                                                            <input type="text" class="form-control" name="name"
-                                                                [(ngModel)]="ocupationService.selectedOcupation.name">
-                                                        </div>
-                                                        <div class="text-center">
-                                                            <button type="submit" class="btn btn-primary text-uppercase"
-                                                                value="Guardar">Agregar Nueva
-                                                                Especialidad</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h4 class="text-center">Lista De Ocupaciones </h4>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div id="chart-profile-visit">
-                
-                                                                <div class="container">
-                                                                    <div class="row justify-content-center">
-                                                                        <div class="table-responsive-md">
-                                                                            <div class="scrollable">
-                                                                                <table
-                                                                                    class="table table-bordered table-hover border-dark mt-2 text-center">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th scope="col">Nombre</th>
-                                                                                        <th scope="col">organizacion</th>
-                
-                
-                                                                                    </tr>
-                                                                                </thead>
-                
-                                                                                <tbody class="text-center">
-                                                                                    <tr
-                                                                                        *ngFor="let ocupa of ocupationService.ocupa | ObjToArray">
-                
-                                                                                        <td>{{ ocupa.name }}</td>
-                                                                                        <td *ngFor="let x of ocupa.organization" >{{ x.name }}</td>
-                
-                
-                                                                                        <!-- <div class="btn-group mr-0" role="group"
-                                                                                            aria-label="Basic mixed styles example">
-                                                                                            <button type="button" class="btn btn-primary  mr-2"
-                                                                                                (click)="editUsuario(users)"> Editar</button>
-                                                                                            <button type="button" class="btn btn-danger"
-                                                                                                (click)="deleteUsuario(users._id)">Eliminar</button>
-                                                                                        </div> -->
-                
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-    
-    
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                           
-                            </div>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <h4 class="text-center">Agregar Una Nueva Organizacion</h4>
+                <div class="col-xl-5 col-sm-12 col-md-12 burbuja">
+                    <h4 class="text-center">Agregar Una Ocupacion</h4>
+                    <form #ocupationForm="ngForm" (ngSubmit)="addOcupation(ocupationForm)" class="row g-3 mb-3">
+                        <input type="hidden" name="_id" [(ngModel)]="ocupationService.selectedOcupation._id">
+                        <div class="">
+                            <label for="inputOcupacion" class="form-label">Organizacion</label>
+                            <select class="form-select" aria-label="Default select example" name="organization"
+                                [(ngModel)]="ocupationService.selectedOcupation.organization">
+                                <option *ngFor="let orga of organizationService.organizaciones |ObjToArray"
+                                    [ngValue]="orga._id">{{orga.name}}</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <label for="inputName" class="form-label">Nombre de la
+                                Especialidad</label>
+                            <input type="text" class="form-control" name="name"
+                                [(ngModel)]="ocupationService.selectedOcupation.name">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary text-uppercase" value="Guardar">Agregar Nueva
+                                Especialidad</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-1">
 
                 </div>
+                <div class="col-xl-6 col-sm-12 col-md-12 burbuja">
+                    <h4 class="text-center">Lista De Ocupaciones </h4>
+                    <div class="table-responsive-md">
+                        <div class="scrollable">
+                            <table class="table table-bordered table-hover mt-2 text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">organizacion
+                                        </th>
+                                    </tr>
+                                </thead>
 
-            </section>
+                                <tbody class="text-center">
+                                    <tr *ngFor="let ocupa of ocupationService.ocupa | ObjToArray">
+                                        <td>{{ ocupa.name }}</td>
+                                        <td *ngFor="let x of ocupa.organization">
+                                            {{ x.name }}</td>
+
+                                        <!-- <div class="btn-group mr-0" role="group"
+                                        aria-label="Basic mixed styles example">
+                                        <button type="button" class="btn btn-primary  mr-2"
+                                            (click)="editUsuario(users)"> Editar</button>
+                                        <button type="button" class="btn btn-danger"
+                                            (click)="deleteUsuario(users._id)">Eliminar</button>
+                                    </div> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+</body>

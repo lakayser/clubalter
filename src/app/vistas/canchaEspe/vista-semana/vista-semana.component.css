@@ -62,3 +62,7 @@
 .shadowB{
   box-shadow: 0rem 0.1rem 0.1rem #303030;
 }
+body{
+  background-color: #f5fffa;
+    font-family: 'Montserrat', sans-serif;
+}
