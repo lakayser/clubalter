@@ -24,6 +24,9 @@ import { PrimerForemularioModule } from './vistas/primer-foremulario/primer-fore
 import { SelectCanchasModule } from './vistas/select-canchas/select-canchas.module';
 import { SelectReservaModule } from './vistas/select-reserva/select-reserva.module';
 import { SubdominiosModule } from './vistas/subdominios/subdominios.module';
+import { IniciomodcanchaModule } from './vistas/iniciomodcancha/iniciomodcancha.module';
+import { IniciousercanchaModule } from './vistas/iniciousercancha/iniciousercancha.module';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -34,6 +37,7 @@ import { SubdominiosModule } from './vistas/subdominios/subdominios.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxChartsModule,
     CommonModule,
     PlantillasModule,
     PipesModule,
@@ -52,6 +56,8 @@ import { SubdominiosModule } from './vistas/subdominios/subdominios.module';
     SelectCanchasModule,
     SelectReservaModule,
     SubdominiosModule,
+    IniciomodcanchaModule,
+    IniciousercanchaModule,
   ],
 
   exports: [
