@@ -27,6 +27,7 @@ import { SubdominiosModule } from './vistas/subdominios/subdominios.module';
 import { IniciomodcanchaModule } from './vistas/iniciomodcancha/iniciomodcancha.module';
 import { IniciousercanchaModule } from './vistas/iniciousercancha/iniciousercancha.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { IniciosubadmincanchaModule } from './vistas/iniciosubadmincancha/iniciosubadmincancha.module';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     SubdominiosModule,
     IniciomodcanchaModule,
     IniciousercanchaModule,
+    IniciosubadmincanchaModule,
   ],
 
   exports: [
