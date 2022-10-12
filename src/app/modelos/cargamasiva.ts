@@ -1,6 +1,6 @@
 export interface CargaMasiva{
    _id: string,
-   fecha: string,
+   fecha: Date,
    dia: string,
    disponibilidad: boolean,
    horario: string,

@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2, AfterViewInit } fr
 import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service';
 import { CanchasService } from 'src/app/servicios/canchas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service'
-import { timer } from 'rxjs';
-import { tap } from 'rxjs';
 import html2canvas from 'html2canvas';
 
 @Component({
@@ -15,6 +13,15 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
   elementRef: any;
 
   constructor(public cargamasivaService: CargamasivaService, public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService, public renderer: Renderer2) { }
+
+  fechaDiaL: Date;
+  fechaDiaM: Date;
+  fechaDiaMi: Date;
+  fechaDiaJ: Date;
+  fechaDiaV: Date;
+  fechaDiaS: Date;
+  fechaDiaD: Date;
+  arrFechaDia: any[] = [];
 
   contador:     number = -1;
   contador2:    number = 0;
@@ -37,6 +44,8 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
   horasSF:string[] = []
   horasD:string[] = []
   horasDF:string[] = []
+
+  arrDia: any[] = [];
 
   arr: any[] = [];
   l: any[] = [];
@@ -61,6 +70,7 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
     console.log(this.numero);
     this.getCanchas();
     this.next();
+    this.diasFecha();
   }
 
   @ViewChild('content', { static: true }) el!: ElementRef<HTMLImageElement>
@@ -230,7 +240,6 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
       this.arr = res;
       let arrCalendar: any[] = [];
       arrCalendar = res;
-      var horasD: any[] = [];
       for( let carga of arrCalendar ) {
         for( let cancha of carga.cancha ) {
           if( cancha.name === this.canchas[this.contador] ) {
@@ -254,6 +263,7 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
     }
     this.calendar();
     this.calendarDia();
+    this.diasFecha();
   }
 
   nextDia(){
@@ -273,4 +283,42 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
     }
     this.calendar();
   }
+
+  diasFecha(){
+    this.cargamasivaService.getCargaMasiva()
+      .subscribe( (res) => {
+        this.cargamasivaService.cargamasi = res;
+        this.arrFechaDia = res;
+        for( let a of this.arrFechaDia ){
+          for( let b of a.cancha ){
+            if( a.semana === this.numero ){
+              if( b.name === this.canchas[ this.contador ] ){
+                if( a.dia === 'lunes' ){
+                  this.fechaDiaL = a.fecha;
+                }
+                if( a.dia === 'martes' ){
+                  this.fechaDiaM = a.fecha;
+                }
+                if( a.dia === 'miércoles' ){
+                  this.fechaDiaMi = a.fecha;
+                }
+                if( a.dia === 'jueves' ){
+                  this.fechaDiaJ = a.fecha;
+                }
+                if( a.dia === 'viernes' ){
+                  this.fechaDiaV = a.fecha;
+                }
+                if( a.dia === 'sábado' ){
+                  this.fechaDiaS = a.fecha;
+                }
+                if( a.dia === 'domingo' ){
+                  this.fechaDiaD = a.fecha;
+                }
+              }
+            }
+          }
+        }
+      })
+  }
+
 }

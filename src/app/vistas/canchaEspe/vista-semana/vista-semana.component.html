@@ -25,37 +25,37 @@
   <div class="row fw-bold">
     <div class="d-none d-lg-block col">
       <div class="text-center pt-3 pb-1 mb-1 dias shadowB">
-        <p>Lunes 01</p>
+        <p>Lunes - {{ fechaDiaL | date:'dd' }}</p>
       </div>
     </div>
     <div class="d-none d-lg-block col">
       <div class="dias text-center pt-3 pb-1 mb-1 shadowB">
-        <p>Martes 02</p>
+        <p>Martes - {{ fechaDiaM | date:'dd' }}</p>
       </div>
     </div>
     <div class="d-none d-lg-block col">
       <div class="dias text-center pt-3 pb-1 mb-1 shadowB">
-        <p>Miercoles 03</p>
+        <p>Miercoles - {{ fechaDiaMi | date:'dd' }}</p>
       </div>
     </div>
     <div class="d-none d-lg-block col">
       <div class="dias text-center pt-3 pb-1 mb-1 shadowB">
-        <p>Jueves 04</p>
+        <p>Jueves - {{ fechaDiaJ | date:'dd' }}</p>
       </div>
     </div>
     <div class="d-none d-lg-block col">
       <div class="dias text-center pt-3 pb-1 mb-1 shadowB">
-        <p>Viernes 05</p>
+        <p>Viernes - {{ fechaDiaV | date:'dd' }}</p>
       </div>
     </div>
     <div class="d-none d-lg-block col">
       <div class="dias text-center pt-3 pb-1 mb-1 shadowB">
-        <p>Sabado 06</p>
+        <p>Sabado - {{ fechaDiaS | date:'dd' }}</p>
       </div>
     </div>
     <div class="d-none d-lg-block col">
       <div class="dias text-center pt-3 pb-1 mb-1 shadowB">
-        <p>Domingo 07</p>
+        <p>Domingo - {{ fechaDiaD | date:'dd' }}</p>
       </div>
     </div>
 
@@ -80,7 +80,7 @@
     <div class="d-none d-lg-block col">
       <div *ngFor="let a of horasL">
         <div class="pt-1 pb-2 mt-1 mb-2 diasDisp shadowB">
-          <p class="ps-1 mb-1" id="disp">{{ a }} <br> <span id="textDisp">Disponible</span></p>
+          <p class="ps-1 mb-1" id="disp">{{ a }}<br> <span id="textDisp">Disponible</span></p>
         </div>
       </div>
       <div *ngFor="let b of horasLF">

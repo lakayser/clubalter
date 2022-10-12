@@ -10,14 +10,14 @@ export class CargamasivaService {
 
   selectedCargaMasiva: CargaMasiva = {
     _id:'',
-    fecha: '',
+    fecha: new Date(),
     dia: '',
     disponibilidad: true,
     horario: '',
     cancha: [],
     precio: 0,
     semana: 0,
-  } 
+  }
 
   cargamasi: CargaMasiva[];
 
@@ -28,7 +28,7 @@ private httpheaders = new HttpHeaders({'Content-Type' : 'aplication/json'});
     return this.http.get<CargaMasiva[]>(`${this.URL}schedule-list`)
   }
 
- 
+
 }
 
 

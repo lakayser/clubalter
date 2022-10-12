@@ -9,6 +9,7 @@ import { VistaSemanaComponent } from './vista-semana/vista-semana.component';
     VistaSemanaComponent,
   ],
   exports: [
+    VistaSemanaComponent,
   ],
   imports: [
     CommonModule
