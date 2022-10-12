@@ -14,13 +14,13 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
 
   constructor(public cargamasivaService: CargamasivaService, public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService, public renderer: Renderer2) { }
 
-  fechaDiaL: Date;
-  fechaDiaM: Date;
-  fechaDiaMi: Date;
-  fechaDiaJ: Date;
-  fechaDiaV: Date;
-  fechaDiaS: Date;
-  fechaDiaD: Date;
+  fechaDiaL: any;
+  fechaDiaM: any;
+  fechaDiaMi: any;
+  fechaDiaJ: any;
+  fechaDiaV: any;
+  fechaDiaS: any;
+  fechaDiaD: any;
   arrFechaDia: any[] = [];
 
   contador:     number = -1;
@@ -301,6 +301,7 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
                 }
                 if( a.dia === 'miércoles' ){
                   this.fechaDiaMi = a.fecha;
+                  console.log( 'miercoles', this.fechaDiaMi );
                 }
                 if( a.dia === 'jueves' ){
                   this.fechaDiaJ = a.fecha;
@@ -320,5 +321,4 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
         }
       })
   }
-
 }
