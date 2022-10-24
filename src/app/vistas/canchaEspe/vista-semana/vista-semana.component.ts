@@ -14,6 +14,8 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
 
   constructor(public cargamasivaService: CargamasivaService, public horariocanchaService: HorarioCanchaService, public canchasService: CanchasService, public renderer: Renderer2) { }
 
+  show: boolean = false;
+
   fechaDiaL: any;
   fechaDiaM: any;
   fechaDiaMi: any;
@@ -22,6 +24,8 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
   fechaDiaS: any;
   fechaDiaD: any;
   arrFechaDia: any[] = [];
+
+  arrFechaMes: any[] =[];
 
   contador:     number = -1;
   contador2:    number = 0;
@@ -66,6 +70,7 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
   numbers: any[] = [];
   contadore: number = -1
 
+
   ngOnInit(): void {
     console.log(this.numero);
     this.getCanchas();
@@ -75,6 +80,7 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
 
   @ViewChild('content', { static: true }) el!: ElementRef<HTMLImageElement>
   @ViewChild('dl') dl: ElementRef
+  @ViewChild('valor') valor: ElementRef
 
   getCanchas(){
     this.canchasService.getCanchas().subscribe((res)=>{
@@ -124,6 +130,7 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
       this.arr = res;
       let arrCalendar: any[] = [];
       arrCalendar = res;
+      console.log( 'respusta', res );
       for( let carga of arrCalendar ) {
         for( let cancha of carga.cancha ) {
           if( cancha.name === this.canchas[this.contador] ) {
@@ -293,6 +300,7 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
           for( let b of a.cancha ){
             if( a.semana === this.numero ){
               if( b.name === this.canchas[ this.contador ] ){
+                console.log( a.fecha );
                 if( a.dia === 'lunes' ){
                   this.fechaDiaL = a.fecha;
                 }
@@ -321,4 +329,10 @@ export class VistaSemanaComponent implements OnInit /*, AfterViewInit*/ {
         }
       })
   }
+
+
+  valorObjeto(valor: any){
+    console.log( valor );
+  }
+
 }

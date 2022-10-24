@@ -28,6 +28,7 @@ import { IniciomodcanchaModule } from './vistas/iniciomodcancha/iniciomodcancha.
 import { IniciousercanchaModule } from './vistas/iniciousercancha/iniciousercancha.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { IniciosubadmincanchaModule } from './vistas/iniciosubadmincancha/iniciosubadmincancha.module';
+import { CalendarioModule } from './vistas/calendario/calendario.module';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { IniciosubadmincanchaModule } from './vistas/iniciosubadmincancha/inicio
     IniciomodcanchaModule,
     IniciousercanchaModule,
     IniciosubadmincanchaModule,
+    CalendarioModule,
   ],
 
   exports: [

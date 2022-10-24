@@ -1,4 +1,4 @@
-import { NgModule }                     from '@angular/core';
+import { Component, NgModule }                     from '@angular/core';
 import { RouterModule, Routes }         from '@angular/router';
 import { LoginComponent }               from './vistas/login/login.component';
 import { IndexComponent }               from './pagina/index/index.component';
@@ -27,6 +27,7 @@ import { CanchasbichoComponent } from './vistas/subdominios/canchasbicho/canchas
 import { IniciosubadmincanchaComponent } from './vistas/iniciosubadmincancha/iniciosubadmincancha.component';
 import { IniciomodcanchaComponent } from './vistas/iniciomodcancha/iniciomodcancha.component';
 import { IniciousercanchaComponent } from './vistas/iniciousercancha/iniciousercancha.component';
+import { HorasCalendarioComponent } from './vistas/calendario/pages/horas-calendario/horas-calendario.component';
 const routes: Routes = [
   /**
    * @AUTH canActivate: [AuthGuard] AGREGAR
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'reservaselect/:id'  , component: SelectReservaComponent },
   { path: 'dashboardAdmin'     , component: DashboardadminComponent },
   { path: 'vistaSemana'        , component: VistaSemanaComponent },//vistaSemana
+  { path: 'calendario'         , component: HorasCalendarioComponent },
   { path: 'usersAdmin'         , component: AdminusuariosComponent },
   { path: 'orgaAdmin'          , component: OrganizacionesAdminComponent },
   { path: 'registro'           , component: PrimerForemularioComponent},
