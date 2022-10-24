@@ -1,0 +1,52 @@
+body {
+  background-color: #f5fffa;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.burbuja {
+
+  background-color: white;
+  margin-bottom: 20px;
+  box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
+  border-radius: 15px;
+}
+
+.scrollable {
+  height: auto;
+  overflow: auto;
+  position: relative;
+
+}
+
+button {
+  font-size: 50px;
+  text-align: center;
+  width: 500px;
+  height: 100px;
+  box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
+  border-radius: 15px;
+  color: white;
+}
+
+.btn1 {
+  background-color: #4f7de8;
+}
+
+.btn2 {
+  background-color: #f86c4f;
+}
+
+.mini {
+  font-style: unset;
+  color: white;
+}
+
+@media(max-width:1325px) {
+  button {
+    width: auto;
+    height: auto;
+  }
+  .btn2 {
+    font-size: 45px;
+  }
+}

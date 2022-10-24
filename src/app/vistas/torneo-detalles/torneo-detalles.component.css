@@ -1,0 +1,42 @@
+body{
+    background-color: #f5fffa;
+    font-family: 'Montserrat', sans-serif;
+    }
+    .burbuja{
+        background-color: white;
+        margin-bottom: 20px;
+        box-shadow: 10px 10px 2px 5px rgba(0, 0, 0,.1);
+        border-radius: 15px;
+    }
+    div{
+      word-wrap: break-word;
+    }
+    span{
+      vertical-align: inherit;
+      
+    }
+    .scrollable{
+        background-color: #f5fffa;
+        height: auto;
+        overflow: auto;
+        position: relative;
+        
+    }
+    button {
+        font-size: large;
+        text-align: center;
+       
+       
+        border-radius: 15px;
+        color: rgb(255, 255, 255);
+      }
+      .btn1{
+        background-color: #6d92e9;
+      }
+      .btn2{
+        background-color: #f86c4f;
+      }
+      .mini{
+        font-style: unset;
+        color: white;
+      }

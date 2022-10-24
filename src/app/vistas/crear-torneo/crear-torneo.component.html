@@ -1,0 +1,75 @@
+<body>
+  <div class="registration-form">
+    <form (ngSubmit)="submit()">
+
+      <div class="a">
+        <h4>Registro nuevo torneo</h4>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control item" id="nombretorneo" formControlName="nombre"
+          placeholder="Nombre de torneo">
+      </div>
+      <div class="form-group">
+        <label for="inputOcupacion" class="form-label">Seleccione tipo de torneo</label>
+        <select class="form-select item" aria-label="Default select example" formControlName="tipoTorneo" id="tipo">
+          <option>Eliminacion Directa</option>
+          <option>LIGA</option>
+          <option>Americano</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="inputOcupacion" class="form-label">Seleccione Categoria de torneo</label>
+        <select class="form-select item" aria-label="Default select example" formControlName="tipoTorneo" id="tipo">
+          <option>6ta</option>
+          <option>5ta</option>
+          <option>4ta</option>
+          <option>3ra</option>
+          <option>2da</option>
+          <option>1ra</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="inputOcupacion" class="form-label">Seleccione Categoria de Participantes</label>
+        <select class="form-select item" aria-label="Default select example" formControlName="tipoTorneo" id="tipo">
+          <option>Mixto</option>
+          <option>Masculino</option>
+          <option>Femenino</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="inputOcupacion" class="form-label">Cantidad de Jugadores</label>
+        <select class="form-select item" aria-label="Default select example" formControlName="tipoTorneo" id="tipo">
+          <option>8</option>
+
+          <option>16</option>
+
+          <option>24</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control item" formControlName="valor" id="valor"
+          placeholder="Valor por pareja">
+      </div>
+      <div class="form-group">
+        <label>Fecha de inico inscripcion</label>
+        <input type="datetime-local" class="form-control item" formControlName="fechaI" id="birth-date"
+          placeholder="Fecha de nacimiento">
+      </div>
+      <div class="form-group">
+        <label>Fecha de fin inscripcion</label>
+        <input type="datetime-local" class="form-control item" formControlName="fechaF" id="birth-date"
+          placeholder="Fecha de nacimiento">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control item" formControlName="detalle" id="detalle"
+          placeholder="Detalles del Torneo">
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-block create-account">Crear Torneo</button>
+      </div>
+    </form>
+    <div class="social-media">
+    </div>
+  </div>
+</body>

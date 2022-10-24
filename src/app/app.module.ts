@@ -28,11 +28,18 @@ import { IniciomodcanchaModule } from './vistas/iniciomodcancha/iniciomodcancha.
 import { IniciousercanchaModule } from './vistas/iniciousercancha/iniciousercancha.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { IniciosubadmincanchaModule } from './vistas/iniciosubadmincancha/iniciosubadmincancha.module';
+import { TorneoscrudComponent } from './vistas/torneoscrud/torneoscrud.component';
+import { CrearTorneoComponent } from './vistas/crear-torneo/crear-torneo.component';
+import { TorneoDetallesComponent } from './vistas/torneo-detalles/torneo-detalles.component';
+import { AjustesTorneosComponent } from './vistas/ajustes-torneos/ajustes-torneos.component';
+import { AjustesTorneosModule } from './vistas/ajustes-torneos/ajustes-torneos.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    TorneoDetallesComponent,
+    
   ],
   imports: [
     BrowserModule,
