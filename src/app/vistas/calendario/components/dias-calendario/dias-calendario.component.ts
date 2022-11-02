@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { HorasSemana } from '../../interface/horas-interface';
 
 @Component({
@@ -18,6 +18,7 @@ import { HorasSemana } from '../../interface/horas-interface';
 export class DiasCalendarioComponent implements OnInit {
 
   @Input() horas: HorasSemana[] = [];
+
   fecha: Date = new Date();
 
   constructor() { }

@@ -9,7 +9,7 @@ import { HorasSemana } from '../interface/horas-interface';
 export class HorasService {
 
   private apiUrl: string = 'https://botmila-api.herokuapp.com/botmilaAPI/moderator';
-  fecha: Date = new Date();
+  fecha : Date = new Date();
   semana: number = this.numeroSemana( this.fecha );
 
   constructor( private http: HttpClient ) { }
@@ -29,8 +29,11 @@ export class HorasService {
     return Math.ceil(((diferencia_de_fechas_en_milisegundos / dia_en_mili_segundos) + 1) / dias_que_tiene_una_semana)
   }
 
+
+
   verHoras( cancha: string ): Observable<HorasSemana[]> {
     const url = `${ this.apiUrl }/schedule-list/${ cancha }/${ this.semana }`;
+    console.log( this.semana );
     return this.http.get<HorasSemana[]>( url );
   }
 

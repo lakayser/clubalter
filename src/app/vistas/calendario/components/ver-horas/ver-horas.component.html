@@ -1,0 +1,194 @@
+ <div class=" row row-cols-7 fw-bold ">
+
+  <div class=" col mt-1 horasTransition ">
+    <div *ngFor=" let horas of horas ">
+      <div *ngIf=" horas.dia === 'lunes' ">
+        <div
+
+          class=" pt-1 pb-2 mt-1 mb-2 diasDisp id "
+          *ngIf=" horas.disponibilidad "
+        >
+          <span  class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Disponible </span>
+          </span>
+        </div>
+        <div
+          (click)=" obtenerId( horas._id ) "
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class=" pt-1 pb-2 mt-1 mb-2 diasNoDisp id "
+          *ngIf=" !horas.disponibilidad "
+        >
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Agendado </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" col mt-1 ">
+    <div *ngFor=" let horas of horas ">
+      <div *ngIf=" horas.dia === 'martes' ">
+        <div
+          class=" pt-1 pb-2 mt-1 mb-2 diasDisp id "
+          *ngIf=" horas.disponibilidad "
+        >
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Disponible </span>
+          </span>
+        </div>
+        <div
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class=" pt-1 pb-2 mt-1 mb-2 diasNoDisp id "
+          (click)=" obtenerId( horas._id ) "
+          *ngIf=" !horas.disponibilidad ">
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Agendado </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" col mt-1 ">
+    <div *ngFor=" let horas of horas ">
+      <div *ngIf=" horas.dia === 'miércoles' ">
+        <div class=" pt-1 pb-2 mt-1 mb-2 diasDisp id " *ngIf=" horas.disponibilidad ">
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Disponible </span>
+          </span>
+        </div>
+        <div
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class=" pt-1 pb-2 mt-1 mb-2 diasNoDisp id "
+          (click)=" obtenerId( horas._id ) "
+          *ngIf=" !horas.disponibilidad ">
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Agendado </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" col mt-1 ">
+    <div *ngFor=" let horas of horas ">
+      <div *ngIf=" horas.dia === 'jueves' ">
+        <div class=" pt-1 pb-2 mt-1 mb-2 diasDisp id " *ngIf=" horas.disponibilidad ">
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Disponible </span>
+          </span>
+        </div>
+        <div
+          (click)=" obtenerId( horas._id ) "
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class=" pt-1 pb-2 mt-1 mb-2 diasNoDisp id "
+          *ngIf=" !horas.disponibilidad ">
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Agendado </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" col mt-1 ">
+    <div *ngFor=" let horas of horas ">
+      <div *ngIf=" horas.dia === 'viernes' ">
+        <div class=" pt-1 pb-2 mt-1 mb-2 diasDisp id " *ngIf=" horas.disponibilidad ">
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Disponible </span>
+          </span>
+        </div>
+        <div
+          (click)=" obtenerId( horas._id ) "
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class=" pt-1 pb-2 mt-1 mb-2 diasNoDisp id "
+          *ngIf=" !horas.disponibilidad ">
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Agendado </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" col mt-1 ">
+    <div *ngFor=" let horas of horas ">
+      <div *ngIf=" horas.dia === 'sábado' ">
+        <div class=" pt-1 pb-2 mt-1 mb-2 diasDisp id " *ngIf=" horas.disponibilidad ">
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Disponible </span>
+          </span>
+        </div>
+        <div
+          (click)=" obtenerId( horas._id ) "
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class=" pt-1 pb-2 mt-1 mb-2 diasNoDisp id "
+          *ngIf=" !horas.disponibilidad ">
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Agendado </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" col mt-1 ">
+    <div *ngFor=" let horas of horas ">
+      <div *ngIf=" horas.dia === 'domingo' ">
+        <div class=" pt-1 pb-2 mt-1 mb-2 diasDisp id " *ngIf=" horas.disponibilidad ">
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Disponible </span>
+          </span>
+        </div>
+        <div
+          (click)=" obtenerId( horas._id ) "
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          class=" pt-1 pb-2 mt-1 mb-2 diasNoDisp id "
+          *ngIf=" !horas.disponibilidad ">
+          <span class=" ps-1 mb-1 ">
+            {{ horas.horario }}
+            <br>
+            <span class=" ps-1 textDisp "> Agendado </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

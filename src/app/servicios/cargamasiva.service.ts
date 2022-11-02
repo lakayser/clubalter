@@ -25,7 +25,7 @@ private httpheaders = new HttpHeaders({'Content-Type' : 'aplication/json'});
   constructor(private http:HttpClient) { }
 
   getCargaMasiva(){
-    return this.http.get<CargaMasiva[]>(`${this.URL}schedule-list`)
+    return this.http.get<CargaMasiva[]>(`${this.URL}schedule-list/Cancha 1/44`)
   }
 
 
