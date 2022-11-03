@@ -27,9 +27,11 @@
     [horas]="horas"
     [id]="id"
     (onClick)="obtenerId( $event )"
+    (onClickD)="obtenerHora(  $event )"
   >
   </app-ver-horas>
 
+<!-- Modal anular -->
   <div class="modal fade" id="exampleModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -53,21 +55,39 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Hide this modal and show the first with the button below.
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
  <div>
+
+<!-- Modal Agendado -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"> Agendar una hora nueva </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #canchaForm="ngForm" (ngSubmit)=" agendarCancha( canchaForm ) ">
+          <label for="rut"> Ingresar rut: </label>
+          <input
+            type="text"
+            name="rut"
+            id="rut"
+            (ngModel)="editarHoras"
+          >
+          <input
+            type="hidden"
+            name="hora"
+            id="hora"
+            [(ngModel)]="hora"
+          >
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Salir </button>
+            <button type="submit" class="btn btn-primary"> Agendar </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

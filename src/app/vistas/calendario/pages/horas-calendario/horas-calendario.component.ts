@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
 import { EditarHoras } from '../../interface/editar-horas-interface';
 import { HorasSemana } from '../../interface/horas-interface';
 import { EditarHorasService } from '../../services/editar-horas.service';
@@ -33,6 +35,7 @@ export class HorasCalendarioComponent implements OnInit {
   id                : string = '';
   editarHoras       : EditarHoras[] = [];
   rut               : string;
+  hora              : string;
 
   constructor(
     private horasService      : HorasService,
@@ -48,6 +51,7 @@ export class HorasCalendarioComponent implements OnInit {
     this.editarHorasService.editarHoras()
       .subscribe( horasEditar =>  {
         this.editarHoras = horasEditar;
+        console.log( this.editarHoras );
       });
   }
 
@@ -95,10 +99,52 @@ export class HorasCalendarioComponent implements OnInit {
   }
 
   anularHora() {
-    this.editarHorasService.deleteHoraTomada( this.id )
-      .subscribe( resp => {
-        this.verCanchas( this.cancha );
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: 'Esta seguro de anular esta hora?',
+      text: "No se podran revertir los cambios!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, anular!',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.editarHorasService.deleteHoraTomada( this.id )
+          .subscribe( resp => {
+            this.verCanchas( this.cancha );
+            swalWithBootstrapButtons.fire(
+              'Hora anulada!',
+              'La hora a sido anulada',
+              'success'
+            )
+          })
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Your imaginary file is safe :)',
+            'error'
+          )
+        }
       })
+  }
+
+  obtenerHora( hora: string ) {
+    this.hora = hora;
+    console.log( this.hora );
+  }
+
+  agendarCancha( form: NgForm ) {
   }
 
 }

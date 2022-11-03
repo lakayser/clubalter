@@ -35,7 +35,12 @@ export class CanchasSelectComponent implements OnInit {
   }
 
   verCanchas() {
+    console.log( this.opcionSeleccionada );
     this.onClick.emit( this.opcionSeleccionada );
+  }
+
+  verIdCancha( id: string ) {
+    console.log( 'id', id );
   }
 
 }

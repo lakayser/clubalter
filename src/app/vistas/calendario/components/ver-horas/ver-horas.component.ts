@@ -42,9 +42,10 @@ import { HorasSemana } from '../../interface/horas-interface';
 })
 export class VerHorasComponent implements OnInit {
 
-  @Input() horas   : HorasSemana[] = [];
-  @Input() id      : string = '';
-  @Output() onClick: EventEmitter<string> = new EventEmitter()
+  @Input() horas    : HorasSemana[] = [];
+  @Input() id       : string = '';
+  @Output() onClick : EventEmitter<string> = new EventEmitter();
+  @Output() onClickD: EventEmitter<string> = new EventEmitter();
 
 
   constructor() { }
@@ -54,6 +55,10 @@ export class VerHorasComponent implements OnInit {
 
   obtenerId( horas: string ) {
     this.onClick.emit( horas );
+  }
+
+  obtenerHora( hora: string ) {
+    this.onClickD.emit( hora );
   }
 
 }
