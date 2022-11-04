@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { EditarHoras } from '../../interface/editar-horas-interface';
 import { HorasSemana } from '../../interface/horas-interface';
+import { CanchaService } from '../../services/cancha.service';
 import { EditarHorasService } from '../../services/editar-horas.service';
 import { HorasService } from '../../services/horas.service';
 
@@ -30,20 +31,23 @@ import { HorasService } from '../../services/horas.service';
 export class HorasCalendarioComponent implements OnInit {
 
   horas             : HorasSemana[] = [];
-  cancha            : string = 'Cancha 1';
+  canchas           : string = 'Cancha 1';
   fecha             : Date = new Date();
   id                : string = '';
   editarHoras       : EditarHoras[] = [];
+  rutIngresado      : string;
   rut               : string;
-  hora              : string;
+  horascanchas      : string;
+  cancha            : string;
 
   constructor(
     private horasService      : HorasService,
     private editarHorasService: EditarHorasService,
+    private canchaService     : CanchaService,
   ) { }
 
   ngOnInit(): void {
-    this.horasService.verHoras( this.cancha )
+    this.horasService.verHoras( this.canchas )
       .subscribe( horas => {
         console.log( horas );
         this.horas = horas;
@@ -53,11 +57,14 @@ export class HorasCalendarioComponent implements OnInit {
         this.editarHoras = horasEditar;
         console.log( this.editarHoras );
       });
+    this.obtenerIdCancha( this.canchas );
   }
 
   verCanchas( cancha: string ) {
-    console.log( 'la cancha', cancha );
-    this.horasService.verHoras( cancha )
+    this.canchas = cancha;
+    this.obtenerIdCancha( this.canchas );
+    console.log( 'la cancha', this.canchas );
+    this.horasService.verHoras( this.canchas )
       .subscribe( ( horas ) =>{
         this.horas = horas;
         this.horas.map( horas => {
@@ -70,18 +77,18 @@ export class HorasCalendarioComponent implements OnInit {
         console.log( 'El error', err );
         this.horas = [];
       });
-    this.cancha = cancha;
+    this.canchas = cancha;
   }
 
   next() {
     this.horasService.semana += 1;
-    this.verCanchas( this.cancha );
+    this.verCanchas( this.canchas );
     console.log( this.horasService.semana );
   }
 
   prev() {
     this.horasService.semana -= 1;
-    this.verCanchas( this.cancha );
+    this.verCanchas( this.canchas );
     console.log( this.horasService.semana );
   }
 
@@ -92,7 +99,7 @@ export class HorasCalendarioComponent implements OnInit {
     this.editarHoras.map( editar => {
       editar.horascanchas.map( cancha => {
         if( cancha._id === this.id ) {
-          this.rut = editar.rut;
+          this.rutIngresado = editar.rut;
         }
       })
     })
@@ -119,7 +126,7 @@ export class HorasCalendarioComponent implements OnInit {
       if (result.isConfirmed) {
         this.editarHorasService.deleteHoraTomada( this.id )
           .subscribe( resp => {
-            this.verCanchas( this.cancha );
+            this.verCanchas( this.canchas );
             swalWithBootstrapButtons.fire(
               'Hora anulada!',
               'La hora a sido anulada',
@@ -140,11 +147,27 @@ export class HorasCalendarioComponent implements OnInit {
   }
 
   obtenerHora( hora: string ) {
-    this.hora = hora;
-    console.log( this.hora );
+    this.horascanchas = hora;
+  }
+
+  obtenerIdCancha( canchas: string ) {
+    this.canchaService.verCanchas()
+      .subscribe( cancha => {
+        cancha.map( cancha => {
+          if( cancha.name === canchas ) {
+            this.cancha = cancha._id;
+          }
+        })
+      })
   }
 
   agendarCancha( form: NgForm ) {
+    this.editarHorasService.createHoraTomada( form.value )
+      .subscribe( forms => {
+        this.verCanchas( this.canchas );
+        form.reset();
+        console.log( forms );
+      })
   }
 
 }

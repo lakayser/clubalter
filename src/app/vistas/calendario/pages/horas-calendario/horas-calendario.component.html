@@ -25,7 +25,7 @@
 
   <app-ver-horas
     [horas]="horas"
-    [id]="id"
+    [id]="horascanchas"
     (onClick)="obtenerId( $event )"
     (onClickD)="obtenerHora(  $event )"
   >
@@ -40,7 +40,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          {{ rut }}
+          {{ rutIngresado }}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Salir </button>
@@ -73,13 +73,19 @@
             type="text"
             name="rut"
             id="rut"
-            (ngModel)="editarHoras"
+            (ngModel)="rut"
           >
           <input
             type="hidden"
-            name="hora"
-            id="hora"
-            [(ngModel)]="hora"
+            name="cancha"
+            id="cancha"
+            [(ngModel)]="cancha"
+          >
+          <input
+            type="hidden"
+            name="horascanchas"
+            id="horascanchas"
+            [(ngModel)]="horascanchas"
           >
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Salir </button>
