@@ -21,7 +21,9 @@ export class HorastomadasService {
   }
   
   horatomada:HorasTomadas[];
+
   private httpheaders = new HttpHeaders({'Content-Type' : 'aplication/json'});
+  
   constructor(private http:HttpClient) { }
 
   createHoraTomada(horasTomada: HorasTomadas){

@@ -45,9 +45,9 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(['/canchaselbicho/dashboardsub']);
               } else {
                 if (rol === '620c0d94b83e4a21f81253d6') {
-                  this.router.navigate(['/vistaSemana'])
-                }
-              }
+                  this.router.navigate(['/canchaselbicho/dashboarduser'])
+                } 
+              } 
             }
           }
           if (orga === '624f01c7f0bc4892296abfe7') {

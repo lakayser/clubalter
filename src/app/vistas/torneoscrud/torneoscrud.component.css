@@ -19,13 +19,7 @@ body {
 }
 
 button {
-  font-size: 50px;
-  text-align: center;
-  width: 500px;
-  height: 100px;
-  box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
-  border-radius: 15px;
-  color: white;
+
 }
 
 .btn1 {
@@ -34,6 +28,13 @@ button {
 
 .btn2 {
   background-color: #f86c4f;
+  font-size: 50px;
+  text-align: center;
+  width: 500px;
+  height: 100px;
+  box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
+  border-radius: 15px;
+  color: white;
 }
 
 .mini {

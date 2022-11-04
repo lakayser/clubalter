@@ -33,13 +33,14 @@ import { CrearTorneoComponent } from './vistas/crear-torneo/crear-torneo.compone
 import { TorneoDetallesComponent } from './vistas/torneo-detalles/torneo-detalles.component';
 import { AjustesTorneosComponent } from './vistas/ajustes-torneos/ajustes-torneos.component';
 import { AjustesTorneosModule } from './vistas/ajustes-torneos/ajustes-torneos.module';
-
+import { CrearTorneoModule } from './vistas/crear-torneo/crear-torneo.module';
+import { TorneoscrudModule } from './vistas/torneoscrud/torneoscrud.module';
+import { TorneoDetallesModule } from './vistas/torneo-detalles/torneo-detalles.module';
+import { RegistroelbichoModule } from './vistas/registroelbicho/registroelbicho.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TorneoDetallesComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -67,6 +68,11 @@ import { AjustesTorneosModule } from './vistas/ajustes-torneos/ajustes-torneos.m
     IniciomodcanchaModule,
     IniciousercanchaModule,
     IniciosubadmincanchaModule,
+    AjustesTorneosModule,
+    CrearTorneoModule,
+    TorneoscrudModule,
+    TorneoDetallesModule,
+    RegistroelbichoModule
   ],
 
   exports: [

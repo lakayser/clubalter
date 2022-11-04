@@ -1,7 +1,7 @@
 <body>
   <section>
-    <div class="container">
-      <h1>NOMBRE DE TORNEO</h1>
+    <div class="container" *ngFor="let Torneo of Torneo |ObjToArray">
+      <h1>{{Torneo.nombreTorneo}}</h1>
       <div class="row row-30 align-items-center">
         <div class="col-md-6">
           <h5>29/10/2022 10:30AM</h5>
@@ -13,10 +13,10 @@
     </div>
   </section>
   <section class="section section-lg">
-    <div class="container ">
+    <div class="container" *ngFor="let Torneo of Torneo ">
 
       <div class="row">
-        <div class="burbuja">
+        <div class="burbuja" >
           <div class="row text-center">
             <span class="h2">DETALLES PUBLICADOS</span>
           </div>
@@ -25,43 +25,43 @@
               <span class="h5">Inicio del Torneo:</span>
             </div>
             <div class="col-sm-4 mb-3">
-              <span class="h6">El Torneo comienza el 29/10/2022 10:30AM </span>
+              <span class="h6">El Torneo comienza el {{Torneo.inicioT}} </span>
             </div>
             <div class="col-sm-2">
               <span class="h5">Lugar:</span>
             </div>
             <div class="col-sm-4 mb-3">
-              <span class="h6">El Torneo se jugara en el recinto [NOMBRE DEL CENTRO DEPORTIVO] san carlos calle falsa 123 </span>
+              <span class="h6">El Torneo se jugara en {{Torneo.lugar}} </span>
             </div>
             <div class="col-sm-2 mb-3">
               <span class="h5">Inicio de inscripciones:</span>
             </div>
             <div class="col-sm-4 mb-3">
-              <span class="h6">20 de octubre de 2022 14:30</span>
+              <span class="h6">{{Torneo.inicioInscripciones}}</span>
             </div>
             <div class="col-sm-2 mb-3">
               <span class="h5">Fin de Inscripciones:</span>
             </div>
             <div class="col-sm-4 mb-3">
-              <span class="h6">26 de octubre de 2022 14:30</span>
+              <span class="h6">{{Torneo.finInscripciones}}</span>
             </div>
             <div class="col-sm-2 mb-3">
               <span class="h5">Categoria del torneo:</span>
             </div>
             <div class="col-sm-4 mb-3">
-              <span class="h6">6tha mixto</span>
+              <span class="h6" *ngFor="let a of Torneo.categoriaTorneo">{{a.name}}  </span>
             </div>
             <div class="col-sm-2 mb-3">
               <span class="h5">Limite de parejas:</span>
             </div>
             <div class="col-sm-4 mb-3">
-              <span class="h6">8</span>
+              <span class="h6">{{Torneo.limiteParejas}}</span>
             </div>
             <div class="col-sm-2">
-              <span class="h5">Inscripcion por pareja:</span>
+              <span class="h5">Detalles:</span>
             </div>
             <div class="col-sm-4 mb-3">
-              <span class="h6">La inscripcion debe ser realizada una sola ves por pareja y por el capitan de la misma</span>
+              <span class="h6">{{Torneo.detalle}}</span>
             </div>
           </div>
         </div>

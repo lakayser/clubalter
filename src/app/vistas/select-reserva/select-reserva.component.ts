@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from 'src/app/servicios/usuarios.service';
 import { HorastomadasService } from 'src/app/servicios/horastomadas.service';
 import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service';
 import { CanchasService } from 'src/app/servicios/canchas.service';
@@ -66,7 +65,7 @@ export class SelectReservaComponent implements OnInit {
     }); }
     )
     
-  }
+  } 
   
 
   initForm(): FormGroup {

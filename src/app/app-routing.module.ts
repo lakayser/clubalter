@@ -31,6 +31,8 @@ import { TorneoscrudComponent } from './vistas/torneoscrud/torneoscrud.component
 import { CrearTorneoComponent } from './vistas/crear-torneo/crear-torneo.component';
 import { TorneoDetallesComponent } from './vistas/torneo-detalles/torneo-detalles.component';
 import { AjustesTorneosComponent } from './vistas/ajustes-torneos/ajustes-torneos.component';
+import { RegistroelbichoComponent } from './vistas/registroelbicho/registroelbicho.component';
+
 const routes: Routes = [
   /**
    * @AUTH canActivate: [AuthGuard] AGREGAR
@@ -64,8 +66,9 @@ const routes: Routes = [
   { path: 'canchaselbicho/dashboarduser', component:IniciousercanchaComponent},
   { path: 'canchaselbicho/TorneoCrud', component:TorneoscrudComponent},
   { path: 'canchaselbicho/CrearTorneo', component:CrearTorneoComponent},
-  { path: 'canchaselbicho/TorneoDetalles', component:TorneoDetallesComponent},
+  { path: 'canchaselbicho/TorneoDetalles/:id', component:TorneoDetallesComponent},
   { path: 'canchaselbicho/AjusteT', component:AjustesTorneosComponent},
+  { path: 'canchaselbicho/Registro', component:RegistroelbichoComponent},
   { path: '**'                 , redirectTo: '', pathMatch: 'full' }
 
 ];

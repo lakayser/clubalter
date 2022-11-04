@@ -48,6 +48,8 @@ export class UsuariosService {
     return this.http.get<Usuario[]>(`${this.URL}list-users`);
   }
 
+ 
+
   createUsuario(usuario: Usuario){
     return this.http.post(`${this.URL}register-users`, usuario);
 

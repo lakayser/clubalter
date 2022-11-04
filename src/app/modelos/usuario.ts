@@ -9,6 +9,6 @@ export interface Usuario {
     direccion: string;
     email: string;
     service: '',
-    roles: ''
+    roles: string
     
 }

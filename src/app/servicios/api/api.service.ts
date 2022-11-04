@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/modelos/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,9 @@ export class ApiService {
 
   signIn (user:any){
     return this.http.post<any>(this.URL + '/signin', user);
+  }
+  singUp(usuario:Usuario){
+    return this.http.post(`${this.URL}/signup`, usuario);
   }
 
   loggedIn () {

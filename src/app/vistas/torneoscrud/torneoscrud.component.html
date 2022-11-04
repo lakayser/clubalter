@@ -24,27 +24,22 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Fecha ini</th>
-                        <th scope="col">Categoria</th>
+                        <th scope="col">Categorias</th> 
                         <th scope="col">Estado</th>
                         <th scope="col">Detalles</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>Torneo mixto</td>
-                        <td>Eliminacion Directa</td>
-                        <td>14/10/2022</td>
-                        <td>6ta</td>
-                        <td>semis</td>
-                        <td>Detalles</td>
-                      </tr>
-                      <tr>
-                        <td>Torneo femenino</td>
-                        <td>Eliminacion Directa</td>
-                        <td>20/10/2022</td>
-                        <td>4ta</td>
-                        <td>semis</td>
-                        <td>Detalles</td>
+                    <tbody *ngFor="let Torneo of Torneo">
+                      <tr *ngFor="let a of Torneo.categoriaTorneo" >
+                        <td>{{Torneo.nombreTorneo}}</td>
+                        <td *ngFor="let b of Torneo.tipoTorneo">{{b.name}}</td>
+                        <td>{{Torneo.inicioT}}</td>
+                        <td *ngFor="let c of  Torneo.categoriaParticipantes">{{a.name}} {{c.name}}</td>
+                        <td>{{Torneo.estadoEnCurso}}</td>
+
+                        <td (click)="goDetalles(Torneo)"><button type="button" class="btn btn-primary"><span class="material-icons">
+                          visibility
+                          </span></button></td>
                       </tr>
                     </tbody>
                   </table>

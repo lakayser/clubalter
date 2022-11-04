@@ -29,6 +29,7 @@ export class CanchasCrudComponent implements OnInit {
 
     })
   }
+  
   addCancha(form: NgForm) {
     if (form.value._id) {
       this.canchasService.putCanchas(form.value).subscribe((res) => {
