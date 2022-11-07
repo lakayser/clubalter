@@ -1,0 +1,99 @@
+
+<div class=" container ">
+
+  <div class="row">
+
+    <div class=" col mt-1 ">
+      <app-canchas-select (onClick)="verCanchas( $event )"></app-canchas-select>
+    </div>
+
+    <div class=" col fw-bold fechaStyle mt-1 text-start ">
+      {{ fecha | date: 'MMM/yyyy': 'UTC' }}
+    </div>
+
+    <div class=" col d-flex justify-content-center fw-bold mt-1 ">
+      <span (click)=" prev() " class=" material-icons arrowStyle "> arrow_left </span>
+      <h3> Semana </h3>
+      <span (click)=" next() " class=" material-icons arrowStyle "> arrow_right </span>
+    </div>
+  </div>
+
+  <app-dias-calendario
+    [horas]="horas"
+  >
+  </app-dias-calendario>
+
+  <app-ver-horas
+    [horas]="horas"
+    [id]="horascanchas"
+    (onClick)="obtenerId( $event )"
+    (onClickD)="obtenerHora(  $event )"
+  >
+  </app-ver-horas>
+
+<!-- Modal anular -->
+  <div class="modal fade" id="exampleModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel"> Rut: </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{ rutIngresado }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Salir </button>
+          <span
+            class="btn btn-primary"
+            (click)=" anularHora() "
+            data-bs-target="#exampleModalToggle2"
+            data-bs-toggle="modal"
+            data-bs-dismiss="modal"
+          > Anular hora </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <div>
+
+<!-- Modal Agendado -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"> Agendar una hora nueva </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #canchaForm="ngForm" (ngSubmit)=" agendarCancha( canchaForm ) ">
+          <label for="rut"> Ingresar rut: </label>
+          <input
+            type="text"
+            name="rut"
+            id="rut"
+            (ngModel)="rut"
+          >
+          <input
+            type="hidden"
+            name="cancha"
+            id="cancha"
+            [(ngModel)]="cancha"
+          >
+          <input
+            type="hidden"
+            name="horascanchas"
+            id="horascanchas"
+            [(ngModel)]="horascanchas"
+          >
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Salir </button>
+            <button type="submit" class="btn btn-primary"> Agendar </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

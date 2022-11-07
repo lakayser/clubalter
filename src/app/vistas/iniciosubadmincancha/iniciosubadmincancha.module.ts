@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule }                from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { IniciosubadmincanchaComponent } from './iniciosubadmincancha.component';
-import { CalendarModule } from '../canchaEspe/calendar.module';
+import { CalendarioModule } from '../calendario/calendario.module';
 
 
 
@@ -18,7 +18,7 @@ import { CalendarModule } from '../canchaEspe/calendar.module';
     CommonModule,
     NgxChartsModule,
     BrowserAnimationsModule,
-    CalendarModule
+    CalendarioModule
   ]
 })
 export class IniciosubadmincanchaModule { }

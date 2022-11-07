@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./select-canchas.component.css']
 })
 export class SelectCanchasComponent implements OnInit {
- 
+
 
   constructor(private router: Router, private route: ActivatedRoute ,public canchasService: CanchasService, public horariocanchaService: HorarioCanchaService, public horasmasivasService: HorasmasivasService, public cargamasivaService: CargamasivaService, public horastomadasService: HorastomadasService) { }
 
@@ -28,7 +28,7 @@ export class SelectCanchasComponent implements OnInit {
   //   this.canchasService.postReserva(form.value).subscribe((res)=>{
   //     this.router.navigate(['/reservaselect', res])
   //     console.log(res)
-      
+
   //   })
   // }
   onSelect(cancha:Cancha){
@@ -41,7 +41,7 @@ export class SelectCanchasComponent implements OnInit {
     this.canchasService.getCanchas().subscribe((res)=>{
       this.canchasService.cancha= res;
       // console.log(res)
-      
+
     })
   }
   addCancha(form:NgForm){
@@ -50,7 +50,7 @@ export class SelectCanchasComponent implements OnInit {
         // console.log(res);
         this.getCanchas();
         form.reset();
-        
+
       });
     }else{
       this.canchasService.createCancha(form.value).subscribe((res)=>{
@@ -68,9 +68,9 @@ export class SelectCanchasComponent implements OnInit {
     this.horastomadasService.getHoraTomada().subscribe((res)=>{
       this.horastomadasService.horatomada=res;
       // console.log(res);
-      
+
     })
-  
+
   }
   deleteHoraTomada(id: any){
     const swalWithBootstrapButtons = Swal.mixin({
@@ -117,7 +117,7 @@ export class SelectCanchasComponent implements OnInit {
     //   );
     // }
   }
-  
+
 
 
 }

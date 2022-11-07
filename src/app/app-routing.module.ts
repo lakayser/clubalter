@@ -1,4 +1,4 @@
-import { NgModule }                     from '@angular/core';
+import { Component, NgModule }                     from '@angular/core';
 import { RouterModule, Routes }         from '@angular/router';
 import { LoginComponent }               from './vistas/login/login.component';
 import { IndexComponent }               from './pagina/index/index.component';
@@ -18,7 +18,6 @@ import { PagoComponent }                from './pagina/pago/pago.component';
 import { SelectCanchasComponent }       from './vistas/select-canchas/select-canchas.component';
 import { SelectReservaComponent }       from './vistas/select-reserva/select-reserva.component';
 import { CommitComponent }              from './vistas/commit/commit.component';
-import { VistaSemanaComponent } from './vistas/canchaEspe/vista-semana/vista-semana.component';
 import { FormularioRegistroComponent } from './vistas/formulario-registro/formulario-registro.component';
 import { PrimerForemularioComponent } from './vistas/primer-foremulario/primer-foremulario.component';
 import { GraciasComponent } from './vistas/gracias/gracias.component';
@@ -33,6 +32,7 @@ import { TorneoDetallesComponent } from './vistas/torneo-detalles/torneo-detalle
 import { AjustesTorneosComponent } from './vistas/ajustes-torneos/ajustes-torneos.component';
 import { RegistroelbichoComponent } from './vistas/registroelbicho/registroelbicho.component';
 
+import { HorasCalendarioComponent } from './vistas/calendario/pages/horas-calendario/horas-calendario.component';
 const routes: Routes = [
   /**
    * @AUTH canActivate: [AuthGuard] AGREGAR
@@ -53,7 +53,7 @@ const routes: Routes = [
   { path: 'canchaselect'       , component: SelectCanchasComponent },
   { path: 'reservaselect/:id'  , component: SelectReservaComponent },
   { path: 'dashboardAdmin'     , component: DashboardadminComponent },
-  { path: 'vistaSemana'        , component: VistaSemanaComponent },//vistaSemana
+  { path: 'calendario'         , component: HorasCalendarioComponent },
   { path: 'usersAdmin'         , component: AdminusuariosComponent },
   { path: 'orgaAdmin'          , component: OrganizacionesAdminComponent },
   { path: 'registro'           , component: PrimerForemularioComponent},

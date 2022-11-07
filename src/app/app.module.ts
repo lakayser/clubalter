@@ -12,7 +12,6 @@ import { PipesModule } from './pipes/pipes.module';
 import { PaginaModule } from './pagina/pagina.module';
 import { ProfesorVistaModule } from './profesor-vista/profesor-vista.module';
 import { VistaAdminModule } from './vistaAdmin/vista-admin.module';
-import { CalendarModule } from './vistas/canchaEspe/calendar.module';
 import { CanchasCrudModule } from './vistas/canchas-crud/canchas-crud.module';
 import { CanchasDashboardModule } from './vistas/canchas-dashboard/canchas-dashboard.module';
 import { CommitModule } from './vistas/commit/commit.module';
@@ -37,6 +36,8 @@ import { CrearTorneoModule } from './vistas/crear-torneo/crear-torneo.module';
 import { TorneoscrudModule } from './vistas/torneoscrud/torneoscrud.module';
 import { TorneoDetallesModule } from './vistas/torneo-detalles/torneo-detalles.module';
 import { RegistroelbichoModule } from './vistas/registroelbicho/registroelbicho.module';
+import { CalendarioModule } from './vistas/calendario/calendario.module';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +54,6 @@ import { RegistroelbichoModule } from './vistas/registroelbicho/registroelbicho.
     PaginaModule,
     ProfesorVistaModule,
     VistaAdminModule,
-    CalendarModule,
     CanchasCrudModule,
     CanchasDashboardModule,
     CommitModule,
@@ -68,14 +68,12 @@ import { RegistroelbichoModule } from './vistas/registroelbicho/registroelbicho.
     IniciomodcanchaModule,
     IniciousercanchaModule,
     IniciosubadmincanchaModule,
-    AjustesTorneosModule,
     CrearTorneoModule,
     TorneoscrudModule,
     TorneoDetallesModule,
-    RegistroelbichoModule
-  ],
+    RegistroelbichoModule,
+    CalendarioModule,
 
-  exports: [
   ],
   providers: [ AuthGuard, {
     provide: HTTP_INTERCEPTORS,

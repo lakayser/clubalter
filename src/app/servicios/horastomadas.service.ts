@@ -12,14 +12,6 @@ export class HorastomadasService {
   URL2: string = 'https://botmila-api.herokuapp.com/botmilaAPI/';
   filtro:'';
 
-  selectedHorasTomadas: HorasTomadas={
-    horascanchas: '',
-    cancha: '',
-    rut: '',
-    id: '',
-    codigoVenta: ''
-  }
-  
   horatomada:HorasTomadas[];
 
   private httpheaders = new HttpHeaders({'Content-Type' : 'aplication/json'});
@@ -40,7 +32,7 @@ export class HorastomadasService {
   {
     return this.http.get<HorasTomadas[]>('https://botmila-api.herokuapp.com/botmilaAPI/moderator/', {params:{buscar: query}});
   }
-  
+
   createHoraTomadaSubA(horasTomada: HorasTomadas){
     return this.http.post(`${this.URL}agendar-hora`, horasTomada)
   }

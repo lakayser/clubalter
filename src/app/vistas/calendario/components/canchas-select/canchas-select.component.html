@@ -1,0 +1,15 @@
+<select
+  class=" form-select form-select-lg fw-bold "
+  aria-label=" Default select example "
+  [(ngModel)]="opcionSeleccionada"
+  (change)="verCanchas()"
+  name="canchas"
+>
+<option selected > Canchas </option>
+<option
+  *ngFor=" let canchas of canchas "
+>
+  {{ canchas.name }}
+</option>
+</select>
+

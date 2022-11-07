@@ -33,6 +33,7 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <script src="../../../assets/js/plantillacore.js"></script>
   <script src="../../../assets/js/plantillascript.js"></script>
+  <script src="https://kit.fontawesome.com/0114e3ceb1.js" crossorigin="anonymous"></script>
 </head>
 <body></body>
   <app-root></app-root>
@@ -42,7 +43,7 @@
   document.addEventListener("DOMContentLoaded", function(event) {
       showTab(currentTab);
   });
-  
+
   function showTab(n) {
     var x = document.getElementsByClassName("tab");
     console.log(x);
@@ -62,7 +63,7 @@
         document.getElementById("Proceso").style.display = "none";
         document.getElementById("enviar").style.display = "inline";
     } else {
-        document.getElementById("nextBtn").innerHTML = "Siguiente"; 
+        document.getElementById("nextBtn").innerHTML = "Siguiente";
         document.getElementById("Proceso").style.display = "inline";
     }
     fixStepIndicator(n)
@@ -80,7 +81,7 @@
       }
       showTab(currentTab);
   }
-  
+
   function fixStepIndicator(n) {
       var i, x = document.getElementsByClassName("step");
       for (i = 0; i < x.length; i++) { x[i].className = x[i].className.replace(" active", ""); }

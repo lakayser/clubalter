@@ -37,9 +37,9 @@ export class SelectReservaComponent implements OnInit {
       var id = params.get('id');
       this.getID(id);
     });
-    
+
     this.reservaForm =this.initForm();
-    
+
   }
   onSubmit():void{
     this.horastomadasService.createHoraTomada(this.reservaForm.value).subscribe((res)=>{
@@ -47,7 +47,7 @@ export class SelectReservaComponent implements OnInit {
     console.log(this.reservaForm.value);
     this.getHoraTomada();
     this.reservaForm.reset();
-    
+
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -64,9 +64,9 @@ export class SelectReservaComponent implements OnInit {
       timer:2500
     }); }
     )
-    
-  } 
-  
+
+  }
+
 
   initForm(): FormGroup {
     return this.fb.group({
@@ -81,8 +81,6 @@ export class SelectReservaComponent implements OnInit {
     this.horastomadasService.createHoraTomada(form.value).subscribe((res)=>{
       // console.log(res);
       form.reset();
-
-    
     })
   }
 
@@ -92,28 +90,28 @@ export class SelectReservaComponent implements OnInit {
       // console.log(res);
     })
   }
-  
+
 
   getCargaMasiva(){
     this.cargamasivaService.getCargaMasiva().subscribe((res)=>{
       this.cargamasivaService.cargamasi = res;
       // console.log(res);
-      
+
     })
   }
   getCanchas(){
     this.canchasService.getCanchas().subscribe((res)=>{
       this.canchasService.cancha= res;
       // console.log(res)
-      
+
     })
   }
- 
+
 getHoraTomada(){
   this.horastomadasService.getHoraTomada().subscribe((res)=>{
     this.horastomadasService.horatomada=res;
     // console.log(res);
-    
+
   })
 
 }
@@ -166,12 +164,12 @@ deleteHoraTomada(id: any){
 }
 
 
- 
+
  // getActivo(){
   //   this.usuariosService.getActivo().subscribe((resp)=>{
   //     this.usuariosService.nombre =resp;
   //     console.log('respuesta'+ resp)
-      
+
   //   })
   // }
 
