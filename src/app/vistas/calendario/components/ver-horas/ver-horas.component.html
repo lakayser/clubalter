@@ -1,6 +1,6 @@
  <div class=" row row-cols-7 fw-bold ">
 
-  <div class=" col mt-1 horasTransition ">
+  <div class=" col mt-1 ">
     <div *ngFor=" let horas of horas ">
       <div *ngIf=" horas.dia === 'lunes' ">
         <div
@@ -10,7 +10,7 @@
           class=" pt-1 pb-2 mt-1 mb-2 diasDisp id "
           *ngIf=" horas.disponibilidad "
         >
-          <span  class=" ps-1 mb-1 ">
+          <span class=" ps-1 mb-1 ">
             {{ horas.horario }}
             <br>
             <span class=" ps-1 textDisp "> Disponible </span>

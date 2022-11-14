@@ -6,6 +6,7 @@ import { CanchasSelectComponent } from './components/canchas-select/canchas-sele
 import { FormsModule } from '@angular/forms';
 import { DiasCalendarioComponent } from './components/dias-calendario/dias-calendario.component';
 import { VerHorasComponent } from './components/ver-horas/ver-horas.component';
+import { DiasCalendarioTlfComponent } from './components/dias-calendario-tlf/dias-calendario-tlf.component';
 
 
 
@@ -15,6 +16,7 @@ import { VerHorasComponent } from './components/ver-horas/ver-horas.component';
     CanchasSelectComponent,
     DiasCalendarioComponent,
     VerHorasComponent,
+    DiasCalendarioTlfComponent,
   ],
   imports: [
     CommonModule,
