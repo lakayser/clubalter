@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { TorneoCrear } from '../modelos/TorneoCrear';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Inscripcion } from '../modelos/Inscripcion';
+import { ListaInscrito } from '../modelos/listaInscritos';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +34,11 @@ export class TorneosService {
   deleteTorneo(id: string) {
     return this.http.delete(`${this.URL}eliminar-torneo/${id}`);
   }
-
+  
+  Inscripcion(id: string, inscr:Inscripcion){
+    return this.http.put(`${this.URL}crear-inscripcion/${id}`, inscr)
+  }
+  listaInscritos(id: string):  Observable<ListaInscrito[]>{
+    return this.http.get<ListaInscrito[]>(`${this.URL}/listar-inscripciones/${id}`)
+  }
 }

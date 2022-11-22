@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TorneosService } from '../../servicios/torneos.service';
 import { TorneoCrear } from 'src/app/modelos/TorneoCrear';
 
+
 @Component({
   selector: 'app-torneo-detalles',
   templateUrl: './torneo-detalles.component.html',
@@ -10,6 +11,7 @@ import { TorneoCrear } from 'src/app/modelos/TorneoCrear';
 })
 export class TorneoDetallesComponent implements OnInit {
   cosa: any={};
+  rol:any;
   Torneo: TorneoCrear[];
 
   constructor(private router: Router,  private torneoService:TorneosService, private route:ActivatedRoute) { }
@@ -24,10 +26,14 @@ export class TorneoDetallesComponent implements OnInit {
       this.getID(id);
      
     });
+
+    
   }
 
-  onSelect(){
-    this.router.navigate(['/canchaselbicho/CrearTorneo'])
+  goInscripcion(torneo:TorneoCrear){
+     this.router.navigate(['/canchaselbicho/Inscripcion', torneo._id]);
+    
+    
   }
 
   getTorneos(){
@@ -38,6 +44,7 @@ export class TorneoDetallesComponent implements OnInit {
   }
   
   getID(id:any){
+    this.rol = localStorage.getItem('rol');
     this.torneoService.getTorneosID(id).subscribe((res)=>{
       this.Torneo=res;
       console.log(res)

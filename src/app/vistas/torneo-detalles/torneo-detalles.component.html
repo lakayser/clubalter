@@ -12,8 +12,9 @@
       </div>
     </div>
   </section>
-  <section class="section section-lg">
-    <div class="container" *ngFor="let Torneo of Torneo ">
+  
+  <section class="section section-lg" *ngFor="let Torneo of Torneo ">
+    <div class="container" >
 
       <div class="row">
         <div class="burbuja" >
@@ -49,7 +50,7 @@
               <span class="h5">Categoria del torneo:</span>
             </div>
             <div class="col-sm-4 mb-3">
-              <span class="h6" *ngFor="let a of Torneo.categoriaTorneo">{{a.name}}  </span>
+              <span class="h6" *ngFor="let a of Torneo.categoriaTorneo">{{a.name}}</span>
             </div>
             <div class="col-sm-2 mb-3">
               <span class="h5">Limite de parejas:</span>
@@ -68,8 +69,14 @@
       </div>
 
     </div>
+    <<ng-container *ngIf="rol == '620c0d94b83e4a21f81253d6'">
+      <div class="text-center">
+        <button type="button" (click)="goInscripcion(Torneo)" class="btn btn-primary">Inscribirse</button>
+      </div>
+    </ng-container>
   </section>
-  <section class="section section-lg ">
+  
+  <section class="section section-lg " *ngIf="rol !== '620c0d94b83e4a21f81253d6' ">
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center ">
       <h1 class="display-4 fw-normal">Parejas Inscritas</h1>
     </div>

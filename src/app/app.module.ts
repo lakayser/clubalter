@@ -37,6 +37,9 @@ import { TorneoscrudModule } from './vistas/torneoscrud/torneoscrud.module';
 import { TorneoDetallesModule } from './vistas/torneo-detalles/torneo-detalles.module';
 import { RegistroelbichoModule } from './vistas/registroelbicho/registroelbicho.module';
 import { CalendarioModule } from './vistas/calendario/calendario.module';
+import { InscripcionTorneoModule } from './vistas/inscripcion-torneo/inscripcion-torneo.module';
+import { Ng13RutModule } from 'ng13-rut';
+
 
 
 @NgModule({
@@ -73,9 +76,14 @@ import { CalendarioModule } from './vistas/calendario/calendario.module';
     TorneoDetallesModule,
     RegistroelbichoModule,
     CalendarioModule,
+    InscripcionTorneoModule,
+    Ng13RutModule
 
   ],
-  providers: [ AuthGuard, {
+  exports:[
+  
+  ],
+  providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true

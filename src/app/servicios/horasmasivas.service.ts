@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HorasmasivasService {
+  
   URL: string = 'https://botmila-api.herokuapp.com/botmilaAPI/moderator/';
 
 

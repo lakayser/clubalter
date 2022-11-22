@@ -33,6 +33,8 @@ import { AjustesTorneosComponent } from './vistas/ajustes-torneos/ajustes-torneo
 import { RegistroelbichoComponent } from './vistas/registroelbicho/registroelbicho.component';
 
 import { HorasCalendarioComponent } from './vistas/calendario/pages/horas-calendario/horas-calendario.component';
+import { InscripcionTorneoComponent } from './vistas/inscripcion-torneo/inscripcion-torneo.component';
+
 const routes: Routes = [
   /**
    * @AUTH canActivate: [AuthGuard] AGREGAR
@@ -69,6 +71,9 @@ const routes: Routes = [
   { path: 'canchaselbicho/TorneoDetalles/:id', component:TorneoDetallesComponent},
   { path: 'canchaselbicho/AjusteT', component:AjustesTorneosComponent},
   { path: 'canchaselbicho/Registro', component:RegistroelbichoComponent},
+  { path: 'canchaselbicho/Inscripcion/:id', component:InscripcionTorneoComponent},
+
+  
   { path: '**'                 , redirectTo: '', pathMatch: 'full' }
 
 ];

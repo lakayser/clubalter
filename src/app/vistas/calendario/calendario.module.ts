@@ -15,6 +15,8 @@ import { VerHorasComponent } from './components/ver-horas/ver-horas.component';
     CanchasSelectComponent,
     DiasCalendarioComponent,
     VerHorasComponent,
+  ],exports: [
+    
   ],
   imports: [
     CommonModule,
