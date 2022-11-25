@@ -37,11 +37,16 @@ import { TorneoscrudModule } from './vistas/torneoscrud/torneoscrud.module';
 import { TorneoDetallesModule } from './vistas/torneo-detalles/torneo-detalles.module';
 import { RegistroelbichoModule } from './vistas/registroelbicho/registroelbicho.module';
 import { CalendarioModule } from './vistas/calendario/calendario.module';
+import { VerGrillasComponent } from './vistas/grilla/pages/ver-grillas/ver-grillas.component';
+import { GrillaOchoComponent } from './vistas/grilla/components/grilla-ocho/grilla-ocho.component';
+import { GrillaModule } from './vistas/grilla/grilla.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    VerGrillasComponent,
+    GrillaOchoComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +78,7 @@ import { CalendarioModule } from './vistas/calendario/calendario.module';
     TorneoDetallesModule,
     RegistroelbichoModule,
     CalendarioModule,
+    GrillaModule,
 
   ],
   providers: [ AuthGuard, {
