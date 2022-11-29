@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TorneosService } from 'src/app/servicios/torneos.service';
 import { TipostorneoService } from 'src/app/servicios/tipostorneo.service';
@@ -17,19 +17,19 @@ import { CategoriaTorneo } from 'src/app/modelos/categoriaTorneo';
 export class CrearTorneoComponent implements OnInit {
 
 
-  torneo = new FormGroup({
-    nombreTorneo: new FormControl(''),
-    inicioT: new FormControl(''),
-    lugar: new FormControl(''),
-    estadoEnCurso: new FormControl(''),
-    inicioInscripciones: new FormControl(''),
-    finInscripciones: new FormControl(''),
-    categoriaTorneo: new FormControl(''),
-    categoriaParticipantes: new FormControl(''),
-    limiteParejas: new FormControl(''),
-    detalle: new FormControl(''),
-    tipoTorneo: new FormControl(''),
-    valorInscripcion: new FormControl(''),
+  torneo = new UntypedFormGroup({
+    nombreTorneo: new UntypedFormControl(''),
+    inicioT: new UntypedFormControl(''),
+    lugar: new UntypedFormControl(''),
+    estadoEnCurso: new UntypedFormControl(''),
+    inicioInscripciones: new UntypedFormControl(''),
+    finInscripciones: new UntypedFormControl(''),
+    categoriaTorneo: new UntypedFormControl(''),
+    categoriaParticipantes: new UntypedFormControl(''),
+    limiteParejas: new UntypedFormControl(''),
+    detalle: new UntypedFormControl(''),
+    tipoTorneo: new UntypedFormControl(''),
+    valorInscripcion: new UntypedFormControl(''),
   });
 
   
@@ -39,7 +39,7 @@ export class CrearTorneoComponent implements OnInit {
 
   CategoriaT: CategoriaTorneo[];
 
-  constructor( public categoriaTorneoService:CategoriaTorneoService,public tipotorneoService:TipostorneoService, public categoriaparticipanteService:CategoriaParticipantesService, private route: Router, private readonly fb: FormBuilder, private TorneoService:TorneosService ) { }
+  constructor( public categoriaTorneoService:CategoriaTorneoService,public tipotorneoService:TipostorneoService, public categoriaparticipanteService:CategoriaParticipantesService, private route: Router, private readonly fb: UntypedFormBuilder, private TorneoService:TorneosService ) { }
 
   ngOnInit(): void {
     this.gettipotorneo();

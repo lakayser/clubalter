@@ -3,7 +3,7 @@ import { HorastomadasService } from 'src/app/servicios/horastomadas.service';
 import {HorarioCanchaService} from 'src/app/servicios/horario-cancha.service';
 import { CanchasService } from 'src/app/servicios/canchas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -15,9 +15,9 @@ import Swal from 'sweetalert2';
 })
 export class SelectReservaComponent implements OnInit {
   cosa: any={};
-  reservaForm!: FormGroup;
+  reservaForm!: UntypedFormGroup;
 
-  constructor(private readonly fb:FormBuilder,private router: Router, private route:ActivatedRoute ,public cargamasivaService:CargamasivaService, public horasmasivasService: HorasmasivasService ,public horastomadasService:HorastomadasService,public horariocanchaService: HorarioCanchaService, public canchasService:CanchasService) {
+  constructor(private readonly fb:UntypedFormBuilder,private router: Router, private route:ActivatedRoute ,public cargamasivaService:CargamasivaService, public horasmasivasService: HorasmasivasService ,public horastomadasService:HorastomadasService,public horariocanchaService: HorarioCanchaService, public canchasService:CanchasService) {
 
    }
   disponible="table-success";
@@ -68,7 +68,7 @@ export class SelectReservaComponent implements OnInit {
   }
 
 
-  initForm(): FormGroup {
+  initForm(): UntypedFormGroup {
     return this.fb.group({
       cancha: [this.cosa, [Validators.required, Validators.minLength(5)]],
       rut: ['', [Validators.required, Validators.minLength(5)]],
