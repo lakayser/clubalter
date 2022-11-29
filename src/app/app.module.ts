@@ -39,6 +39,7 @@ import { RegistroelbichoModule } from './vistas/registroelbicho/registroelbicho.
 import { CalendarioModule } from './vistas/calendario/calendario.module';
 import { VerGrillasComponent } from './vistas/grilla/pages/ver-grillas/ver-grillas.component';
 import { GrillaModule } from './vistas/grilla/grilla.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { GrillaModule } from './vistas/grilla/grilla.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     NgxChartsModule,
