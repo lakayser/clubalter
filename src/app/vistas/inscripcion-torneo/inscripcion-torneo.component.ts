@@ -3,7 +3,7 @@ import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, NgForm, Valid
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListaInscrito } from 'src/app/modelos/listaInscritos';
 import { TorneosService } from 'src/app/servicios/torneos.service';
-import { RutService } from 'rut-chileno';
+// import { RutService } from 'rut-chileno';
 
 
 import Swal from 'sweetalert2';
@@ -26,7 +26,7 @@ export class InscripcionTorneoComponent implements OnInit {
   cosa: any={};
   lista: ListaInscrito[];
 
-  constructor(private fb: UntypedFormBuilder, private rutService:RutService ,private router: Router,private route:ActivatedRoute,private torneoService:TorneosService) { }
+  constructor(private fb: UntypedFormBuilder,private router: Router,private route:ActivatedRoute,private torneoService:TorneosService) { }
 
   ngOnInit(): void {
     let BN = this.route.snapshot.paramMap.get('id');
@@ -46,20 +46,11 @@ export class InscripcionTorneoComponent implements OnInit {
 
     this.inscripcion = this.fb.group({
         nombreEquipo: ["", [Validators.required]],
-        participante1: ["", [Validators.required, this.rutService.validaRutForm]],
-        participante2: ["", [Validators.required, this.rutService.validaRutForm]]
+        participante1: ["", [Validators.required, ]],
+        participante2: ["", [Validators.required, ]]
     })
   }
-  inputEventp1(event : Event) {
-    let rut = this.rutService.getRutChileForm(1, (event.target as HTMLInputElement).value)
-    if (rut)
-      this.inscripcion.controls['participante1'].patchValue(rut, {emitEvent :false});
-  }
-  inputEventp2(event : Event) {
-    let rut = this.rutService.getRutChileForm(1, (event.target as HTMLInputElement).value)
-    if (rut)
-      this.inscripcion.controls['participante2'].patchValue(rut, {emitEvent :false});
-  }
+  
   
   getID(id:any){
     this.torneoService.listaInscritos(id).subscribe((res)=>{

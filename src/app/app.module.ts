@@ -38,7 +38,7 @@ import { TorneoDetallesModule } from './vistas/torneo-detalles/torneo-detalles.m
 import { RegistroelbichoModule } from './vistas/registroelbicho/registroelbicho.module';
 import { CalendarioModule } from './vistas/calendario/calendario.module';
 import { InscripcionTorneoModule } from './vistas/inscripcion-torneo/inscripcion-torneo.module';
-import { Ng13RutModule } from 'ng13-rut';
+
 
 
 
@@ -77,7 +77,6 @@ import { Ng13RutModule } from 'ng13-rut';
     RegistroelbichoModule,
     CalendarioModule,
     InscripcionTorneoModule,
-    Ng13RutModule
 
   ],
   exports:[
