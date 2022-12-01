@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ApiService } from 'src/app/servicios/api/api.service';
@@ -16,17 +16,17 @@ export class RegistroelbichoComponent implements OnInit {
    IDX: any={};
    Rol: any={};
 
-   player = new FormGroup({
+   player = new UntypedFormGroup({
       
-    nameUser: new FormControl(''),
-    password: new FormControl(''),
-    organization: new FormControl(''),
-    rut: new FormControl(''),
-    telefono: new FormControl(''),
-    email: new FormControl(''),
+    nameUser: new UntypedFormControl(''),
+    password: new UntypedFormControl(''),
+    organization: new UntypedFormControl(''),
+    rut: new UntypedFormControl(''),
+    telefono: new UntypedFormControl(''),
+    email: new UntypedFormControl(''),
     // roles: new FormControl('')
 })
-constructor(private route:Router, private readonly fb:FormBuilder, private registroService:ApiService) { }
+constructor(private route:Router, private readonly fb:UntypedFormBuilder, private registroService:ApiService) { }
 
 ngOnInit(): void {
   let lol= '620c0d94b83e4a21f81253d6';
@@ -36,7 +36,7 @@ ngOnInit(): void {
  this.player = this.initForm();
 }
 
-initForm(): FormGroup {
+initForm(): UntypedFormGroup {
   return this.fb.group({
     nameUser: ['', [Validators.required]],
     password: ['', [Validators.required]],

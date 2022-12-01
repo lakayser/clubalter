@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { TipostorneoService } from 'src/app/servicios/tipostorneo.service';
 import { CategoriaParticipantesService } from 'src/app/servicios/categoria-participantes.service';
 import { CategoriaTorneoService } from 'src/app/servicios/categoria-torneo.service';
@@ -14,19 +14,19 @@ import { CategoriaTorneo } from 'src/app/modelos/categoriaTorneo';
 })
 export class AjustesTorneosComponent implements OnInit {
 
-    tipoT = new FormGroup({
-      _id: new FormControl(''),
-      name: new FormControl('')
+    tipoT = new UntypedFormGroup({
+      _id: new UntypedFormControl(''),
+      name: new UntypedFormControl('')
     })
 
-    categoP =new FormGroup({
-      _id: new FormControl(''),
-      name: new FormControl('')
+    categoP =new UntypedFormGroup({
+      _id: new UntypedFormControl(''),
+      name: new UntypedFormControl('')
     })
 
-    categoTorneo = new FormGroup({
-      _id: new FormControl(''),
-      name: new FormControl('')
+    categoTorneo = new UntypedFormGroup({
+      _id: new UntypedFormControl(''),
+      name: new UntypedFormControl('')
     })
 
     Torneo: TipoTorneo[];
@@ -35,7 +35,7 @@ export class AjustesTorneosComponent implements OnInit {
 
     CategoriaT: CategoriaTorneo[];
 
-  constructor( private readonly fb:FormBuilder, public categoriaTorneoService:CategoriaTorneoService,public tipotorneoService:TipostorneoService, public categoriaparticipanteService:CategoriaParticipantesService) { }
+  constructor( private readonly fb:UntypedFormBuilder, public categoriaTorneoService:CategoriaTorneoService,public tipotorneoService:TipostorneoService, public categoriaparticipanteService:CategoriaParticipantesService) { }
 
   ngOnInit(): void {
     this.gettipotorneo();

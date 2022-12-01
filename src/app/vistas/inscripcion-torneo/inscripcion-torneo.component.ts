@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListaInscrito } from 'src/app/modelos/listaInscritos';
 import { TorneosService } from 'src/app/servicios/torneos.service';
@@ -21,12 +21,12 @@ export class InscripcionTorneoComponent implements OnInit {
 
 
   // });
-  inscripcion: FormGroup;
+  inscripcion: UntypedFormGroup;
 
   cosa: any={};
   lista: ListaInscrito[];
 
-  constructor(private fb: FormBuilder, private rutService:RutService ,private router: Router,private route:ActivatedRoute,private torneoService:TorneosService) { }
+  constructor(private fb: UntypedFormBuilder, private rutService:RutService ,private router: Router,private route:ActivatedRoute,private torneoService:TorneosService) { }
 
   ngOnInit(): void {
     let BN = this.route.snapshot.paramMap.get('id');
@@ -38,10 +38,10 @@ export class InscripcionTorneoComponent implements OnInit {
       this.getID(id);
      
     });
-    this.inscripcion = new FormGroup({
-        nombreEquipo: new FormControl(''),
-        participante1: new FormControl(''),
-        participante2: new FormControl('')
+    this.inscripcion = new UntypedFormGroup({
+        nombreEquipo: new UntypedFormControl(''),
+        participante1: new UntypedFormControl(''),
+        participante2: new UntypedFormControl('')
     })
 
     this.inscripcion = this.fb.group({

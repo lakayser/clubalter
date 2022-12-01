@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../servicios/api/api.service';
 import { Router } from '@angular/router';
 import { MailService } from 'src/app/servicios/mail.service';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,9 +18,9 @@ export class LoginComponent implements OnInit {
     email: '',
   }
 
-  passwordForm!: FormGroup;
+  passwordForm!: UntypedFormGroup;
   constructor(private api: ApiService,
-    private router: Router, public mailService: MailService, private readonly fb: FormBuilder) { }
+    private router: Router, public mailService: MailService, private readonly fb: UntypedFormBuilder) { }
     jk: any;
   ngOnInit(): void {
     this.passwordForm = this.initForm();
@@ -90,7 +90,7 @@ export class LoginComponent implements OnInit {
       form.reset();
     });;
   }
-  initForm(): FormGroup {
+  initForm(): UntypedFormGroup {
     return this.fb.group({
       emailPersona: ['', [Validators.required]],
       mensaje: ['Esta Cuenta Intenta Recuperar Su Contraseña', [Validators.required]],

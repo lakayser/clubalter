@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormularioService } from 'src/app/servicios/formulario.service';
 
@@ -12,21 +12,21 @@ import { MailService } from 'src/app/servicios/mail.service';
 })
 export class PrimerForemularioComponent implements OnInit {
 
-  multistep = new FormGroup({
+  multistep = new UntypedFormGroup({
       
-        nombre: new FormControl(''),
+        nombre: new UntypedFormControl(''),
         // apellido: new FormControl(''),
-        email: new FormControl(''),
-        rut: new FormControl(''),
-        fecha: new FormControl(''),
-        telefono: new FormControl(''),
-        contraseña: new FormControl(''),
-        contraseña2: new FormControl('')
+        email: new UntypedFormControl(''),
+        rut: new UntypedFormControl(''),
+        fecha: new UntypedFormControl(''),
+        telefono: new UntypedFormControl(''),
+        contraseña: new UntypedFormControl(''),
+        contraseña2: new UntypedFormControl('')
      
         
      
   })
-  constructor(private route:Router, private readonly fb:FormBuilder, private formularioService:FormularioService) { }
+  constructor(private route:Router, private readonly fb:UntypedFormBuilder, private formularioService:FormularioService) { }
 
   ngOnInit(): void {
     // this.multistep = this.initForm();
