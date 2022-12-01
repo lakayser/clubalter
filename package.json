@@ -33,7 +33,6 @@
     "jspdf": "^2.5.1",
     "moment": "^2.29.1",
     "ng-sidebar": "^9.4.3",
-    "ng13-rut": "^1.0.2",
     "ng2-charts": "^3.0.8",
     "nodemailer": "^6.7.5",
     "rut-chileno": "^1.0.0",
