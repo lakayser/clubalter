@@ -35,6 +35,7 @@ import { RegistroelbichoComponent } from './vistas/registroelbicho/registroelbic
 import { HorasCalendarioComponent } from './vistas/calendario/pages/horas-calendario/horas-calendario.component';
 import { InscripcionTorneoComponent } from './vistas/inscripcion-torneo/inscripcion-torneo.component';
 
+import { VerGrillasComponent } from './vistas/grilla/pages/ver-grillas/ver-grillas.component';
 const routes: Routes = [
   /**
    * @AUTH canActivate: [AuthGuard] AGREGAR
@@ -69,12 +70,13 @@ const routes: Routes = [
   { path: 'canchaselbicho/TorneoCrud', component:TorneoscrudComponent},
   { path: 'canchaselbicho/CrearTorneo', component:CrearTorneoComponent},
   { path: 'canchaselbicho/TorneoDetalles/:id', component:TorneoDetallesComponent},
-  { path: 'canchaselbicho/AjusteT', component:AjustesTorneosComponent},
+  { path: 'canchaselbicho/AjusteT',  component:AjustesTorneosComponent},
   { path: 'canchaselbicho/Registro', component:RegistroelbichoComponent},
   { path: 'canchaselbicho/Inscripcion/:id', component:InscripcionTorneoComponent},
 
-  
-  { path: '**'                 , redirectTo: '', pathMatch: 'full' }
+
+  { path: 'grilla',                  component:VerGrillasComponent },
+  { path: '**'                 , redirectTo: '', pathMatch: 'full' },
 
 ];
 @NgModule({

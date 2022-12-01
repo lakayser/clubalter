@@ -23,7 +23,7 @@ export class CanchasSelectComponent implements OnInit {
   @Output() onClick: EventEmitter<string> = new EventEmitter();
 
   canchas: Canchas[] = [];
-  opcionSeleccionada: string =  '';
+  opcionSeleccionada: string =  'Cancha 1';
 
   constructor( private canchaService: CanchaService ) { }
 
@@ -35,7 +35,6 @@ export class CanchasSelectComponent implements OnInit {
   }
 
   verCanchas() {
-    console.log( this.opcionSeleccionada );
     this.onClick.emit( this.opcionSeleccionada );
   }
 

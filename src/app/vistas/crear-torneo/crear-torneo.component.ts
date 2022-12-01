@@ -41,10 +41,8 @@ export class CrearTorneoComponent implements OnInit {
 
   CategoriaT: CategoriaTorneo[];
 
-  constructor( public categoriaTorneoService:CategoriaTorneoService,private router: Router,public tipotorneoService:TipostorneoService, public categoriaparticipanteService:CategoriaParticipantesService, private route: Router, private readonly fb: UntypedFormBuilder, private TorneoService:TorneosService ) { }
-  
-  orga: any;
-  
+  constructor( public categoriaTorneoService:CategoriaTorneoService,public tipotorneoService:TipostorneoService, public categoriaparticipanteService:CategoriaParticipantesService, private router: Router, private readonly fb: UntypedFormBuilder, private TorneoService:TorneosService ) { }
+
   ngOnInit(): void {
     // let xd = localStorage.getItem('organization');
     // this.orga = xd;
