@@ -41,4 +41,5 @@ export class TorneosService {
   listaInscritos(id: string):  Observable<ListaInscrito[]>{
     return this.http.get<ListaInscrito[]>(`${this.URL}/listar-inscripciones/${id}`)
   }
+  
 }

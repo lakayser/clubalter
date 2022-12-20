@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
@@ -10,6 +10,8 @@ import { LegendPosition } from '@swimlane/ngx-charts';
   styleUrls: ['./iniciosubadmincancha.component.css']
 })
 export class IniciosubadmincanchaComponent implements OnInit {
+
+  @ViewChild('scroll') scroll: ElementRef;
 
   public legendPosition: LegendPosition = LegendPosition.Below;
 
@@ -106,5 +108,4 @@ export class IniciosubadmincanchaComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

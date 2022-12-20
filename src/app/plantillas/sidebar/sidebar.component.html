@@ -1,222 +1,149 @@
-<ng-container *ngIf="!apiService.loggedIn(); else loggedIn">
 
-    <app-header>
-
-    </app-header>
-    <div id="" class="toggled">
-
-        <div id="page-content-wrapper">
-            <div class="container-fluid" style="padding-top: 80px;">
-
-                <router-outlet>
-
-                </router-outlet>
-            </div>
+<p-sidebar [(visible)]="display" position="left" [transitionOptions]="'500ms'" >
+    <!-- moderador -->
+    <div *ngIf="jk =='1'">
+        <div class="sidebar-item">
+            <a routerLink="/canchaselbicho/dashboardmod" class='sidebar-link'>
+                <i class="pi pi-home"></i>
+                <span>Inicio</span>
+            </a>
         </div>
-        <!-- /#page-content-wrapper -->
 
+        <div class="sidebar-item">
+            <a routerLink="/calendario" class='sidebar-link'>
+                <i class="pi pi-calendar"></i>
+                <span>Vista Semana</span>
+            </a>
+        </div>
+       
+        <div class="sidebar-item ">
+            <a routerLink="/canchasCRUD" class='sidebar-link'>
+                <span class="material-icons">
+                    settings
+                    </span>
+                <span>Ajustes canchas</span>
+            </a>
+        </div>
+        <div class="sidebar-item">
+            <a routerLink="/crudsub" class='sidebar-link'>
+                <span class="material-icons">
+                    sports_tennis
+                    </span>
+                <span>Ajustes usuarios</span>
+            </a>
+        </div>
+        <div class="sidebar-item">
+            <a routerLink="/canchaselbicho/TorneoCrud" class='sidebar-link'>
+                <span class="material-icons">
+                    emoji_events
+                    </span>
+                <span>Torneos</span>
+            </a>
+        </div>
+    </div>
+    <!-- subadmin -->
+    <div *ngIf="jk =='2' ">
+        <div class="sidebar-item">
+            <a routerLink="/canchaselbicho/dashboardsub" class='sidebar-link'>
+                <i class="pi pi-home"></i>
+                <span>Inicio</span>
+            </a>
+        </div>
+
+        <div class="sidebar-item">
+            <a routerLink="/calendario" class='sidebar-link'>
+                <i class="pi pi-calendar"></i>
+                <span>Vista Semana</span>
+            </a>
+        </div>
+       
+        <div class="sidebar-item ">
+            <a routerLink="/canchasCRUD" class='sidebar-link'>
+                <span class="material-icons">
+                    settings
+                    </span>
+                <span>Ajustes canchas</span>
+            </a>
+        </div>
+        <div class="sidebar-item">
+            <a routerLink="/crudsub" class='sidebar-link'>
+                <span class="material-icons">
+                    sports_tennis
+                    </span>
+                <span>Ajustes usuarios</span>
+            </a>
+        </div>
+        <div class="sidebar-item">
+            <a routerLink="/canchaselbicho/TorneoCrud" class='sidebar-link'>
+                <span class="material-icons">
+                    emoji_events
+                    </span>
+                <span>Torneos</span>
+            </a>
+        </div>
     </div>
 
-</ng-container>
-
-<ng-template #loggedIn>
-    <app-header>
-
-    </app-header>
-
-
-    <div id="wrapper" *ngFor="let nombre of usuariosService.nombre | ObjToArray">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper" *ngFor="let a of nombre.organization">
-
-            <ul class="sidebar-nav" *ngIf="jk =='1'  ">
-                <!-- MODERATOR -->
-                <li class="sidebar-brand">
-                    <span>
-                        <h4>{{a.name}}</h4>
-                    </span>
-                </li>
-                <li class="sidebar-item active">
-                    <a routerLink="/canchaselbicho/dashboardmod" class='sidebar-link'>
-                        <i><span class="material-icons">
-                                space_dashboard
-                            </span></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="sidebar-item ">
-                    <a routerLink="/canchasCRUD" class='sidebar-link'>
-                        <i><span class="material-icons">
-                                sports_tennis
-                            </span> </i>
-                        <span>CanchasCrud</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/crudsub" class='sidebar-link'>
-                        <span class="material-icons">
-                            account_circle
-                        </span>
-                        <span>Crud subadm</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/canchaselect" class='sidebar-link'>
-                        <span class="material-icons">
-                            edit_calendar
-                        </span>
-                        <span>Reservar</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/calendario" class='sidebar-link'>
-                        <span class="material-icons">
-                            calendar_month
-                        </span>
-                        <span>Vista Semana</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/canchaselbicho/TorneoCrud" class='sidebar-link'>
-                        <span class="material-icons">
-                            account_circle
-                        </span>
-                        <span>Torneos</span>
-                    </a>
-                </li>
-            </ul>
-
-            <!-- SUBADMIN -->
-            <ul class="sidebar-nav" *ngIf="jk =='2' ">
-                <li class="sidebar-brand">
-                    <span>
-                        <h4>{{a.name}}</h4>
-                    </span>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/canchaselbicho/dashboardsub" class='sidebar-link'>
-                        <span class="material-icons">
-                            home
-                        </span>
-                        <span>Inicio</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/calendario" class='sidebar-link'>
-                        <span class="material-icons">
-                            calendar_month
-                        </span>
-                        <span>Vista Semana</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/canchaselect" class='sidebar-link'>
-                        <span class="material-icons">
-                            edit_calendar
-                        </span>
-                        <span>Reservar</span>
-                    </a>
-                </li>
-                <li class="sidebar-item ">
-                    <a routerLink="/canchasCRUD" class='sidebar-link'>
-                        <i><span class="material-icons">
-                                sports_tennis
-                            </span> </i>
-                        <span>CanchasCrud</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/crudsub" class='sidebar-link'>
-                        <i><span class="material-icons">
-                                account_circle
-                            </span></i>
-                        <span>Crud Subadmin</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/canchaselbicho/TorneoCrud" class='sidebar-link'>
-                        <span class="material-icons">
-                            account_circle
-                        </span>
-                        <span>Torneos</span>
-                    </a>
-                </li>
-            </ul>
-
-
-            <!-- User -->
-            <ul class="sidebar-nav" *ngIf="jk =='3' ">
-                <li class="sidebar-brand">
-                    <span>
-                        <h4>{{a.name}}</h4>
-
-                    </span>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/canchaselbicho/dashboarduser" class='sidebar-link'>
-                        <i><span class="material-icons">
-                            home
-                            </span></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/vistaSemana" class='sidebar-link'>
-                        <i><span class="material-icons">
-                            home
-                            </span></i>
-                        <span>Reservar Cancha</span>
-                    </a>
-                </li>
-            </ul>
-
-
-            <!-- Superadmin -->
-            <ul class="sidebar-nav" *ngIf="jk =='4' ">
-                <li class="sidebar-brand">
-                    <span>
-                        <h4>{{a.name}}</h4>
-
-                    </span>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/orgaAdmin" class='sidebar-link'>
-                        <i><span class="material-icons">
-                                stadium
-                            </span></i>
-                        <span>Organizaciones</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a routerLink="/usersAdmin" class='sidebar-link'>
-                        <i><span class="material-icons">
-                                stadium
-                            </span></i>
-                        <span>moderadores</span>
-                    </a>
-                </li>
-
-
-            </ul>
-
-
-
-        </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid" style="padding-top: 80px;" >
-
-                <router-outlet>
-
-                </router-outlet>
-
+        <!-- usuario -->
+        <div *ngIf="jk =='3' ">
+            <div class="sidebar-item">
+                <a routerLink="/canchaselbicho/dashboarduser" class='sidebar-link'>
+                    <i class="pi pi-home"></i>
+                    <span>Inicio</span>
+                </a>
+            </div>
+    
+            <div class="sidebar-item">
+                <a routerLink="/calendario" class='sidebar-link'>
+                    <i class="pi pi-calendar"></i>
+                    <span>Vista Semana</span>
+                </a>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
 
-    </div>
 
-</ng-template>
+        <ng-template pTemplate="footer"> <button type="button" class="btn btn-danger ml-2" (click)="apiService.logout()">
+            <span class="material-icons">
+              logout
+              </span>
+            Cerrar
+            Sesion</button></ng-template>
+</p-sidebar>
+
+<p-toolbar styleClass="toolbarS">
+    <ng-container *ngIf="!apiService.loggedIn();else loggedIn" >
+
+        <img src="assets/Logo-Botmila.png" alt="" width="250" height="50">
+        <div class="p-toolbar-group-right">
+            <div class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/login" routerLinkActive="active">Ingresar</a>
+              </div>
+              <div class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#Servicios">Servicios</a>
+              </div>
+              <div class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#Nosotros">Quienes somos</a>
+              </div>
+              <div class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#Contacto">Contacto</a>
+              </div>
+        </div>
+    
+    </ng-container>
+
+    <ng-template #loggedIn>
+        <div class="p-toolbar-group-left" >
+            <button pButton  (click)="display = true" class="p-button p-button-lg p-button-success" icon="pi pi-bars" ></button>
+        </div>
+        <img src="assets/Logo-Botmila.png" alt="" width="250" height="50">
+        <div class="p-toolbar-group-right">
+        
+        </div>
+    
+    </ng-template>
+    
+  
+</p-toolbar>
+
+
+
+<router-outlet></router-outlet>

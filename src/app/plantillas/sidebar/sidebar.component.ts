@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
 import { BreakpointObserver } from '@angular/cdk/layout'
-
-
 import { ApiService } from '../../servicios/api/api.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import {MenuItem} from 'primeng/api';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -13,7 +12,8 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
 })
 export class SidebarComponent implements OnInit {
 
-
+  display: boolean = false;
+  items: MenuItem[];
 
   constructor(private observer: BreakpointObserver, public apiService: ApiService, public usuariosService: UsuariosService) { }
   orga: any;
@@ -21,8 +21,29 @@ export class SidebarComponent implements OnInit {
   jk: any;
 
   ngOnInit(): void {
+    this.items = [
+      {
+          label: 'Update',
+          icon: 'pi pi-refresh'
+      },
+      {
+          label: 'Delete',
+          icon: 'pi pi-times'
+      },
+      {
+          label: 'Angular Website',
+          icon: 'pi pi-external-link',
+          url: 'http://angular.io'
+      },
+      {
+          label: 'Router',
+          icon: 'pi pi-upload',
+          routerLink: '/fileupload'
+      }
+  ];
     this.getActivo();
     this.menuDisplay();
+    
   }
 
   getActivo() {
@@ -60,10 +81,6 @@ export class SidebarComponent implements OnInit {
       this.jk = 4;
       console.log(this.jk);
     }
-
-
-
-
   }
 
 
