@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { FormsModule }   from '@angular/forms';
 
 import { TorneoDetallesComponent } from './torneo-detalles.component';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { TorneoDetallesComponent } from './torneo-detalles.component';
   imports: [
     CommonModule,
     PipesModule,
+    DialogModule,
+    FormsModule
     
   ]
 })

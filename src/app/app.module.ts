@@ -43,7 +43,7 @@ import { InscripcionTorneoModule } from './vistas/inscripcion-torneo/inscripcion
 import { VerGrillasComponent } from './vistas/grilla/pages/ver-grillas/ver-grillas.component';
 import { GrillaModule } from './vistas/grilla/grilla.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -83,6 +83,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CalendarioModule,
     InscripcionTorneoModule,
     GrillaModule,
+    DialogModule,
 
   ],
   exports:[

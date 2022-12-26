@@ -11,8 +11,8 @@
 
     <!-- Login Form -->
     <form (submit)="signin()">
-      <input type="email" id="login" class="fadeIn second" placeholder="login" name="email" [(ngModel)]="user.email">
-      <input type="password" id="password" class="fadeIn third" placeholder="password" name="password" [(ngModel)]="user.password">
+      <input type="email" id="login" class="fadeIn second" placeholder="email@email.com" name="email" [(ngModel)]="user.email">
+      <input type="password" id="password" class="fadeIn third" placeholder="contraseña" name="password" [(ngModel)]="user.password">
       <!-- <input type="text" class="fadeIn third" placeholder="rol" formControlName="roles"> -->
       <input type="submit" id="btn1" class="fadeIn fourth" value="Log In">
     </form>
@@ -22,7 +22,7 @@
       <a class="underlineHover"  data-bs-toggle="modal" data-bs-target="#exampleModal">Olvido su contraseña?</a>
     </div>
 
-
+ 
 
   </div>
 </div>

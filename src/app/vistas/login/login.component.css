@@ -26,6 +26,9 @@ html {
     margin: 40px 8px 10px 8px; 
     color: #cccccc;
   }
+  input::placeholder {
+    color: rgb(3, 3, 3);
+  }
   
   /* STRUCTURE */
   .fondo{
@@ -87,7 +90,7 @@ html {
   input[type=button], input[type=submit], input[type=reset]  {
     background-color: #56baed;
     border: none;
-    color: white;
+    color: rgb(7, 7, 7);
     padding: 15px 80px;
     text-align: center;
     text-decoration: none;
@@ -108,6 +111,7 @@ html {
   
   input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
     background-color: #39ace7;
+    
   }
   
   input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -140,11 +144,12 @@ html {
   
   input[type=email]:focus {
     background-color: #fff;
+    color: #030303;
     border-bottom: 2px solid #5fbae9;
   }
   
   input[type=email]:placeholder {
-    color: #cccccc;
+    color: #030303;
   }
 
   input[type=password] {

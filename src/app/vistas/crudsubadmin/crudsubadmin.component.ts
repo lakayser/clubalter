@@ -155,8 +155,6 @@ export class CrudsubadminComponent implements OnInit {
 
   editUsuario(users: Usuario) {
     this.usuariosService.selectedUsuario = users;
-
-
   }
 
 }
