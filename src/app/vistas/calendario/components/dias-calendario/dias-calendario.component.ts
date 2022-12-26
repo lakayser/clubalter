@@ -12,6 +12,10 @@ import { HorasSemana } from '../../interface/horas-interface';
         font-size: 0.90rem;
         box-shadow: 0rem 0.1rem 0.1rem #303030;
       }
+
+      span {
+        color: black;
+      }
     `
   ],
 })

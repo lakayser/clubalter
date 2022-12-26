@@ -82,12 +82,18 @@ export class HorasCalendarioComponent implements OnInit {
 
   next() {
     this.horasService.semana += 1;
+    if( this.horasService.semana > 52 ) {
+      this.horasService.semana = 1;
+    }
     this.verCanchas( this.canchas );
     console.log( this.horasService.semana );
   }
 
   prev() {
     this.horasService.semana -= 1;
+    if( this.horasService.semana < 1 ) {
+      this.horasService.semana = 52;
+    }
     this.verCanchas( this.canchas );
     console.log( this.horasService.semana );
   }

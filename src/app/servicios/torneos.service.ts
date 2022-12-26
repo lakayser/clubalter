@@ -34,12 +34,11 @@ export class TorneosService {
   deleteTorneo(id: string) {
     return this.http.delete(`${this.URL}eliminar-torneo/${id}`);
   }
-  
+
   Inscripcion(id: string, inscr:Inscripcion){
     return this.http.put(`${this.URL}crear-inscripcion/${id}`, inscr)
   }
-  listaInscritos(id: string):  Observable<ListaInscrito[]>{
+  listaInscritos(id: string): Observable<ListaInscrito[]>{
     return this.http.get<ListaInscrito[]>(`${this.URL}/listar-inscripciones/${id}`)
   }
-  
 }

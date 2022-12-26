@@ -1,0 +1,576 @@
+.grid {
+  display              : grid;
+  grid-template-rows   : 6rem 6rem 6rem 6rem 6rem 6rem 6rem;
+  grid-template-columns: 20rem 11rem 20rem 11rem 20rem;
+}
+.grid-cuartosUno {
+  display              : grid;
+  grid-template-rows   : repeat( 2, 1.5rem );
+  grid-template-columns: 11rem 3rem 3rem 3rem;
+  grid-row             : 1/2;
+  grid-column          : 1/2;
+}
+.grid-cuartosUnoTeamUno {
+  grid-row   : 1/2;
+  grid-column: 1/2;
+}
+.grid-cuartosUnoTeamDos {
+  grid-row   : 3/4;
+  grid-column: 1/2;
+}
+.grid-cuartosResultadosUno {
+  grid-row   : 1/2;
+  grid-column: 2/3;
+  margin-left: .6rem;
+}
+.grid-cuartosResultadosDos {
+  grid-row   : 1/2;
+  grid-column: 3/4;
+}
+.grid-cuartosResultadosTres {
+  grid-row   : 3/4;
+  grid-column: 2/3;
+  margin-left: .6rem;
+}
+.grid-cuartosResultadosCuatro {
+  grid-row   : 3/4;
+  grid-column: 3/4;
+}
+.grid-cuartosResultados5 {
+  grid-row    : 1/2;
+  grid-column : 4/5;
+  margin-right: 1rem;
+}
+.grid-cuartosResultados6 {
+  grid-row    : 3/4;
+  grid-column : 4/5;
+  margin-right: 1rem;
+}
+.grid-cuartosUnoHorizontal {
+  grid-row    : 2/3;
+  grid-column : 1/2;
+  margin-left : -.5rem;
+  margin-right: -8.1rem;
+  color       : var( --blue-400 );
+}
+.grid-cuartosUnoVertical {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-left: -19rem;
+  margin-top : 0rem;
+  color      : var( --blue-400 );
+}
+.grid-cuartosUnoVertical2 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-left: -5.2rem;
+  margin-top : 0rem;
+  color      : var( --blue-400 );
+}
+.grid-cuartosUnoVertical3 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  color      : var( --blue-400 );
+  margin-left: -33.7rem;
+  margin-top : 0rem;
+}
+/* ----------------------------------- */
+.grid-cuartosUnoRival {
+  display    : grid;
+  grid-template-rows   : repeat( 2, 1.5rem );
+  grid-template-columns: 11rem 3rem 3rem 3rem;
+  grid-row   : 3/4;
+  grid-column: 1/2;
+}
+.grid-cuartosDosTeam {
+  grid-row   : 1/2;
+  grid-column: 1/2;
+}
+.grid-cuartosDosHorizontal {
+  grid-row    : 2/3;
+  grid-column : 1/2;
+  margin-left : -.5rem;
+  margin-right: -8.1rem;
+  color       : var( --blue-400 );
+}
+.grid-cuartosDosTeam2 {
+  grid-row   : 3/4;
+  grid-column: 1/2;
+}
+.grid-cuartosRivalResUno {
+  grid-row   : 1/2;
+  grid-column: 2/3;
+  margin-left: .9rem;
+}
+.grid-cuartosRivalResDos {
+  grid-row   : 1/2;
+  grid-column: 3/4;
+}
+.grid-cuartosRivalResTres {
+  grid-row   : 3/4;
+  grid-column: 2/3;
+  margin-left: .9rem;
+}
+.grid-cuartosRivalRes4 {
+  grid-row   : 3/4;
+  grid-column: 3/4;
+}
+.grid-cuartosRivalRes5 {
+  grid-row    : 1/2;
+  grid-column : 4/5;
+  margin-right: 1rem;
+}
+.grid-cuartosRivalRes6 {
+  grid-row    : 3/4;
+  grid-column : 4/5;
+  margin-right: 1rem;
+}
+.grid-cuartosUnoRivalV {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-top : 12rem;
+  margin-left: -49.9rem;
+  color      : var( --blue-400 );
+}
+.grid-cuartosUnoRivalV2 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-top : 6rem;
+  margin-left: 14.8rem;
+  color      : var( --blue-400 );
+}
+.grid-cuartosUnoRivalV3 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-top : 6rem;
+  margin-left: -2.5rem;
+  color      : var( --blue-400 );
+}
+
+/* ------------------------------ */
+.cuartos2 {
+  display              : grid;
+  grid-template-rows   : repeat( 2, 1.5rem );
+  grid-template-columns: 11rem 3rem 3rem;
+  grid-row             : 5/6;
+  grid-column          : 1/2;
+}
+.cuartos2Team {
+  grid-row   : 1/2;
+  grid-column: 1/2;
+}
+.cuartos2H {
+  grid-row   : 2/3;
+  grid-column: 1/2;
+  width      : 19.1rem;
+  color      : var( --blue-400 );
+}
+.cuartos2H > hr {
+  margin-left: -.5rem;
+}
+.cuartos2Team2 {
+  grid-row   : 3/4;
+  grid-column: 1/2;
+}
+.cuartos2R {
+  grid-row   : 1/2;
+  grid-column: 2/3;
+  margin-left: .3rem;
+}
+.cuartos2R {
+  grid-row    : 1/2;
+  grid-column : 3/4;
+  margin-right: .4rem;
+}
+.cuartos2R2 {
+  margin-left: .4rem;
+}
+.cuartos2R3 {
+  grid-row   : 3/4;
+  grid-column: 2/3;
+  margin-left: .3rem;
+}
+.cuartos2R4 {
+  grid-row   : 3/4;
+  grid-column: 3/4;
+}
+.cuartos2R5 {
+  grid-row   : 1/2;
+  grid-column: 4/5;
+}
+.cuartos2R6 {
+  grid-row   : 3/4;
+  grid-column: 4/5;
+}
+.cuartos2TeamV {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-top : 12rem;
+  margin-left: -19rem;
+  color      : var( --blue-400 );
+}
+.cuartos2TeamV2 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-top : 12rem;
+  margin-left: -36.5rem;
+  color      : var( --blue-400 );
+}
+.cuartos2TeamV3 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-left: -44.5rem;
+  margin-top : 12rem;
+  color      : var( --blue-400 );
+}
+.cuartos2RiRes {
+  grid-row   : 1/2;
+  grid-column: 2/3;
+  margin-left: 0.4rem;
+}
+.cuartos2RiRes2 {
+  grid-row   : 3/4;
+  grid-column: 2/3;
+  margin-left: 0.4rem;
+}
+.cuartos2RiRes3 {
+  grid-row   : 1/2;
+  grid-column: 3/4;
+}
+.cuartos2RiRes4 {
+  grid-row   : 3/4;
+  grid-column: 3/4;
+}
+.cuartos2RiRes5 {
+  grid-row   : 1/2;
+  grid-column: 4/5;
+}
+.cuartos2RiRes6 {
+  grid-row   : 3/4;
+  grid-column: 4/5;
+}
+/* ------------------------------------ */
+
+.cuartos2Ri {
+  display: grid;
+  grid-template-rows   : repeat( 2, 1.5rem );
+  grid-template-columns: 11rem 3rem 3rem;
+  grid-row             : 7/8;
+  grid-column          : 1/2;
+}
+.cuartos2RiTeam {
+  grid-row   : 1/2;
+  grid-column: 1/2;
+}
+.cuartos2Ri2H {
+  grid-row   : 2/3;
+  grid-column: 1/2;
+  width      : 19.6rem;
+  margin-left: -0.5rem;
+  color      : var( --blue-400 );
+}
+.cuartos2RiTeam2 {
+  grid-row   : 3/4;
+  grid-column: 1/2;
+}
+.cuartos2RiTeamV {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-left: 12rem;
+  margin-top : 18rem;
+  color      : var( --blue-400 );
+}
+.cuartos2RiTeamV2 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-left: -5.5rem;
+  margin-top : 18rem;
+  color      : var( --blue-400 );
+}
+.cuartos2RiTeamV3 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-left: -13.5rem;
+  margin-top : 18rem;
+  color      : var( --blue-400 );
+}
+/* ------------------------------- */
+
+.semi {
+  display              : grid;
+  grid-template-rows   : repeat( 2, 1.5rem );
+  grid-template-columns: 11rem 3rem 3rem 3rem;
+  grid-row             : 2/3;
+  grid-column          : 3/4;
+}
+.semiTeam {
+  grid-column: 1/2;
+  grid-row   : 1/2;
+}
+.semiH {
+  grid-column: 1/2;
+  grid-row   : 2/3;
+  width      : 19.6rem;
+  margin-left: -0.5rem;
+  color      : var( --blue-400 );
+}
+.semiTeam2 {
+  grid-column: 1/2;
+  grid-row   : 3/4;
+}
+.semiV {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-top : -18rem;
+  margin-left: -8.2rem;
+  color      : var( --blue-400 );
+}
+.semiV2 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-top : -18rem;
+  margin-left: -16.2rem;
+  color      : var( --blue-400 );
+}
+.semiV3 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-left: 48.5rem;
+  margin-top : -24rem;
+  color      : var( --blue-400 );
+}
+.semi2V {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-left: 22.8rem;
+  margin-top : 0rem;
+  color      : var( --blue-400 );
+}
+.semi2V2 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-left: -5.2rem;
+  margin-top: 0rem;
+  color      : var( --blue-400 );
+}
+.semi2V3 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-left: -13.5rem;
+  margin-top: 0rem;
+  color      : var( --blue-400 );
+}
+
+/* ---------------------------------- */
+
+.semi2 {
+  display              : grid;
+  grid-template-rows   : repeat( 2, 1.5rem );
+  grid-template-columns: 11rem 3rem 3rem 3rem;
+  grid-row             : 6/7;
+  grid-column          : 3/4;
+}
+.semiRes {
+  grid-column: 2/3;
+  grid-row   : 1/2;
+}
+.semiRes2 {
+  grid-column: 2/3;
+  grid-row   : 3/4;
+}
+.semiRes3 {
+  grid-column: 3/4;
+  grid-row   : 1/2;
+}
+.semiRes4 {
+  grid-column: 3/4;
+  grid-row   : 3/4;
+}
+.semiRes5 {
+  grid-column : 4/5;
+  grid-row    : 1/2;
+  margin-right: 0.8rem;
+}
+.semiRes6 {
+  grid-column : 4/5;
+  grid-row    : 3/4;
+  margin-right: 0.8rem;
+}
+
+/* ---------------------------------------- */
+
+.final {
+  display              : grid;
+  grid-template-rows   : repeat( 2, 1.5rem );
+  grid-template-columns: 11rem 3rem 3rem 3rem;
+  grid-row             : 4/5;
+  grid-column          : 5/6;
+}
+.finalRes {
+  grid-row   : 1/2;
+  grid-column: 2/3;
+}
+.finalRes2 {
+  grid-row   : 3/4;
+  grid-column: 2/3;
+}
+.finalRes3 {
+  grid-row   : 1/2;
+  grid-column: 3/4;
+}
+.finalRes4 {
+  grid-row   : 3/4;
+  grid-column: 3/4;
+}
+.finalRes5 {
+  grid-row    : 1/2;
+  grid-column : 4/5;
+  margin-right: 1rem;
+}
+.finalRes6 {
+  grid-row    : 3/4;
+  grid-column : 4/5;
+  margin-right: 1rem;
+}
+.finalV {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-top : -18rem;
+  margin-left: 12rem;
+  color      : var( --blue-400 );
+}
+.finalV2 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-left: 76.7rem;
+  margin-top : -24rem;
+  color      : var( --blue-400 );
+}
+.finalV3 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 6rem;
+  width      : 0.2rem;
+  margin-left: 59.4rem;
+  margin-top : -24rem;
+  color      : var( --blue-400 );
+}
+
+/* --------------------- */
+.grid-cuartosUnoConec1 {
+  height      : 0.1rem;
+  margin-left : -31rem;
+  margin-top  : -3.1rem;
+  margin-right: 40rem;
+}
+.grid-cuartosUnoConec2 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 12rem;
+  width      : 0.14rem;
+  margin-left: -40.1rem;
+  margin-top : -3.1rem;
+}
+.grid-cuartosUnoConec3 {
+  height        : 0.1rem;
+  margin-top    : 2.9rem;
+  margin-right  : 9rem;
+}
+.cuartos2Conec {
+  height      : 0.1rem;
+  width       : 2.1rem;
+  margin-left : -31rem;
+  margin-top  : 9rem;
+}
+.cuartos2Conec2 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 12rem;
+  width      : 0.2rem;
+  margin-left: 2rem;
+  margin-top : 3rem;
+}
+.cuartos2Conec3 {
+  height      : 0.1rem;
+  margin-left : -11rem;
+  margin-right: 28.9rem;
+  margin-top  : 15rem;
+}
+.semiConec {
+  height      : 0.1rem;
+  margin-left: 31rem;
+  margin-top: -27.1rem;
+  margin-right: -22rem;
+}
+.semiConec2 {
+  height      : 0.1rem;
+  margin-top  : -3rem;
+  margin-left : 20rem;
+  margin-right: -2rem;
+}
+.semiConec3 {
+  border     : none;
+  border-left: 0.1rem solid hsla(200, 10%, 50%,100);
+  height     : 24.2rem;
+  width      : 0.2rem;
+  margin-left: 2rem;
+  margin-top : -27.1rem;
+}
+.conecU {
+  height      : 0.1rem;
+  margin-top  : -33rem;
+  margin-left : -9rem;
+  margin-right: 20rem;
+}
+.conecU2 {
+  height      : 0.1rem;
+  margin-top  : -9rem;
+  margin-left : -29rem;
+  margin-right: 31rem;
+}
+.conecU3 {
+  height      : 0.1rem;
+  margin-top  : -21rem;
+  margin-left : -9rem;
+  margin-right: 20rem;
+}

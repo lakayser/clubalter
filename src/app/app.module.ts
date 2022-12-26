@@ -83,10 +83,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CalendarioModule,
     InscripcionTorneoModule,
     GrillaModule,
-
   ],
   exports:[
-  
+
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,

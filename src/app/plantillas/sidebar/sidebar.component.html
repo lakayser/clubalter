@@ -3,100 +3,100 @@
     <!-- moderador -->
     <div *ngIf="jk =='1'">
         <div class="sidebar-item">
-            <a routerLink="/canchaselbicho/dashboardmod" class='sidebar-link'>
+            <span (click)="display = false" routerLink="/canchaselbicho/dashboardmod" class='cursor-pointer mt-3'>
                 <i class="pi pi-home"></i>
                 <span>Inicio</span>
-            </a>
+            </span>
         </div>
 
         <div class="sidebar-item">
-            <a routerLink="/calendario" class='sidebar-link'>
+            <span (click)="display = false" routerLink="/calendario" class='cursor-pointer mt-3'>
                 <i class="pi pi-calendar"></i>
                 <span>Vista Semana</span>
-            </a>
+            </span>
         </div>
-       
+
         <div class="sidebar-item ">
-            <a routerLink="/canchasCRUD" class='sidebar-link'>
+            <span (click)="display = false"  routerLink="/canchasCRUD" class='cursor-pointer mt-3'>
                 <span class="material-icons">
                     settings
                     </span>
                 <span>Ajustes canchas</span>
-            </a>
+            </span>
         </div>
         <div class="sidebar-item">
-            <a routerLink="/crudsub" class='sidebar-link'>
+            <span (click)="display = false"  routerLink="/crudsub" class='cursor-pointer mt-3'>
                 <span class="material-icons">
                     sports_tennis
                     </span>
                 <span>Ajustes usuarios</span>
-            </a>
+            </span>
         </div>
         <div class="sidebar-item">
-            <a routerLink="/canchaselbicho/TorneoCrud" class='sidebar-link'>
+            <span (click)="display = false"  routerLink="/canchaselbicho/TorneoCrud" class='cursor-pointer mt-3'>
                 <span class="material-icons">
                     emoji_events
                     </span>
                 <span>Torneos</span>
-            </a>
+            </span>
         </div>
     </div>
     <!-- subadmin -->
     <div *ngIf="jk =='2' ">
         <div class="sidebar-item">
-            <a routerLink="/canchaselbicho/dashboardsub" class='sidebar-link'>
+            <span routerLink="/canchaselbicho/dashboardsub" class='sidebar-link'>
                 <i class="pi pi-home"></i>
                 <span>Inicio</span>
-            </a>
+            </span>
         </div>
 
         <div class="sidebar-item">
-            <a routerLink="/calendario" class='sidebar-link'>
+            <span routerLink="/calendario" class='sidebar-link'>
                 <i class="pi pi-calendar"></i>
                 <span>Vista Semana</span>
-            </a>
+            </span>
         </div>
-       
+
         <div class="sidebar-item ">
-            <a routerLink="/canchasCRUD" class='sidebar-link'>
+            <span routerLink="/canchasCRUD" class='sidebar-link'>
                 <span class="material-icons">
                     settings
                     </span>
                 <span>Ajustes canchas</span>
-            </a>
+            </span>
         </div>
         <div class="sidebar-item">
-            <a routerLink="/crudsub" class='sidebar-link'>
+            <span routerLink="/crudsub" class='sidebar-link'>
                 <span class="material-icons">
                     sports_tennis
                     </span>
                 <span>Ajustes usuarios</span>
-            </a>
+            </span>
         </div>
         <div class="sidebar-item">
-            <a routerLink="/canchaselbicho/TorneoCrud" class='sidebar-link'>
+            <span routerLink="/canchaselbicho/TorneoCrud" class='sidebar-link'>
                 <span class="material-icons">
                     emoji_events
                     </span>
                 <span>Torneos</span>
-            </a>
+            </span>
         </div>
     </div>
 
         <!-- usuario -->
         <div *ngIf="jk =='3' ">
             <div class="sidebar-item">
-                <a routerLink="/canchaselbicho/dashboarduser" class='sidebar-link'>
+                <span routerLink="/canchaselbicho/dashboarduser" class='sidebar-link'>
                     <i class="pi pi-home"></i>
                     <span>Inicio</span>
-                </a>
+                </span>
             </div>
-    
+
             <div class="sidebar-item">
-                <a routerLink="/calendario" class='sidebar-link'>
+                <span routerLink="/calendario" class='sidebar-link'>
                     <i class="pi pi-calendar"></i>
                     <span>Vista Semana</span>
-                </a>
+                </span>
             </div>
         </div>
 
@@ -115,19 +115,19 @@
         <img src="assets/Logo-Botmila.png" alt="" width="250" height="50">
         <div class="p-toolbar-group-right">
             <div class="nav-item">
-                <a class="nav-link active" aria-current="page" routerLink="/login" routerLinkActive="active">Ingresar</a>
+                <span class="nav-link active" aria-current="page" routerLink="/login" routerLinkActive="active">Ingresar</span>
               </div>
               <div class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#Servicios">Servicios</a>
+                <span class="nav-link active" aria-current="page" href="#Servicios">Servicios</span>
               </div>
               <div class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#Nosotros">Quienes somos</a>
+                <span class="nav-link active" aria-current="page" href="#Nosotros">Quienes somos</span>
               </div>
               <div class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#Contacto">Contacto</a>
+                <span class="nav-link active" aria-current="page" href="#Contacto">Contacto</span>
               </div>
         </div>
-    
+
     </ng-container>
 
     <ng-template #loggedIn>
@@ -136,12 +136,12 @@
         </div>
         <img src="assets/Logo-Botmila.png" alt="" width="250" height="50">
         <div class="p-toolbar-group-right">
-        
+
         </div>
-    
+
     </ng-template>
-    
-  
+
+
 </p-toolbar>
 
 

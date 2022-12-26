@@ -34,6 +34,7 @@
     "ng-sidebar": "^9.4.3",
     "ng2-charts": "^3.0.8",
     "nodemailer": "^6.7.5",
+    "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",
     "primeng": "^15.0.0-rc.1",
     "rxjs": "~7.5.0",
