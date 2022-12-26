@@ -83,11 +83,14 @@ import {DialogModule} from 'primeng/dialog';
     CalendarioModule,
     InscripcionTorneoModule,
     GrillaModule,
+<<<<<<< HEAD
     DialogModule,
 
+=======
+>>>>>>> 840b265b04fd1093cbb894cb8c3df51fd743587d
   ],
   exports:[
-  
+
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,

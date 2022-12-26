@@ -21,6 +21,7 @@ import { HorasSemana } from '../../interface/horas-interface';
     }
     span {
     font-size: 0.8rem;
+    color    : black;
     }
     .textDisp {
       font-size: 0.7rem;
