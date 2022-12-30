@@ -1,0 +1,167 @@
+<p-sidebar [(visible)]="display" position="left" [transitionOptions]="'500ms'">
+  <!-- moderador -->
+  <div *ngIf="jk == '1'">
+    <div class="sidebar-item">
+      <span
+        (click)="display = false"
+        routerLink="/mod/dash-boardAdm"
+        class="cursor-pointer mt-3"
+      >
+        <i class="pi pi-home"></i>
+        <span>Inicio</span>
+      </span>
+    </div>
+
+    <div class="sidebar-item">
+      <span
+        (click)="display = false"
+        routerLink="/mod/calendario"
+        class="cursor-pointer mt-3"
+      >
+        <i class="pi pi-calendar"></i>
+        <span>Vista Semana</span>
+      </span>
+    </div>
+
+    <div class="sidebar-item">
+      <span
+        (click)="display = false"
+        routerLink="/mod/canchas-crud"
+        class="cursor-pointer mt-3"
+      >
+        <span class="material-icons"> settings </span>
+        <span>Ajustes canchas</span>
+      </span>
+    </div>
+    <div class="sidebar-item">
+      <span
+        (click)="display = false"
+        routerLink="/mod/crud-sub"
+        class="cursor-pointer mt-3"
+      >
+        <span class="material-icons"> sports_tennis </span>
+        <span>Ajustes usuarios</span>
+      </span>
+    </div>
+    <div class="sidebar-item">
+      <span
+        (click)="display = false"
+        routerLink="/mod/crud-torneo"
+        class="cursor-pointer mt-3"
+      >
+        <span class="material-icons"> emoji_events </span>
+        <span>Torneos</span>
+      </span>
+    </div>
+  </div>
+  <!-- subadmin -->
+  <div *ngIf="jk == '2'">
+    <div class="sidebar-item">
+      <span routerLink="/mod/dash-boardSub" class="sidebar-link">
+        <i class="pi pi-home"></i>
+        <span>Inicio</span>
+      </span>
+    </div>
+
+    <div class="sidebar-item">
+      <span routerLink="/mod/calendario" class="sidebar-link">
+        <i class="pi pi-calendar"></i>
+        <span>Vista Semana</span>
+      </span>
+    </div>
+
+    <div class="sidebar-item">
+      <span routerLink="/mod/canchas-crud" class="sidebar-link">
+        <span class="material-icons"> settings </span>
+        <span>Ajustes canchas</span>
+      </span>
+    </div>
+    <div class="sidebar-item">
+      <span routerLink="/mod/crud-sub" class="sidebar-link">
+        <span class="material-icons"> sports_tennis </span>
+        <span>Ajustes usuarios</span>
+      </span>
+    </div>
+    <div class="sidebar-item">
+      <span routerLink="/mod/torneo-crud" class="sidebar-link">
+        <span class="material-icons"> emoji_events </span>
+        <span>Torneos</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- usuario -->
+  <div *ngIf="jk == '3'">
+    <div class="sidebar-item">
+      <span routerLink="/canchaselbicho/dashboarduser" class="sidebar-link">
+        <i class="pi pi-home"></i>
+        <span>Inicio</span>
+      </span>
+    </div>
+
+    <div class="sidebar-item">
+      <span routerLink="/calendario" class="sidebar-link">
+        <i class="pi pi-calendar"></i>
+        <span>Vista Semana</span>
+      </span>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <button
+      type="button"
+      class="btn btn-danger ml-2"
+      (click)="apiService.logout()"
+    >
+      <span class="material-icons"> logout </span>
+      Cerrar Sesion
+    </button></ng-template
+  >
+</p-sidebar>
+
+<p-toolbar styleClass="toolbarS">
+  <ng-container *ngIf="!apiService.loggedIn(); else loggedIn">
+    <img src="assets/Logo-Botmila.png" alt="" width="250" height="50" />
+    <div class="p-toolbar-group-right">
+      <div class="nav-item">
+        <span
+          class="nav-link active"
+          aria-current="page"
+          routerLink="/auth/login"
+          routerLinkActive="active"
+          >Ingresar</span
+        >
+      </div>
+      <div class="nav-item">
+        <span class="nav-link active" aria-current="page" href="#Servicios"
+          >Servicios</span
+        >
+      </div>
+      <div class="nav-item">
+        <span class="nav-link active" aria-current="page" href="#Nosotros"
+          >Quienes somos</span
+        >
+      </div>
+      <div class="nav-item">
+        <span class="nav-link active" aria-current="page" href="#Contacto"
+          >Contacto</span
+        >
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #loggedIn>
+    <div class="p-toolbar-group-left">
+      <button
+        pButton
+        (click)="display = true"
+        class="p-button p-button-lg p-button-success"
+        icon="pi pi-bars"
+      ></button>
+    </div>
+    <img src="assets/Logo-Botmila.png" alt="" width="250" height="50" />
+    <div class="p-toolbar-group-right"></div>
+  </ng-template>
+</p-toolbar>
+
+<router-outlet></router-outlet>

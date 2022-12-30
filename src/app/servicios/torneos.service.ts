@@ -28,15 +28,15 @@ export class TorneosService {
   creteTorneo(Torne: TorneoCrear) {
     return this.http.post(`${this.URL}crear-torneo`, Torne);
   }
-  putTorneo(Torne: TorneoCrear) {
-    return this.http.put(`${this.URL}editar-torneo/${Torne._id}`, Torne);
+  putTorneo(Torne: TorneoCrear, id:string) {
+    return this.http.put(`${this.URL}editar-torneo/${id}`, Torne);
   }
   deleteTorneo(id: string) {
     return this.http.delete(`${this.URL}eliminar-torneo/${id}`);
   }
 
   Inscripcion(id: string, inscr:Inscripcion){
-    return this.http.put(`${this.URL}crear-inscripcion/${id}`, inscr)
+    return this.http.post(`${this.URL}crear-inscripcion/${id}`, inscr)
   }
   listaInscritos(id: string): Observable<ListaInscrito[]>{
     return this.http.get<ListaInscrito[]>(`${this.URL}/listar-inscripciones/${id}`)

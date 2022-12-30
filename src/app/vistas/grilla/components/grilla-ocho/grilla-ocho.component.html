@@ -1,8 +1,9 @@
 <div class="grid mt-4 ml-5">
-  <div class="border-solid border-blue-300 pl-2 pt-1 grid-cuartosUno">
+  <div class="border-solid border-blue-300 pl-2 pt-1 grid-cuartosUno" *ngFor="let a of inscritosJ">
     <span
-      class="grid-cuartosUnoTeamUno">
-      Jugador 1 / Jugador 2
+      class="grid-cuartosUnoTeamUno"
+      >
+      {{ jugadores | slice: 0 : 1 }} / {{ jugadores | slice: 1 : 2 }}
     </span>
     <span
       class="grid-cuartosUnoHorizontal">
@@ -10,7 +11,7 @@
     </span>
     <span
       class="grid-cuartosUnoTeamDos">
-      Jugador 1 / Jugador 2
+      {{ jugadores | slice: 2 : 3 }} / {{ jugadores | slice: 3 : 4 }}
     </span>
     <small
       class="grid-cuartosResultadosUno text-center">
@@ -44,7 +45,7 @@
   <div class="border-solid border-blue-300 pl-2 pt-1 grid-cuartosUnoRival">
     <span
       class="grid-cuartosDosTeam">
-      Jugador 1 / Jugador 2
+      {{ jugadores | slice: 4 : 5 }} / {{ jugadores | slice: 5 : 6 }}
     </span>
     <span
       class="grid-cuartosDosHorizontal">
@@ -52,7 +53,7 @@
     </span>
     <span
       class="grid-cuartosDosTeam2">
-      Jugador 1 / Jugador 2
+      {{ jugadores | slice: 6 : 7 }} / {{ jugadores | slice: 7 : 8 }}
     </span>
     <small
       class="grid-cuartosRivalResUno text-center">

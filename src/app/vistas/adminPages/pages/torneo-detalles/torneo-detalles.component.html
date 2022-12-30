@@ -1,0 +1,135 @@
+<body>
+  <section>
+    <div class="container" *ngFor="let Torneo of Torneo |ObjToArray">
+      <h1>{{Torneo.nombreTorneo}}</h1>
+      <div class="row row-30 align-items-center">
+        <div class="col-md-6">
+          <h5></h5>
+        </div>
+        <div class="col-md-6">
+          <h1>logo</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-lg" *ngFor="let Torneo of Torneo ">
+    <div class="container" >
+
+      <div class="row">
+        <div class="burbuja" >
+          <div class="row text-center">
+            <span class="h2">DETALLES PUBLICADOS</span>
+          </div>
+          <div class="row card-text">
+            <div class="col-sm-2 ">
+              <span class="h5">Inicio del Torneo:</span>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <span class="h6">El Torneo comienza el  {{Torneo.inicioT | date: 'fullDate'}} a las {{Torneo.inicioT | date: 'shortTime': 'UTC'}} {{Torneo.inicioT | date: 'aaa'}} </span>
+            </div>
+            <div class="col-sm-2">
+              <span class="h5">Lugar:</span>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <span class="h6">El Torneo se jugara en {{Torneo.lugar}} </span>
+            </div>
+            <div class="col-sm-2 mb-3">
+              <span class="h5">Inicio de inscripciones:</span>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <span class="h6">{{Torneo.inicioInscripciones | date: 'fullDate'}} a las {{Torneo.inicioInscripciones | date: 'shortTime': 'UTC'}} {{Torneo.inicioInscripciones | date: 'aaa'}}</span>
+            </div>
+            <div class="col-sm-2 mb-3">
+              <span class="h5">Fin de Inscripciones:</span>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <span class="h6">{{Torneo.finInscripciones | date: 'fullDate'}} a las {{Torneo.finInscripciones | date: 'shortTime': 'UTC'}} {{Torneo.finInscripciones | date: 'aaa'}}</span>
+            </div>
+            <div class="col-sm-2 mb-3">
+              <span class="h5">Categoria del torneo:</span>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <span class="h6" *ngFor="let a of Torneo.categoriaTorneo">{{a.name}}</span>
+            </div>
+            <div class="col-sm-2 mb-3">
+              <span class="h5">Limite de parejas:</span>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <span class="h6">{{Torneo.limiteParejas}}</span>
+            </div>
+            <div class="col-sm-2">
+              <span class="h5">Detalles:</span>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <span class="h6">{{Torneo.detalle}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="rol != '620c0d94b83e4a21f81253d6'">
+      <div class="text-center">
+        <button type="button" (click)="showDialog()" class="btn btn-primary">Editar</button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="rol == '620c0d94b83e4a21f81253d6'">
+      <div class="text-center">
+        <button type="button" (click)="goInscripcion(Torneo)" class="btn btn-primary">Inscribirse</button>
+      </div>
+    </ng-container>
+  </section>
+
+  <section class="section section-lg mt-4 grid justify-content-center" *ngIf="rol !== '620c0d94b83e4a21f81253d6'">
+    <p-table [value]="inscritos" [tableStyle]="{'min-width': '80rem'}">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="nombreEquipo" style="width:20%">Equipo<p-sortIcon field="equipo"></p-sortIcon></th>
+          <th style="width:20%">Jugadores</th>
+          <th pSortableColumn="pago" style="width:20%">Pago<p-sortIcon field="pago"></p-sortIcon></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-inscrito>
+        <tr>
+          <td>{{ inscrito.nombreEquipo }}</td>
+          <td>{{ inscrito.nombreJugador1 }} / {{ inscrito.nombreJugador2 }}</td>
+          <td>{{ inscrito.pago }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </section>
+
+
+</body>
+
+<p-dialog header="Editar Torneo" [(visible)]="display">
+
+  <div>
+    <form>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Nombre del torneo</label>
+        <input type="text" class="form-control" name="nombreTorneo" [(ngModel)]="torneo.nombreTorneo" [ngModelOptions]="{ standalone: true}" (placeholder)="torneo.nombreTorneo">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Inicio del Torneo</label>
+        <input type="datetime-local" class="form-control" name="inicioT" [(ngModel)]="torneo.inicioT" [ngModelOptions]="{ standalone: true}">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Lugar</label>
+        <input type="text" class="form-control" name="lugar" [(ngModel)]="torneo.lugar" [ngModelOptions]="{ standalone: true}" >
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Cierre de las Inscripciones</label>
+        <input type="datetime-local" class="form-control" name="finInscripciones" [(ngModel)]="torneo.finInscripciones" [ngModelOptions]="{ standalone: true}" >
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Detalle</label>
+        <textarea class="form-control" name="detalle" [(ngModel)]="torneo.detalle" [ngModelOptions]="{ standalone: true}" rows="3"></textarea>
+      </div>
+      <button type="button" (click)="editarTorneo()" class="btn btn-success">Guardar</button>
+    </form>
+  </div>
+
+</p-dialog>

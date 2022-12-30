@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { CommitComponent } from './commit.component';
-import { PipesModule } from 'src/app/pipes/pipes.module';
+import { LoginComponent } from './login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlantillasModule } from 'src/app/vistas/plantillas/plantillas.module';
 
 
 
 @NgModule({
   declarations: [
-    CommitComponent,
-  ],
-  exports: [
+    LoginComponent,
   ],
   imports: [
     CommonModule,
-    PipesModule,
+    ReactiveFormsModule,
+    FormsModule,
     PlantillasModule,
-  ],
+  ]
 })
-export class CommitModule { }
+export class LoginModule { }

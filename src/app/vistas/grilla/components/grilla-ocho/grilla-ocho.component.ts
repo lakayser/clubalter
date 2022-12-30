@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { thresholdFreedmanDiaconis } from 'd3';
 import { Inscritos } from '../../interface/inscritos';
 import { InscritosService } from '../../services/inscritos.service';
 
@@ -9,9 +8,11 @@ import { InscritosService } from '../../services/inscritos.service';
   styleUrls: [ './grilla-ocho.component.css']
 })
 export class GrillaOchoComponent implements OnInit {
-    display       : boolean = false;
-    inscritosJ    : Inscritos[] = [];
-    setResultado  : number;
+  display       : boolean = false;
+  inscritosJ    : Inscritos[] = [];
+  jugadores     : string[] = [];;
+  setResultado  : number;
+  equipoA: any;
 
   constructor( private inscritosService: InscritosService ) { }
 
@@ -20,9 +21,16 @@ export class GrillaOchoComponent implements OnInit {
   }
 
   listarInscritos() {
-    this.inscritosService.listarInscritos()
+    this.inscritosService.getInscritos()
       .subscribe( inscritos => {
         this.inscritosJ = inscritos;
+        this.inscritosJ.map( a => {
+          a.participantes.map( b => {
+            this.jugadores.push( b.nameUser );
+            console.log( this.jugadores );
+          })
+        })
+        console.log( this.equipoA );
         console.log( this.inscritosJ )
       })
   }
