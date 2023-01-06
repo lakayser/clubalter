@@ -8,7 +8,6 @@ import { OrganizationService } from 'src/app/servicios/organization.service';
 import { OcupationService } from 'src/app/servicios/ocupation.service';
 import { RolesService } from 'src/app/servicios/roles.service';
 import Swal from 'sweetalert2';
-import { passwordMatch } from '../../../validators/passwordMatch';
 
 @Component({
   selector: 'app-crudsubadmin',
@@ -17,7 +16,6 @@ import { passwordMatch } from '../../../validators/passwordMatch';
 })
 export class CrudsubadminComponent implements OnInit {
 
-<<<<<<< HEAD:src/app/vistas/crudsubadmin/crudsubadmin.component.ts
   userForm!: UntypedFormGroup;
 
   reactiveForm: FormGroup;
@@ -65,12 +63,6 @@ export class CrudsubadminComponent implements OnInit {
       validator: this.Mustmatch('password', 'confirmPassword')
     });
   }
-=======
-
-  constructor(public roleservice:RolesService,private router: Router, public usuariosService: UsuariosService, public organizationService:OrganizationService, public ocupationService:OcupationService) { }
-
-  public ocupations: Array<any> = [];
->>>>>>> 9201907a2ed75db9fc7749f2e2b0f907238b2256:src/app/vistas/adminPages/pages/crud-sub/crudsubadmin.component.ts
 
   ngOnInit(): void {
     this.getUsuarios();
@@ -93,7 +85,6 @@ export class CrudsubadminComponent implements OnInit {
     }
   }
 
-<<<<<<< HEAD:src/app/vistas/crudsubadmin/crudsubadmin.component.ts
   getControl(name: any): AbstractControl | null {
     return this.reactiveForm.get(name)
   }
@@ -123,13 +114,6 @@ export class CrudsubadminComponent implements OnInit {
         text: err.error,
         timer: 2500
       });
-=======
-  getOrganization(){
-    this.organizationService.getOrganization().subscribe((res)=>{
-      this.organizationService.organizaciones=res;
-      console.log(res);
-
->>>>>>> 9201907a2ed75db9fc7749f2e2b0f907238b2256:src/app/vistas/adminPages/pages/crud-sub/crudsubadmin.component.ts
     })
   }
   
@@ -137,7 +121,6 @@ export class CrudsubadminComponent implements OnInit {
   onSubmit() {
     this.usuariosService.createUsuario(this.reactiveForm.value).subscribe((res) => {
       console.log(res);
-<<<<<<< HEAD:src/app/vistas/crudsubadmin/crudsubadmin.component.ts
       this.getUsuarios();
       this.reactiveForm.reset();
 
@@ -173,16 +156,6 @@ export class CrudsubadminComponent implements OnInit {
       this.usuariosService.users = res;
       console.log(res);
     });
-=======
-
-    })
-  }
-  getUsuarios() {
-    this.usuariosService.getUsuarios().subscribe((res) => {
-        this.usuariosService.users = res;
-        console.log(res);
-      });
->>>>>>> 9201907a2ed75db9fc7749f2e2b0f907238b2256:src/app/vistas/adminPages/pages/crud-sub/crudsubadmin.component.ts
   }
 
   getrol() {
@@ -198,8 +171,6 @@ export class CrudsubadminComponent implements OnInit {
     })
   }
 
-<<<<<<< HEAD:src/app/vistas/crudsubadmin/crudsubadmin.component.ts
-=======
   addUsuario(form: NgForm) {
     if (form.value._id) {
       this.usuariosService.putUsuario(form.value).subscribe((res) => {
@@ -252,7 +223,6 @@ export class CrudsubadminComponent implements OnInit {
     }
   }
 
->>>>>>> 9201907a2ed75db9fc7749f2e2b0f907238b2256:src/app/vistas/adminPages/pages/crud-sub/crudsubadmin.component.ts
   deleteUsuario(_id: any) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {

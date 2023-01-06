@@ -10,7 +10,7 @@
           <h2>Torneos Actuales</h2>
         </div>
         <div class="row" *ngFor="let Torneo of Torneo">
-          <ng-container *ngIf="Torneo.estadoEnCurso == !true">
+          <ng-container *ngIf="Torneo.finInscripciones  !< fecha ">
             <div class="col-lg-2 col-md-6 fecha">
               <h1>{{ Torneo.inicioT | date : "dd" }}</h1>
               <p style="color: green">{{ Torneo.inicioT | date : "LLLL" }}</p>
