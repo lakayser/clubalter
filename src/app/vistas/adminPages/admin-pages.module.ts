@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { AdminPagesRoutingModule } from './admin-pages-routing.module';
 import { AdminusuariosModule } from './pages/adminusuarios/adminusuarios.module';
-import { AjusterTorneosModule } from './pages/ajustes-torneos/ajuster-torneos.module';
+import { AjusterTorneosModule as exports } from './pages/ajustes-torneos/ajuster-torneos.module';
 import { CalendarioModule } from './pages/calendario-adm/calendario.module';
-import { CanchasCrudModule } from './pages/canchas-crud/canchas-crud.module';
-import { CanchasinicioModule } from './pages/canchasInicio/canchasinicio.module';
+import { CanchasCrudModule as imports } from './pages/canchas-crud/canchas-crud.module';
+import { CanchasinicioModule as si } from './pages/canchasInicio/canchasinicio.module';
 import { CrearTorneoModule } from './pages/crear-torneo/crear-torneo.module';
 import { CrudSubModule } from './pages/crud-sub/crud-sub.module';
 import { DashBoardModModule } from './pages/dashBoard-mod/dash-board-mod.module';
@@ -21,8 +21,8 @@ import { VistaAdminModule } from './pages/usermoderator/vista-admin.module';
   imports: [
     AdminPagesRoutingModule,
     AdminusuariosModule,
-    AjusterTorneosModule,
-    CanchasinicioModule,
+    exports,
+    si,
     CrearTorneoModule,
     CrudSubModule,
     DashBoardModModule,
@@ -30,7 +30,7 @@ import { VistaAdminModule } from './pages/usermoderator/vista-admin.module';
     OrganizacionesAdminModule,
     TorneoCrudModule,
     TorneoDetallesModule,
-    CanchasCrudModule,
+    imports,
     VistaAdminModule,
     CalendarioModule,
   ],

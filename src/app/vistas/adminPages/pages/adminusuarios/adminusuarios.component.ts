@@ -17,7 +17,7 @@ import { RolesService } from 'src/app/servicios/roles.service';
 
 export class AdminusuariosComponent implements OnInit {
 
-  constructor(public roleservice:RolesService, private router: Router, public usuariosService: UsuariosService, public organizationService:OrganizationService, public ocupationService:OcupationService) { }
+  constructor(public roleservice: RolesService, private router: Router, public usuariosService: UsuariosService, public organizationService: OrganizationService, public ocupationService: OcupationService) { }
 
   public ocupations: Array<any> = [];
 
@@ -28,22 +28,22 @@ export class AdminusuariosComponent implements OnInit {
     this.getrol();
   }
 
-  getOcupation(){
-    this.ocupationService.getOcupationAdmin().subscribe((res)=>{
-      this.ocupationService.ocupa=res;
-      console.log('ocupation'+res);
+  getOcupation() {
+    this.ocupationService.getOcupationAdmin().subscribe((res) => {
+      this.ocupationService.ocupa = res;
+      console.log('ocupation' + res);
 
     })
   }
   getUsuarios() {
     this.usuariosService.getUsuarioAdmin().subscribe((res) => {
-        this.usuariosService.users = res;
-        console.log(res);
-      });
+      this.usuariosService.users = res;
+      console.log(res);
+    });
   }
-  getrol(){
-    this.roleservice.getRoleAdm().subscribe((res)=>{
-      this.roleservice.roles=res;
+  getrol() {
+    this.roleservice.getRoleAdm().subscribe((res) => {
+      this.roleservice.roles = res;
       console.log(res);
     })
   }
@@ -77,7 +77,7 @@ export class AdminusuariosComponent implements OnInit {
         });
         console.log(err);
 
-    });
+      });
     }
   }
 
@@ -91,50 +91,52 @@ export class AdminusuariosComponent implements OnInit {
     //   );
     // }
     const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: false
-      })
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
 
-      Swal.fire({
-        title: 'Estas seguro que deseas elimianr este Usuario?',
-        text: "No podras revertir esta accion",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, Eliminar!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.usuariosService.deleteUsuarioAdmin(_id).subscribe(
-            (res)=>{this.getUsuarios();
-              Swal.fire(
-                'Eliminado!',
-                'Usuario Eliminado Con exito',
-                'success'
-              )})
-        } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
-          swalWithBootstrapButtons.fire(
-            'Cancelado',
-            'El usuario esta a salvo',
-            'error'
-          )
-        }
-      })
+    Swal.fire({
+      title: 'Estas seguro que deseas elimianr este Usuario?',
+      text: "No podras revertir esta accion",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Si, Eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.usuariosService.deleteUsuarioAdmin(_id).subscribe(
+          (res) => {
+            this.getUsuarios();
+            Swal.fire(
+              'Eliminado!',
+              'Usuario Eliminado Con exito',
+              'success'
+            )
+          })
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'El usuario esta a salvo',
+          'error'
+        )
+      }
+    })
 
   }
   editUsuario(users: Usuario) {
     this.usuariosService.selectedUsuario = users;
   }
-  getOrganization(){
-    this.organizationService.getOrganization().subscribe((res)=>{
-      this.organizationService.organizaciones=res;
+  getOrganization() {
+    this.organizationService.getOrganization().subscribe((res) => {
+      this.organizationService.organizaciones = res;
       console.log(res);
 
     })
