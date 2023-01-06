@@ -2,39 +2,39 @@
 <p-sidebar [(visible)]="display" position="left" [transitionOptions]="'500ms'" >
     <!-- moderador -->
     <div *ngIf="jk =='1'">
-        <div class="sidebar-item">
-            <span (click)="display = false" routerLink="/canchaselbicho/dashboardmod" class='cursor-pointer mt-3'>
-                <i class="pi pi-home"></i>
+        <div class="sidebar-item a" (click)="display = false" routerLink="/canchaselbicho/dashboardmod">
+            <span  class='cursor-pointer mt-3'>
+                <i class="pi pi-home mr-2"></i>
                 <span>Inicio</span>
             </span>
         </div>
 
-        <div class="sidebar-item">
-            <span (click)="display = false" routerLink="/calendario" class='cursor-pointer mt-3'>
-                <i class="pi pi-calendar"></i>
+        <div class="sidebar-item a" (click)="display = false" routerLink="/calendario" >
+            <span class='cursor-pointer mt-3'>
+                <i class="pi pi-calendar mr-2"></i>
                 <span>Vista Semana</span>
             </span>
         </div>
 
-        <div class="sidebar-item ">
-            <span (click)="display = false"  routerLink="/canchasCRUD" class='cursor-pointer mt-3'>
-                <span class="material-icons">
+        <div class="sidebar-item  a" (click)="display = false"  routerLink="/canchasCRUD">
+            <span  class='cursor-pointer mt-3'>
+                <span class="material-icons mr-2">
                     settings
                     </span>
                 <span>Ajustes canchas</span>
             </span>
         </div>
-        <div class="sidebar-item">
-            <span (click)="display = false"  routerLink="/crudsub" class='cursor-pointer mt-3'>
-                <span class="material-icons">
+        <div class="sidebar-item a" (click)="display = false"  routerLink="/crudsub">
+            <span  class='cursor-pointer mt-3'>
+                <span class="material-icons mr-2">
                     sports_tennis
                     </span>
                 <span>Ajustes usuarios</span>
             </span>
         </div>
-        <div class="sidebar-item">
-            <span (click)="display = false"  routerLink="/canchaselbicho/TorneoCrud" class='cursor-pointer mt-3'>
-                <span class="material-icons">
+        <div class="sidebar-item a" (click)="display = false"  routerLink="/canchaselbicho/TorneoCrud">
+            <span  >
+                <span class="material-icons mr-2">
                     emoji_events
                     </span>
                 <span>Torneos</span>
@@ -43,39 +43,39 @@
     </div>
     <!-- subadmin -->
     <div *ngIf="jk =='2' ">
-        <div class="sidebar-item">
-            <span routerLink="/canchaselbicho/dashboardsub" class='sidebar-link'>
-                <i class="pi pi-home"></i>
+        <div class="sidebar-item a" (click)="display = false"  routerLink="/canchaselbicho/dashboardsub">
+            <span  class='sidebar-link'>
+                <i class="pi pi-home mr-2"></i>
                 <span>Inicio</span>
             </span>
         </div>
 
-        <div class="sidebar-item">
-            <span routerLink="/calendario" class='sidebar-link'>
-                <i class="pi pi-calendar"></i>
+        <div class="sidebar-item a" (click)="display = false"  routerLink="/calendario" >
+            <span class='sidebar-link'>
+                <i class="pi pi-calendar mr-2"></i>
                 <span>Vista Semana</span>
             </span>
         </div>
 
-        <div class="sidebar-item ">
-            <span routerLink="/canchasCRUD" class='sidebar-link'>
-                <span class="material-icons">
+        <div class="sidebar-item a" (click)="display = false"  routerLink="/canchasCRUD">
+            <span  class='sidebar-link'>
+                <span class="material-icons mr-2">
                     settings
                     </span>
                 <span>Ajustes canchas</span>
             </span>
         </div>
-        <div class="sidebar-item">
-            <span routerLink="/crudsub" class='sidebar-link'>
-                <span class="material-icons">
+        <div class="sidebar-item a" (click)="display = false"  routerLink="/crudsub">
+            <span  class='sidebar-link'>
+                <span class="material-icons mr-2">
                     sports_tennis
                     </span>
                 <span>Ajustes usuarios</span>
             </span>
         </div>
-        <div class="sidebar-item">
-            <span routerLink="/canchaselbicho/TorneoCrud" class='sidebar-link'>
-                <span class="material-icons">
+        <div class="sidebar-item a" (click)="display = false"  routerLink="/canchaselbicho/TorneoCrud">
+            <span  class='sidebar-link'>
+                <span class="material-icons mr-2">
                     emoji_events
                     </span>
                 <span>Torneos</span>
@@ -85,24 +85,24 @@
 
         <!-- usuario -->
         <div *ngIf="jk =='3' ">
-            <div class="sidebar-item">
-                <span routerLink="/canchaselbicho/dashboarduser" class='sidebar-link'>
-                    <i class="pi pi-home"></i>
+            <div class="sidebar-item a" (click)="display = false"  routerLink="/canchaselbicho/dashboarduser">
+                <span  class='sidebar-link'>
+                    <i class="pi pi-home mr-2"></i>
                     <span>Inicio</span>
                 </span>
             </div>
 
-            <div class="sidebar-item">
-                <span routerLink="/calendario" class='sidebar-link'>
-                    <i class="pi pi-calendar"></i>
+            <div class="sidebar-item a" (click)="display = false"  routerLink="/calendario">
+                <span  class='sidebar-link'>
+                    <i class="pi pi-calendar mr-2"></i>
                     <span>Vista Semana</span>
                 </span>
             </div>
         </div>
 
 
-        <ng-template pTemplate="footer"> <button type="button" class="btn btn-danger ml-2" (click)="apiService.logout()">
-            <span class="material-icons">
+        <ng-template pTemplate="footer"> <button type="button" class="btn btn-danger ml-2" (click)="apiService.logout()" (click)="display = false" >
+            <span class="material-icons mr-2">
               logout
               </span>
             Cerrar

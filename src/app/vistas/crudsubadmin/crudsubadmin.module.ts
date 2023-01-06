@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PipesModule } from 'src/app/pipes/pipes.module';
-
 import { CrudsubadminComponent } from './crudsubadmin.component';
-
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
@@ -16,7 +15,10 @@ import { CrudsubadminComponent } from './crudsubadmin.component';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     PipesModule,
+    DialogModule
+   
   ],
 })
 export class CrudsubadminModule { }

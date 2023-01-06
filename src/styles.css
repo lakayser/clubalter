@@ -1,6 +1,7 @@
 html, body {
   background-color: var( --surface-d )!important;
   font-weight     : bold!important;
-  color           : var( --text-color )!important;
+  color           : #3b3636!important;
   font-family     : var( --font-family )!important;
+
 }

@@ -37,7 +37,7 @@
 
                         Deshabilitar
                       </button>
-                      <button type="button" class="btn btn-primary ml-2 mt-1" (click)="editCancha(cancha)">
+                      <button type="button" class="btn btn-primary ml-2 mt-1" (click)="showDialog(cancha)">
                         <span class="material-icons"> delete </span> Editar
                       </button>
                     </td>
@@ -49,27 +49,36 @@
         </div>
         <div class="col-1"></div>
         <div class="col-lg-5 col-sm-5 burbuja">
-          <form #canchaForm="ngForm" (ngSubmit)="addCancha(canchaForm)">
-            <input type="hidden" name="_id" [(ngModel)]="canchasService.selectedCancha._id" required />
-            <div class="col mt-4">
+
+          <form (ngSubmit)="onSubmit()" [formGroup]="canchasForm">
+            <div class="col mt-4 form-group">
               <label for="input" class="form-label">Ingrese nombre de nueva cancha</label>
-              <input type="text" class="form-control" name="name" [(ngModel)]="canchasService.selectedCancha.name"
-                required />
+
+              <input type="text" class="form-control" name="name" required id="name" minlength="4"
+                formControlName="name" />
+              <div *ngIf="canchasForm.get('name')?.touched && canchasForm.get('name')?.errors?.['required']"
+                class="alert alert-danger">Este campo es requerido
+              </div>
             </div>
 
-            <div class="col mt-4">
+            <div class="col mt-4 form-control">
               <label for="inputOcupacion" class="form-label">Seleccione la duracion de la reserva</label>
-              <select class="form-select" aria-label="Default select example" name="rangoHorario"
-                [(ngModel)]="canchasService.selectedCancha.rangohorario" required>
+
+              <select class="form-select" name="rangoHorario" id="rangoHorario" name="rangoHorario"
+                formControlName="rangoHorario" required>
                 <option value="1">1 Hora</option>
                 <option value="2">1:30 Horas</option>
                 <option value="3">2 Horas</option>
               </select>
+              <div
+                *ngIf="canchasForm.get('rangoHorario')?.touched && canchasForm.get('rangoHorario')?.errors?.['required']"
+                class="alert alert-danger">Este campo es requerido
+              </div>
             </div>
 
             <div class="text-center mt-4">
-              <button type="submit" class="btn btn-danger text-uppercase mt-2 text-center">
-                Agregar Cancha
+              <button type="submit" class="btn btn-danger text-uppercase mt-2 text-center"
+                [disabled]="canchasForm.invalid">Agregar Cancha
               </button>
             </div>
           </form>
@@ -82,35 +91,45 @@
           <div class="col-3"></div>
           <div class="col-sm-6 col-lg-6 burbuja">
             <h2 class="text-center">Carga masiva de Horas</h2>
-            <form #horasmasivasForm="ngForm" (ngSubmit)="addHorasCancha(horasmasivasForm)" class="mb-3">
-              <div class="col">
+            <form (ngSubmit)="agregarHoras()" [formGroup]="horasForm" class="mb-3">
+              <div class="col form-group">
                 <label for="inputcancha" class="form-label">Seleccione Cancha</label>
-                <select class="form-select" aria-label="Default select example" name="cancha"
-                  [(ngModel)]="horasmasivasService.selectedHorasMasivas.cancha">
+                <select class="form-select" aria-label="Default select example" name="cancha" formControlName="cancha">
                   <option *ngFor="let cancha of canchasService.cancha | ObjToArray" [ngValue]="cancha._id">
                     {{ cancha.name }}
                   </option>
                 </select>
+                <div *ngIf="horasForm.get('cancha')?.touched && horasForm.get('cancha')?.errors?.['required']"
+                  class="alert alert-danger">Este campo es requerido
+                </div>
               </div>
               <div class="col">
                 <label for="input" class="form-label">Ingrese Fecha de inicio</label>
-                <input type="date" class="form-control" name="horaComienzo" [(ngModel)]="
-                    horasmasivasService.selectedHorasMasivas.horacomienzo
-                  " />
+                <input type="date" class="form-control fecha" onkeydown="return false" name="horaComienzo"
+                  formControlName="horaComienzo" />
+                <div
+                  *ngIf="horasForm.get('horaComienzo')?.touched && horasForm.get('horaComienzo')?.errors?.['required']"
+                  class="alert alert-danger">Este campo es requerido
+                </div>
               </div>
               <div class="col">
                 <label for="input" class="form-label">Ingrese Fecha de Final</label>
-                <input type="date" class="form-control" name="horaTermino" [(ngModel)]="
-                    horasmasivasService.selectedHorasMasivas.horatermino
-                  " />
+                <input type="date" class="form-control fecha" onkeydown="return false" name="horaTermino"
+                  formControlName="horaTermino" />
+                <div *ngIf="horasForm.get('horaTermino')?.touched && horasForm.get('horaTermino')?.errors?.['required']"
+                  class="alert alert-danger">Este campo es requerido
+                </div>
               </div>
               <div class="col">
                 <label for="input" class="form-label">Ingrese precio de las horas</label>
-                <input type="number" class="form-control" name="precio"
-                  [(ngModel)]="horasmasivasService.selectedHorasMasivas.precio" />
+                <input type="number" class="form-control " name="precio" formControlName="precio" />
+                <div *ngIf="horasForm.get('precio')?.touched && horasForm.get('precio')?.errors?.['required']"
+                  class="alert alert-danger">Este campo es requerido
+                </div>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-danger text-uppercase mt-2 text-center">
+                <button type="submit" class="btn btn-danger text-uppercase mt-2 text-center"
+                  [disabled]="horasForm.invalid">
                   Agregar Horarios
                 </button>
               </div>
@@ -121,3 +140,44 @@
     </div>
   </section>
 </body>
+
+<p-dialog header="Editar Torneo" [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '100vw'}"
+  [style]="{width: '50vw'}">
+
+  <form #canchaeditForm="ngForm" (ngSubmit)="editarCancha(canchaeditForm)">
+    <input type="hidden" name="_id" [(ngModel)]="canchasService.selectedCancha._id" required />
+    <div class="col mt-4">
+      <label for="input" class="form-label">Ingrese nombre de nueva cancha</label>
+      <input type="text" class="form-control" name="name" [(ngModel)]="canchasService.selectedCancha.name" required
+        #name="ngModel" minlength="4" />
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        <div *ngIf="name.errors?.['required']">
+          Este campo es obligatorio
+        </div>
+        <div *ngIf="name.errors?.['required']">
+          Por lo menos 4 caracteres
+        </div>
+      </div>
+    </div>
+
+    <div class="col mt-4">
+      <label for="inputOcupacion" class="form-label">Seleccione la duracion de la reserva</label>
+      <select class="form-select" aria-label="Default select example" name="rangoHorario"
+        [(ngModel)]="canchasService.selectedCancha.rangohorario" required #rangoHorario="ngModel">
+        <option value="1">1 Hora</option>
+        <option value="2">1:30 Horas</option>
+        <option value="3">2 Horas</option>
+      </select>
+      <div [hidden]="rangoHorario.valid || rangoHorario.pristine" class="alert alert-danger">
+        Campo obligario
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button [disabled]="canchaeditForm.invalid" type="submit" class="btn btn-danger text-uppercase mt-2 text-center">
+        Agregar Cancha
+      </button>
+    </div>
+  </form>
+
+</p-dialog>

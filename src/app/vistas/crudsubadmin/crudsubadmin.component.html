@@ -6,52 +6,83 @@
             <br>
             <div class=" burbuja">
 
-                <form #usuarioForm="ngForm" (ngSubmit)="addUsuario(usuarioForm) " class="row g-3 mb-3">
-                    <input type="hidden" name="_id" [(ngModel)]="usuariosService.selectedUsuario._id">
+                <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm" class="row g-3 mb-3">
+                   
                     <div class="col-lg-6 col-sm-6">
                         <label for="inputName" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" name="nameUser"
-                            [(ngModel)]="usuariosService.selectedUsuario.nameUser">
+                        <input type="text" class="form-control" name="nameUser" required id="nameUser"
+                            formControlName="nameUser">
+                        <div *ngIf="reactiveForm.get('nameUser')?.touched && reactiveForm.get('nameUser')?.errors?.['required']"
+                            class="alert alert-danger">Este campo es requerido
+                        </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <label for="inputRut" class="form-label">Rut</label>
-                        <input type="text" class="form-control" name="rut"
-                            [(ngModel)]="usuariosService.selectedUsuario.rut">
+                        <input type="text" class="form-control" name="rut" required id="rut" formControlName="rut">
+                        <div *ngIf="reactiveForm.get('rut')?.touched && reactiveForm.get('rut')?.errors?.['required']"
+                            class="alert alert-danger">Este campo es requerido
+                        </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <label for="inputroles" class="form-label">ROL</label>
                         <select class="form-select" aria-label="Default select example" name="roles"
-                            [(ngModel)]="usuariosService.selectedUsuario.roles">
+                            required id="roles" formControlName="roles">
                             <option *ngFor="let roles of roleservice.roles |ObjToArray" [ngValue]="roles._id">
                                 {{roles.name}}</option>
+                                <div *ngIf="reactiveForm.get('roles')?.touched && reactiveForm.get('roles')?.errors?.['required']"
+                            class="alert alert-danger">Este campo es requerido
+                        </div>
                         </select>
-
                     </div>
-
                     <div class="col-lg-6 col-sm-6">
                         <label for="inputpassword" class="form-label">Contraseña</label>
                         <input type="password" class="form-control" name="password"
-                            [(ngModel)]="usuariosService.selectedUsuario.password">
+                           required id="password" formControlName="password" [ngClass]="{error: getControl('password')?.errors && getControl('password')?.touched}">
+                            <div *ngIf="getControl('password')?.errors && getControl('password')?.touched" class="alert alert-danger">
+                                <small  *ngIf="getControl('password')?.errors?.['required']">Contraseña es obligatoria</small>
+                            </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <label for="inputpassword" class="form-label">Vuelva a introducir la Contraseña</label>
+                        <input type="password" class="form-control" name="confirmPassword"
+                           required id="confirmPassword" formControlName="confirmPassword" 
+                           [ngClass]="">
+                            <div *ngIf="getControl('confirmPassword')?.errors && getControl('confirmPassword')?.touched" class="alert alert-danger">
+                                <small  *ngIf="getControl('confirmPassword')?.errors?.['required']">Confirmar contraseña es requerido</small>
+                                <small  *ngIf="getControl('confirmPassword')?.errors?.['mustMatch']">Las contraseñas deben ser iguales</small>
+
+                            </div>
+                         
+                      
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <label for="inputMail" class="form-label">E-mail</label>
                         <input type="email" class="form-control" name="email"
-                            [(ngModel)]="usuariosService.selectedUsuario.email">
+                            required id="email" formControlName="email">
+                            <div *ngIf="reactiveForm.get('email')?.touched && reactiveForm.get('email')?.errors?.['required']"
+                            class="alert alert-danger">Este campo es requerido
+                        </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <label for="inputTelefono" class="form-label">Telefono</label>
                         <input type="text" class="form-control" name="telefono"
-                            [(ngModel)]="usuariosService.selectedUsuario.telefono">
+                            required id="telefono" formControlName="telefono">
+                            <div *ngIf="reactiveForm.get('telefono')?.touched && reactiveForm.get('telefono')?.errors?.['required']"
+                            class="alert alert-danger">Este campo es requerido
+                        </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <label for="inputDireccion" class="form-label">Direccion</label>
                         <input type="text" class="form-control" name="direccion"
-                            [(ngModel)]="usuariosService.selectedUsuario.direccion">
+                            required id="direccion" formControlName="direccion">
+                            <div *ngIf="reactiveForm.get('direccion')?.touched && reactiveForm.get('direccion')?.errors?.['required']"
+                            class="alert alert-danger">Este campo es requerido
+                        </div>
                     </div>
 
                     <div class="text-center mb-3">
 
-                        <button type="submit" class="btn btn-danger text-uppercase" value="Guardar">Agregar
+                        <button type="submit" class="btn btn-danger text-uppercase"  [disabled]="reactiveForm.invalid">Agregar
                             Usuario</button>
                     </div>
                 </form>
@@ -93,10 +124,9 @@
                                     <td>{{ users.telefono }}</td>
                                     <td>{{ users.direccion }}</td>
 
-                                    <div class="btn-group mr-0" role="group"
-                                        aria-label="Basic mixed styles example">
+                                    <div class="btn-group mr-0" role="group" aria-label="Basic mixed styles example">
                                         <button type="button" class="btn btn-primary  mr-2"
-                                            (click)="editUsuario(users)"> Editar</button>
+                                        (click)="showDialog(users)"> Editar</button>
                                         <button type="button" class="btn btn-danger"
                                             (click)="deleteUsuario(users._id)">Eliminar</button>
                                     </div>
@@ -115,3 +145,72 @@
 
 
 </body>
+
+<p-dialog header="Editar Usuario" [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '100vw'}"
+  [style]="{width: '50vw'}">
+
+  <form (ngSubmit)="onSubmit2()" [formGroup]="reactiveForm2" class="row g-3 mb-3">
+     <input type="hidden" name="_id" id="_id" formControlName="_id">     
+    <div class="">
+        <label for="inputName" class="form-label">Nombre</label>
+        <input type="text" class="form-control" name="nameUser" required id="nameUser"
+            formControlName="nameUser">
+        <div *ngIf="reactiveForm2.get('nameUser')?.touched && reactiveForm2.get('nameUser')?.errors?.['required']"
+            class="alert alert-danger">Este campo es requerido
+        </div>
+    </div>
+
+    
+    <div class="">
+        <label for="inputpassword" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" name="password"
+           required id="password" formControlName="password" [ngClass]="{error: getControl('password')?.errors && getControl('password')?.touched}">
+            <div *ngIf="getControl2('password')?.errors && getControl2('password')?.touched" class="alert alert-danger">
+                <small  *ngIf="getControl2('password')?.errors?.['required']">Contraseña es obligatoria</small>
+            </div>
+    </div>
+    <div class="">
+        <label for="inputpassword" class="form-label">Vuelva a introducir la Contraseña</label>
+        <input type="password" class="form-control" name="confirmPassword"
+           required id="confirmPassword" formControlName="confirmPassword" 
+           [ngClass]="">
+            <div *ngIf="getControl2('confirmPassword')?.errors && getControl2('confirmPassword')?.touched" class="alert alert-danger">
+                <small  *ngIf="getControl2('confirmPassword')?.errors?.['required']">Confirmar contraseña es requerido</small>
+                <small  *ngIf="getControl2('confirmPassword')?.errors?.['mustMatch']">Las contraseñas deben ser iguales</small>
+            </div>
+         
+      
+    </div>
+    <div class="">
+        <label for="inputMail" class="form-label">E-mail</label>
+        <input type="email" class="form-control" name="email"
+            required id="email" formControlName="email">
+            <div *ngIf="reactiveForm2.get('email')?.touched && reactiveForm2.get('email')?.errors?.['required']"
+            class="alert alert-danger">Este campo es requerido
+        </div>
+    </div>
+    <div class="">
+        <label for="inputTelefono" class="form-label">Telefono</label>
+        <input type="text" class="form-control" name="telefono"
+            required id="telefono" formControlName="telefono">
+            <div *ngIf="reactiveForm2.get('telefono')?.touched && reactiveForm2.get('telefono')?.errors?.['required']"
+            class="alert alert-danger">Este campo es requerido
+        </div>
+    </div>
+    <div class="">
+        <label for="inputDireccion" class="form-label">Direccion</label>
+        <input type="text" class="form-control" name="direccion"
+            required id="direccion" formControlName="direccion">
+            <div *ngIf="reactiveForm2.get('direccion')?.touched && reactiveForm2.get('direccion')?.errors?.['required']"
+            class="alert alert-danger">Este campo es requerido
+        </div>
+    </div>
+
+    <div class="text-center mb-3">
+
+        <button type="submit" class="btn btn-danger text-uppercase"  [disabled]="reactiveForm2.invalid">Editar
+            Usuario</button>
+    </div>
+</form>
+
+</p-dialog>

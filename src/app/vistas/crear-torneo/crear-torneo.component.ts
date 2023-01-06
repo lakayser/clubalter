@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, NgForm, Validators, FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TorneosService } from 'src/app/servicios/torneos.service';
 import { TipostorneoService } from 'src/app/servicios/tipostorneo.service';
@@ -17,22 +17,23 @@ import Swal from 'sweetalert2';
 })
 export class CrearTorneoComponent implements OnInit {
 
+ reactiveForm:FormGroup;
 
-  torneo = new UntypedFormGroup({
-    nombreTorneo: new UntypedFormControl(''),
-    inicioT: new UntypedFormControl(''),
-    lugar: new UntypedFormControl(''),
-    estadoEnCurso: new UntypedFormControl(''),
-    inicioInscripciones: new UntypedFormControl(''),
-    finInscripciones: new UntypedFormControl(''),
-    categoriaTorneo: new UntypedFormControl(''),
-    categoriaParticipantes: new UntypedFormControl(''),
-    limiteParejas: new UntypedFormControl(''),
-    detalle: new UntypedFormControl(''),
-    tipoTorneo: new UntypedFormControl(''),
-    valorInscripcion: new UntypedFormControl(''),
+//   torneoform = new UntypedFormGroup({
+//     nombreTorneo: new UntypedFormControl('',[Validators.required]),
+//     inicioT: new UntypedFormControl('',[Validators.required]),
+//     lugar: new UntypedFormControl('',[Validators.required]),
+//     estadoEnCurso: new UntypedFormControl('',[Validators.required]),
+//     inicioInscripciones: new UntypedFormControl('',[Validators.required]),
+//     finInscripciones: new UntypedFormControl('',[Validators.required]),
+//     categoriaTorneo: new UntypedFormControl('',[Validators.required]),
+//     categoriaParticipantes: new UntypedFormControl('',[Validators.required]),
+//     limiteParejas: new UntypedFormControl('',[Validators.required]),
+//     detalle: new UntypedFormControl('',[Validators.required]),
+//     tipoTorneo: new UntypedFormControl('',[Validators.required]),
+//     valorInscripcion: new UntypedFormControl('',[Validators.required]),
   
-  });
+//   });
 
   
   Torneo: TipoTorneo[];
@@ -41,42 +42,35 @@ export class CrearTorneoComponent implements OnInit {
 
   CategoriaT: CategoriaTorneo[];
 
-  constructor( public categoriaTorneoService:CategoriaTorneoService,public tipotorneoService:TipostorneoService, public categoriaparticipanteService:CategoriaParticipantesService, private router: Router, private readonly fb: UntypedFormBuilder, private TorneoService:TorneosService ) { }
+  constructor( public categoriaTorneoService:CategoriaTorneoService,public tipotorneoService:TipostorneoService, public categoriaparticipanteService:CategoriaParticipantesService, private router: Router, private readonly fb: UntypedFormBuilder,private formBuilder: FormBuilder , private TorneoService:TorneosService ) { 
+    this.reactiveForm = this.formBuilder.group({
+      nombreTorneo: new FormControl('',[Validators.required]),
+      inicioT: new FormControl('',[Validators.required]),
+      lugar: new FormControl('',[Validators.required]),
+    
+      inicioInscripciones: new FormControl('',[Validators.required]),
+      finInscripciones: new FormControl('',[Validators.required]),
+      categoriaTorneo: new FormControl('',[Validators.required]),
+      categoriaParticipantes: new FormControl('',[Validators.required]),
+      limiteParejas: new FormControl('',[Validators.required]),
+      detalle: new FormControl('',[Validators.required]),
+      tipoTorneo: new FormControl('',[Validators.required]),
+      valorInscripcion: new FormControl('',[Validators.required]),
+    });
+  }
 
   ngOnInit(): void {
-    // let xd = localStorage.getItem('organization');
-    // this.orga = xd;
-    // console.log(this.orga);
+
     
     this.gettipotorneo();
     this.getcategoriaP();
     this.getCategoT();
-    // this.torneo = this.initForm();
+
   }
 
-  // initForm(): FormGroup{
-  //   return this.fb.group({
-  //   nombreTorneo:   ['', [Validators.required]],
-  //   inicioT:        ['', [Validators.required]],
-  //   lugar:          ['', [Validators.required]],
-  //   estadoEnCurso:  ['', [Validators.required]],
-  //   inicioInscripciones: ['', [Validators.required]],
-  //   finInscripciones: ['', [Validators.required]],
-  //   categoriaTorneo: ['', [Validators.required]],
-  //   categoriaParticipantes: ['', [Validators.required]],
-  //   limiteParejas: ['', [Validators.required]],
-  //   detalle: ['', [Validators.required]],
-  //   tipoTorneo: ['', [Validators.required]],
-  //   valorInscripcion: ['', [Validators.required]],
-  //   organization:[this.orga , [Validators.required]],
-  //   })
-  // }
+
   
   submit() {
-    // console.log('form-> ', this.multistep.value);
-    this.TorneoService.creteTorneo(this.torneo.value).subscribe((res) => {
-
-      console.log(res);
       Swal.fire({
         title: 'Crear Torneo con los datos ingresados?',
         showDenyButton: true,
@@ -84,15 +78,17 @@ export class CrearTorneoComponent implements OnInit {
         confirmButtonText: 'SI',
         denyButtonText: `No`,
       }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          Swal.fire('Torneo creado con Exito!', '', 'success')
+          this.TorneoService.creteTorneo(this.reactiveForm.value).subscribe((res) => {
+            console.log(res);
+          })
           this.router.navigate(['/canchaselbicho/TorneoCrud'])
+          Swal.fire('Torneo creado con Exito!', '', 'success')
         } else if (result.isDenied) {
           Swal.fire('Creacion cancelada', '', 'info')
         }
       })
-    })
+    
   }
   gettipotorneo(){
     this.tipotorneoService.gettipoT().subscribe((res)=>{

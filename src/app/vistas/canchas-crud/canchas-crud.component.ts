@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { CanchasService } from 'src/app/servicios/canchas.service';
 import { HorarioCanchaService } from 'src/app/servicios/horario-cancha.service'
 import { HorasmasivasService } from 'src/app/servicios/horasmasivas.service';
 import { CargamasivaService } from 'src/app/servicios/cargamasiva.service';
 import { Cancha } from 'src/app/modelos/canchas';
 import Swal from 'sweetalert2';
-import { responseI } from 'src/app/modelos/response.interface';
+import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -16,57 +16,100 @@ import { responseI } from 'src/app/modelos/response.interface';
 })
 export class CanchasCrudComponent implements OnInit {
   cosa: any = {};
-  constructor(public canchasService: CanchasService, public horariocanchaService: HorarioCanchaService, public horasmasivasService: HorasmasivasService, public cargamasivaService: CargamasivaService) { }
+  idcancha= '';
+  canchasForm!: UntypedFormGroup;
+  horasForm!: UntypedFormGroup;
+
+  display: boolean = false;
+
+  constructor(private readonly fb:UntypedFormBuilder, public canchasService: CanchasService, public horariocanchaService: HorarioCanchaService, public horasmasivasService: HorasmasivasService, public cargamasivaService: CargamasivaService) { }
 
   ngOnInit(): void {
     this.getCanchas();
+    this.canchasForm=this.initForm();
+    this.horasForm=this.initForm2();
     
   }
+  showDialog(cancha: Cancha) {
+    this.display = true;
+    this.canchasService.selectedCancha = cancha;
+    console.log(cancha)
+
+  }
+
+  initForm(): UntypedFormGroup{
+    return this.fb.group({
+      name: ['',[Validators.required, Validators.minLength(5)]],
+      rangoHorario: ['', [Validators.required]]
+    })
+  }
+  initForm2(): UntypedFormGroup{
+    return this.fb.group({
+      cancha: ['',[Validators.required]],
+      horaComienzo: ['',[Validators.required]],
+      horaTermino: ['',[Validators.required]],
+      precio: ['',[Validators.required]]
+    })
+  }
+  agregarHoras(){
+    console.log(this.horasForm.value)
+  }
+
+  onSubmit(){
+    this.canchasService.createCancha(this.canchasForm.value).subscribe((res) => {
+      console.log(res);
+      this.canchasForm.reset();
+      this.getCanchas();
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: res ,
+        showConfirmButton: false,
+        timer: 1200,
+        timerProgressBar: true,
+      })
+      },
+      err => { Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: err.error.message,
+        timer:2500
+      }); }
+      )
+  
+    }
+    editarCancha(form: NgForm){
+      if (form.value._id) {
+        this.canchasService.putCanchas(form.value).subscribe((res) => {
+          console.log(res);
+          this.getCanchas();
+          form.reset();
+          this.display = false;
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: res ,
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+          })
+  
+        },
+        err => { Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: err.error.message,
+          timer:2500
+        }); }
+        );
+      }
+    }
   getCanchas() {
     this.canchasService.getCanchas().subscribe((res) => {
       this.canchasService.cancha = res;
       // console.log(res)
 
     })
-  }
-  
-  addCancha(form: NgForm) {
-    if (form.value._id) {
-      this.canchasService.putCanchas(form.value).subscribe((res) => {
-        console.log(res);
-        this.getCanchas();
-        form.reset();
-
-      });
-    } else {
-      this.canchasService.createCancha(form.value).subscribe((res) => {
-        console.log(res);
-        this.getCanchas();
-        form.reset();
-
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: res,
-          showConfirmButton: false,
-          timer: 1200,
-          timerProgressBar: true,
-
-
-        })
-      }, err => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: err.error.message,
-          timer: 2500
-        });
-      });
-    }
-  }
-
-  editCancha(cancha: Cancha) {
-    this.canchasService.selectedCancha = cancha;
   }
 
   deleteCancha(_id: any) {

@@ -121,7 +121,7 @@
 </body>
 
 <p-dialog header="Editar Torneo" [(visible)]="display">
-
+ 
   <div>
     <form>
       <div class="mb-3">
@@ -144,7 +144,7 @@
         <label for="exampleFormControlTextarea1" class="form-label">Detalle</label>
         <textarea class="form-control" name="detalle" [(ngModel)]="torneo.detalle" [ngModelOptions]="{ standalone: true}" rows="3"></textarea>
       </div>
-      <button type="button" (click)="editarTorneo()" class="btn btn-success">Guardar</button>
+      <button type="button" (click)="editarTorneo()" class="btn btn-success" >Guardar</button>
     </form>
   </div>
   

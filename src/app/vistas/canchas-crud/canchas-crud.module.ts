@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PipesModule } from 'src/app/pipes/pipes.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DialogModule } from 'primeng/dialog';
 
 import { CanchasCrudComponent } from './canchas-crud.component';
 
@@ -18,6 +19,8 @@ import { CanchasCrudComponent } from './canchas-crud.component';
     CommonModule,
     PipesModule,
     FormsModule,
+    ReactiveFormsModule,
+    DialogModule
   ],
 })
 export class CanchasCrudModule { }

@@ -93,6 +93,10 @@ body{
     text-decoration: none;
     opacity: 0.6;
 }
+.fecha::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+
+    }
 
 @media (max-width: 576px) {
     .registration-form form{

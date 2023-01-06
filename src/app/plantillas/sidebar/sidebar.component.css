@@ -9,11 +9,11 @@
 
 }
 span {
-  display: inline-flex;
+ 
   vertical-align: middle;
 }
 
-a {
+.a {
   display: block;
   text-decoration: none;
   color: rgb(255, 255, 255);
@@ -22,18 +22,19 @@ a {
   box-sizing: border-box;
   transition: .4s;
 }
-a:hover {
+.a:hover {
   text-decoration: none;
   color: rgb(0, 0, 0);
   background: #edeef2;
   border-radius: 15px;
+  cursor: pointer;
 }
-a:hover {
+.a:hover {
   padding-left: 1px;
 }
 
- a:active,
- a:focus {
+ .a:active,
+ .a:focus {
   background-color: #007bff;
   border-radius: 15px;
 

@@ -1,82 +1,116 @@
 <body>
   <div class="registration-form">
-    <form (ngSubmit)="submit()" [formGroup]="torneo">
-
+    <form (ngSubmit)="submit()" [formGroup]="reactiveForm">
       <div class="a">
         <h4>Registro nuevo torneo</h4>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control item" id="nombreTorneo" formControlName="nombreTorneo"
+        <input type="text" class="form-control item" id="nombreTorneo" required formControlName="nombreTorneo"
           placeholder="Nombre de torneo">
+        <div *ngIf="reactiveForm.get('nombreTorneo')?.touched && reactiveForm.get('nombreTorneo')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
         <label for="inputOcupacion" class="form-label">Seleccione tipo de torneo</label>
-        <select class="form-select item" aria-label="Default select example" formControlName="tipoTorneo" id="tipoTorneo">
+        <select class="form-select item" aria-label="Default select example" required formControlName="tipoTorneo"
+          id="tipoTorneo">
           <ng-container *ngFor="let Torneo of Torneo">
-          <option [value]="Torneo._id">{{Torneo.name}}</option>
-        </ng-container>
+            <option [value]="Torneo._id">{{Torneo.name}}</option>
+          </ng-container>
         </select>
+        <div *ngIf="reactiveForm.get('tipoTorneo')?.touched && reactiveForm.get('tipoTorneo')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
         <label for="inputOcupacion" class="form-label">Seleccione Categoria de torneo</label>
-        <select class="form-select item" aria-label="Default select example" formControlName="categoriaTorneo" id="categoriaTorneo">
-         <ng-container *ngFor="let CategoriaT of CategoriaT">
-          <option [value]="CategoriaT._id">{{CategoriaT.name}}</option>
-         </ng-container>
-
+        <select class="form-select item" aria-label="Default select example" required formControlName="categoriaTorneo"
+          id="categoriaTorneo">
+          <ng-container *ngFor="let CategoriaT of CategoriaT">
+            <option [value]="CategoriaT._id">{{CategoriaT.name}}</option>
+          </ng-container>
         </select>
+        <div *ngIf="reactiveForm.get('categoriaTorneo')?.touched && reactiveForm.get('categoriaTorneo')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
         <label for="inputOcupacion" class="form-label">Seleccione Categoria de Participantes</label>
-        <select class="form-select item" aria-label="Default select example" formControlName="categoriaParticipantes" id="categoriaParticipantes">
-         <ng-container *ngFor="let CategoriaPart of CategoriaPart">
-          <option [value]="CategoriaPart._id">{{CategoriaPart.name}}</option>
-         </ng-container>
-
+        <select class="form-select item" aria-label="Default select example" required
+          formControlName="categoriaParticipantes" id="categoriaParticipantes">
+          <ng-container *ngFor="let CategoriaPart of CategoriaPart">
+            <option [value]="CategoriaPart._id">{{CategoriaPart.name}}</option>
+          </ng-container>
         </select>
+        <div
+          *ngIf="reactiveForm.get('categoriaParticipantes')?.touched && reactiveForm.get('categoriaParticipantes')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
         <label for="inputOcupacion" class="form-label">Cantidad de Jugadores</label>
-        <select class="form-select item" aria-label="Default select example" formControlName="limiteParejas" id="limiteParejas" >
+        <select class="form-select item" aria-label="Default select example" required formControlName="limiteParejas"
+          id="limiteParejas">
           <option>8</option>
           <option>16</option>
           <option>24</option>
         </select>
+        <div *ngIf="reactiveForm.get('limiteParejas')?.touched && reactiveForm.get('limiteParejas')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
-        <input type="number" class="form-control item" formControlName="valorInscripcion" id="valorInscripcion"
+        <input type="number" class="form-control item" required formControlName="valorInscripcion" id="valorInscripcion"
           placeholder="Valor por pareja">
+        <div *ngIf="reactiveForm.get('valorInscripcion')?.touched && reactiveForm.get('valorInscripcion')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
         <label>Fecha de inico inscripcion</label>
-        <input type="datetime-local" class="form-control item" formControlName="inicioInscripciones" id="inicioInscripciones"
-          placeholder="Fecha ">
+        <input type="datetime-local" class="form-control item fecha" onkeydown="return false" required
+          formControlName="inicioInscripciones" id="inicioInscripciones" placeholder="Fecha ">
+        <div
+          *ngIf="reactiveForm.get('inicioInscripciones')?.touched && reactiveForm.get('inicioInscripciones')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
         <label>Fecha de fin inscripcion</label>
-        <input type="datetime-local" class="form-control item" formControlName="finInscripciones" id="finInscripciones"
-          placeholder="Fecha ">
+        <input type="datetime-local" class="form-control item fecha" onkeydown="return false" required
+          formControlName="finInscripciones" id="finInscripciones" placeholder="Fecha ">
+        <div *ngIf="reactiveForm.get('finInscripciones')?.touched && reactiveForm.get('finInscripciones')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
         <label>Fecha del Torneo</label>
-        <input type="datetime-local" max="2022-12-31 23:59:59.999Z" class="form-control item" formControlName="inicioT" id="inicioT"
-          placeholder="">
+        <input type="datetime-local" class="form-control item fecha" onkeydown="return false" required
+          formControlName="inicioT" id="inicioT" placeholder="">
+        <div *ngIf="reactiveForm.get('inicioT')?.touched && reactiveForm.get('inicioT')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control item" formControlName="detalle" id="detalle"
+        <input type="text" class="form-control item" required formControlName="detalle" id="detalle"
           placeholder="Detalles del Torneo">
+        <div *ngIf="reactiveForm.get('detalle')?.touched && reactiveForm.get('detalle')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control item" formControlName="lugar" id="lugar"
+        <input type="text" class="form-control item" required formControlName="lugar" id="lugar"
           placeholder="Lugar donde sera el Torneo">
+        <div *ngIf="reactiveForm.get('lugar')?.touched && reactiveForm.get('lugar')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
-
-      <!-- <input type="hidden" class="form-control item" formControlName="organization" id="organization"> -->
-
+     
       <div class="form-group">
-        <button type="submit" class="btn btn-block create-account">Crear Torneo</button>
+        <button type="submit" class="btn btn-block create-account" [disabled]="reactiveForm.invalid" >Crear Torneo</button>
       </div>
-      
+
     </form>
     <div class="social-media">
     </div>
