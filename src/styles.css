@@ -1,7 +1,11 @@
 html, body {
   background-color: var( --surface-d )!important;
   font-weight     : bold!important;
+<<<<<<< HEAD
   color           : #3b3636!important;
+=======
+  color: #3b3636!important;
+>>>>>>> 9201907a2ed75db9fc7749f2e2b0f907238b2256
   font-family     : var( --font-family )!important;
 
 }

@@ -36,7 +36,7 @@ export class TorneosService {
   }
 
   Inscripcion(id: string, inscr:Inscripcion){
-    return this.http.put(`${this.URL}crear-inscripcion/${id}`, inscr)
+    return this.http.post(`${this.URL}crear-inscripcion/${id}`, inscr)
   }
   listaInscritos(id: string): Observable<ListaInscrito[]>{
     return this.http.get<ListaInscrito[]>(`${this.URL}/listar-inscripciones/${id}`)

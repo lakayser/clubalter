@@ -11,7 +11,7 @@ export class InscritosService {
 
   constructor( private http: HttpClient ) { }
 
-  listarInscritos(): Observable<Inscritos[]> {
+  getInscritos(): Observable<Inscritos[]> {
     const url = `${ this.apiUrl }/listar-inscripciones`;
     return this.http.get<Inscritos[]>( url );
   }

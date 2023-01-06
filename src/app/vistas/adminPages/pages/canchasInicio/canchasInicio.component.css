@@ -1,0 +1,43 @@
+body{
+    background-color: #f5fffa!important;
+    font-family: 'Montserrat', sans-serif;
+}
+.logo{
+    width: 45%;
+
+    margin: 0 auto;
+}
+.foto-logo{
+    max-width: 100%;
+
+}
+.foto-tablet1{
+    max-width: 80%;
+}
+.foto-tablet2{
+    max-width: 80%;
+    transform: rotate3d(-1, -1, 2, -60deg);
+}
+.foto-tablet3{
+    max-width: 80%;
+    transform: rotate3d(2, -1, 2, 60deg);
+}
+.circulito{
+        background-color: white;
+        border-radius: 50px;
+        font-size: 4rem;
+
+        color: #33cc86;
+}
+.separacion{
+    padding: 5rem;
+    background-color: #b7e9d0;
+}
+.imagen2{
+    width: 45%;
+    margin: 0 auto;
+}
+.elemento{
+    align-items: center;
+    padding: 3rem;
+}

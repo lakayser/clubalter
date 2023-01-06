@@ -1,36 +1,72 @@
 <body>
-    <div class="registration-form">
-      <form (ngSubmit)="submit()" [formGroup]="inscripcion">
-  
-        <div class="a">
-          <h4>Inscripcion a TORNEO</h4>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control item" id="nombreEquipo" formControlName="nombreEquipo"
-            placeholder="Nombre del equipo">
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control item" id="rut" formControlName="participante1"   placeholder="Rut del jugador 1">
-          </div>
-          <!-- <div class="form-group">
+  <div class="registration-form">
+    <form (ngSubmit)="submit()" [formGroup]="inscripcion">
+      <div class="a">
+        <h4>Inscripcion a TORNEO</h4>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control item"
+          id="nombreEquipo"
+          formControlName="nombreEquipo"
+          placeholder="Nombre del equipo"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control item"
+          id="rut"
+          formControlName="participante1"
+          placeholder="Rut del jugador 1"
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control item"
+          id="nombre"
+          formControlName="nombreJugador1"
+          placeholder="Nombre del jugador 1"
+        />
+      </div>
+      <!-- <div class="form-group">
             <input type="text" class="form-control item" id="nombreParticipante1" formControlName="nombreParticipante1"
               placeholder="Nombre del jugador 1">
           </div> -->
-          <div class="form-group">
-            <input type="text" class="form-control item" id="rut"  formControlName="participante2" placeholder="Rut del jugador 2">
-          </div>
-          <!-- <div class="form-group">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control item"
+          id="rut"
+          formControlName="participante2"
+          placeholder="Rut del jugador 2"
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control item"
+          id="nombre"
+          formControlName="nombreJugador2"
+          placeholder="Nombre del jugador 2"
+        />
+      </div>
+      <!-- <div class="form-group">
             <input type="text" class="form-control item" id="nombreParticipante2" formControlName="nombreParticipante2"
               placeholder="Nombre del jugador 2">
           </div> -->
-        <!-- <input type="hidden" class="form-control item" formControlName="organization" id="organization"> -->
-  
-        <div class="form-group">
-          <button type="submit" class="btn btn-block create-account">Inscribirse</button>
-        </div>
-        
-      </form>
-      <div class="social-media">
+      <!-- <input type="hidden" class="form-control item" formControlName="organization" id="organization"> -->
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-block create-account">
+          Inscribirse
+        </button>
       </div>
-    </div>
-  </body>
+    </form>
+    <div class="social-media"></div>
+  </div>
+</body>
