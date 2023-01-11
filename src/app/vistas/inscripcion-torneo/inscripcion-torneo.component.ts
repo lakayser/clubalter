@@ -91,8 +91,6 @@ export class InscripcionTorneoComponent implements OnInit {
             Swal.fire('Cancelado', '', 'info')
           }
         }
-
-        
       })
     })
   }
