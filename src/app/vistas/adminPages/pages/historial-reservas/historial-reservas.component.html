@@ -1,0 +1,36 @@
+<body>
+    <section class="section section-lg text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-sm-6 burbuja">
+                <div class="form-group m-3">
+                    <input type="text" class="form-control" name="filterPost" placeholder="buscar" [(ngModel)]="filterPost">
+                </div>
+                <div class="table-responsive-md">
+                    <div class="scrollable">
+                        <table class="table table-bordered border-dark table-hover text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">RUT</th>
+
+                                    <th scope="col">cancha</th>
+                                    <th scope="col">fecha de reserva</th>
+
+                                    <th scope="col">estado del pago</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let Reserva of Reserva | filter : filterPost">
+                                    <td>{{ Reserva.rut }}</td>
+                                    <td *ngFor="let a of Reserva.cancha">{{a.name}}</td>
+                                    <td *ngFor="let b of Reserva.horascanchas">{{b.fecha | date : "fullDate" }} <br>
+                                        {{b.horario}}</td>
+                                    <td>{{ Reserva.estado }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

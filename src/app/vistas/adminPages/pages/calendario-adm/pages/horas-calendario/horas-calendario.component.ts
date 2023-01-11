@@ -30,6 +30,7 @@ import { HorasService } from '../../services/horas.service';
 })
 export class HorasCalendarioComponent implements OnInit {
 
+  display: boolean = false;
   horas             : HorasSemana[] = [];
   canchas           : string = 'Cancha 1';
   fecha             : Date = new Date();
@@ -97,8 +98,12 @@ export class HorasCalendarioComponent implements OnInit {
     this.verCanchas( this.canchas );
     console.log( this.horasService.semana );
   }
-
-
+  esconderdialog(){
+    this.display = false;
+}
+  showDialog() {
+    this.display = true;
+}
   obtenerId( id: string ) {
     this.id = id;
     console.log( this.editarHoras );

@@ -13,10 +13,13 @@ import { OrganizacionesAdminModule } from './pages/organizaciones-admin/organiza
 import { TorneoCrudModule } from './pages/torneo-crud/torneo-crud.module';
 import { TorneoDetallesModule } from './pages/torneo-detalles/torneo-detalles.module';
 import { VistaAdminModule } from './pages/usermoderator/vista-admin.module';
+import { HistorialReservasModule } from './pages/historial-reservas/historial-reservas.module';
 
 
 @NgModule({
   declarations: [
+  
+    
   ],
   imports: [
     AdminPagesRoutingModule,
@@ -33,6 +36,8 @@ import { VistaAdminModule } from './pages/usermoderator/vista-admin.module';
     imports,
     VistaAdminModule,
     CalendarioModule,
+    HistorialReservasModule,
+    
   ],
 
 })

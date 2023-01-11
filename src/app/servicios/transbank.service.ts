@@ -12,13 +12,7 @@ export class TransbankService {
   _url = 'https://botmila-api.herokuapp.com/botmilaAPI/webpay/';
   
 
-  selectedHorasTomadas: HorasTomadas={
-    horascanchas: '',
-    cancha: '',
-    rut: '',
-    id: '',
-    codigoVenta: ''
-  }
+
   public viewdata: Array<any> = [];
 
   // transb: ViewData = {

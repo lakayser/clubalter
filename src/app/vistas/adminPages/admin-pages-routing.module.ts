@@ -13,6 +13,7 @@ import { OrganizacionesAdminComponent } from './pages/organizaciones-admin/organ
 import { HorasCalendarioComponent } from './pages/calendario-adm/pages/horas-calendario/horas-calendario.component';
 import { CanchasCrudComponent } from './pages/canchas-crud/canchas-crud.component';
 import { UsermoderatorComponent } from './pages/usermoderator/usermoderator.component';
+import { HistorialReservasComponent } from './pages/historial-reservas/historial-reservas.component';
 
 const routes: Routes = [
   {
@@ -69,6 +70,10 @@ const routes: Routes = [
       {
         path     : 'calendario',
         component: HorasCalendarioComponent,
+      },
+      {
+        path     : 'historial',
+        component: HistorialReservasComponent,
       },
       {
         path     : '',

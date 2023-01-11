@@ -82,7 +82,7 @@ export class CrearTorneoComponent implements OnInit {
           this.TorneoService.creteTorneo(this.reactiveForm.value).subscribe((res) => {
             console.log(res);
           })
-          this.router.navigate(['/canchaselbicho/TorneoCrud'])
+          this.router.navigate(['/mod/crud-torneo'])
           Swal.fire('Torneo creado con Exito!', '', 'success')
         } else if (result.isDenied) {
           Swal.fire('Creacion cancelada', '', 'info')

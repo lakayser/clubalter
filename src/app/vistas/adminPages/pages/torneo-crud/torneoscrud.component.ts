@@ -12,7 +12,7 @@ import * as moment from 'moment';
   styleUrls: ['./torneoscrud.component.css']
 })
 export class TorneoscrudComponent implements OnInit {
-
+  rol       : any;
   Torneo: TorneoCrear[];
   fecha             : Date = new Date();
   formateada = moment(this.fecha).format();
@@ -22,6 +22,7 @@ export class TorneoscrudComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTorneos();
+    this.rol = localStorage.getItem('rol');
     console.log(this.fecha)
    
     console.log(this.myFormattedDate)
@@ -31,6 +32,7 @@ export class TorneoscrudComponent implements OnInit {
     this.router.navigate(['mod/detalles-torneoAdm/',torneo._id])
   }
   getTorneos(){
+
     this.torneoService.getTorneos().subscribe((res)=>{
       this.Torneo=res;
       console.log(res);

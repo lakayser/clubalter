@@ -85,7 +85,15 @@
         <span>Vista Semana</span>
       </span>
     </div>
+    <div class="sidebar-item a" (click)="display = false" routerLink="/mod/crud-torneo" >
+      <span >
+        <span class="material-icons  mr-2"> emoji_events </span>
+        <span>Torneos</span>
+      </span>
+    </div>
   </div>
+  
+
 
   <ng-template pTemplate="footer">
     <button type="button" class="btn btn-danger ml-2" (click)="apiService.logout()" (click)="display = false">

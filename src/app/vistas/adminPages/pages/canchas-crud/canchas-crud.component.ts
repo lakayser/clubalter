@@ -53,6 +53,27 @@ export class CanchasCrudComponent implements OnInit {
   }
   agregarHoras(){
     console.log(this.horasForm.value)
+    this.horasmasivasService.createHorasMasivas(this.horasForm.value).subscribe((res) => {
+      console.log(res);
+      this.horasForm.reset();
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: res,
+        showConfirmButton: false,
+        timer: 1200,
+        timerProgressBar: true,
+
+
+      })
+    }, err => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: err.error,
+        timer: 2500
+      });
+    })
   }
 
   onSubmit(){

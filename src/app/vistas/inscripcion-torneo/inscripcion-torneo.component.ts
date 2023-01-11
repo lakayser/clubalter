@@ -22,7 +22,7 @@ export class InscripcionTorneoComponent implements OnInit {
 
   // });
   inscripcion: UntypedFormGroup;
-
+  rol: any;
   cosa: any={};
   lista: ListaInscrito[];
 
@@ -65,7 +65,7 @@ export class InscripcionTorneoComponent implements OnInit {
 
 
   submit() {
-
+    this.rol = localStorage.getItem('rol');
     this.torneoService.Inscripcion(this.cosa, this.inscripcion.value).subscribe((res) => {
       Swal.fire({
         title: 'Inscribirse con los datos ingresados?',
@@ -74,14 +74,25 @@ export class InscripcionTorneoComponent implements OnInit {
         confirmButtonText: 'SI',
         denyButtonText: `No`,
       }).then((result) => {
-
-        if (result.isConfirmed) {
-          Swal.fire('Equipo Registrado con Exito!', '', 'success')
-          this.router.navigate(['/canchaselbicho/dashboarduser'])
-          console.log(res);
-        } else if (result.isDenied) {
-          Swal.fire('Cancelado', '', 'info')
+        if (this.rol === '620c0d94b83e4a21f81253d6') {
+          if (result.isConfirmed) {
+            Swal.fire('Equipo Registrado con Exito!', '', 'success')
+            this.router.navigate(['/canchaselbicho/dashboarduser'])
+            console.log(res);
+          } else if (result.isDenied) {
+            Swal.fire('Cancelado', '', 'info')
+          }
+        } else{
+          if (result.isConfirmed) {
+            Swal.fire('Equipo Registrado con Exito!', '', 'success')
+            this.router.navigate(['/mod/detalles-torneoAdm/',this.cosa])
+            console.log(res);
+          } else if (result.isDenied) {
+            Swal.fire('Cancelado', '', 'info')
+          }
         }
+
+        
       })
     })
   }

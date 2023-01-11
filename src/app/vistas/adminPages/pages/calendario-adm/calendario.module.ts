@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { DiasCalendarioComponent } from './components/dias-calendario/dias-calendario.component';
 import { VerHorasComponent } from './components/ver-horas/ver-horas.component';
 import { DiasCalendarioTlfComponent } from './components/dias-calendario-tlf/dias-calendario-tlf.component';
+import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
 
 
 
@@ -21,6 +22,7 @@ import { DiasCalendarioTlfComponent } from './components/dias-calendario-tlf/dia
   imports: [
     CommonModule,
     FormsModule,
+    PrimeNgModule
   ]
 })
 export class CalendarioModule { }

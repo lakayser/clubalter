@@ -6,15 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(value: any, arg: any): any {
-    if (arg === '' || arg.length < 2) return value;
-    const resultPosts = [];
-    for (const post of value) {
-        console.log(value);
-      if (post.rut.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
-        resultPosts.push(post);
+    if(arg === '' || arg.length < 3 ) return value;
+    const resultadoPosts =[];
+    for(const Reserva of value){
+      if(Reserva.rut.toLowerCase().indexOf(arg.toLowerCase()) > -1){
+        resultadoPosts.push(Reserva)
       };
     };
-    return resultPosts;
+    return resultadoPosts;
   }
 
 }

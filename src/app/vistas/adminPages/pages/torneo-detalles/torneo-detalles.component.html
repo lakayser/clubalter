@@ -69,12 +69,24 @@
       </div>
     </div>
 
-    <ng-container *ngIf="rol != '620c0d94b83e4a21f81253d6'">
-      <div class="text-center">
-        <button type="button" (click)="showDialog()" class="btn btn-primary">Editar</button>
+    <div class="row row-30 align-items-center">
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <ng-container *ngIf="rol != '620c0d94b83e4a21f81253d6'">
+          <div class="text-center">
+            <button type="button" (click)="showDialog()" class="btn btn-primary">EDITAR TORNEO</button>
+          </div>
+        </ng-container>
       </div>
-    </ng-container>
-
+      <div class="col-md-4">
+       
+        <ng-container *ngIf="rol != '620c0d94b83e4a21f81253d6'">
+          <div class="text-center">
+            <button type="button" (click)="goInscripcion(Torneo)" class="btn btn-primary">INSCRIBIR JUGADORES</button>
+          </div>
+        </ng-container>
+      </div>
+    </div>
     <ng-container *ngIf="rol == '620c0d94b83e4a21f81253d6'">
       <div class="text-center">
         <button type="button" (click)="goInscripcion(Torneo)" class="btn btn-primary">Inscribirse</button>

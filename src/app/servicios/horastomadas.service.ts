@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HorasTomadas } from '../modelos/horastomadas';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 
@@ -22,7 +23,7 @@ export class HorastomadasService {
     return this.http.post(`${this.URL}agendar-hora`, horasTomada)
   }
 
-  getHoraTomada(){
+  getHoraTomada(): Observable<HorasTomadas[]>{
     return this.http.get<HorasTomadas[]>(`${this.URL}agendar-hora-listar`)
   }
   deleteHoraTomada(id:string){

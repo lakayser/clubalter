@@ -1,4 +1,3 @@
-
 <div class=" container ">
 
   <div class="row justify-content-center ">
@@ -26,25 +25,14 @@
 
   </div>
 
-  <app-dias-calendario
-    [horas]="horas"
-    class=" d-none d-lg-block "
-  >
+  <app-dias-calendario [horas]="horas" class=" d-none d-lg-block ">
   </app-dias-calendario>
 
-  <app-dias-calendario-tlf
-    class=" d-block d-lg-none "
-    [horas]=" horas "
-  >
+  <app-dias-calendario-tlf class=" d-block d-lg-none " [horas]=" horas ">
   </app-dias-calendario-tlf>
 
-  <app-ver-horas
-    [horas]="horas"
-    [id]="horascanchas"
-    (onClick)="obtenerId( $event )"
-    (onClickD)="obtenerHora(  $event )"
-    class=" d-none d-lg-block "
-  >
+  <app-ver-horas [horas]="horas" [id]="horascanchas" (onClick)="obtenerId( $event )" (onClickD)="obtenerHora(  $event )"
+    class=" d-none d-lg-block ">
   </app-ver-horas>
 
   <div class="row">
@@ -52,8 +40,9 @@
     <div class="col"></div>
 
   </div>
+  
 
-<!-- Modal anular -->
+  <!-- Modal anular -->
   <div class="modal fade" id="exampleModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -66,56 +55,37 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Salir </button>
-          <span
-            class="btn btn-primary"
-            (click)=" anularHora() "
-            data-bs-target="#exampleModalToggle2"
-            data-bs-toggle="modal"
-            data-bs-dismiss="modal"
-          > Anular hora </span>
+          <span class="btn btn-primary" (click)=" anularHora() " data-bs-target="#exampleModalToggle2"
+            data-bs-toggle="modal" data-bs-dismiss="modal"> Anular hora </span>
         </div>
       </div>
     </div>
   </div>
 
- <div>
+  <div>
 
-<!-- Modal Agendado -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel"> Agendar una hora nueva </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form #canchaForm="ngForm" (ngSubmit)=" agendarCancha( canchaForm ) ">
-          <label for="rut"> Ingresar rut: </label>
-          <input
-            type="text"
-            name="rut"
-            id="rut"
-            (ngModel)="rut"
-          >
-          <input
-            type="hidden"
-            name="cancha"
-            id="cancha"
-            [(ngModel)]="cancha"
-          >
-          <input
-            type="hidden"
-            name="horascanchas"
-            id="horascanchas"
-            [(ngModel)]="horascanchas"
-          >
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Salir </button>
-            <button type="submit" class="btn btn-primary"> Agendar </button>
+    <!-- Modal Agendado -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel"> Agendar una hora nueva </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        </form>
-      </div>
+          <div class="modal-body">
+            <form #canchaForm="ngForm" (ngSubmit)=" agendarCancha( canchaForm ) ">
+              <label for="rut"> Ingresar rut: </label>
+              <input type="text" name="rut" id="rut" (ngModel)="rut">
+              <input type="hidden" name="cancha" id="cancha" [(ngModel)]="cancha">
+              <input type="hidden" name="horascanchas" id="horascanchas" [(ngModel)]="horascanchas">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Salir </button>
+                <button type="submit" class="btn btn-primary"> Agendar </button>
+              </div>
+            </form>
+          </div>
 
+        </div>
+      </div>
     </div>
-  </div>
-</div>
