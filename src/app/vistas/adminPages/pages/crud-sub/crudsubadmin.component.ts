@@ -56,7 +56,7 @@ export class CrudsubadminComponent implements OnInit {
       nameUser: new FormControl('', [Validators.required, Validators.minLength(5)]),
       password: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       telefono: new FormControl('', [Validators.required]),
       direccion: new FormControl('', [Validators.required])
     }, {

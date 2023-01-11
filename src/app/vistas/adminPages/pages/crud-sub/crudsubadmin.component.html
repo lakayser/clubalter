@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <label for="inputRut" class="form-label">Rut</label>
-                        <input type="text" class="form-control" name="rut" required id="rut" formControlName="rut">
+                        <input type="text" class="form-control" name="rut" required id="rut" formControlName="rut" onKeypress="if (event.keyCode==46) event.returnValue = false;">
                         <div *ngIf="reactiveForm.get('rut')?.touched && reactiveForm.get('rut')?.errors?.['required']"
                             class="alert alert-danger">Este campo es requerido
                         </div>
@@ -67,8 +67,8 @@
                         <div *ngIf="reactiveForm.get('email')?.touched && reactiveForm.get('email')?.errors?.['required']"
                             class="alert alert-danger">Este campo es requerido
                         </div>
-                        <span *ngIf="reactiveForm.get('email')?.errors?.['email']">
-                            (El mail no es válido)
+                        <span  style="color: #ed1b24" *ngIf="reactiveForm.get('email')?.errors?.['email']">
+                            El mail no es válido
                           </span>
                     </div>
                     <div class="col-lg-6 col-sm-6">
@@ -196,8 +196,11 @@
             <label for="inputMail" class="form-label">E-mail</label>
             <input type="email" class="form-control" name="email" required id="email" formControlName="email">
             <div *ngIf="reactiveForm2.get('email')?.touched && reactiveForm2.get('email')?.errors?.['required']"
-                class="alert alert-danger">Este campo es requerido
+                class="alert-danger">Este campo es requerido
             </div>
+            <span style="color: #ed1b24" *ngIf="reactiveForm2.get('email')?.errors?.['email']">
+                El mail no es válido
+              </span>
         </div>
         <div class="">
             <label for="inputTelefono" class="form-label">Telefono</label>

@@ -2,7 +2,9 @@ body {
   background-color: #f5fffa;
   font-family: 'Montserrat', sans-serif;
 }
-
+h2, h4{
+color: white!important;
+}
 .burbuja {
 
   background-color: white;

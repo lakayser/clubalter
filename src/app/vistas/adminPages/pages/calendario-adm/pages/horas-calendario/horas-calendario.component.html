@@ -76,7 +76,7 @@
           <div class="modal-body">
             <form #canchaForm="ngForm" (ngSubmit)=" agendarCancha( canchaForm ) ">
               <label for="rut"> Ingresar rut: </label>
-              <input type="text" name="rut" id="rut" (ngModel)="rut">
+              <input type="text" name="rut" id="rut" (ngModel)="rut" onKeypress="if (event.keyCode==46) event.returnValue = false;">
               <input type="hidden" name="cancha" id="cancha" [(ngModel)]="cancha">
               <input type="hidden" name="horascanchas" id="horascanchas" [(ngModel)]="horascanchas">
               <div class="modal-footer">

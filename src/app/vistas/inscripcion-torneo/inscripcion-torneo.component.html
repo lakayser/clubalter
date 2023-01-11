@@ -20,6 +20,7 @@
           id="rut"
           formControlName="participante1"
           placeholder="Rut del jugador 1"
+          onKeypress="if (event.keyCode==46) event.returnValue = false;"
         />
       </div>
 
@@ -43,6 +44,7 @@
           id="rut"
           formControlName="participante2"
           placeholder="Rut del jugador 2"
+          onKeypress="if (event.keyCode==46) event.returnValue = false;"
         />
       </div>
 

@@ -8,6 +8,9 @@
   line-height: 20px;
 
 }
+.nav-item{
+  cursor: pointer;
+}
 span {
  
   vertical-align: middle;
