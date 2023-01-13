@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CanchasInicioComponent } from './canchasInicio.component';
+import {ButtonModule} from 'primeng/button';
 
 
 
@@ -9,7 +10,8 @@ import { CanchasInicioComponent } from './canchasInicio.component';
     CanchasInicioComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ButtonModule
   ]
 })
 export class CanchasinicioModule { }

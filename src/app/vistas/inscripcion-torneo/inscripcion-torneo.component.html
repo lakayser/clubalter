@@ -5,66 +5,52 @@
         <h4>Inscripcion a TORNEO</h4>
       </div>
       <div class="form-group">
-        <input
-          type="text"
-          class="form-control item"
-          id="nombreEquipo"
-          formControlName="nombreEquipo"
-          placeholder="Nombre del equipo"
-        />
+        <input type="text" class="form-control item" id="nombreEquipo" formControlName="nombreEquipo"
+          placeholder="Nombre del equipo" />
+          <div *ngIf="inscripcion.get('nombreEquipo')?.touched && inscripcion.get('nombreEquipo')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
-        <input
-          type="text"
-          class="form-control item"
-          id="rut"
-          formControlName="participante1"
-          placeholder="Rut del jugador 1"
-          onKeypress="if (event.keyCode==46) event.returnValue = false;"
-        />
+        <input type="text" class="form-control item" id="rut" formControlName="participante1"
+          placeholder="Rut del jugador 1" onKeypress="if (event.keyCode==46) event.returnValue = false;" />
+        <div *ngIf="inscripcion.get('participante1')?.touched && inscripcion.get('participante1')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
+        <div *ngIf="inscripcion.get('participante1')?.touched && inscripcion.get('participante1')?.errors?.['pattern']"
+          class="alert alert-danger">Rut sin puntos y con guion
+        </div>
       </div>
 
       <div class="form-group">
-        <input
-          type="text"
-          class="form-control item"
-          id="nombre"
-          formControlName="nombreJugador1"
-          placeholder="Nombre del jugador 1"
-        />
-      </div>
-      <!-- <div class="form-group">
-            <input type="text" class="form-control item" id="nombreParticipante1" formControlName="nombreParticipante1"
-              placeholder="Nombre del jugador 1">
-          </div> -->
-      <div class="form-group">
-        <input
-          type="text"
-          class="form-control item"
-          id="rut"
-          formControlName="participante2"
-          placeholder="Rut del jugador 2"
-          onKeypress="if (event.keyCode==46) event.returnValue = false;"
-        />
+        <input type="text" class="form-control item" id="nombre" formControlName="nombreJugador1"
+          placeholder="Nombre del jugador 1" />
+          <div *ngIf="inscripcion.get('nombreJugador1')?.touched && inscripcion.get('nombreJugador1')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
 
       <div class="form-group">
-        <input
-          type="text"
-          class="form-control item"
-          id="nombre"
-          formControlName="nombreJugador2"
-          placeholder="Nombre del jugador 2"
-        />
+        <input type="text" class="form-control item" id="rut" formControlName="participante2"
+          placeholder="Rut del jugador 2" onKeypress="if (event.keyCode==46) event.returnValue = false;" />
+          <div *ngIf="inscripcion.get('participante2')?.touched && inscripcion.get('participante2')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
+        <div *ngIf="inscripcion.get('participante2')?.touched && inscripcion.get('participante2')?.errors?.['pattern']"
+          class="alert alert-danger">Rut sin puntos y con guion
+        </div>
       </div>
-      <!-- <div class="form-group">
-            <input type="text" class="form-control item" id="nombreParticipante2" formControlName="nombreParticipante2"
-              placeholder="Nombre del jugador 2">
-          </div> -->
-      <!-- <input type="hidden" class="form-control item" formControlName="organization" id="organization"> -->
 
       <div class="form-group">
-        <button type="submit" class="btn btn-block create-account">
+        <input type="text" class="form-control item" id="nombre" formControlName="nombreJugador2"
+          placeholder="Nombre del jugador 2" />
+          <div *ngIf="inscripcion.get('nombreJugador2')?.touched && inscripcion.get('nombreJugador2')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
+       
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-block create-account" [disabled]="inscripcion.invalid">
           Inscribirse
         </button>
       </div>

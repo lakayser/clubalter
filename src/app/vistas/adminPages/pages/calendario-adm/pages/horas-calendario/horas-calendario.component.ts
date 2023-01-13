@@ -140,7 +140,7 @@ export class HorasCalendarioComponent implements OnInit {
             this.verCanchas( this.canchas );
             swalWithBootstrapButtons.fire(
               'Hora anulada!',
-              'La hora a sido anulada',
+              'La hora ha sido anulada',
               'success'
             )
           })
@@ -149,8 +149,8 @@ export class HorasCalendarioComponent implements OnInit {
           result.dismiss === Swal.DismissReason.cancel
         ) {
           swalWithBootstrapButtons.fire(
-            'Cancelled',
-            'Your imaginary file is safe :)',
+            'Cancelado',
+            'La reserva esta a salvo',
             'error'
           )
         }

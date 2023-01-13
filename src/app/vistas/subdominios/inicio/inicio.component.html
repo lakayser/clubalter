@@ -1,7 +1,98 @@
 <body>
-    <section>
-        <div class="header">
-            <img src="../../../../assets/padel-banner.jpg">
+    <section class=" section-lg xd"
+        style="background-image: url(../../../../assets/padel-banner.jpg); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 100%; padding-top: 100px;">
+        <div class="container">
+            <div class="row row-30 align-items-center p-6">
+                <div class="col-md-6">
+                    <h1 style="max-width: 450px; color: white;">Canchas y campeonatos</h1>
+                    <p style="max-width: 600px; color: white;">
+                        <span class="h4">Bot padel ofrece la comodidad de la agendamiento de canchas al alcance de la
+                            mano</span>
+                    </p>
+                    <div class="offset-md">
+                        <button pButton type="button" label="Reservar"
+                            class="p-button-outlined p-button-rounded p-button-success p-button-lg m-3"></button>
+                        <button pButton type="button" label="Registrarse"
+                            class="p-button-success p-button-rounded p-button-lg m-3"></button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
         </div>
+
     </section>
+    <section>
+        Calendario
+    </section>
+    <section class="section section-lg text-center">
+        <h1 style="color: white;">TORNEOS</h1>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-6 contenedor scrollable burbujax">
+            <div class="col d-flex justify-aling-center align-items-center text-center">
+              <span class="pastillaVerde mr-2"></span>
+              <h2>Torneos Actuales</h2>
+            </div>
+            <div class="row" *ngFor="let TorneoD of TorneoD">
+              <ng-container *ngIf="TorneoD.estadoEnCurso != true">
+                <div class="col-lg-2 col-md-6 fecha">
+                  <h1>{{ TorneoD.inicioT | date : "dd" }}</h1>
+                  <p style="color: green">{{ TorneoD.inicioT | date : "LLLL" }}</p>
+                </div>
+                <div class="col-lg-8 col-md-6 detalle">
+                  <h4>{{ TorneoD.nombreTorneo }}</h4>
+                  <div class="row">
+                    <div class="col d-flex justify-aling-center align-items-center">
+                      <span class="pastillaVerdechica mr-1"></span>
+                      Fecha inicio inscripciones <br />
+                      {{ TorneoD.inicioInscripciones | date : "mediumDate" }}
+                      {{ TorneoD.inicioInscripciones | date : "shortTime" : "UTC"
+                      }}{{ TorneoD.inicioInscripciones | date : "aaa" }}
+                    </div>
+                    <div class="col d-flex justify-aling-center align-items-center">
+                      <span class="pastillaVerdechica mr-1"></span>
+                      fecha de inicio:<br />
+                      {{ TorneoD.inicioT | date : "mediumDate" }}
+                      {{ TorneoD.inicioT | date : "shortTime" : "UTC"
+                      }}{{ TorneoD.inicioT | date : "aaa" }}
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-1">
+                      <p>Tipo Categoria:</p>
+                    </div>
+                    <div class="col-4" *ngFor="let a of TorneoD.categoriaTorneo">
+                      <p *ngFor="let c of TorneoD.categoriaParticipantes">
+                        {{ a.name }} {{ c.name }}
+                      </p>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-1">
+                      <p style="cursor: pointer;" (click)="goDetalles(TorneoD)">Detalles></p>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="w-100"></div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="col d-flex justify-aling-center align-items-center text-center">
+                <span class="pastillaVerde mr-2"></span>
+                <h2 style="color: white;">Clases</h2>
+              </div>
+            <div class="burbuja ranking col mt-5">
+              <div class="col d-flex justify-aling-center align-items-center">
+                <span class="pastillaVerde mr-1"></span>
+                <h2 style="color: black!important;">clases</h2>
+              </div>
+    
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
 </body>

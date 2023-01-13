@@ -1,47 +1,79 @@
 <body>
   <div class="registration-form">
-    <form (ngSubmit)="submit()" [formGroup]="multistep">
+    <form (ngSubmit)="submit()" [formGroup]="reactiveForm">
       <div class="form-icon">
-       <img class="img-fluid rounded-start" loading="lazy" src="assets/asistente.png" />
+        <img class="img-fluid rounded-start" loading="lazy" src="assets/asistente.png" />
       </div>
       <div class="a">
-      <h4>Registro nuevo usuario</h4>
+        <h4>Registro nuevo usuario</h4>
       </div>
       <div class="form-group">
         <input type="text" class="form-control item" id="username" formControlName="nombre"
           placeholder="Nombre y Apellido">
+          <div *ngIf="reactiveForm.get('nombre')?.touched && reactiveForm.get('nombre')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
         <input type="text" class="form-control item" formControlName="email" id="email" placeholder="Email">
+        <div *ngIf="reactiveForm.get('email')?.touched && reactiveForm.get('email')?.errors?.['required']"
+        class="alert alert-danger">Este campo es requerido
+      </div>
+      <div *ngIf="reactiveForm.get('email')?.errors?.['email']"
+        class="alert alert-danger">El mail no es válido
+      </div>
+      
       </div>
       <div class="form-group">
         <input type="text" class="form-control item" formControlName="rut" id="rut"
-          placeholder="Rut sin puntos y con guion: 5555555-5">
+          placeholder="Rut sin puntos y con guion: 5555555-5" onKeypress="if (event.keyCode==46) event.returnValue = false;">
+        <div *ngIf="reactiveForm.get('rut')?.touched && reactiveForm.get('rut')?.errors?.['required']"
+          class="alert alert-danger">
+          Este campo es requerido
+        </div>
+        <div *ngIf="reactiveForm.get('rut')?.touched && reactiveForm.get('rut')?.errors?.['pattern']"
+          class="alert alert-danger">Rut sin puntos y con guion
+        </div>
       </div>
       <div class="form-group">
         <input type="text" class="form-control item" id="phone-number" formControlName="telefono"
           placeholder="Numero de Contacto">
+        <div *ngIf="reactiveForm.get('telefono')?.touched && reactiveForm.get('telefono')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
         <label>Fecha De nacimiento</label>
-        <input type="date" class="form-control item" formControlName="fecha" id="birth-date"
-          placeholder="Fecha de nacimiento">
+        <input type="date" class="form-control item fecha" formControlName="fecha" id="birth-date"
+          placeholder="Fecha de nacimiento" onkeydown="return false">
+          <div *ngIf="reactiveForm.get('fecha')?.touched && reactiveForm.get('fecha')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control item"  formControlName="contraseña"
-          placeholder="Contraseña">
+        <input type="password" class="form-control item" formControlName="contraseña" placeholder="Contraseña">
+        <div *ngIf="reactiveForm.get('contraseña')?.touched && reactiveForm.get('contraseña')?.errors?.['required']"
+          class="alert alert-danger">Este campo es requerido
+        </div>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control item"  formControlName="contraseña2"
+        <input type="password" class="form-control item" formControlName="contraseña2"
           placeholder="Ingrese Nuevamente su Contraseña">
+        <div *ngIf="getControl('contraseña2')?.errors && getControl('contraseña2')?.touched"
+          class="alert alert-danger">
+          <small *ngIf="getControl('contraseña2')?.errors?.['required']">Confirmar contraseña es
+            requerido</small>
+          <small *ngIf="getControl('contraseña2')?.errors?.['mustMatch']">Las contraseñas deben
+            ser iguales</small>
+        </div>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-block create-account">Crear Cuenta</button>
+        <button type="submit" class="btn btn-block create-account" [disabled]="reactiveForm.invalid">Crear Cuenta</button>
       </div>
     </form>
     <div class="social-media">
       <h5>Ya tienes cuenta?</h5>
-      <button type="submit" class="btn btn-block create-account" routerLink="/login">Iniciar Sesion</button>
+      <button type="submit" class="btn btn-block create-account" (click)="goLogin()">Iniciar Sesion</button>
     </div>
   </div>
 </body>

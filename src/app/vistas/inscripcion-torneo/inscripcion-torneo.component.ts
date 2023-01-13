@@ -23,10 +23,10 @@ export class InscripcionTorneoComponent implements OnInit {
   // });
   inscripcion: UntypedFormGroup;
   rol: any;
-  cosa: any={};
+  cosa: any = {};
   lista: ListaInscrito[];
 
-  constructor(private fb: UntypedFormBuilder,private router: Router,private route:ActivatedRoute,private torneoService:TorneosService) { }
+  constructor(private fb: UntypedFormBuilder, private router: Router, private route: ActivatedRoute, private torneoService: TorneosService) { }
 
   ngOnInit(): void {
     let BN = this.route.snapshot.paramMap.get('id');
@@ -38,27 +38,21 @@ export class InscripcionTorneoComponent implements OnInit {
       this.getID(id);
 
     });
-    this.inscripcion = new UntypedFormGroup({
-        nombreEquipo: new UntypedFormControl(''),
-        participante1: new UntypedFormControl(''),
-        nombreJugador1: new UntypedFormControl(''),
-        participante2: new UntypedFormControl(''),
-        nombreJugador2: new UntypedFormControl(''),
-    })
+
 
     this.inscripcion = this.fb.group({
-        nombreEquipo: ["", [Validators.required]],
-        participante1: ["", [Validators.required, ]],
-        nombreJugador1: ["", [Validators.required, ]],
-        participante2: ["", [Validators.required, ]],
-        nombreJugador2: ["", [Validators.required, ]],
+      nombreEquipo: ["", [Validators.required]],
+      participante1: ["", [Validators.required, Validators.pattern('^[0-9]{1,8}-[0-9Kk]$')]],
+      nombreJugador1: ["", [Validators.required,]],
+      participante2: ["", [Validators.required, Validators.pattern('^[0-9]{1,8}-[0-9Kk]$')]],
+      nombreJugador2: ["", [Validators.required,]],
     })
   }
 
 
-  getID(id:any){
-    this.torneoService.listaInscritos(id).subscribe((res)=>{
-      this.lista=res;
+  getID(id: any) {
+    this.torneoService.listaInscritos(id).subscribe((res) => {
+      this.lista = res;
       console.log(res)
     })
   }
@@ -66,33 +60,33 @@ export class InscripcionTorneoComponent implements OnInit {
 
   submit() {
     this.rol = localStorage.getItem('rol');
-    this.torneoService.Inscripcion(this.cosa, this.inscripcion.value).subscribe((res) => {
-      Swal.fire({
-        title: 'Inscribirse con los datos ingresados?',
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: 'SI',
-        denyButtonText: `No`,
-      }).then((result) => {
-        if (this.rol === '620c0d94b83e4a21f81253d6') {
-          if (result.isConfirmed) {
+    Swal.fire({
+      title: 'Inscribirse con los datos ingresados?',
+      showDenyButton: true,
+      confirmButtonText: 'SI',
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (this.rol === '620c0d94b83e4a21f81253d6') {
+        if (result.isConfirmed) {
+          this.torneoService.Inscripcion(this.cosa, this.inscripcion.value).subscribe((res) => {
             Swal.fire('Equipo Registrado con Exito!', '', 'success')
             this.router.navigate(['/canchaselbicho/dashboarduser'])
             console.log(res);
-          } else if (result.isDenied) {
-            Swal.fire('Cancelado', '', 'info')
-          }
-        } else{
-          if (result.isConfirmed) {
-            Swal.fire('Equipo Registrado con Exito!', '', 'success')
-            this.router.navigate(['/mod/detalles-torneoAdm/',this.cosa])
-            console.log(res);
-          } else if (result.isDenied) {
-            Swal.fire('Cancelado', '', 'info')
-          }
+          })
+        } else if (result.isDenied) {
+          Swal.fire('Cancelado', '', 'info')
         }
-      })
+      } else {
+        if (result.isConfirmed) {
+          this.torneoService.Inscripcion(this.cosa, this.inscripcion.value).subscribe((res) => {
+            Swal.fire('Equipo Registrado con Exito!', '', 'success')
+            this.router.navigate(['/mod/detalles-torneoAdm/', this.cosa])
+            console.log(res);
+          })
+        } else if (result.isDenied) {
+          Swal.fire('Cancelado', '', 'info')
+        }
+      }
     })
   }
-
 }

@@ -19,7 +19,6 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { CalendarioModule } from './vistas/adminPages/pages/calendario-adm/calendario.module';
 import { InscripcionTorneoModule } from './vistas/inscripcion-torneo/inscripcion-torneo.module';
 
-
 import { VerGrillasComponent } from './vistas/grilla/pages/ver-grillas/ver-grillas.component';
 import { GrillaModule } from './vistas/grilla/grilla.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

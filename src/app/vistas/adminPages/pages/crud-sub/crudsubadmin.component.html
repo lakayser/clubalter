@@ -18,9 +18,14 @@
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <label for="inputRut" class="form-label">Rut</label>
-                        <input type="text" class="form-control" name="rut" required id="rut" formControlName="rut" onKeypress="if (event.keyCode==46) event.returnValue = false;">
+                        <input type="text" class="form-control" name="rut" required id="rut"
+                            placeholder="Sin puntos y con guion 9999999-9" formControlName="rut"
+                            onKeypress="if (event.keyCode==46) event.returnValue = false;">
                         <div *ngIf="reactiveForm.get('rut')?.touched && reactiveForm.get('rut')?.errors?.['required']"
                             class="alert alert-danger">Este campo es requerido
+                        </div>
+                        <div *ngIf="reactiveForm.get('rut')?.touched && reactiveForm.get('rut')?.errors?.['pattern']"
+                            class="alert alert-danger">Rut sin puntos y con guion
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
@@ -67,9 +72,9 @@
                         <div *ngIf="reactiveForm.get('email')?.touched && reactiveForm.get('email')?.errors?.['required']"
                             class="alert alert-danger">Este campo es requerido
                         </div>
-                        <span  style="color: #ed1b24" *ngIf="reactiveForm.get('email')?.errors?.['email']">
+                        <span style="color: #ed1b24" *ngIf="reactiveForm.get('email')?.errors?.['email']">
                             El mail no es válido
-                          </span>
+                        </span>
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <label for="inputTelefono" class="form-label">Telefono</label>
@@ -100,53 +105,103 @@
 
     </section>
     <section>
+
         <br>
         <h1 class="text-center">Lista De Colaboradores </h1>
         <br>
 
+
         <div class="container text-center">
+            <p-tabView>
+                <p-tabPanel header="Usuarios activos">
+                    <div class="col burbuja">
+                        <br>
+                        <div class="table-responsive-md">
+                            <div class="scrollable">
+                                <table class="table table-bordered table-hover border-dark mt-2 text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Rut</th>
+                                            <th scope="col">E-mail</th>
+                                            <th scope="col">Telefono</th>
+                                            <th scope="col">Direccion</th>
 
-            <div class="col burbuja">
-                <br>
-                <div class="table-responsive-md">
-                    <div class="scrollable">
-                        <table class="table table-bordered table-hover border-dark mt-2 text-center">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Rut</th>
-                                    <th scope="col">E-mail</th>
-                                    <th scope="col">Telefono</th>
-                                    <th scope="col">Direccion</th>
+                                            <th scope="col">Opciones</th>
+                                        </tr>
+                                    </thead>
 
-                                    <th scope="col">Opciones</th>
-                                </tr>
-                            </thead>
+                                    <tbody *ngFor="let users of usuariosService.users | ObjToArray">
+                                        <tr *ngIf="users.estado==true">
 
-                            <tbody *ngFor="let users of usuariosService.users | ObjToArray">
-                                <tr *ngIf="users.estado==true">
+                                            <td>{{ users.nameUser }}</td>
+                                            <td>{{ users.rut }}</td>
+                                            <td>{{ users.email}}</td>
+                                            <td>{{ users.telefono }}</td>
+                                            <td>{{ users.direccion }}</td>
 
-                                    <td>{{ users.nameUser }}</td>
+                                            <div class="btn-group mr-0" role="group"
+                                                aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary  mr-2"
+                                                    (click)="showDialog(users)">
+                                                    Editar</button>
+                                                <button type="button" class="btn btn-danger"
+                                                    (click)="deleteUsuario(users._id)">inhabilitar</button>
+                                            </div>
 
-                                    <td>{{ users.rut }}</td>
-                                    <td>{{ users.email}}</td>
-                                    <td>{{ users.telefono }}</td>
-                                    <td>{{ users.direccion }}</td>
-
-                                    <div class="btn-group mr-0" role="group" aria-label="Basic mixed styles example">
-                                        <button type="button" class="btn btn-primary  mr-2" (click)="showDialog(users)">
-                                            Editar</button>
-                                        <button type="button" class="btn btn-danger"
-                                            (click)="deleteUsuario(users._id)">Eliminar</button>
-                                    </div>
-
-                                </tr>
-                            </tbody>
-                        </table>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
                     </div>
-                </div>
-                <br>
-            </div>
+                </p-tabPanel>
+                <p-tabPanel header="Usuarios inactivos">
+                    <div class="col burbuja">
+                        <br>
+                        <div class="table-responsive-md">
+                            <div class="scrollable">
+                                <table class="table table-bordered table-hover border-dark mt-2 text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Rut</th>
+                                            <th scope="col">E-mail</th>
+                                            <th scope="col">Telefono</th>
+                                            <th scope="col">Direccion</th>
+
+                                            <th scope="col">Opciones</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody *ngFor="let users of usuariosService.users | ObjToArray">
+                                        <tr *ngIf="users.estado==false">
+
+                                            <td>{{ users.nameUser }}</td>
+                                            <td>{{ users.rut }}</td>
+                                            <td>{{ users.email}}</td>
+                                            <td>{{ users.telefono }}</td>
+                                            <td>{{ users.direccion }}</td>
+
+                                            <div class="btn-group mr-0" role="group"
+                                                aria-label="Basic mixed styles example">
+                                                <button type="button" class="btn btn-primary  mr-2"
+                                                    (click)="showDialog(users)">
+                                                    Editar</button>
+                                                <button type="button" class="btn btn-danger">Re Activar</button>
+                                            </div>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+
         </div>
 
     </section>
@@ -200,7 +255,7 @@
             </div>
             <span style="color: #ed1b24" *ngIf="reactiveForm2.get('email')?.errors?.['email']">
                 El mail no es válido
-              </span>
+            </span>
         </div>
         <div class="">
             <label for="inputTelefono" class="form-label">Telefono</label>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../../servicios/api/api.service';
 import { Router } from '@angular/router';
 import { MailService } from 'src/app/servicios/mail.service';
-import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,22 +12,29 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
   Uruarioz: any;
+
   user = {
     nameUser: '',
     password: '',
     email: '',
   }
+  reactiveForm: FormGroup;
 
   passwordForm!: UntypedFormGroup;
   constructor(private api: ApiService,
-    private router: Router, public mailService: MailService, private readonly fb: UntypedFormBuilder) { }
+    private router: Router, public mailService: MailService, private readonly fb: UntypedFormBuilder,  private formBuilder: FormBuilder) { 
+      this.reactiveForm = this.formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required]]
+      })
+    }
     jk: any;
   ngOnInit(): void {
     this.passwordForm = this.initForm();
   }
 
   signin() {
-    this.api.signIn(this.user)
+    this.api.signIn(this.reactiveForm.value)
       .subscribe(
         res => {
           console.log(res);

@@ -14,6 +14,8 @@ import * as moment from 'moment';
 export class TorneoscrudComponent implements OnInit {
   rol       : any;
   Torneo: TorneoCrear[];
+  TorneoD: TorneoCrear[];
+  TorneoP: TorneoCrear[];
   fecha             : Date = new Date();
   formateada = moment(this.fecha).format();
   pipe = new DatePipe('en-US');
@@ -22,6 +24,8 @@ export class TorneoscrudComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTorneos();
+    this.getTorneDis();
+    this.getTornePas();
     this.rol = localStorage.getItem('rol');
     console.log(this.fecha)
    
@@ -36,6 +40,18 @@ export class TorneoscrudComponent implements OnInit {
     this.torneoService.getTorneos().subscribe((res)=>{
       this.Torneo=res;
       console.log(res);
+    });
+  }
+  getTorneDis(){
+    this.torneoService.getTorneoDisponible().subscribe((res)=>{
+      this.TorneoD=res;
+      console.log('actuales',res);
+    });
+  }
+  getTornePas(){
+    this.torneoService.getTorneoPasado().subscribe((res)=>{
+      this.TorneoP=res;
+      console.log('torneopasado',res);
     });
   }
 }

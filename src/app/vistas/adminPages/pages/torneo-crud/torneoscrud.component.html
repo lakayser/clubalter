@@ -3,48 +3,46 @@
     <h1 style="color: white;">TORNEOS</h1>
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-6 contenedor">
-        <div
-          class="col d-flex justify-aling-center align-items-center text-center"
-        >
-          <span class="pastillaVerde"></span>
+        <div class="col d-flex justify-aling-center align-items-center text-center">
+          <span class="pastillaVerde mr-2"></span>
           <h2>Torneos Actuales</h2>
         </div>
-        <div class="row" *ngFor="let Torneo of Torneo">
-          <ng-container *ngIf="Torneo.estadoEnCurso != true">
+        <div class="row" *ngFor="let TorneoD of TorneoD">
+          <ng-container *ngIf="TorneoD.estadoEnCurso != true">
             <div class="col-lg-2 col-md-6 fecha">
-              <h1>{{ Torneo.inicioT | date : "dd" }}</h1>
-              <p style="color: green">{{ Torneo.inicioT | date : "LLLL" }}</p>
+              <h1>{{ TorneoD.inicioT | date : "dd" }}</h1>
+              <p style="color: green">{{ TorneoD.inicioT | date : "LLLL" }}</p>
             </div>
             <div class="col-lg-8 col-md-6 detalle">
-              <h4>{{ Torneo.nombreTorneo }}</h4>
+              <h4>{{ TorneoD.nombreTorneo }}</h4>
               <div class="row">
                 <div class="col d-flex justify-aling-center align-items-center">
-                  <span class="pastillaVerdechica"></span>
+                  <span class="pastillaVerdechica mr-1"></span>
                   Fecha inicio inscripciones <br />
-                  {{ Torneo.inicioInscripciones | date : "mediumDate" }}
-                  {{ Torneo.inicioInscripciones | date : "shortTime" : "UTC"
-                  }}{{ Torneo.inicioInscripciones | date : "aaa" }}
+                  {{ TorneoD.inicioInscripciones | date : "mediumDate" }}
+                  {{ TorneoD.inicioInscripciones | date : "shortTime" : "UTC"
+                  }}{{ TorneoD.inicioInscripciones | date : "aaa" }}
                 </div>
                 <div class="col d-flex justify-aling-center align-items-center">
-                  <span class="pastillaVerdechica"></span>
+                  <span class="pastillaVerdechica mr-1"></span>
                   fecha de inicio:<br />
-                  {{ Torneo.inicioT | date : "mediumDate" }}
-                  {{ Torneo.inicioT | date : "shortTime" : "UTC"
-                  }}{{ Torneo.inicioT | date : "aaa" }}
+                  {{ TorneoD.inicioT | date : "mediumDate" }}
+                  {{ TorneoD.inicioT | date : "shortTime" : "UTC"
+                  }}{{ TorneoD.inicioT | date : "aaa" }}
                 </div>
               </div>
               <div class="row mt-3">
                 <div class="col-1">
                   <p>Tipo Categoria:</p>
                 </div>
-                <div class="col-4" *ngFor="let a of Torneo.categoriaTorneo">
-                  <p *ngFor="let c of Torneo.categoriaParticipantes">
+                <div class="col-4" *ngFor="let a of TorneoD.categoriaTorneo">
+                  <p *ngFor="let c of TorneoD.categoriaParticipantes">
                     {{ a.name }} {{ c.name }}
                   </p>
                 </div>
                 <div class="col-2"></div>
                 <div class="col-1">
-                  <p style="cursor: pointer;" (click)="goDetalles(Torneo)">Detalles></p>
+                  <p style="cursor: pointer;" (click)="goDetalles(TorneoD)">Detalles></p>
                 </div>
               </div>
             </div>
@@ -55,16 +53,13 @@
       </div>
       <div class="col-md-4">
         <div *ngIf="rol != '620c0d94b83e4a21f81253d6'" class="row mt-3 mb-3">
-          <button
-            type="button"
-            class="btn btn2 btn-lg"
-            routerLink="/mod/crear-torneo">
+          <button type="button" class="btn btn2 btn-lg" routerLink="/mod/crear-torneo">
             Crear Torneo
           </button>
         </div>
         <div class="burbuja ranking col mt-5">
           <div class="col d-flex justify-aling-center align-items-center">
-            <span class="pastillaVerde col-1"></span>
+            <span class="pastillaVerde mr-1"></span>
             <h2 style="color: black!important;">Lider de la categoria</h2>
           </div>
 
@@ -99,54 +94,52 @@
   <section class="section section-lg text-center">
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-6 contenedor">
-        <div
-          class="col d-flex justify-aling-center align-items-center text-center"
-        >
-          <span class="pastillaVerde"></span>
-          <h2>Torneos Pasados</h2>
+        <div class="col d-flex justify-aling-center align-items-center text-center">
+          <span class="pastillaVerde mr-2"></span>
+          <h2>Torneos Finalizados</h2>
         </div>
-        <div class="row" *ngFor="let Torneo of Torneo">
-          <ng-container *ngIf="Torneo.estadoEnCurso == true">
-            <div class="col-lg-2 col-md-6 fecha">
-              <h1>{{ Torneo.inicioT | date : "dd" }}</h1>
-              <p style="color: red">{{ Torneo.inicioT | date : "LLLL" }}</p>
-            </div>
-            <div class="col-lg-8 col-md-6 detallePasado">
-              <h4>{{ Torneo.nombreTorneo }}</h4>
-              <div class="row">
-                <div class="col d-flex justify-aling-center align-items-center">
-                  <span class="pastillaRojachica"></span>
-                  Fecha inicio inscripciones <br />
-                  {{ Torneo.inicioInscripciones | date : "mediumDate" }}
-                  {{ Torneo.inicioInscripciones | date : "shortTime" : "UTC"
-                  }}{{ Torneo.inicioInscripciones | date : "aaa" }}
-                </div>
-                <div class="col d-flex justify-aling-center align-items-center">
-                  <span class="pastillaRojachica"></span>
-                  fecha de inicio:<br />
-                  {{ Torneo.inicioT | date : "mediumDate" }}
-                  {{ Torneo.inicioT | date : "shortTime" : "UTC"
-                  }}{{ Torneo.inicioT | date : "aaa" }}
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-1">
-                  <p>Tipo Categoria:</p>
-                </div>
-                <div class="col-4" *ngFor="let a of Torneo.categoriaTorneo">
-                  <p *ngFor="let c of Torneo.categoriaParticipantes">
-                    {{ a.name }} {{ c.name }}
-                  </p>
-                </div>
-                <div class="col-2"></div>
-                <div class="col-1">
-                  <p (click)="goDetalles(Torneo)">Detalles></p>
-                </div>
-              </div>
-            </div>
+        <div class="row" *ngFor="let TorneoP of TorneoP">
 
-            <div class="w-100"></div>
-          </ng-container>
+          <div class="col-lg-2 col-md-6 fecha">
+            <h1>{{ TorneoP.inicioT | date : "dd" }}</h1>
+            <p style="color: red">{{ TorneoP.inicioT | date : "LLLL" }}</p>
+          </div>
+          <div class="col-lg-8 col-md-6 detallePasado">
+            <h4>{{ TorneoP.nombreTorneo }}</h4>
+            <div class="row">
+              <div class="col d-flex justify-aling-center align-items-center">
+                <span class="pastillaRojachica"></span>
+                Fecha inicio inscripciones <br />
+                {{ TorneoP.inicioInscripciones | date : "mediumDate" }}
+                {{ TorneoP.inicioInscripciones | date : "shortTime" : "UTC"
+                }}{{ TorneoP.inicioInscripciones | date : "aaa" }}
+              </div>
+              <div class="col d-flex justify-aling-center align-items-center">
+                <span class="pastillaRojachica"></span>
+                fecha de inicio:<br />
+                {{ TorneoP.inicioT | date : "mediumDate" }}
+                {{ TorneoP.inicioT | date : "shortTime" : "UTC"
+                }}{{ TorneoP.inicioT | date : "aaa" }}
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-1">
+                <p>Tipo Categoria:</p>
+              </div>
+              <div class="col-4" *ngFor="let a of TorneoP.categoriaTorneo">
+                <p *ngFor="let c of TorneoP.categoriaParticipantes">
+                  {{ a.name }} {{ c.name }}
+                </p>
+              </div>
+              <div class="col-2"></div>
+              <div class="col-1">
+                <p (click)="goDetalles(TorneoP)">Detalles></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-100"></div>
+
         </div>
       </div>
       <div class="col-md-4">

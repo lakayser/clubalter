@@ -30,8 +30,8 @@ const routes: Routes = [
   { path: 'canchaselbicho/dashboarduser',       component:IniciousercanchaComponent},
   { path: 'canchaselbicho/Inscripcion/:id',     component:InscripcionTorneoComponent},
   { path: 'subdominio',                         component:InicioComponent},
-  { path: 'grilla',                  component:VerGrillasComponent },
-  { path: '**'                 , redirectTo: '', pathMatch: 'full' },
+  { path: 'grilla',                             component:VerGrillasComponent },
+  { path: '**',                                 redirectTo: '', pathMatch: 'full' },
 
 ];
 @NgModule({

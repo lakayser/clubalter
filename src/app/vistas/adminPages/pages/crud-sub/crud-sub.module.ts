@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { CrudsubadminComponent } from './crudsubadmin.component';
 import { DialogModule } from 'primeng/dialog';
-
+import {TabViewModule} from 'primeng/tabview';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,8 @@ import { DialogModule } from 'primeng/dialog';
     FormsModule,
     ReactiveFormsModule,
     PipesModule,
-    DialogModule
+    DialogModule,
+    TabViewModule
    
   ],
 })

@@ -15,6 +15,10 @@ body{
     border-top-right-radius: 30px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
 }
+.fecha::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+
+    }
 
 .registration-form .form-icon{
 	text-align: center;

@@ -1,4 +1,57 @@
-.header{
-    max-height: 50%;
-    width: 100%;
-}
+.burbuja {
+
+    background-color: white;
+    margin-bottom: 20px;
+    box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
+    border-radius: 15px;
+  }
+  .burbujax {
+
+    background-color: #f5fffa;
+    margin-bottom: 20px;
+    box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
+    border-radius: 15px;
+  }
+  
+  .fecha{
+    border-radius: 15px;
+    background-color: white;
+    border-top: #cfe1ff solid 1rem;
+    height: 7rem;
+    width: 8em;
+    margin-top: 1rem;
+  }
+  .detalle{
+    border-radius: 15px;
+    background-color: white;
+    border-left: #78e289 solid 1rem;
+    border-radius: 15px;
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+  .pastillaVerde{
+    width: 20px;
+    height: 5rem;
+    border-radius: 15px;
+    background-color: #78e289;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .pastillaVerdechica{
+    width: 10px;
+    height: 3rem;
+    border-radius: 15px;
+    background-color: #78e289;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align:  bottom;
+  }
+  .scrollable {
+    height: auto;
+    overflow: auto;
+    position: relative;
+  
+  }

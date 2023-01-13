@@ -1,9 +1,11 @@
 <body>
     <section class="section section-lg text-center">
         <div class="row justify-content-center">
+            <h1 style="color: white;">Historial de reservas </h1>
             <div class="col-lg-6 col-sm-6 burbuja">
                 <div class="form-group m-3">
-                    <input type="text" class="form-control" name="filterPost" placeholder="buscar" [(ngModel)]="filterPost">
+                    <input type="text" class="form-control" name="filterPost" placeholder="Ingrese rut del jugador"
+                        [(ngModel)]="filterPost" onKeypress="if (event.keyCode==46) event.returnValue = false;">
                 </div>
                 <div class="table-responsive-md">
                     <div class="scrollable">
@@ -11,10 +13,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col">RUT</th>
-
                                     <th scope="col">cancha</th>
                                     <th scope="col">fecha de reserva</th>
-
                                     <th scope="col">estado del pago</th>
                                 </tr>
                             </thead>

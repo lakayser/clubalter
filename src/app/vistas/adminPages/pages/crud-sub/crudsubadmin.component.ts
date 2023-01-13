@@ -41,7 +41,7 @@ export class CrudsubadminComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, public roleservice: RolesService, private router: Router, public usuariosService: UsuariosService, public organizationService: OrganizationService, public ocupationService: OcupationService) {
     this.reactiveForm = this.formBuilder.group({
       nameUser: new FormControl('', [Validators.required, Validators.minLength(5)]),
-      rut: new FormControl('', [Validators.required]),
+      rut: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{1,8}-[0-9Kk]$')]),
       roles: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required]),
@@ -232,22 +232,22 @@ export class CrudsubadminComponent implements OnInit {
       buttonsStyling: false
     })
     Swal.fire({
-      title: 'Estas seguro que deseas elimianr este usuario?',
+      title: 'Estas seguro que deseas inhabilitar este usuario?',
       text: "No podras revertir esta accion",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       cancelButtonText: 'Cancelar',
-      confirmButtonText: 'Si, Eliminar!'
+      confirmButtonText: 'Si, inhabilitar!'
     }).then((result) => {
       if (result.isConfirmed) {
         this.usuariosService.deleteUsuario(_id).subscribe(
           (res) => {
             this.getUsuarios();
             Swal.fire(
-              'Eliminado!',
-              'Usuario Eliminado Con exito',
+              'inhabilitado!',
+              'Usuario inhabilitado Con exito',
               'success'
             )
           })

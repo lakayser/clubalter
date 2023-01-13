@@ -34,7 +34,12 @@ export class TorneosService {
   deleteTorneo(id: string) {
     return this.http.delete(`${this.URL}eliminar-torneo/${id}`);
   }
-
+  getTorneoDisponible():  Observable<TorneoCrear[]>{
+    return this.http.get<TorneoCrear[]>(`${this.URL}listar-torneos-disp`);
+  }
+  getTorneoPasado(): Observable<TorneoCrear[]>{
+    return this.http.get<TorneoCrear[]>(`${this.URL}listar-torneos-pasados`);
+  }
   Inscripcion(id: string, inscr:Inscripcion){
     return this.http.post(`${this.URL}crear-inscripcion/${id}`, inscr)
   }
