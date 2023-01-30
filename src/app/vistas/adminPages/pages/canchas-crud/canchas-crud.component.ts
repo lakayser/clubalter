@@ -46,8 +46,8 @@ export class CanchasCrudComponent implements OnInit {
   initForm2(): UntypedFormGroup{
     return this.fb.group({
       cancha: ['',[Validators.required]],
-      horaComienzo: ['',[Validators.required]],
-      horaTermino: ['',[Validators.required]],
+      fechaComienzo: ['',[Validators.required]],
+      fechaTermino: ['',[Validators.required]],
       precio: ['',[Validators.required]]
     })
   }

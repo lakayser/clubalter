@@ -4,8 +4,6 @@ import { TorneosService } from '../../../../servicios/torneos.service';
 import { TorneoCrear } from 'src/app/modelos/TorneoCrear';
 import { switchMap } from 'rxjs';
 import Swal from 'sweetalert2';
-import { Inscritos } from '../../../grilla/interface/inscritos';
-import { InscritosService } from '../../../grilla/services/inscritos.service';
 
 
 @Component({
@@ -17,8 +15,6 @@ export class TorneoDetallesComponent implements OnInit {
   ordenarPor: string = '';
   cosa      : any={};
   rol       : any;
-  inscritos : Inscritos[] = [];
-  ins       : Inscritos[] = [];
   Torneo    : TorneoCrear[];
   display   : boolean = false;
   poto      : TorneoCrear[] = [];
@@ -34,7 +30,6 @@ export class TorneoDetallesComponent implements OnInit {
     private router          : Router,
     private torneoService   : TorneosService,
     private route           : ActivatedRoute,
-    private inscritosService: InscritosService,
     ) { }
 
   ngOnInit(): void {
@@ -48,7 +43,6 @@ export class TorneoDetallesComponent implements OnInit {
     this.route.params
       .subscribe(console.log)
     this.CargarObjeto();
-    this.listarInscritos();
   }
 
   goInscripcion(torneo:TorneoCrear){
@@ -125,15 +119,5 @@ export class TorneoDetallesComponent implements OnInit {
       }
     })
   }
-  listarInscritos() {
-    this.inscritosService.getInscritos()
-      .subscribe( inscritos => {
-        this.inscritos = inscritos;
-        this.inscritos.map( a => {
-          if( a.nombreEquipo === 'Nicolas' ) {
-            console.log( 'equipo',a );
-          }
-        })
-      })
-  }
+  
 }

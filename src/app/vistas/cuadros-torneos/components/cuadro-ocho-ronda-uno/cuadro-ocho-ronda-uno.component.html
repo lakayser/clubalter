@@ -1,0 +1,125 @@
+<div class="grd mt-6 ml-6">
+  <div class="grd-primera-ronda">
+
+    <div *ngFor="let participantes of participantesRondaUno; index as i">
+      <div 
+        class="grd-partidos border-solid border-cyan-500
+               border-round-md cursor-pointer text-white-alpha-90"
+        *ngIf="i === 0"
+        (click)="getDatesParticipantes(participantes)">
+        <span
+          class="mt-2 ml-2">
+          {{ participantes.jugadores }}
+        </span>
+        <small 
+          class="text-center mt-2"
+          *ngFor="let sets of participantes.setsPrimeraRonda">
+          {{ sets }}
+        </small>
+
+        <span
+          class="mt-2 ml-2">
+          {{ participantes.rivales }}
+        </span>
+        <small 
+          class="text-center mt-2"
+          *ngFor="let sets of participantes.setsPrimeraRondaRival">
+          {{ sets }}
+        </small>
+      </div>
+
+      <div 
+        class="grd-partidos border-solid border-cyan-500
+               border-round-md cursor-pointer text-white-alpha-90"
+        *ngIf="i === 1"
+        (click)="getDatesParticipantes(participantes)">
+        <span
+          class="mt-2 ml-2">
+          {{ participantes.jugadores }}
+        </span>
+        <small 
+          class="text-center mt-2"
+          *ngFor="let sets of participantes.setsPrimeraRonda">
+          {{ sets }}
+        </small>
+
+        <span
+          class="mt-2 ml-2">
+          {{ participantes.rivales }}
+        </span>
+        <small 
+          class="text-center mt-2"
+          *ngFor="let sets of participantes.setsPrimeraRondaRival">
+          {{ sets }}
+        </small>
+      </div>
+
+      <div 
+        class="grd-partidos border-solid border-cyan-500
+               border-round-md cursor-pointer text-white-alpha-90"
+        *ngIf="i === 2"
+        (click)="getDatesParticipantes(participantes)">
+        <span
+          class="mt-2 ml-2">
+          {{ participantes.jugadores }}
+        </span>
+        <small 
+          class="text-center mt-2"
+          *ngFor="let sets of participantes.setsPrimeraRonda">
+          {{ sets }}
+        </small>
+
+        <span
+          class="mt-2 ml-2">
+          {{ participantes.rivales }}
+        </span>
+        <small 
+          class="text-center mt-2"
+          *ngFor="let sets of participantes.setsPrimeraRondaRival">
+          {{ sets }}
+        </small>
+      </div>
+
+      <div 
+        class="grd-partidos border-solid border-cyan-500
+               border-round-md cursor-pointer text-white-alpha-90"
+        *ngIf="i === 3"
+        (click)="getDatesParticipantes(participantes)">
+        <span
+          class="mt-2 ml-2">
+          {{ participantes.jugadores }}
+        </span>
+        <small 
+          class="text-center mt-2"
+          *ngFor="let sets of participantes.setsPrimeraRonda">
+          {{ sets }}
+        </small>
+
+        <span
+          class="mt-2 ml-2">
+          {{ participantes.rivales }}
+        </span>
+        <small 
+          class="text-center mt-2"
+          *ngFor="let sets of participantes.setsPrimeraRondaRival">
+          {{ sets }}
+        </small>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p-dialog
+  [style]="{ width: '60rem', height: '60rem' }"
+  [(visible)]="display">
+  <app-cuadro-ocho-form
+    [idJugadores]="idJugadores"
+    [idJugadoresRival]="idJugadoresRival"
+    [nombreEquipo]="nombreEquipo"
+    [participantesForm]="participantesForm"
+    [nombreEquipoRival]="nombreEquipoRival"
+    [nombreJugadores]="nombreJugadores"
+    [nombreJugadoresRival]="nombreJugadoresRival">
+  </app-cuadro-ocho-form>
+</p-dialog>

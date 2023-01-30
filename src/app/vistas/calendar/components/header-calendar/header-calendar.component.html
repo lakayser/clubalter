@@ -1,0 +1,45 @@
+<div class="grd-header mt-3 text-white-alpha-90 font-bold text-xl">
+
+  <div>
+    <span>{{ fecha2 | date: 'MMM/yyyy': 'UTC' }}</span>
+  </div>
+
+  <div class="z-1">
+    <div>
+      <input 
+        class="w-12rem border-solid border-round-xl border-cyan-700
+              text-center font-bold cursor-pointer"
+        [placeholder]="canchaSeleccionada"
+        (click)="seleccionCancha()"
+        readonly
+      >
+      <i 
+        class="-ml-4 pi pi-angle-down cursor-pointer text-cyan-500" 
+        (click)="seleccionCancha()">
+      </i>
+    </div>
+    <div 
+      class="border-solid border-round-xl border-cyan-700
+            bg-gray-700 z-1 py-2 w-12rem mt-2"
+      *ngIf="listCanchas">
+      <div 
+        class="ml-2 p-1 cursor-pointer hover:bg-green-600
+              transition-duration-200"
+        *ngFor="let cancha of canchas"
+        (click)="getValueSelect(cancha.name)">
+        {{ cancha.name }}
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <i class="pi pi-angle-left mr-4 text-xl text-cyan-500 cursor-pointer"
+      (click)="getPrev()">
+    </i>
+    <span class="text-lg">Semana {{ semana }}</span>
+    <i class="pi pi-angle-right ml-4 text-xl text-cyan-500 cursor-pointer"
+      (click)="getNext()">
+    </i>
+  </div>
+
+</div>
