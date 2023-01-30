@@ -53,7 +53,7 @@ const routes: Routes = [
       },
       {
         path     : 'new-user',
-        component: UsermoderatorComponent,
+        component: UsermoderatorComponent, //admin
       },
       {
         path     : 'inicio',
@@ -61,11 +61,11 @@ const routes: Routes = [
       },
       {
         path     : 'users-admin',
-        component: AdminusuariosComponent,
+        component: AdminusuariosComponent, //admin
       },
       {
-        path     : 'organizacion',
-        component: OrganizacionesAdminComponent,
+        path     : 'organizacion', 
+        component: OrganizacionesAdminComponent, //admin
       },
       {
         path     : 'calendario',

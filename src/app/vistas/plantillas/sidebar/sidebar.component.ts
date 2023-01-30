@@ -57,6 +57,8 @@ export class SidebarComponent implements OnInit {
 
     this.orga = localStorage.getItem('organization');
     this.rol = localStorage.getItem('rol');
+    
+    
     //CANCHAS EL BICHO
     if (this.orga === '623c92c697790a694cdc6959') {
       console.log(this.jk);

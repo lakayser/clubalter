@@ -1,57 +1,181 @@
 .burbuja {
 
-    background-color: white;
-    margin-bottom: 20px;
-    box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
-    border-radius: 15px;
-  }
-  .burbujax {
+  background-color: white;
+  margin-bottom: 20px;
+  box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
+  border-radius: 15px;
+}
 
-    background-color: #f5fffa;
-    margin-bottom: 20px;
-    box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
-    border-radius: 15px;
+.burbujax {
+
+  background-color: #d3ecd7;
+  margin-bottom: 20px;
+  box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
+  border-radius: 15px;
+}
+
+.burbuja2 {
+
+  background-color: #d3ecd7;
+  margin-bottom: 20px;
+  box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
+  border-radius: 15px;
+  border: solid #78e289;
+}
+
+.fecha {
+  border-radius: 15px;
+  background-color: white;
+  border-top: #cfe1ff solid 1rem;
+  height: 7rem;
+  width: 8em;
+  margin-top: 1rem;
+}
+
+.detalle {
+  border-radius: 15px;
+  background-color: white;
+  border-left: #78e289 solid 1rem;
+  border-radius: 15px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.pastillaVerde {
+  width: 20px;
+  height: 5rem;
+  border-radius: 15px;
+  background-color: #78e289;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.pastillaVerdechica {
+  width: 10px;
+  height: 3rem;
+  border-radius: 15px;
+  background-color: #78e289;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.scrollable {
+  height: 30rem;
+  overflow: auto;
+  position: relative;
+
+}
+
+.foto {
+  font-size: 23px;
+  margin: 0 3px;
+  color: #5691ff;
+  border: 1px solid;
+  border-radius: 50%;
+  width: 200px;
+  display: inline-block;
+  height: 200px;
+  text-align: center;
+  background-color: #fff;
+  line-height: 45px;
+  margin-top: 30px;
+  margin-bottom: 16px;
+
+}
+
+.formu {
+  background-color: #d3ecd7;
+  border-radius: 50px;
+  margin: 1rem;
+  padding: 1rem;
+  border: #78e289 solid;
+}
+
+.circulo {
+  border: solid #78e289;
+  background-color: #d3ecd7;
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+  margin-left: 3rem;
+  margin-bottom: 2rem;
+  margin: 3rem;
+}
+.circulo2{
+  border: solid #78e289;
+  background-color: white;
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+  margin-left: 3rem;
+  margin-bottom: 2rem;
+}
+.clase{
+  width: 6rem;
+  height: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+}
+.letras {
+  width: 6rem;
+  height: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+}
+
+.hala {
+  margin-left: 9rem;
+
+}
+
+.a {
+  display: block;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  line-height: 65px;
+  box-sizing: border-box;
+  transition: .4s;
+}
+
+span {
+  vertical-align: middle;
+}
+
+.map-responsive {
+  overflow: hidden;
+  padding-bottom:30%;
+  position: relative;
+  height: 0;
+
+}
+
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+@media(max-width:1325px) {
+  .hala {
+    margin-left: 0rem;
+
   }
-  
-  .fecha{
-    border-radius: 15px;
-    background-color: white;
-    border-top: #cfe1ff solid 1rem;
-    height: 7rem;
-    width: 8em;
-    margin-top: 1rem;
+
+  .circulo {
+    margin: 0rem;
   }
-  .detalle{
-    border-radius: 15px;
-    background-color: white;
-    border-left: #78e289 solid 1rem;
-    border-radius: 15px;
-    margin-left: 1rem;
-    margin-top: 1rem;
+  .formu {
+    margin: 4px;
   }
-  .pastillaVerde{
-    width: 20px;
-    height: 5rem;
-    border-radius: 15px;
-    background-color: #78e289;
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-  }
-  .pastillaVerdechica{
-    width: 10px;
-    height: 3rem;
-    border-radius: 15px;
-    background-color: #78e289;
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    vertical-align:  bottom;
-  }
-  .scrollable {
-    height: auto;
-    overflow: auto;
-    position: relative;
-  
-  }
+}

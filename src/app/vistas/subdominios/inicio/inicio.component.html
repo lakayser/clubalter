@@ -1,98 +1,279 @@
 <body>
-    <section class=" section-lg xd"
-        style="background-image: url(../../../../assets/padel-banner.jpg); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 100%; padding-top: 100px;">
-        <div class="container">
-            <div class="row row-30 align-items-center p-6">
-                <div class="col-md-6">
-                    <h1 style="max-width: 450px; color: white;">Canchas y campeonatos</h1>
-                    <p style="max-width: 600px; color: white;">
-                        <span class="h4">Bot padel ofrece la comodidad de la agendamiento de canchas al alcance de la
-                            mano</span>
-                    </p>
-                    <div class="offset-md">
-                        <button pButton type="button" label="Reservar"
-                            class="p-button-outlined p-button-rounded p-button-success p-button-lg m-3"></button>
-                        <button pButton type="button" label="Registrarse"
-                            class="p-button-success p-button-rounded p-button-lg m-3"></button>
-                    </div>
-                </div>
-                <div class="col-md-6">
-
-                </div>
-            </div>
+  <section class=" section-lg xd"
+    style="background-image: url(../../../../assets/padel-banner.jpg); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 100%; padding-top: 100px;">
+    <div class="container">
+      <div class="row row-30 align-items-center p-6">
+        <div class="col-md-6">
+          <h1 style="max-width: 450px; color: white;">Canchas y campeonatos</h1>
+          <p style="max-width: 600px; color: white;">
+            <span class="h4">Bot padel ofrece la comodidad de la agendamiento de canchas al alcance de la
+              mano</span>
+          </p>
+          <div class="offset-md">
+            <button pButton type="button" label="Reservar"
+              class="p-button-outlined p-button-rounded p-button-success p-button-lg m-3"></button>
+            <button pButton type="button" label="Registrarse"
+              class="p-button-success p-button-rounded p-button-lg m-3"></button>
+          </div>
         </div>
+        <div class="col-md-6">
 
-    </section>
-    <section>
-        Calendario
-    </section>
-    <section class="section section-lg text-center">
-        <h1 style="color: white;">TORNEOS</h1>
-        <div class="row justify-content-center">
-          <div class="col-md-6 col-lg-6 contenedor scrollable burbujax">
-            <div class="col d-flex justify-aling-center align-items-center text-center">
-              <span class="pastillaVerde mr-2"></span>
-              <h2>Torneos Actuales</h2>
-            </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <section>
+    Calendario
+  </section>
+  <section>
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-7  contenedor scrollable burbujax">
+          <div class="col d-flex align-items-center text-center">
+            <span class="pastillaVerde mr-2"></span>
+            <h2>Torneos Actuales</h2>
+          </div>
+          <div class="container">
             <div class="row" *ngFor="let TorneoD of TorneoD">
               <ng-container *ngIf="TorneoD.estadoEnCurso != true">
-                <div class="col-lg-2 col-md-6 fecha">
+                <div class="col-lg-2 col-sm-6 fecha">
                   <h1>{{ TorneoD.inicioT | date : "dd" }}</h1>
                   <p style="color: green">{{ TorneoD.inicioT | date : "LLLL" }}</p>
                 </div>
-                <div class="col-lg-8 col-md-6 detalle">
+                <div class="col col-sm-6 detalle">
                   <h4>{{ TorneoD.nombreTorneo }}</h4>
-                  <div class="row">
-                    <div class="col d-flex justify-aling-center align-items-center">
-                      <span class="pastillaVerdechica mr-1"></span>
-                      Fecha inicio inscripciones <br />
-                      {{ TorneoD.inicioInscripciones | date : "mediumDate" }}
-                      {{ TorneoD.inicioInscripciones | date : "shortTime" : "UTC"
-                      }}{{ TorneoD.inicioInscripciones | date : "aaa" }}
-                    </div>
-                    <div class="col d-flex justify-aling-center align-items-center">
-                      <span class="pastillaVerdechica mr-1"></span>
-                      fecha de inicio:<br />
-                      {{ TorneoD.inicioT | date : "mediumDate" }}
-                      {{ TorneoD.inicioT | date : "shortTime" : "UTC"
-                      }}{{ TorneoD.inicioT | date : "aaa" }}
+                  <div class="container">
+                    <div class="row">
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <span class="pastillaVerdechica mr-1"></span>
+                        Fecha inicio inscripciones <br />
+                        {{ TorneoD.inicioInscripciones | date : "mediumDate" }}
+                        {{ TorneoD.inicioInscripciones | date : "shortTime" : "UTC"
+                        }}{{ TorneoD.inicioInscripciones | date : "aaa" }}
+                      </div>
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <span class="pastillaVerdechica mr-1"></span>
+                        fecha de inicio:<br />
+                        {{ TorneoD.inicioT | date : "mediumDate" }}
+                        {{ TorneoD.inicioT | date : "shortTime" : "UTC"
+                        }}{{ TorneoD.inicioT | date : "aaa" }}
+                      </div>
                     </div>
                   </div>
-                  <div class="row mt-3">
-                    <div class="col-1">
-                      <p>Tipo Categoria:</p>
-                    </div>
-                    <div class="col-4" *ngFor="let a of TorneoD.categoriaTorneo">
-                      <p *ngFor="let c of TorneoD.categoriaParticipantes">
-                        {{ a.name }} {{ c.name }}
-                      </p>
-                    </div>
-                    <div class="col-2"></div>
-                    <div class="col-1">
-                      <p style="cursor: pointer;" (click)="goDetalles(TorneoD)">Detalles></p>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <p>Tipo Categoria:</p>
+                      </div>
+                      <div class="col d-flex justify-aling-center align-items-center"
+                        *ngFor="let a of TorneoD.categoriaTorneo">
+                        <p *ngFor="let c of TorneoD.categoriaParticipantes">
+                          {{ a.name }} {{ c.name }}
+                        </p>
+                      </div>
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <p style="cursor: pointer;" (click)="goDetalles(TorneoD)">Detalles></p>
+                      </div>
                     </div>
                   </div>
                 </div>
-    
+
                 <div class="w-100"></div>
               </ng-container>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="col d-flex justify-aling-center align-items-center text-center">
-                <span class="pastillaVerde mr-2"></span>
-                <h2 style="color: white;">Clases</h2>
+        </div>
+        <div class="col">
+          <div class="col d-flex justify-aling-center align-items-center text-center">
+            <span class="pastillaVerde mr-2"></span>
+            <h2 style="color: white;">Clases</h2>
+          </div>
+          <div class="burbujax ranking col text-center">
+           
+            <div class="row">
+              <div class="col burbuja2" style="margin: 2rem;  background-color: #546cb2;">
+                <div >
+                  <h5 >Padel para principiantes</h5>
+                  <h5 >25 de enero</h5>
+                  <h5 >14:00 a 17:00</h5>
+                </div>
+                <button pButton type="button" label="Registrarse"
+                class="p-button-success p-button-rounded p-button-lg m-3"></button>
               </div>
-            <div class="burbuja ranking col mt-5">
-              <div class="col d-flex justify-aling-center align-items-center">
-                <span class="pastillaVerde mr-1"></span>
-                <h2 style="color: black!important;">clases</h2>
+              <div class="col burbuja2" style="margin: 2rem; background-color: #546cb2;">
+                <div >
+                  <h5 >Padel para principiantes</h5>
+                  <h5 >25 de febrero</h5>
+                  <h5 >14:00 a 17:00</h5>
+                </div>
+                <button pButton type="button" label="Registrarse"
+                class="p-button-success p-button-rounded p-button-lg m-3"></button>
               </div>
-    
-              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+
+        <div class="col d-flex justify-aling-center align-items-center text-center">
+          <span class="pastillaVerde mr-2"></span>
+          <h2 style="color: white;">Siguenos En</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-lg text-center" style="background-color: #d3ecd7;">
+    <div><img src="../../../../assets/canch1.png" class="foto"></div>
+    <div>
+      <h1>@ClubPadelSanCarlos</h1>
+    </div>
+    <iframe width="320" height="440" src="http://instagram.com/p/CFOJKXlFiQL/embed" frameborder="0"></iframe>
+    <iframe width="320" height="440" src="http://instagram.com/p/Chr5Gn7OqXU/embed" frameborder="0"></iframe>
+    <iframe width="320" height="440" src="http://instagram.com/p/Clmppg8uMjF/embed" frameborder="0"></iframe>
+    <iframe width="320" height="440" src="http://instagram.com/p/ChqBjDdv2Nt/embed" frameborder="0"></iframe>
+
+  </section>
+  <section class="py-5 bg-light">
+    <div class="container center">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="col d-flex justify-aling-center align-items-center text-center">
+            <span class="pastillaVerde mr-2"></span>
+            <h2>Contacto</h2>
+          </div>
+          <form>
+            <div class="form-group">
+              <input type="email" class="form-control formu" id="exampleFormControlInput1" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control formu" id="exampleFormControlInput1" placeholder="Correo">
+            </div>
+            <div class="form-group">
+
+              <textarea class="form-control formu" id="exampleFormControlTextarea1" rows="3"
+                placeholder="Escribenos"></textarea>
+            </div>
+            <div class="text-center">
+              <button pButton type="button" label="Enviar"
+                class="p-button-success p-button-rounded p-button-lg m-3"></button>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch" data-aos="fade-up">
+          <img src="../../../../assets/canch1.png" class="img-fluid" style="max-width: 100%;">
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex justify-aling-center align-items-center text-center">
+          <span class="pastillaVerde mr-2"></span>
+          <h2 style="color: white;">Contamos con</h2>
+        </div>
+      </div>
+      <div class="col">
+        <div class="container text-center hala">
+          <div class="row">
+            <div class="col-6 col-sm-3 circulo">
+              <div class="banner">
+                <h1 style="font: bold; font-size: 4rem;">E</h1>
+              </div>
+              <h5 class="letras">Estacionamiento</h5>
+            </div>
+            <div class="col-6 col-sm-3 circulo">
+              <div class="banner"><span class="material-icons-outlined" style="font-size: 4rem;">
+                  shopping_cart
+                </span></div>
+              <h5 style="font-size: 2rem;">Tienda</h5>
+            </div>
+            <div class="col-6 col-sm-3 circulo">
+              <div class="banner"><span class="material-icons-outlined" style="font-size: 4rem;">
+                  shower
+                </span></div>
+              <h3>Camerines</h3>
+            </div>
+            <div class="col-6 col-sm-3 circulo">
+              <div class="banner"><span class="material-icons-outlined" style="font-size: 4rem;">
+                  outdoor_grill
+                </span></div>
+              <h3>Quinchos</h3>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-lg mini">
+    <div class="container text-center " id="Servicios">
+      <div class="row p-5 text-center">
+        <div class="col burbuja2">
+          <!-- <div class="">
+            <span class="material-icons-outlined" style="font-size: 4rem;">
+              location_on
+            </span>
+            <span class="h1">sdasdasds</span>
+          
+          </div> -->
+          <div class="col d-flex justify-aling-center align-items-center text-center">
+            <span class="material-icons-outlined" style="font-size: 4rem;">
+              location_on
+            </span>
+
+            <h2>Ubicacion</h2>
+          </div>
+          <span class="h3">Avenida padel #423, San Carlos</span>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col burbuja2 text-center">
+          <div class="col d-flex  align-items-center text-center">
+            <span class="material-icons-outlined" style="font-size: 4rem;">
+              schedule
+            </span>
+            <h2>Horarios</h2>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div><span class="h4">Lunes a viernes</span></div>
+              <div><span class="h4">00:00 - 00:00 </span></div>
+              <div><span class="h4">Sabado Domingo y festivos</span></div>
+              <div><span class="h4">00:00 - 00:00</span></div>
             </div>
           </div>
         </div>
-      </section>
-
+        <div class="col-md-1">
+        </div>
+        <div class="col burbuja2">
+          <div class="col d-flex justify-aling-center align-items-center text-center">
+            <span class="material-icons-outlined" style="font-size: 4rem;">
+              phone
+            </span>
+            <h2>Numero</h2>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div><span class="h3">+5695555555</span></div>
+              <div style="color: #d3ecd7 ;">a</div>
+              <div><span class="h3">+5695555555</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-responsive">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d566.2167830770948!2d-72.0986316926513!3d-36.602168981382434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scl!4v1674158711038!5m2!1ses-419!2scl"
+        width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+  <app-footer></app-footer>
 </body>

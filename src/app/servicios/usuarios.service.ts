@@ -60,6 +60,9 @@ export class UsuariosService {
   deleteUsuario(id: string){
     return this.http.delete(`${this.URL}delete-user/${id}`);
   }
+  reActivar(usuario: Usuario){
+    return this.http.put(`${this.URL}activate-user/${usuario._id}`, usuario)
+  }
 
   getUsuarioAdmin(){
     return this.http.get<Usuario[]>(`${this.URL3}list-users`);

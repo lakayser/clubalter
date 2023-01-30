@@ -1,39 +1,28 @@
-<body>
-  <section class="">
-    <div class="container text-center">
+
+ 
+    <div class="container text-center" style="color: white;">
       <h1>Bienvenido </h1>
       <h1>NOMBRE DE USUARIO</h1>
       <h1>a las canchas el bicho</h1>
-      <div class="row row-30 align-items-center">
-        <div class="col-md-6">
-
-        </div>
-      </div>
     </div>
-  </section>
-  <section>
-    <br>
-    <br>
-    <br>
-
-  </section>
-
-  <section class="section section-lg">
+  
+  
     <div class="container text-center ">
-
       <div class="row">
         <div class="col-md-12  col-sm-5 col-lg-5 burbuja">
-
           <h2 class="pt-3"></h2><span class="h2">Hoy</span>
-          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" >
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="../../../assets/canch1.png" style="border-radius: 15px;" class="d-block w-100" height="350" >
+                <img src="../../../assets/canch1.png" style="border-radius: 15px;" class="d-block w-100" height="350">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>CANCHA 1</h5>
                   <p>HORARIOS DISPONIBLES</p>
@@ -47,7 +36,7 @@
                 </div>
               </div>
               <div class="carousel-item" style="border-radius: 15px;">
-                <img src="../../../assets/canch1.png" style="border-radius: 15px;" class="d-block w-100"height="350" >
+                <img src="../../../assets/canch1.png" style="border-radius: 15px;" class="d-block w-100" height="350">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>CANCHA 3</h5>
                   <p>HORARIOS DISPONIBLES</p>
@@ -57,13 +46,13 @@
           </div>
 
         </div>
-        
+
         <div class="col-md-1">
 
         </div>
         <div class="col">
 
-          <div class="col">
+          <div class="col-md col-sm col-lg">
             <div class="row mt-3 mb-3">
               <button type="button" class="btn btn1 btn-lg ">Agendar</button>
             </div>
@@ -80,64 +69,134 @@
       </div>
 
     </div>
-  </section>
-  <section class="section section-lg">
-    <div class="container text-center ">
-
-      <div class="row">
-        <div class="col-md-6 burbuja">
-
-          <h2 class="pt-3"></h2><span class="h2">TORNEOS PUBLICADOS</span>
-          <div class="table-responsive-md">
-            <div class="scrollable">
-              <table class="table border-primary">
-                <thead>
-                  <tr class="table-primary">
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Fecha ini</th>
-                    <th scope="col">Categorias</th> 
-                    <th scope="col">Detalles</th>
-                  </tr>
-                </thead>
-
-                <tbody *ngFor="let Torneo of Torneo">
-                  <tr *ngFor="let a of Torneo.categoriaTorneo" >
-                    <td>{{Torneo.nombreTorneo}}</td>
-                    <td *ngFor="let b of Torneo.tipoTorneo">{{b.name}}</td>
-                    <td>{{Torneo.inicioT}}</td>
-                    <td *ngFor="let c of  Torneo.categoriaParticipantes">{{a.name}} {{c.name}}</td>
-
-                    <td (click)="goDetalles(Torneo)"><button type="button" class="btn btn-primary"><span class="material-icons">
-                      visibility
-                      </span></button></td>
-                      
-                  </tr>
-                </tbody>
-              </table>
+  
+  
+    <div class="container">
+      <div class="row ">
+        <div class="col-lg col-xl-6  contenedor scrollable burbujax" >
+          <div class="col d-flex align-items-center text-center">
+            <span class="pastillaVerde mr-2"></span>
+            <h2>Torneos Actuales</h2>
+          </div>
+          <div class="container">
+            <div class="row" *ngFor="let TorneoD of TorneoD">
+              <ng-container *ngIf="TorneoD.estadoEnCurso != true">
+                <div class="col-lg-2 col-sm-6 fecha">
+                  <h1>{{ TorneoD.inicioT | date : "dd" }}</h1>
+                  <p style="color: green">{{ TorneoD.inicioT | date : "LLLL" }}</p>
+                </div>
+                <div class="col-lg-12 col-xl detalle ">
+                  <h4 class="nombreT">{{ TorneoD.nombreTorneo }}</h4>
+                  <div class="fechamobil">
+                    <div style="display: inline-block; margin: 1rem;">
+                      <h4>{{ TorneoD.nombreTorneo }}</h4>
+                    </div>
+                    <div style="display: inline-block;  padding: 1rem;" class="burbujaF">
+                      <h1>{{ TorneoD.inicioT | date : "dd" }}</h1>
+                      <p style="color: green">{{ TorneoD.inicioT | date : "LLLL" }}</p>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <span class="pastillaVerdechica mr-1"></span>
+                        Fecha inicio inscripciones <br />
+                        {{ TorneoD.inicioInscripciones | date : "mediumDate" }}
+                        {{ TorneoD.inicioInscripciones | date : "shortTime" : "UTC"
+                        }}{{ TorneoD.inicioInscripciones | date : "aaa" }}
+                      </div>
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <span class="pastillaVerdechica mr-1"></span>
+                        fecha de inicio:<br />
+                        {{ TorneoD.inicioT | date : "mediumDate" }}
+                        {{ TorneoD.inicioT | date : "shortTime" : "UTC"
+                        }}{{ TorneoD.inicioT | date : "aaa" }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <p>Tipo Categoria:</p>
+                      </div>
+                      <div class="col d-flex justify-aling-center align-items-center"
+                        *ngFor="let a of TorneoD.categoriaTorneo">
+                        <p *ngFor="let c of TorneoD.categoriaParticipantes">
+                          {{ a.name }} {{ c.name }}
+                        </p>
+                      </div>
+                      <div class="col d-flex ">
+                        <p class="detallex" (click)="goDetalles(TorneoD)">Detalles<span class="material-icons-outlined">
+                            arrow_forward_ios
+                          </span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
             </div>
           </div>
-        </div> 
+        </div>
+        <div class="col-lg col-xl burbujax" style="max-height: 600px;" >
+          <div class="col d-flex justify-aling-center align-items-center text-center">
+            <span class="pastillaVerde mr-2"></span>
+            <h2 >Historial</h2>
+          </div>
+          <div class=" ranking col text-center">
+            <div class="table-responsive-md">
+              <div class="scrollable">
+                <table class="table border-primary">
+                  <thead>
+                    <tr class="table-primary">
+                      <th scope="col">ACTIVIDAD</th>
+                      <th scope="col">ENCARGADO</th>
+                      <th scope="col">CANCHA</th>
+                      <th scope="col">FECHA</th>
+                      <th scope="col">CUPOS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Campeonato sur</td>
+                      <td>Pato</td>
+                      <td>Cancha2</td>
+                      <td>29/09-12:00</td>
+                      <td>18/20</td>
+                    </tr>
+                    <tr>
+                      <td>Clases</td>
+                      <td>Nicolas</td>
+                      <td>Cancha1</td>
+                      <td>27/09-12:00</td>
+                      <td>10/14</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-
     </div>
-  </section>
-
-  <section>
+ 
+  
 
     <div class="container text-center">
       <div class="row">
-        <div class="col-md-5 burbuja ">
+        <div class="col-lg-12 col-xl-6  burbuja ">
           <h1>Eventos</h1>
-         
-          <button type="button" class="btn btnevento1 btn-lg mt-2 mb-2">Inscribete Clase Principiantes</button>
-          <button type="button" class="btn btnevento2 btn-lg mt-2 mb-2">Promocion Miercoles 22 Horas 
-           <br> 20% de descuento</button>
-          <button type="button" class="btn btnevento3 btn-lg mt-2 mb-2">Participa Torneo "memosaurio"</button>
-
+          <div class="col">
+            <div class="row mt-3 mb-3">
+              <button type="button" class="btn btn1 btn-lg ">Clases</button>
+            </div>
+            <div class="row mt-3 mb-3">
+              <button type="button" class="btn btn2 btn-lg ">Promociones</button>
+            </div>
+          </div>
         </div>
-        <div class="col-1"></div>
-        <div class="col-md-5 burbuja">
+
+        <div class="col-lg-12 col-xl burbuja">
           <h1>Partidas de la escalerilla</h1>
           <div class="table-responsive-md">
             <div class="scrollable">
@@ -175,25 +234,20 @@
                     <td>whatsapp</td>
                     <td>completo</td>
                   </tr>
-
                 </tbody>
               </table>
             </div>
           </div>
-
         </div>
-
       </div>
-
     </div>
-  </section>
+  
 
-  <section class="section section-lg">
+  
     <div class="container text-center " id="Servicios">
 
       <div class="row">
-        <div class="col-md-5 burbuja">
-
+        <div class="col burbuja">
           <h2 class="pt-3"></h2><span class="h2">Tus puntuaciones</span>
           <div class="table-responsive-md">
             <div class="scrollable">
@@ -227,52 +281,13 @@
             </div>
           </div>
         </div>
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-5 burbuja">
-          <h2 class="pt-3"></h2><span class="h2">HISTORIAL</span>
-          <div class="table-responsive-md">
-            <div class="scrollable">
-              <table class="table border-primary">
-                <thead>
-                  <tr class="table-primary">
-                    <th scope="col">ACTIVIDAD</th>
-                    <th scope="col">ENCARGADO</th>
-                    <th scope="col">CANCHA</th>
-                    <th scope="col">FECHA</th>
-                    <th scope="col">CUPOS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Campeonato sur</td>
-                    <td>Pato</td>
-                    <td>Cancha2</td>
-                    <td>29/09-12:00</td>
-                    <td>18/20</td>
-                  </tr>
-                  <tr>
-                    <td>Clases</td>
-                    <td>Nicolas</td>
-                    <td>Cancha1</td>
-                    <td>27/09-12:00</td>
-                    <td>10/14</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-  </section>
-<br>
-<br>
-<br>
   
+
+
   <footer>
     <!-- <div class="text-center"><img src="../../../assets/Logo-Botmila.png" alt="" width="500" height="150"
           class="d-inline-block align-text-top"></div> -->
 
   </footer>
-</body>

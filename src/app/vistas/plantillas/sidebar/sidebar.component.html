@@ -5,14 +5,14 @@
       <span>
         <span class="material-icons mr-2">
           home
-          </span>
+        </span>
         <span>Inicio</span>
       </span>
     </div>
 
     <div class="sidebar-item a" (click)="display = false" routerLink="/mod/calendario">
       <span>
-        <span class="material-icons mr-2">
+        <span class="material-icons-round mr-2">
           calendar_today
         </span>
         <span>Vista Semana</span>
@@ -21,25 +21,25 @@
 
     <div class="sidebar-item a" (click)="display = false" routerLink="/mod/canchas-crud">
       <span>
-        <span class="material-icons  mr-2"> settings </span>
+        <span class="material-icons-round  mr-2"> settings </span>
         <span>Ajustes canchas</span>
       </span>
     </div>
     <div class="sidebar-item a" (click)="display = false" routerLink="/mod/crud-sub">
       <span>
-        <span class="material-icons  mr-2"> sports_tennis </span>
+        <span class="material-icons-round  mr-2"> sports_tennis </span>
         <span>Ajustes usuarios</span>
       </span>
     </div>
     <div class="sidebar-item a" (click)="display = false" routerLink="/mod/crud-torneo">
       <span>
-        <span class="material-icons  mr-2"> emoji_events </span>
+        <span class="material-icons-round  mr-2"> emoji_events </span>
         <span>Torneos</span>
       </span>
     </div>
     <div class="sidebar-item a" (click)="display = false" routerLink="/mod/historial">
       <span class="sidebar-link">
-        <span class="material-icons  mr-2"> manage_search </span>
+        <span class="material-icons-round  mr-2"> manage_search </span>
         <span>Historial de reservas</span>
       </span>
     </div>
@@ -50,15 +50,14 @@
       <span class="sidebar-link">
         <span class="material-icons-round mr-2">
           home
-          </span>
+        </span>
         <span>Inicio</span>
       </span>
     </div>
 
-    <div class="sidebar-item a " (click)="display = false" routerLink="/mod/calendario">
+    <div class="sidebar-item a" (click)="display = false" routerLink="/mod/calendario">
       <span class="sidebar-link">
-
-        <span class="material-icons-outlined mr-2">
+        <span class="material-icons-round mr-2">
           calendar_today
         </span>
         <span>Vista Semana</span>
@@ -67,7 +66,7 @@
 
     <div class="sidebar-item a" (click)="display = false" routerLink="/mod/canchas-crud">
       <span class="sidebar-link">
-        <span class="material-icons  mr-2"> settings </span>
+        <span class="material-icons-round  mr-2"> settings </span>
         <span>Ajustes canchas</span>
       </span>
     </div>
@@ -97,14 +96,14 @@
       <span class="sidebar-link">
         <span class="material-icons mr-2">
           home
-          </span>
+        </span>
         <span>Inicio</span>
       </span>
     </div>
 
     <div class="sidebar-item a" (click)="display = false" routerLink="/calendario">
       <span class="sidebar-link">
-        <span class="material-icons mr-2">
+        <span class="material-icons-round mr-2">
           calendar_today
         </span>
         <span>Vista Semana</span>
@@ -112,12 +111,32 @@
     </div>
     <div class="sidebar-item a" (click)="display = false" routerLink="/mod/crud-torneo">
       <span>
-        <span class="material-icons  mr-2"> emoji_events </span>
+        <span class="material-icons-round  mr-2"> emoji_events </span>
         <span>Torneos</span>
       </span>
+
     </div>
   </div>
+  <div *ngIf="jk == '4'">
+    <div class="sidebar-item a" (click)="display = false" routerLink="/mod/organizacion">
+      <span class="sidebar-link">
+        <span class="material-icons mr-2">
+          home
+        </span>
+        <span>Inicio</span>
+      </span>
+    </div>
 
+    <div class="sidebar-item a" (click)="display = false" routerLink="/mod/users-admin">
+      <span class="sidebar-link">
+        <span class="material-icons-round mr-2">
+          calendar_today
+        </span>
+        <span>Usuarios</span>
+      </span>
+    </div>
+    
+  </div>
 
 
   <ng-template pTemplate="footer">
@@ -127,7 +146,7 @@
     </button></ng-template>
 </p-sidebar>
 
-<p-toolbar styleClass="toolbarS">
+<p-toolbar [style]="{width:'100%'}">
   <ng-container *ngIf="!apiService.loggedIn(); else loggedIn">
     <img src="assets/Logo-Botmila.png" alt="" width="250" height="50" />
     <div class="p-toolbar-group-right">
@@ -135,7 +154,7 @@
         <span class="nav-link active" style="color: black; font-size: large;  font-weight: bold;" aria-current="page"
           routerLink="/auth/login" routerLinkActive="active">Ingresar</span>
       </div>
-      <div class="nav-item">
+      <!-- <div class="nav-item">
         <span class="nav-link active" style="color: black; font-size: large;  font-weight: bold;" aria-current="page"
           href="#Servicios">Servicios</span>
       </div>
@@ -146,7 +165,7 @@
       <div class="nav-item">
         <span class="nav-link active" style="color: black; font-size: large;  font-weight: bold;" aria-current="page"
           href="#Contacto">Contacto</span>
-      </div>
+      </div> -->
     </div>
   </ng-container>
 

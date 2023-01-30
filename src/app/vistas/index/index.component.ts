@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MailService } from 'src/app/servicios/mail.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TorneoCrear } from 'src/app/modelos/TorneoCrear';
+import { MailService } from 'src/app/servicios/mail.service';
+import { TorneosService } from 'src/app/servicios/torneos.service';
+
 
 @Component({
   selector: 'app-index',
@@ -8,18 +12,26 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-
-  constructor(public mailService: MailService) { }
+ 
+  Torneo: TorneoCrear[];
+  TorneoD: TorneoCrear[];
+  constructor(private router: Router, private torneoService:TorneosService) { }
 
   ngOnInit(): void {
+
+    this.getTorneDis();
   }
-  
-  enviarEmail(form:NgForm)
-  {
-      this.mailService.postEmail(form.value).subscribe((res)=>{
-        console.log(res);
-        form.reset();
-    });;
+  goDetalles(torneo:TorneoCrear){
+    this.router.navigate(['mod/detalles-torneoAdm/',torneo._id])
+  }
+  goRegistro(){
+    this.router.navigate(['auth/registerJugador/'])
+  }
+  getTorneDis(){
+    this.torneoService.getTorneoDisponible().subscribe((res)=>{
+      this.TorneoD=res;
+      console.log('actuales',res);
+    });
   }
 
 }

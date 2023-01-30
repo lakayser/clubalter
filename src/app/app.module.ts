@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './vistas/auth/auth.module';
 import { AdminPagesModule } from './vistas/adminPages/admin-pages.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,

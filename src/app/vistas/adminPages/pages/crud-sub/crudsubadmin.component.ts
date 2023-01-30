@@ -263,4 +263,47 @@ export class CrudsubadminComponent implements OnInit {
       }
     })
   }
+  probara(_id: any){
+    console.log(_id)
+  }
+  activarUsuario(_id: any) {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    Swal.fire({
+      title: 'Estas seguro que deseas activar nuevamente a este usuario?',
+      text: "No podras revertir esta accion",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Si, re activar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.usuariosService.reActivar(_id).subscribe(
+          (res) => {
+            this.getUsuarios();
+            Swal.fire(
+              'Reactivado!',
+              'Usuario Re Activado Con exito',
+              'success'
+            )
+          })
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'Accion cancelada',
+          'error'
+        )
+      }
+    })
+  }
 }

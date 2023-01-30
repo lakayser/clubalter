@@ -1,171 +1,279 @@
 <body>
-  <section class="section section-lg bg-gradient-animated">
+  <section class=" section-lg xd"
+    style="background-image: url(../../../../assets/padel-banner.jpg); background-repeat: no-repeat; background-position: center center; background-size: cover; height: 100%; padding-top: 100px;">
     <div class="container">
-      <div class="row row-30 align-items-center">
+      <div class="row row-30 align-items-center p-6">
         <div class="col-md-6">
-
-          <h1 style="max-width: 450px;">Administra tu negocio con inteligencia Artificial</h1>
-          <p style="max-width: 600px;">
-            <span class="h6">Aplicación que permite mantener una atención 24/7 del negocio con gestion y soluciones
-              dinamicas.</span>
+          <h1 style="max-width: 450px; color: white;">Canchas y campeonatos</h1>
+          <p style="max-width: 600px; color: white;">
+            <span class="h4">Bot padel ofrece la comodidad de la agendamiento de canchas al alcance de la
+              mano</span>
           </p>
           <div class="offset-md">
-            <a class="btn btn-lg btn-dark btn-round btn-anis mb-2" href="#"> <span
-                class="btn-icon int-primary novi-icon"></span><span>Información</span></a>
+            <button pButton type="button" label="Reservar" (click)="goRegistro()"
+              class="p-button-outlined p-button-rounded p-button-success p-button-lg m-3"></button>
+            <button pButton type="button" label="Registrarse" (click)="goRegistro()"
+              class="p-button-success p-button-rounded p-button-lg m-3"></button>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="ratio ratio-16x9">
-            <iframe src="https://www.youtube-nocookie.com/embed/x9MfTYpARx8" title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <section>
+    Calendario
+  </section>
+  <section>
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-7  contenedor scrollable burbujax">
+          <div class="col d-flex align-items-center text-center">
+            <span class="pastillaVerde mr-2"></span>
+            <h2>Torneos Actuales</h2>
+          </div>
+          <div class="container">
+            <div class="row" *ngFor="let TorneoD of TorneoD">
+              <ng-container *ngIf="TorneoD.estadoEnCurso != true">
+                <div class="col-lg-2 col-sm-6 fecha">
+                  <h1>{{ TorneoD.inicioT | date : "dd" }}</h1>
+                  <p style="color: green">{{ TorneoD.inicioT | date : "LLLL" }}</p>
+                </div>
+                <div class="col col-sm-6 detalle">
+                  <h4>{{ TorneoD.nombreTorneo }}</h4>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <span class="pastillaVerdechica mr-1"></span>
+                        Fecha inicio inscripciones <br />
+                        {{ TorneoD.inicioInscripciones | date : "mediumDate" }}
+                        {{ TorneoD.inicioInscripciones | date : "shortTime" : "UTC"
+                        }}{{ TorneoD.inicioInscripciones | date : "aaa" }}
+                      </div>
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <span class="pastillaVerdechica mr-1"></span>
+                        fecha de inicio:<br />
+                        {{ TorneoD.inicioT | date : "mediumDate" }}
+                        {{ TorneoD.inicioT | date : "shortTime" : "UTC"
+                        }}{{ TorneoD.inicioT | date : "aaa" }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <p>Tipo Categoria:</p>
+                      </div>
+                      <div class="col d-flex justify-aling-center align-items-center"
+                        *ngFor="let a of TorneoD.categoriaTorneo">
+                        <p *ngFor="let c of TorneoD.categoriaParticipantes">
+                          {{ a.name }} {{ c.name }}
+                        </p>
+                      </div>
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <p style="cursor: pointer;" (click)="goDetalles(TorneoD)">Detalles></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="w-100"></div>
+              </ng-container>
+            </div>
           </div>
         </div>
-        <div id="fb-root"></div>
-        <div id="fb-customer-chat" class="fb-customerchat">
+        <div class="col">
+          <div class="col d-flex justify-aling-center align-items-center text-center">
+            <span class="pastillaVerde mr-2"></span>
+            <h2 style="color: white;">Clases</h2>
+          </div>
+          <div class="burbujax ranking col text-center">
+           
+            <div class="row">
+              <div class="col burbuja2" style="margin: 2rem;  background-color: #546cb2;">
+                <div>
+                  <h5 >Padel para principiantes</h5>
+                  <h5 >25 de enero</h5>
+                  <h5 >14:00 a 17:00</h5>
+                </div>
+                <button pButton type="button" label="Registrarse" (click)="goRegistro()"
+                class="p-button-success p-button-rounded p-button-lg m-3"></button>
+              </div>
+              <div class="col burbuja2" style="margin: 2rem; background-color: #546cb2;">
+                <div >
+                  <h5 >Padel para principiantes</h5>
+                  <h5 >25 de febrero</h5>
+                  <h5 >14:00 a 17:00</h5>
+                </div>
+                <button pButton type="button" label="Registrarse"
+                class="p-button-success p-button-rounded p-button-lg m-3"></button>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
-    </div>
-
-  </section>
-
-  <section class="section section-lg">
-    <div class="container text-center" id="Servicios">
-      <h1>I+D+ / UX enfocada en clientes con tecnología de BOT's integrando soluciones del negocio</h1>
-      <p>
-        <span class="h6">Caracteristicas que permiten</span>
-      </p>
-      <div class="row">
-        <div class="col-md-4">
-          <img src="assets/Botmila-MARKET.png" alt="" width="150" height="150" class="d-inline-block align-text-top"
-            routerLink="/kbot-market">
-          <h2 class="pt-3"></h2><span class="h2">K-BOTS MARKET</span>
-          <p>
-            <span class="h6">Asistente virtual desarrollado con inteligencia artificial, que tiene la capacidad de
-              gestionar la venta de
-              diferentes productos, además de responder las consultas de los clientes, acompañándolo a este hasta el
-              pago
-              de su pedido. Así apoyamos a la empresa en aumentar sustancialmente la toma de pedidos.</span>
-          </p>
-
-        </div>
-        <div class="col-md-4">
-          <img src="assets/Botmila-AGENDA.png" alt="" width="150" height="150" class="d-inline-block align-text-top"
-            routerLink="/kbot-agenda">
-          <h2 class="pt-3">K-BOTS AGENDA</h2>
-          <p> Sistema Cloud que permite liberar y reservar horas para los diferentes servicios de agendamiento, como
-            centros médicos, spa, hotelerías y centros deportivos. Siendo un complemento estratégico en la industria.
-          </p>
-        </div>
-        <div class="col-md-3">
-          <img src="assets/Botmila-MEDIDA.png" alt="" width="150" height="150" class="d-inline-block align-text-top"
-            routerLink="/kbot-personalizado">
-          <h2 class="pt-3">CHATBOT A MEDIDA</h2>
-          <p>Nuestra tecnología permite adaptarnos a diferentes modelos de negocios, que permitan poner al cliente en el
-            centro de nuestro quehacer, velando por una experiencia en cada punto de contacto.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section section-lg bg-gradient-animated">
-    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-      <h1 class="display-4 fw-normal">Planes</h1>
-      <p class="fs-5 text-muted">Una vez seleccionado tu Bot deberas seleccionar un plan de suscripcion</p>
     </div>
     <div class="container">
-      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-        <div class="col">
-          <div class="card mb-4 rounded-3 shadow-sm">
-            <div class="card-header py-3">
-              <h4 class="my-0 fw-normal">Basico</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title">$50.000<small class="text-muted fw-light">/mes</small></h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>Plataforma de gestion</li>
-                <li>Bot de Facebook</li><br>
-                <br><br>
-                <br>
-              </ul>
-              <button type="button" class="w-100 btn btn-lg btn-outline-primary">Comenzar</button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card mb-4 rounded-3 shadow-sm">
-            <div class="card-header py-3">
-              <h4 class="my-0 fw-normal">Pro</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title">$55.000<small class="text-muted fw-light">/mes</small></h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>Plataforma de gestion</li>
-                <li>Bot de Facebook</li>
-                <li>Bot de instagram</li>
-                <li>Soporte</li>
-                <br>
-                <br>
-              </ul>
-              <button type="button" class="w-100 btn btn-lg btn-primary">Comenzar</button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card mb-4 rounded-3 shadow-sm border-primary">
-            <div class="card-header py-3 text-white bg-primary border-primary">
-              <h4 class="my-0 fw-normal">Empresario</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title">$75.000<small class="text-muted fw-light">/mes</small></h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>Plataforma de gestion</li>
-                <li>Clases y Campeonatos</li>
-                <li>Bot de Facebook</li>
-                <li>Bot de instagram</li>
-                <li>Bot Publicidad</li>
-                <li>Soporte</li>
-              </ul>
-              <button type="button" class="w-100 btn btn-lg btn-primary">Comenzar</button>
-            </div>
-          </div>
+      <div class="row">
+
+        <div class="col d-flex justify-aling-center align-items-center text-center">
+          <span class="pastillaVerde mr-2"></span>
+          <h2 style="color: white;">Siguenos En</h2>
         </div>
       </div>
     </div>
   </section>
+  <section class="section section-lg text-center" style="background-color: #d3ecd7;">
+    <div><img src="../../../../assets/canch1.png" class="foto"></div>
+    <div>
+      <h1>@ClubPadelSanCarlos</h1>
+    </div>
+    <iframe width="320" height="440" src="http://instagram.com/p/CFOJKXlFiQL/embed" frameborder="0"></iframe>
+    <iframe width="320" height="440" src="http://instagram.com/p/Chr5Gn7OqXU/embed" frameborder="0"></iframe>
+    <iframe width="320" height="440" src="http://instagram.com/p/Clmppg8uMjF/embed" frameborder="0"></iframe>
+    <iframe width="320" height="440" src="http://instagram.com/p/ChqBjDdv2Nt/embed" frameborder="0"></iframe>
 
-
+  </section>
   <section class="py-5 bg-light">
     <div class="container center">
       <div class="row">
-        <div class="col-md-6" id="Nosotros">
-          <h1 class="pb-3 text-center">QUIENES SOMOS</h1>
-          <h3>NUESTRA HISTORIA</h3>
-          <p class="card-text" style="text-align: justify;">
-            Somos una empresa dedicada a Investigación y Desarrollo (I+D) orientada en crear productos y servicios que
-            entreguen valor a nuestros clientes.
-          </p>
-          <p class="card-text" style="text-align: justify;">
-            Nuestra visión es entregar una experiencia memorable a cada cliente, integrando tecnología de vanguardia,
-            que permitan el crecimiento constante en cada modelo de negocio y de esta manera, posicionarnos como la
-            empresa líder en el mercado de asistentes virtual y apoyo a la PYME.
-          </p>
+        <div class="col-md-6">
+          <div class="col d-flex justify-aling-center align-items-center text-center">
+            <span class="pastillaVerde mr-2"></span>
+            <h2>Contacto</h2>
+          </div>
+          <form>
+            <div class="form-group">
+              <input type="email" class="form-control formu" id="exampleFormControlInput1" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control formu" id="exampleFormControlInput1" placeholder="Correo">
+            </div>
+            <div class="form-group">
+
+              <textarea class="form-control formu" id="exampleFormControlTextarea1" rows="3"
+                placeholder="Escribenos"></textarea>
+            </div>
+            <div class="text-center">
+              <button pButton type="button" label="Enviar"
+                class="p-button-success p-button-rounded p-button-lg m-3"></button>
+            </div>
+          </form>
         </div>
-        <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img"
-          data-aos="fade-up">
+        <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch" data-aos="fade-up">
+          <img src="../../../../assets/canch1.png" class="img-fluid" style="max-width: 100%;">
 
         </div>
-
       </div>
     </div>
-
   </section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex justify-aling-center align-items-center text-center">
+          <span class="pastillaVerde mr-2"></span>
+          <h2 style="color: white;">Contamos con</h2>
+        </div>
+      </div>
+      <div class="col">
+        <div class="container text-center hala">
+          <div class="row">
+            <div class="col-6 col-sm-3 circulo">
+              <div class="banner">
+                <h1 style="font: bold; font-size: 4rem;">E</h1>
+              </div>
+              <h5 class="letras">Estacionamiento</h5>
+            </div>
+            <div class="col-6 col-sm-3 circulo">
+              <div class="banner"><span class="material-icons-outlined" style="font-size: 4rem;">
+                  shopping_cart
+                </span></div>
+              <h5 style="font-size: 2rem;">Tienda</h5>
+            </div>
+            <div class="col-6 col-sm-3 circulo">
+              <div class="banner"><span class="material-icons-outlined" style="font-size: 4rem;">
+                  shower
+                </span></div>
+              <h3>Camerines</h3>
+            </div>
+            <div class="col-6 col-sm-3 circulo">
+              <div class="banner"><span class="material-icons-outlined" style="font-size: 4rem;">
+                  outdoor_grill
+                </span></div>
+              <h3>Quinchos</h3>
+            </div>
 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-lg mini">
+    <div class="container text-center " id="Servicios">
+      <div class="row p-5 text-center">
+        <div class="col burbuja2">
+          <!-- <div class="">
+            <span class="material-icons-outlined" style="font-size: 4rem;">
+              location_on
+            </span>
+            <span class="h1">sdasdasds</span>
+          
+          </div> -->
+          <div class="col d-flex justify-aling-center align-items-center text-center">
+            <span class="material-icons-outlined" style="font-size: 4rem;">
+              location_on
+            </span>
 
-  <app-footer>
-
-  </app-footer>
-
+            <h2>Ubicacion</h2>
+          </div>
+          <span class="h3">Avenida padel #423, San Carlos</span>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col burbuja2 text-center">
+          <div class="col d-flex  align-items-center text-center">
+            <span class="material-icons-outlined" style="font-size: 4rem;">
+              schedule
+            </span>
+            <h2>Horarios</h2>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div><span class="h4">Lunes a viernes</span></div>
+              <div><span class="h4">00:00 - 00:00 </span></div>
+              <div><span class="h4">Sabado Domingo y festivos</span></div>
+              <div><span class="h4">00:00 - 00:00</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col burbuja2">
+          <div class="col d-flex justify-aling-center align-items-center text-center">
+            <span class="material-icons-outlined" style="font-size: 4rem;">
+              phone
+            </span>
+            <h2>Numero</h2>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div><span class="h3">+5695555555</span></div>
+              <div style="color: #d3ecd7 ;">a</div>
+              <div><span class="h3">+5695555555</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-responsive">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d566.2167830770948!2d-72.0986316926513!3d-36.602168981382434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2scl!4v1674158711038!5m2!1ses-419!2scl"
+        width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+  <app-footer></app-footer>
 </body>

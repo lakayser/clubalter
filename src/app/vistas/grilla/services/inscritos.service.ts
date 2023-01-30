@@ -15,4 +15,7 @@ export class InscritosService {
     const url = `${ this.apiUrl }/listar-inscripciones`;
     return this.http.get<Inscritos[]>( url );
   }
+  eliminarInsctiro(id:string){
+    return this.http.delete(`${this.apiUrl}/eliminar-pareja/${id}`)
+  }
 }

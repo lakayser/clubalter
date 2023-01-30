@@ -2,17 +2,27 @@ body {
   background-color: #f5fffa;
   font-family: 'Montserrat', sans-serif;
 }
-h2, h4{
+h2{
 color: white!important;
 }
+.contenedor{
+  max-height: 600px;
+  overflow: auto;
+  position: relative;
+}
+.burbujaF {
+  background-color: #d3ecd7;
+  margin-bottom: 20px;
+  box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
+  border-radius: 15px;
+  margin: 1rem;
+}
 .burbuja {
-
   background-color: white;
   margin-bottom: 20px;
   box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
   border-radius: 15px;
 }
-
 .fecha{
   border-radius: 15px;
   background-color: white;
@@ -37,7 +47,6 @@ color: white!important;
   margin-left: 1rem;
   margin-top: 1rem;
 }
-
 .ranking{
  background-color:  #cfe1ff;
 }
@@ -45,14 +54,14 @@ color: white!important;
   border: solid #ecec36;
   background-color: white;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 10rem;
+  height: 10rem;
   position: relative;
   margin-left: 3rem;
   margin-bottom: 2rem;
 }
 .banner{
-  width: 6rem; 
+  width: 10rem; 
   height: 1rem; 
   border-radius: 15px;
   background: #ecec36;
@@ -105,7 +114,6 @@ hr{
   height: 50px;
   background-color: red;
   border: none;
- 
 }
 .lineaVerde{
   border-left: solid  rgb(51, 255, 0);
@@ -114,20 +122,17 @@ hr{
   height: auto;
   overflow: auto;
   position: relative;
-
 }
-.btn1 {
+.btn1{
   background-color: #4f7de8;
-}
-
-.btn2 {
-  background-color: #f86c4f;
-  font-size: 50px;
-  text-align: center;
-  width: 500px;
-  height: 100px;
-  box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
   border-radius: 15px;
+  font-size: 4rem;
+  color: white;
+}
+.btn2{
+  background-color: #f86c4f;
+  border-radius: 15px;
+  font-size: 4rem;
   color: white;
 }
 
@@ -142,13 +147,62 @@ hr{
   color:#000;
   background-color:#000;
  }
+ .burbujax {
+    
+  background-color: #d3ecd7;
+  margin-bottom: 20px;
+  box-shadow: 10px 10px 2px 5px rgba(0, 0, 0, .1);
+  border-radius: 15px;
+}
+ .fechamobil{
+  display: none;
+}
+.detallex{
+  cursor: pointer;
+  background-color: #4f7de8;
+  border-radius: 15px;
+  padding: 0.5rem;
+  box-shadow: 5px 5px 2px 5px rgba(0, 0, 0, .1);
+  display: inline-block;
+}
+::-webkit-scrollbar {
+  width: 1rem;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #4959b1;        /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f1f1f1;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 2px solid black;  /* creates padding around scroll thumb */
+}
 
 @media(max-width:1325px) {
-  button {
-    width: auto;
-    height: auto;
+ 
+  .btn1, .btn2{
+    font-size: 2rem;
+   }
+  .fecha, .nombreT {
+    display: none;
+   }
+   .fechamobil{
+     display: block;
+   }
+   div.container{
+    padding-left: 0px;
+   }
+   .circulo{
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    width: 5rem;
+    height: 5rem;
+   
   }
-  .btn2 {
-    font-size: 45px;
+  .banner{
+    width: 5rem; 
+    height: 1rem; 
   }
+  
 }

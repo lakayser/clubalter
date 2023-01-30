@@ -1,89 +1,113 @@
 <body>
   <section class="section section-lg text-center">
     <h1 style="color: white;">TORNEOS</h1>
-    <div class="row justify-content-center">
-      <div class="col-md-6 col-lg-6 contenedor">
-        <div class="col d-flex justify-aling-center align-items-center text-center">
-          <span class="pastillaVerde mr-2"></span>
-          <h2>Torneos Actuales</h2>
-        </div>
-        <div class="row" *ngFor="let TorneoD of TorneoD">
-          <ng-container *ngIf="TorneoD.estadoEnCurso != true">
-            <div class="col-lg-2 col-md-6 fecha">
-              <h1>{{ TorneoD.inicioT | date : "dd" }}</h1>
-              <p style="color: green">{{ TorneoD.inicioT | date : "LLLL" }}</p>
-            </div>
-            <div class="col-lg-8 col-md-6 detalle">
-              <h4>{{ TorneoD.nombreTorneo }}</h4>
-              <div class="row">
-                <div class="col d-flex justify-aling-center align-items-center">
-                  <span class="pastillaVerdechica mr-1"></span>
-                  Fecha inicio inscripciones <br />
-                  {{ TorneoD.inicioInscripciones | date : "mediumDate" }}
-                  {{ TorneoD.inicioInscripciones | date : "shortTime" : "UTC"
-                  }}{{ TorneoD.inicioInscripciones | date : "aaa" }}
-                </div>
-                <div class="col d-flex justify-aling-center align-items-center">
-                  <span class="pastillaVerdechica mr-1"></span>
-                  fecha de inicio:<br />
-                  {{ TorneoD.inicioT | date : "mediumDate" }}
-                  {{ TorneoD.inicioT | date : "shortTime" : "UTC"
-                  }}{{ TorneoD.inicioT | date : "aaa" }}
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-1">
-                  <p>Tipo Categoria:</p>
-                </div>
-                <div class="col-4" *ngFor="let a of TorneoD.categoriaTorneo">
-                  <p *ngFor="let c of TorneoD.categoriaParticipantes">
-                    {{ a.name }} {{ c.name }}
-                  </p>
-                </div>
-                <div class="col-2"></div>
-                <div class="col-1">
-                  <p style="cursor: pointer;" (click)="goDetalles(TorneoD)">Detalles></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="w-100"></div>
-          </ng-container>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div *ngIf="rol != '620c0d94b83e4a21f81253d6'" class="row mt-3 mb-3">
-          <button type="button" class="btn btn2 btn-lg" routerLink="/mod/crear-torneo">
-            Crear Torneo
-          </button>
-        </div>
-        <div class="burbuja ranking col mt-5">
-          <div class="col d-flex justify-aling-center align-items-center">
-            <span class="pastillaVerde mr-1"></span>
-            <h2 style="color: black!important;">Lider de la categoria</h2>
+    <div class="container">
+      <div class="row ">
+        <div class="col-lg col-xl-6  contenedor">
+          <div class="col d-flex align-items-center text-center">
+            <span class="pastillaVerde mr-2"></span>
+            <h2>Torneos Actuales</h2>
           </div>
+          <div class="container">
+            <div class="row" *ngFor="let TorneoD of TorneoD">
+              
+                <div class="col-lg-2 col-sm-6 fecha">
+                  <h1>{{ TorneoD.inicioT | date : "dd" }}</h1>
+                  <p style="color: green">{{ TorneoD.inicioT | date : "LLLL" }}</p>
+                </div>
+                <div class="col-lg-12 col-xl detalle ">
+                  <h4 class="nombreT">{{ TorneoD.nombreTorneo }}</h4>
+                  <div class="fechamobil">
+                    <div style="display: inline-block; margin: 1rem;">
+                      <h4>{{ TorneoD.nombreTorneo }}</h4>
+                    </div>
+                    <div style="display: inline-block;  padding: 1rem;" class="burbujaF">
+                      <h1>{{ TorneoD.inicioT | date : "dd" }}</h1>
+                      <p style="color: green">{{ TorneoD.inicioT | date : "LLLL" }}</p>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <span class="pastillaVerdechica mr-1"></span>
+                        Fecha inicio inscripciones: <br/>
+                        {{ TorneoD.inicioInscripciones | date : "mediumDate" }}
+                        {{ TorneoD.inicioInscripciones | date : "shortTime" : "UTC"
+                        }}{{ TorneoD.inicioInscripciones | date : "aaa" }}
+                      </div>
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <span class="pastillaVerdechica mr-1"></span>
+                        fecha de inicio:<br />
+                        {{ TorneoD.inicioT | date : "mediumDate" }}
+                        {{ TorneoD.inicioT | date : "shortTime" : "UTC"
+                        }}{{ TorneoD.inicioT | date : "aaa" }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col d-flex justify-aling-center align-items-center">
+                        <p>Tipo Categoria:</p>
+                      </div>
+                      <div class="col d-flex justify-aling-center align-items-center"
+                        *ngFor="let a of TorneoD.categoriaTorneo">
+                        <p *ngFor="let c of TorneoD.categoriaParticipantes">
+                          {{ a.name }} {{ c.name }}
+                        </p>
+                      </div>
+                      <div class="col d-flex ">
+                        <p class="detallex" (click)="goDetalles(TorneoD)">Detalles<span class="material-icons-outlined">
+                            arrow_forward_ios
+                          </span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+            </div>
+          </div>
+        </div>
+        <div class="col-lg col-xl ">
+          <div *ngIf="rol != '620c0d94b83e4a21f81253d6'" class="col">
+            <div class="row mt-3 mb-3">
+              <button type="button" class="btn btn2 btn-lg" routerLink="/mod/crear-torneo">
+                Crear Torneo
+              </button>
+            </div>
+            <div class="row mt-3 mb-3">
+              <button type="button" class="btn btn1 btn-lg " routerLink="/mod/ajuste-torneo">Crear Filtros
+              </button>
+            </div>
 
-          <div class="row">
-            <div class="col-6 col-sm-3 circulo">
-              <div class="banner">nombre</div>
-            </div>
-            <div class="col-6 col-sm-3 circulo">
-              <div class="banner">nombre</div>
-            </div>
-            <div class="col-6 col-sm-3 circulo">
-              <div class="banner">nombre</div>
+          </div>
+          <div class="burbuja ranking col-lg col-xl  mt-5">
+            <div class="col d-flex justify-aling-center align-items-center">
+              <span class="pastillaVerde mr-1"></span>
+              <h2 style="color: black!important;">Lider de la categoria</h2>
             </div>
 
-            <div class="w-100"></div>
+            <div class="row">
+              <div class="col-6 col-sm-3 circulo">
+                <div class="banner">nombre</div>
+              </div>
+              <div class="col-6 col-sm-3 circulo">
+                <div class="banner">nombre</div>
+              </div>
+              <div class="col-6 col-sm-3 circulo">
+                <div class="banner">nombre</div>
+              </div>
 
-            <div class="col-6 col-sm-3 circulo">
-              <div class="banner">nombre</div>
-            </div>
-            <div class="col-6 col-sm-3 circulo">
-              <div class="banner">nombre</div>
-            </div>
-            <div class="col-6 col-sm-3 circulo">
-              <div class="banner">nombre</div>
+              <div class="w-100"></div>
+
+              <div class="col-6 col-sm-3 circulo">
+                <div class="banner">nombre</div>
+              </div>
+              <div class="col-6 col-sm-3 circulo">
+                <div class="banner">nombre</div>
+              </div>
+              <div class="col-6 col-sm-3 circulo">
+                <div class="banner">nombre</div>
+              </div>
             </div>
           </div>
         </div>
@@ -92,105 +116,119 @@
   </section>
 
   <section class="section section-lg text-center">
-    <div class="row justify-content-center">
-      <div class="col-md-6 col-lg-6 contenedor">
-        <div class="col d-flex justify-aling-center align-items-center text-center">
-          <span class="pastillaVerde mr-2"></span>
-          <h2>Torneos Finalizados</h2>
-        </div>
-        <div class="row" *ngFor="let TorneoP of TorneoP">
-
-          <div class="col-lg-2 col-md-6 fecha">
-            <h1>{{ TorneoP.inicioT | date : "dd" }}</h1>
-            <p style="color: red">{{ TorneoP.inicioT | date : "LLLL" }}</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg col-xl-6  contenedor">
+          <div class="col d-flex align-items-center text-center">
+            <span class="pastillaVerde mr-2"></span>
+            <h2>Torneos Finalizados</h2>
           </div>
-          <div class="col-lg-8 col-md-6 detallePasado">
-            <h4>{{ TorneoP.nombreTorneo }}</h4>
-            <div class="row">
-              <div class="col d-flex justify-aling-center align-items-center">
-                <span class="pastillaRojachica"></span>
-                Fecha inicio inscripciones <br />
-                {{ TorneoP.inicioInscripciones | date : "mediumDate" }}
-                {{ TorneoP.inicioInscripciones | date : "shortTime" : "UTC"
-                }}{{ TorneoP.inicioInscripciones | date : "aaa" }}
+          <div class="container"> </div>
+          <div class="row" *ngFor="let TorneoP of TorneoP">
+            <div class="col-lg-2 col-sm-6  fecha">
+              <h1>{{ TorneoP.inicioT | date : "dd" }}</h1>
+              <p style="color: red">{{ TorneoP.inicioT | date : "LLLL" }}</p>
+            </div>
+            <div class="col-lg-12 col-xl detallePasado">
+              <h4 class="nombreT">{{ TorneoP.nombreTorneo }}</h4>
+              <div class="fechamobil">
+                <div style="display: inline-block; margin: 1rem;">
+                  <h4>{{ TorneoP.nombreTorneo }}</h4>
+                </div>
+                <div style="display: inline-block;  padding: 1rem;" class="burbujaF">
+                  <h1>{{ TorneoP.inicioT | date : "dd" }}</h1>
+                  <p style="color: red">{{ TorneoP.inicioT | date : "LLLL" }}</p>
+                </div>
               </div>
-              <div class="col d-flex justify-aling-center align-items-center">
-                <span class="pastillaRojachica"></span>
-                fecha de inicio:<br />
-                {{ TorneoP.inicioT | date : "mediumDate" }}
-                {{ TorneoP.inicioT | date : "shortTime" : "UTC"
-                }}{{ TorneoP.inicioT | date : "aaa" }}
+              <div class="container">
+                <div class="row">
+                  <div class="col d-flex justify-aling-center align-items-center">
+                    <span class="pastillaRojachica mr-1"></span>
+                    Fecha inicio inscripciones: <br />
+                    {{ TorneoP.inicioInscripciones | date : "mediumDate" }}
+                    {{ TorneoP.inicioInscripciones | date : "shortTime" : "UTC"
+                    }}{{ TorneoP.inicioInscripciones | date : "aaa" }}
+                  </div>
+                  <div class="col d-flex justify-aling-center align-items-center">
+                    <span class="pastillaRojachica mr-1"></span>
+                    fecha de inicio:<br />
+                    {{ TorneoP.inicioT | date : "mediumDate" }}
+                    {{ TorneoP.inicioT | date : "shortTime" : "UTC"
+                    }}{{ TorneoP.inicioT | date : "aaa" }}
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+              <div class="row mt-3">
+                <div class="col  d-flex justify-aling-center align-items-center">
+                  <p>Tipo Categoria:</p>
+                </div>
+                <div class="col  d-flex justify-aling-center align-items-center" *ngFor="let a of TorneoP.categoriaTorneo">
+                  <p *ngFor="let c of TorneoP.categoriaParticipantes">
+                    {{ a.name }} {{ c.name }}
+                  </p>
+                </div>
+                
+                <div class="col  d-flex ">
+                  <p  class="detallex" (click)="goDetalles(TorneoP)">Detalles<span class="material-icons-outlined">
+                    arrow_forward_ios
+                  </span></p>
+                </div>
               </div>
             </div>
-            <div class="row mt-3">
-              <div class="col-1">
-                <p>Tipo Categoria:</p>
-              </div>
-              <div class="col-4" *ngFor="let a of TorneoP.categoriaTorneo">
-                <p *ngFor="let c of TorneoP.categoriaParticipantes">
-                  {{ a.name }} {{ c.name }}
-                </p>
-              </div>
-              <div class="col-2"></div>
-              <div class="col-1">
-                <p (click)="goDetalles(TorneoP)">Detalles></p>
-              </div>
             </div>
+            <div class="w-100"></div>
           </div>
-
-          <div class="w-100"></div>
-
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="col d-flex justify-aling-center align-items-center">
-          <span class="pastillaVerde col-1"></span>
-          <h2>Ranking</h2>
-        </div>
-        <div class="burbuja col mt-5">
-          <div class="table-responsive-md">
-            <div class="scrollable">
-              <table class="table border-primary">
-                <thead>
-                  <tr class="table-primary">
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Hora</th>
-                    <th scope="col">Cancha</th>
-                    <th scope="col">Estado</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Jose Antonio</td>
-                    <td>09:00-10:00</td>
-                    <td>cancha 1</td>
-                    <td>Paga</td>
-                  </tr>
-                  <tr>
-                    <td>Alejandro elcapo</td>
-                    <td>10:00-11:00</td>
-                    <td>cancha 1</td>
-                    <td>Paga</td>
-                  </tr>
-                  <tr>
-                    <td>Eduardo Lara</td>
-                    <td>13:00-14:00</td>
-                    <td>cancha 2</td>
-                    <td>Paga</td>
-                  </tr>
-                  <tr>
-                    <td>Guillermo Cardenas</td>
-                    <td>16:00-17:00</td>
-                    <td>cancha 2</td>
-                    <td>Paga</td>
-                  </tr>
-                </tbody>
-              </table>
+        <div class="col-lg col-xl ">
+          <div class="col d-flex justify-aling-center align-items-center">
+            <span class="pastillaVerde col-1"></span>
+            <h2>Ranking</h2>
+          </div>
+          <div class="burbuja col mt-5">
+            <div class="table-responsive-md">
+              <div class="scrollable">
+                <table class="table border-primary">
+                  <thead>
+                    <tr class="table-primary">
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Hora</th>
+                      <th scope="col">Cancha</th>
+                      <th scope="col">Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jose Antonio</td>
+                      <td>09:00-10:00</td>
+                      <td>cancha 1</td>
+                      <td>Paga</td>
+                    </tr>
+                    <tr>
+                      <td>Alejandro elcapo</td>
+                      <td>10:00-11:00</td>
+                      <td>cancha 1</td>
+                      <td>Paga</td>
+                    </tr>
+                    <tr>
+                      <td>Eduardo Lara</td>
+                      <td>13:00-14:00</td>
+                      <td>cancha 2</td>
+                      <td>Paga</td>
+                    </tr>
+                    <tr>
+                      <td>Guillermo Cardenas</td>
+                      <td>16:00-17:00</td>
+                      <td>cancha 2</td>
+                      <td>Paga</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div></div>
   </section>
 </body>

@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
             }
           }
           if (orga === '624f01c7f0bc4892296abfe7') {
-            this.router.navigate(['/orgaAdmin'])
+            this.router.navigate(['/mod/organizacion'])
           }
 
 

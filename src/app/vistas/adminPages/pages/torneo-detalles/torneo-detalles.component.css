@@ -43,3 +43,16 @@ body{
 section {
   color: #3b3636;
 }
+::-webkit-scrollbar {
+  width: 1rem;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #4959b1;        /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f1f1f1;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 2px solid black;  /* creates padding around scroll thumb */
+}

@@ -1,5 +1,5 @@
 <body #scroll>
-  <section class="">
+  <section>
     <div class="container text-center">
       <h1 style="color: white;">Bienvenido </h1>
       <h1 style="color: white;">NOMBRE DE EMPLEADO</h1>
@@ -11,13 +11,13 @@
       </div>
     </div>
   </section>
-  <section class="section section-lg">
+  <section>
     <div class="container text-center ">
 
       <div class="row mini">
-        <div class="col-md-2">
+        <div class="col-md-1">
         </div>
-        <div class="col-md-2 burbuja" style="background-color: #84b1f8;">
+        <div class="col burbuja" style="background-color: #84b1f8;">
 
           <h1>14</h1><span class="h5">CLIENTES</span>
 
@@ -26,7 +26,7 @@
         <div class="col-md-1">
         </div>
 
-        <div class="col-md-2 burbuja" style="background-color: #d1e2fc;">
+        <div class="col burbuja" style="background-color: #d1e2fc;">
 
           <h1>3</h1><span class="h5">NUEVOS CLIENTES</span>
 
@@ -36,7 +36,7 @@
         <div class="col-md-1">
 
         </div>
-        <div class="col-md-2 burbuja" style="background-color: 
+        <div class="col burbuja" style="background-color: 
         #bee9c8;">
 
           <h1>5</h1><span class="h5">NUEVAS OPINIONES</span>
@@ -49,12 +49,10 @@
     </div>
   </section>
 
-  <section class="section section-lg">
+  <section>
     <div class="container text-center ">
-
       <div class="row">
-        <div class="col-md-5 burbuja m-5">
-
+        <div class="col-lg-6 col-xl  burbuja">
           <h2 class="pt-3"></h2><span class="h2">HOY</span>
           <div class="table-responsive-md">
             <div class="scrollable">
@@ -98,26 +96,20 @@
             </div>
           </div>
         </div>
-
-        <div class="col-md-5 burbuja">
+        <div class="col burbuja">
           <h1>Canchas</h1>
-
-          <!-- <img src="../../../assets/calendar.png" alt="" width="550" height="350" class="d-inline-block align-text-top"> -->
-
         </div>
       </div>
 
     </div>
   </section>
 
-  <section class="section section-lg">
-    <div class="pricing-header p-3 pb-md-4 mx-auto text-center ">
+  <section>
+    <div class="text-center ">
       <h1 class="display-4 fw-normal" style="color: white;">SEMANA</h1>
-
     </div>
-    <div class="container text-center ">
-      <div class="container burbuja ">
-        <div class="row">
+    <div class="container">
+        <div class="row burbuja">
           <div class="col-md-6 " #ContainerRef2>
             <ngx-charts-advanced-pie-chart [view]="[ContainerRef2.offsetWidth, 400]" scheme="forest"
               label="Total cancha 1" [results]="cancha1" [gradient]="gradient" (select)="onSelect($event)">
@@ -128,18 +120,16 @@
               label="Total cancha 2" [results]="cancha2" [gradient]="gradient" (select)="onSelect($event)">
             </ngx-charts-advanced-pie-chart>
           </div>
-
         </div>
-
-      </div>
+        
     </div>
   </section>
 
-  <section class="section section-lg">
+  <section >
     <div class="container text-center">
 
       <div class="row">
-        <div #ContainerRef class="col-md-5 burbuja">
+        <div #ContainerRef class="col-lg-6 col-xl burbuja">
 
           <h2 class="pt-3"></h2><span class="h2">Preferencia de cancha</span>
           <ngx-charts-bar-vertical-2d [view]="[ContainerRef.offsetWidth, 400]" scheme="forest" [results]="canchas"
@@ -149,7 +139,7 @@
 
 
         </div>
-        <div class="col-md-5 burbuja m-5">
+        <div class="col   burbuja">
 
           <h2 class="pt-3"></h2><span class="h2">Opinion</span>
           <div class="table-responsive-md">
@@ -198,8 +188,8 @@
               </div>
             </div>
           </div>
-    
-    
+
+
         </div>
 
 
@@ -208,11 +198,11 @@
     </div>
   </section>
 
-  <section class="section section-lg">
-    <div class="container text-center burbuja">
-
-      <div class="row">
+  <section >
+    <div class="container text-center ">
+      <div class="row burbuja">
         <h2 class="pt-3"></h2><span class="h2">Clientes</span>
+        <div class="col-lg-12 col-xl ">
         <div class="table-responsive-md">
           <div class="scrollable">
             <table class="table">
@@ -254,14 +244,8 @@
             </table>
           </div>
         </div>
+        </div>
       </div>
-
     </div>
   </section>
-  
-  <footer>
-    <!-- <div class="text-center"><img src="../../../assets/Logo-Botmila.png" alt="" width="500" height="150"
-        class="d-inline-block align-text-top"></div> -->
-
-  </footer>
 </body>

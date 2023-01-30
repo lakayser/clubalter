@@ -6,6 +6,7 @@ import {ButtonModule} from 'primeng/button';
 import { InicioComponent } from './inicio/inicio.component';
 
 
+
 @NgModule({
   declarations: [
     InicioComponent,
@@ -15,7 +16,8 @@ import { InicioComponent } from './inicio/inicio.component';
   imports: [
     CommonModule,
     PlantillasModule,
-    ButtonModule
+    ButtonModule,
+  
   ],
 })
 export class SubdominiosModule { }

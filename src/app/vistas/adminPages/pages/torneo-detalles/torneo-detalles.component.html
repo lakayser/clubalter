@@ -101,6 +101,7 @@
           <th pSortableColumn="nombreEquipo" style="width:20%">Equipo<p-sortIcon field="equipo"></p-sortIcon></th>
           <th style="width:20%">Jugadores</th>
           <th pSortableColumn="pago" style="width:20%">Pago<p-sortIcon field="pago"></p-sortIcon></th>
+          <th  style="width:20%">opciones</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-inscrito>
@@ -108,6 +109,8 @@
           <td>{{ inscrito.nombreEquipo }}</td>
           <td>{{ inscrito.nombreJugador1 }} / {{ inscrito.nombreJugador2 }}</td>
           <td>{{ inscrito.pago }}</td>
+          <td> <button type="button" class="btn btn-danger" (click)="eliminarInscripcion(inscrito._id)" >Eliminar</button></td>
+          
         </tr>
       </ng-template>
     </p-table>

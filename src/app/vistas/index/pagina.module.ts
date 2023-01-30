@@ -7,6 +7,7 @@ import { IndexComponent } from './index.component';
 import { PortalPagoComponent } from '../portal-pago/portal-pago.component';
 import { PlantillasModule } from '../plantillas/plantillas.module';
 import { IndexRoutingModule } from './index-routing.module';
+import {ButtonModule} from 'primeng/button';
 
 
 
@@ -23,6 +24,7 @@ import { IndexRoutingModule } from './index-routing.module';
     FormsModule,
     PipesModule,
     IndexRoutingModule,
+    ButtonModule
   ],
 })
 export class PaginaModule { }

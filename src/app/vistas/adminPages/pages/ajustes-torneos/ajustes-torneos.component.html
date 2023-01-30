@@ -8,170 +8,174 @@
         </div>
       </div>
     </div>
-    <ul class="nav nav-tabs" id="myTab" role="tablist"> 
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
-          role="tab" aria-controls="home" aria-selected="true">Tipo Torneos</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="parti-tab" data-bs-toggle="tab" data-bs-target="#parti" type="button" role="tab"
-          aria-controls="parti" aria-selected="false">Categoria Participantes</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="torneo-tab" data-bs-toggle="tab" data-bs-target="#torneo" type="button" role="tab"
-          aria-controls="torneo" aria-selected="false">Categoria Torneo</button>
-      </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div class="container text-center ">
-          <div class="row">
-            <div class="col-md-5 burbuja">
-              <h2 class="pt-3"></h2><span class="h2">TIPO TORNEOS</span>
-              <div class="col burbuja ">
+    <div class="container burbujax">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+            role="tab" aria-controls="home" aria-selected="true">Tipo Torneos</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="parti-tab" data-bs-toggle="tab" data-bs-target="#parti" type="button" role="tab"
+            aria-controls="parti" aria-selected="false">Categoria Participantes</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="torneo-tab" data-bs-toggle="tab" data-bs-target="#torneo" type="button"
+            role="tab" aria-controls="torneo" aria-selected="false">Categoria Torneo</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="container text-center mt-5">
+            <div class="row">
+              <div class="col-md-5 burbuja">
+                <h2 class="pt-3"></h2><span class="h2">TIPO TORNEOS</span>
+                <div class="col burbuja ">
 
-                <form (ngSubmit)="tipotorneo()" [formGroup]="tipoT">
-                  <div class="form-group">
-                    <input type="hidden" class="form-control item" formControlName="_id" name="_id">
-                  </div>
+                  <form (ngSubmit)="tipotorneo()" [formGroup]="tipoT">
+                    <div class="form-group">
+                      <input type="hidden" class="form-control item" formControlName="_id" name="_id">
+                    </div>
 
-                  <div class="col mt-4 form-group">
-                    <label for="input" class="form-label">Nombre del nuevo tipo de torneo</label>
-                    <input type="text" class="form-control item" id="name" formControlName="name" name="name">
-                  </div>
-                  <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-danger text-uppercase mt-2 text-center">Agregar nuevo tipo
-                      torneo</button>
-                  </div>
-                </form>
+                    <div class="col mt-4 form-group">
+                      <label for="input" class="form-label">Nombre del nuevo tipo de torneo</label>
+                      <input type="text" class="form-control item" id="name" formControlName="name" name="name">
+                    </div>
+                    <div class="text-center mt-4">
+                      <button type="submit" class="btn btn-danger text-uppercase mt-2 text-center">Agregar nuevo tipo
+                        torneo</button>
+                    </div>
+                  </form>
 
+                </div>
               </div>
-            </div>
-            <div class="col-1"></div>
-            <div class="col-5 burbuja">
-              <div class="table-responsive-md ">
-                <div class="scrollable">
-                  <table class="table border-primary">
-                    <thead>
-                      <tr class="table-primary">
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Opciones</th>
+              <div class="col-1"></div>
+              <div class="col-5 burbuja">
+                <div class="table-responsive-md ">
+                  <div class="scrollable">
+                    <table class="table border-primary">
+                      <thead>
+                        <tr class="table-primary">
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Opciones</th>
 
-                      </tr>
-                    </thead>
-                    <tbody *ngFor="let Torneo of Torneo">
-                      <tr>
-                        <td>{{Torneo.name}}</td>
-                        <div class="btn-group mr-0" role="group" aria-label="Basic mixed styles example">
-                          <button type="button" class="btn btn-primary  mr-2" (click)="editTipoTorneo(Torneo)">
-                            Editar</button>
-                          <button type="button" class="btn btn-danger"
-                            (click)="deleteTipot(Torneo._id)">Eliminar</button>
-                        </div>
-                      </tr>
-                    </tbody>
-                  </table>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let Torneo of Torneo">
+                        <tr>
+                          <td>{{Torneo.name}}</td>
+                          <div class="btn-group mr-0" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn btn-primary  mr-2" (click)="editTipoTorneo(Torneo)">
+                              Editar</button>
+                            <button type="button" class="btn btn-danger"
+                              (click)="deleteTipot(Torneo._id)">Eliminar</button>
+                          </div>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="tab-pane fade" id="parti" role="tabpanel" aria-labelledby="parti-tab">
-        <div class="container text-center ">
-          <div class="row">
-            <div class="col-md-5 burbuja">
-              <h2 class="pt-3"></h2><span class="h2">CATEGORIA PARTICIPANTES</span>
-              <div class="col burbuja ">
-                <form (ngSubmit)="categoriaP()" [formGroup]="categoP">
-                  <div class="form-group">
-                    <input type="hidden" class="form-control item" formControlName="_id" name="_id">
-                  </div>
-                  <div class="col mt-4 form-group">
-                    <label for="input" class="form-label">Nombre de la categoria participantes</label>
-                    <input type="text" class="form-control item" id="name" formControlName="name" name="name">
-                  </div>
-                  <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-danger text-uppercase mt-2 text-center">Agregar nueva
-                      categoria</button>
-                  </div>
+        <div class="tab-pane fade" id="parti" role="tabpanel" aria-labelledby="parti-tab">
+          <div class="container text-center ">
+            <div class="row">
+              <div class="col-md-5 burbuja">
+                <h2 class="pt-3"></h2><span class="h2">CATEGORIA PARTICIPANTES</span>
+                <div class="col burbuja ">
+                  <form (ngSubmit)="categoriaP()" [formGroup]="categoP">
+                    <div class="form-group">
+                      <input type="hidden" class="form-control item" formControlName="_id" name="_id">
+                    </div>
+                    <div class="col mt-4 form-group">
+                      <label for="input" class="form-label">Nombre de la categoria participantes</label>
+                      <input type="text" class="form-control item" id="name" formControlName="name" name="name">
+                    </div>
+                    <div class="text-center mt-4">
+                      <button type="submit" class="btn btn-danger text-uppercase mt-2 text-center">Agregar nueva
+                        categoria</button>
+                    </div>
 
-                </form>
+                  </form>
+                </div>
               </div>
-            </div>
-            <div class="col-1"></div>
-            <div class="col-5">
-              <div class="table-responsive-md burbuja">
-                <div class="scrollable">
-                  <table class="table border-primary">
-                    <thead>
-                      <tr class="table-primary">
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Opciones</th>
+              <div class="col-1"></div>
+              <div class="col-5">
+                <div class="table-responsive-md burbuja">
+                  <div class="scrollable">
+                    <table class="table border-primary">
+                      <thead>
+                        <tr class="table-primary">
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Opciones</th>
 
-                      </tr>
-                    </thead>
-                    <tbody *ngFor="let CategoriaPart of CategoriaPart">
-                      <tr>
-                        <td>{{CategoriaPart.name}}</td>
-                        <div class="btn-group mr-0" role="group" aria-label="Basic mixed styles example">
-                          <button type="button" class="btn btn-primary  mr-2"> Editar</button>
-                          <button type="button" class="btn btn-danger" (click)="deleteCategoriaP(CategoriaPart._id)">Eliminar</button>
-                        </div>
-                      </tr>
-                    </tbody>
-                  </table>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let CategoriaPart of CategoriaPart">
+                        <tr>
+                          <td>{{CategoriaPart.name}}</td>
+                          <div class="btn-group mr-0" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn btn-primary  mr-2"> Editar</button>
+                            <button type="button" class="btn btn-danger"
+                              (click)="deleteCategoriaP(CategoriaPart._id)">Eliminar</button>
+                          </div>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="tab-pane fade" id="torneo" role="tabpanel" aria-labelledby="torneo-tab">
-        <div class="container text-center ">
-          <div class="row">
-            <div class="col-md-5 burbuja">
-              <h2 class="pt-3"></h2><span class="h2">CATEGORIA DE TORNEO</span>
-              <div class="col burbuja ">
+        <div class="tab-pane fade" id="torneo" role="tabpanel" aria-labelledby="torneo-tab">
+          <div class="container text-center ">
+            <div class="row">
+              <div class="col-md-5 burbuja">
+                <h2 class="pt-3"></h2><span class="h2">CATEGORIA DE TORNEO</span>
+                <div class="col burbuja ">
 
-                <form (ngSubmit)="categoT()" [formGroup]="categoTorneo">
-                  <div class="form-group">
-                    <input type="hidden" class="form-control item" formControlName="_id" name="_id">
-                  </div>
-                  <div class="col mt-4 form-group">
-                    <label for="input" class="form-label">Nombre de la categoria</label>
-                    <input type="text" class="form-control" id="name" formControlName="name" name="name">
-                  </div>
-                  <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-danger text-uppercase mt-2 text-center">Agregar nueva
-                      categoria</button>
-                  </div>
-                </form>
+                  <form (ngSubmit)="categoT()" [formGroup]="categoTorneo">
+                    <div class="form-group">
+                      <input type="hidden" class="form-control item" formControlName="_id" name="_id">
+                    </div>
+                    <div class="col mt-4 form-group">
+                      <label for="input" class="form-label">Nombre de la categoria</label>
+                      <input type="text" class="form-control" id="name" formControlName="name" name="name">
+                    </div>
+                    <div class="text-center mt-4">
+                      <button type="submit" class="btn btn-danger text-uppercase mt-2 text-center">Agregar nueva
+                        categoria</button>
+                    </div>
+                  </form>
+                </div>
+
               </div>
+              <div class="col-1"></div>
+              <div class="col-5">
+                <div class="table-responsive-md burbuja">
+                  <div class="scrollable">
+                    <table class="table border-primary">
+                      <thead>
+                        <tr class="table-primary">
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Opciones</th>
 
-            </div>
-            <div class="col-1"></div>
-            <div class="col-5">
-              <div class="table-responsive-md burbuja">
-                <div class="scrollable">
-                  <table class="table border-primary">
-                    <thead>
-                      <tr class="table-primary">
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Opciones</th>
-
-                      </tr>
-                    </thead>
-                    <tbody *ngFor="let CategoriaT of CategoriaT">
-                      <tr>
-                        <td>{{CategoriaT.name}}</td>
-                        <div class="btn-group mr-0" role="group" aria-label="Basic mixed styles example">
-                          <button type="button" class="btn btn-primary  mr-2"> Editar</button>
-                          <button type="button" class="btn btn-danger" (click)="deleteCategoT(CategoriaT._id)" >Eliminar</button>
-                        </div>
-                      </tr>
-                    </tbody>
-                  </table>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let CategoriaT of CategoriaT">
+                        <tr>
+                          <td>{{CategoriaT.name}}</td>
+                          <div class="btn-group mr-0" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn btn-primary  mr-2"> Editar</button>
+                            <button type="button" class="btn btn-danger"
+                              (click)="deleteCategoT(CategoriaT._id)">Eliminar</button>
+                          </div>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>

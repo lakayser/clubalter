@@ -136,4 +136,51 @@ export class TorneoDetallesComponent implements OnInit {
         })
       })
   }
+  // eliminarInscripcion(_id: any){
+  //   console.log(_id)
+  //   this.inscritosService.eliminarInsctiro(_id).subscribe((res)=>{
+  //     console.log(res)
+  //     this.listarInscritos();
+  //   })
+  // }
+  eliminarInscripcion(_id: any) {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    Swal.fire({
+      title: 'Estas seguro que deseas eliminar a esta pareja del torneo?',
+      text: "No podras revertir esta accion",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Si, Eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.inscritosService.eliminarInsctiro(_id).subscribe(
+          (res) => {
+            this.listarInscritos();
+            Swal.fire(
+              'Listo!',
+              'Pareja Eliminada Con exito',
+              'success'
+            )
+          })
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'Pareja a salvo',
+          'error'
+        )
+      }
+    })
+  }
 }
