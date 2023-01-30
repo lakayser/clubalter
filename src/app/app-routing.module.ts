@@ -22,15 +22,11 @@ const routes: Routes = [
     loadChildren: () => import( './vistas/adminPages/admin-pages.module' ).then( m => m.AdminPagesModule ),
   },
   {
-    path        : '',
-    loadChildren: () => import('./vistas/cuadros-torneos/cuadros-torneos.module').then(m => m.CuadrosTorneosModule),
-  },
-  {
-    path        : '',
+    path        : 'bracket/:id',
     loadChildren: () => import('./vistas/brackets-torneos/brackets-torneos.module').then(m => m.BracketsTorneosModule),
   },
   {
-    path        : '',
+    path        : 'calendario',
     loadChildren: () => import('./vistas/calendar/calendar.module').then(m => m.CalendarModule),
   },
   {
