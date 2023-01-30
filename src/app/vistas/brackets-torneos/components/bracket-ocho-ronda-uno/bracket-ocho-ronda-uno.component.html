@@ -1,0 +1,26 @@
+<div class="grd mt-5 ml-5">
+  <div class="grd-primera-ronda">
+
+    <div class="grd-partidos border-solid border-cyan-500 text-center
+                border-round-md cursor-pointer text-white-alpha-90 
+                align-self-center"
+          *ngFor="let emp of emparejados"
+          (click)="getDatesEmparejados(emp)">
+      <span>{{ emp.jugadores }}</span>
+      <small *ngFor="let sets of emp.setsPrimeraRonda">{{ sets }}</small>
+      <span>{{ emp.jugadoresRival }}</span>
+      <small *ngFor="let sets of emp.setsPrimeraRondaRival">{{ sets }}</small>
+    </div>
+
+  </div>
+</div>
+
+<p-dialog
+  [style]="{ width: '60rem', height: '60rem' }"
+  [(visible)]="display">
+  <app-bracket-ocho-form
+    [participantesForm]="participantesForm"
+    [idEquipo]="idEquipo"
+    [idEquipoRival]="idEquipoRival">
+  </app-bracket-ocho-form>
+</p-dialog>

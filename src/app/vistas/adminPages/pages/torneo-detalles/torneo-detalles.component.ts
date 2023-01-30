@@ -4,8 +4,7 @@ import { TorneosService } from '../../../../servicios/torneos.service';
 import { TorneoCrear } from 'src/app/modelos/TorneoCrear';
 import { switchMap } from 'rxjs';
 import Swal from 'sweetalert2';
-import { Inscritos } from '../../../grilla/interface/inscritos';
-import { InscritosService } from '../../../grilla/services/inscritos.service';
+import { Inscritos } from 'src/app/vistas/cuadros-torneos/interfaces/inscritos.interface';
 
 
 @Component({
@@ -15,10 +14,10 @@ import { InscritosService } from '../../../grilla/services/inscritos.service';
 })
 export class TorneoDetallesComponent implements OnInit {
   ordenarPor: string = '';
-  cosa      : any={};
-  rol       : any;
   inscritos : Inscritos[] = [];
   ins       : Inscritos[] = [];
+  cosa      : any={};
+  rol       : any;
   Torneo    : TorneoCrear[];
   display   : boolean = false;
   poto      : TorneoCrear[] = [];
@@ -34,7 +33,7 @@ export class TorneoDetallesComponent implements OnInit {
     private router          : Router,
     private torneoService   : TorneosService,
     private route           : ActivatedRoute,
-    private inscritosService: InscritosService,
+
     ) { }
 
   ngOnInit(): void {
@@ -48,7 +47,6 @@ export class TorneoDetallesComponent implements OnInit {
     this.route.params
       .subscribe(console.log)
     this.CargarObjeto();
-    this.listarInscritos();
   }
 
   goInscripcion(torneo:TorneoCrear){
@@ -125,62 +123,5 @@ export class TorneoDetallesComponent implements OnInit {
       }
     })
   }
-  listarInscritos() {
-    this.inscritosService.getInscritos()
-      .subscribe( inscritos => {
-        this.inscritos = inscritos;
-        this.inscritos.map( a => {
-          if( a.nombreEquipo === 'Nicolas' ) {
-            console.log( 'equipo',a );
-          }
-        })
-      })
-  }
-  // eliminarInscripcion(_id: any){
-  //   console.log(_id)
-  //   this.inscritosService.eliminarInsctiro(_id).subscribe((res)=>{
-  //     console.log(res)
-  //     this.listarInscritos();
-  //   })
-  // }
-  eliminarInscripcion(_id: any) {
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: false
-    })
-    Swal.fire({
-      title: 'Estas seguro que deseas eliminar a esta pareja del torneo?',
-      text: "No podras revertir esta accion",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      cancelButtonText: 'Cancelar',
-      confirmButtonText: 'Si, Eliminar!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.inscritosService.eliminarInsctiro(_id).subscribe(
-          (res) => {
-            this.listarInscritos();
-            Swal.fire(
-              'Listo!',
-              'Pareja Eliminada Con exito',
-              'success'
-            )
-          })
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire(
-          'Cancelado',
-          'Pareja a salvo',
-          'error'
-        )
-      }
-    })
-  }
+
 }

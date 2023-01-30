@@ -4,6 +4,8 @@ import { DialogModule } from 'primeng/dialog';
 import {SidebarModule} from 'primeng/sidebar';
 import {TableModule} from 'primeng/table';
 import {ToolbarModule} from 'primeng/toolbar';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 
 
 @NgModule({
@@ -14,6 +16,8 @@ import {ToolbarModule} from 'primeng/toolbar';
     TableModule,
     ToolbarModule,
     DialogModule,
+    InputNumberModule,
+    AutoCompleteModule,
   ]
 })
 export class PrimeNgModule { }

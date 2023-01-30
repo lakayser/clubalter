@@ -1,0 +1,192 @@
+<div class="grd-horas text-white-alpha-80 font-bold gap-3">
+
+  <div style="grid-column: 1/2;">
+    <div *ngFor="let horas of carga">
+
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 px-1 mt-2 bg-green-500 border-1 cursor-pointer"
+           *ngIf="horas.dia === 'lunes' && horas.disponibilidad[0].noAgendado"
+           (click)="agendarHora(horas)">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Disponible</span>
+      </div>
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 px-1 mt-2 bg-red-600 border-1 cursor-pointer"
+           *ngIf="horas.dia === 'lunes' && horas.disponibilidad[0].agendado">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Agendada</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="grid-column: 2/3;">
+    <div *ngFor="let horas of carga">
+
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 px-1 mt-2 bg-green-500 border-1 cursor-pointer"
+           *ngIf="horas.dia === 'martes'"
+           (click)="agendarHora(horas)">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Disponible</span>
+      </div>
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 px-1 mt-2 bg-red-600 border-1 cursor-pointer"
+           *ngIf="horas.dia === 'martes' && horas.disponibilidad[0].agendado">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Agendada</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="grid-column: 3/4;">
+    <div *ngFor="let horas of carga">
+
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 px-1 mt-2 bg-green-500 border-1 cursor-pointer"
+           *ngIf="horas.dia === 'miércoles'"
+           (click)="agendarHora(horas)">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Disponible</span>
+      </div>
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 mt-2 bg-red-600 border-1 cursor-pointer"
+           *ngIf="horas.dia === 'miércoles' && horas.disponibilidad[0].agendado">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Agendada</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="grid-column: 4/5;">
+    <div *ngFor="let horas of carga">
+
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 px-1 mt-2 bg-green-500 border-1 cursor-pointer"
+           *ngIf="horas.dia === 'jueves'"
+           (click)="agendarHora(horas)">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Disponible</span>
+      </div>
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 mt-2 bg-red-600 border-1 cursor-pointer"
+           *ngIf="horas.dia === 'jueves' && horas.disponibilidad[0].agendado">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Agendada</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="grid-column: 5/6;">
+    <div *ngFor="let horas of carga">
+
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 px-1 mt-2 bg-green-500 border-1 cursor-pointer"
+           *ngIf="horas.dia === 'viernes'"
+           (click)="agendarHora(horas)">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Disponible</span>
+      </div>
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 mt-2 bg-red-600 border-1 cursor-pointer"
+           *ngIf="horas.dia === 'viernes' && horas.disponibilidad[0].agendado">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Agendada</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="grid-column: 6/7;">
+    <div *ngFor="let horas of carga">
+
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 px-1 mt-2 bg-green-500 border-1 cursor-pointer"
+           *ngIf="horas.dia === 'sábado'"
+           (click)="agendarHora(horas)">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Disponible</span>
+      </div>
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 mt-2 bg-red-600 border-1 cursor-pointer"
+           *ngIf="horas.dia === 'sábado' && horas.disponibilidad[0].agendado">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Agendada</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="grid-column: 7/8;">
+    <div *ngFor="let horas of carga">
+
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 px-1 mt-2 bg-green-500 border-1"
+           *ngIf="horas.dia === 'domingo'"
+           (click)="agendarHora(horas)">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Disponible</span>
+      </div>
+      <div class="border-solid border-round-xl border-cyan-500 text-start
+                 py-1 mt-2 bg-red-600 border-1"
+           *ngIf="horas.dia === 'domingo' && horas.disponibilidad[0].agendado">
+        <span class="text-sm">{{ horas.rangoHorario }}</span>
+        <span class="block text-xs text-end">Agendada</span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<p-dialog [(visible)]="displayOpciones" [header]="horaDialog">
+  <div class="mb-3 border-solid border-round-2xl border-green-500 text-center
+             align-self-center px-2 py-1 font-bold cursor-pointer bg-gray-700"
+        (click)="usuariosRegistrados()">
+    <span class="cursor-pointer">
+      Usuarios registrados
+    </span>
+  </div>
+  <div class="mt-3 border-solid border-round-2xl border-green-500 text-center
+             align-self-center px-2 py-1 font-bold cursor-pointer bg-gray-700">
+    <span class="cursor-pointer">
+      Usuarios no registrados
+    </span>
+  </div>
+</p-dialog>
+
+<p-dialog
+  [(visible)]="displayRegistrados"
+  [style]="{ width: '30rem', height: '30rem' }">
+  <div class="grd-registrados">
+    <div
+      class="align-self-center"
+      style="grid-column: 2/3; grid-row: 1/2;">
+      <input
+        class="border-solid border-round-xl border-cyan-700
+              text-center font-bold cursor-pointer"
+        type="text" [(ngModel)]="modelRut"
+        style="grid-column: 2/3;"
+        (keyup)="getRutUserRegistrado($event)">
+    </div>
+    <div
+      class="text-center"
+      style="grid-column: 2/3;">
+      <div
+        class="border-solid border-round-xl border-green-500
+              bg-gray-700 w-14rem font-bold mt-2 cursor-pointer"
+        *ngFor="let rut of ruts"
+      (click)="getClickRut(rut.rut)">
+        {{ rut.rut }}
+      </div>
+    </div>
+    <div style="grid-row: 10/11; grid-column: 3/4;">
+      <button (click)="setDatesRuts()">
+        Guardar
+      </button>
+    </div>
+  </div>
+</p-dialog>

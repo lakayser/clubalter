@@ -1,0 +1,103 @@
+<form class="grd-form" [formGroup]="participantesForm">
+
+  <div style="grid-column: 2/3;" 
+       class="text-center align-self-center font-bold">
+    <span>Nombre Del Equipo</span>
+  </div>
+  <div style="grid-column: 1/2; grid-row: 1/2;" 
+       class="text-end align-self-center font-bold">
+    <span>{{ nombreEquipo }}</span>
+  </div>
+  <div style="grid-column: 3/4; grid-row: 1/2;" 
+       class="text-start align-self-center font-bold">
+    <span>{{ nombreEquipoRival }}</span>
+  </div>
+
+  <div style="grid-column: 2/3; grid-row: 2/3;" 
+       class="text-center align-self-center font-bold">
+    <span>Nombre De Jugadores</span>
+  </div>
+  <div style="grid-column: 1/2; grid-row: 2/3;" 
+       class="text-end align-self-center font-bold">
+    <span>{{ nombreJugadores }}</span>
+  </div>
+  <div style="grid-column: 3/4; grid-row: 2/3;" 
+       class="text-start align-self-center font-bold">
+    <span>{{ nombreJugadoresRival }}</span>
+  </div>
+
+  <div style="grid-column: 2/3; grid-row: 3/4;"
+       class="text-center align-self-center font-bold">
+    <span>Set 1</span>
+  </div>
+  <div style="grid-column: 2/3; grid-row: 4/5;"
+       class="text-center align-self-center font-bold">
+    <span>Set 2</span>
+  </div>
+  <div style="grid-column: 2/3; grid-row: 5/6;"
+       class="text-center align-self-center font-bold">
+    <span>Set 3</span>
+  </div>
+
+  <div formGroupName="setsPrimeraRonda"
+       style="grid-column: 1/2;"
+       class="font-bold text-end align-self-center">
+    <p-inputNumber [showButtons]="true" 
+                   formControlName="set1"
+                   [min]="0"
+                   [max]="7">
+    </p-inputNumber>
+  </div>
+  <div formGroupName="setsPrimeraRonda"
+       style="grid-column: 1/2;"
+       class="font-bold text-end align-self-center">
+    <p-inputNumber [showButtons]="true" formControlName="set2">
+    </p-inputNumber>
+  </div>
+  <div formGroupName="setsPrimeraRonda"
+       style="grid-column: 1/2;"
+       class="font-bold text-end align-self-center">
+    <p-inputNumber [showButtons]="true" 
+                   formControlName="set3"
+                   [min]="0"
+                   [max]="7">
+    </p-inputNumber>
+  </div>
+
+  <div formGroupName="setsPrimeraRondaRival"
+       style="grid-column: 3/4; grid-row: 3/4"
+       class="font-bold text-start align-self-center">
+    <p-inputNumber [showButtons]="true" 
+                   formControlName="set1"
+                   [min]="0"
+                   [max]="7">
+    </p-inputNumber>
+  </div>
+  <div formGroupName="setsPrimeraRondaRival"
+       style="grid-column: 3/4; grid-row: 4/5"
+       class="font-bold text-start align-self-center">
+    <p-inputNumber [showButtons]="true" 
+                   formControlName="set2"
+                   [min]="0"
+                   [max]="7">
+    </p-inputNumber>
+  </div>
+  <div formGroupName="setsPrimeraRondaRival"
+       style="grid-column: 3/4; grid-row: 5/6"
+       class="font-bold text-start align-self-center">
+    <p-inputNumber [showButtons]="true" 
+                   formControlName="set3"
+                   [min]="0"
+                   [max]="7">
+    </p-inputNumber>
+  </div>
+
+  <div>
+    <button pButton 
+            class="p-button-danger"
+            (click)="guardar()">
+      Guardar
+    </button>
+  </div>
+
+</form>

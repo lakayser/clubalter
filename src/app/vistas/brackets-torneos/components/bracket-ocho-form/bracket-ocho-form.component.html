@@ -1,0 +1,81 @@
+<form class="grd-form font-bold" [formGroup]="participantesForm">
+
+  <div style="grid-column: 2/3; grid-row: 1/2;" class="text-center align-self-center">
+    <span>Nombre del Equipo</span>
+  </div>
+  <div style="grid-column: 1/2; grid-row: 1/2;" class="text-end align-self-center">
+    <span>Equipo</span>
+  </div>
+  <div style="grid-column: 3/4; grid-row: 1/2;" class="text-start align-self-center">
+    <span>Equipo rivales</span>
+  </div>
+
+  <div style="grid-column: 2/3; grid-row: 2/3;" class="text-center align-self-center">
+    <span>Nombre de Jugadores</span>
+  </div>
+  <div style="grid-column: 1/2; grid-row: 2/3;" class="text-end align-self-center">
+    <span>Jugadores</span>
+  </div>
+  <div style="grid-column: 3/4; grid-row: 2/3;" class="text-start align-self-center">
+    <span>Rivales</span>
+  </div>
+
+  <div style="grid-column: 2/3; grid-row: 3/4;"
+       class="text-center align-self-center">
+    <span>Set 1</span>
+  </div>
+  <div style="grid-column: 2/3; grid-row: 4/5;"
+       class="text-center align-self-center">
+    <span>Set 2</span>
+  </div>
+  <div style="grid-column: 2/3; grid-row: 5/6;"
+       class="text-center align-self-center">
+    <span>Set 3</span>
+  </div>
+
+  <div class="text-end align-self-center"
+       formGroupName="setsPrimeraRonda"
+       style="grid-column: 1/2; grid-row: 3/4">
+    <p-inputNumber [showButtons]="true" formControlName="set1">
+    </p-inputNumber>
+  </div>
+  <div class="text-end align-self-center"
+       formGroupName="setsPrimeraRonda"
+       style="grid-column: 1/2; grid-row: 4/5">
+    <p-inputNumber [showButtons]="true" formControlName="set2">
+    </p-inputNumber>
+  </div>
+  <div class="text-end align-self-center"
+       formGroupName="setsPrimeraRonda"
+       style="grid-column: 1/2; grid-row: 5/6">
+    <p-inputNumber [showButtons]="true" formControlName="set3">
+    </p-inputNumber>
+  </div>
+
+  <div class="text-start align-self-center"
+       formGroupName="setsPrimeraRondaRival"
+       style="grid-column: 3/4; grid-row: 3/4">
+    <p-inputNumber [showButtons]="true" formControlName="set1">
+    </p-inputNumber>
+  </div>
+  <div class="text-start align-self-center"
+       formGroupName="setsPrimeraRondaRival"
+       style="grid-column: 3/4; grid-row: 4/5">
+    <p-inputNumber [showButtons]="true" formControlName="set2">
+    </p-inputNumber>
+  </div>
+  <div class="text-start align-self-center"
+       formGroupName="setsPrimeraRondaRival"
+       style="grid-column: 3/4; grid-row: 5/6">
+    <p-inputNumber [showButtons]="true" formControlName="set3">
+    </p-inputNumber>
+  </div>
+
+  <div class="text-center" style="grid-column: 2/3; grid-row: 6/7;">
+    <button type="submit" class="p-button-primary p-button-rounded"
+            pButton (click)="guardar()">
+      Guardar
+    </button>
+  </div>
+
+</form>

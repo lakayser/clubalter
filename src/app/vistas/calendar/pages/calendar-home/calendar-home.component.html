@@ -1,0 +1,16 @@
+<div class="grd">
+  <app-header-calendar style="grid-row: 1/2;"
+                       [fecha2]="fecha2"
+                       (onClick)="getCanchaSeleccionada($event)"
+                       (onClick2)="getPrev($event)"
+                       (onClick3)="getFecha($event)">
+  </app-header-calendar>
+
+  <app-dias-calendar style="grid-row: 2/3;">
+  </app-dias-calendar>
+
+  <app-horas-calendar style="grid-row: 3/4;"
+                      [canchaSeleccionada]="canchaSeleccionada"
+                      [carga]="carga">
+  </app-horas-calendar>
+</div>

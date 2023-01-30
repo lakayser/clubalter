@@ -106,7 +106,7 @@
               <div class="col">
                 <label for="input" class="form-label">Ingrese Fecha de inicio</label>
                 <input type="datetime-local" class="form-control fecha" onkeydown="return false" name="horaComienzo"
-                  formControlName="horaComienzo" />
+                  formControlName="fechaComienzo" />
                 <div
                   *ngIf="horasForm.get('horaComienzo')?.touched && horasForm.get('horaComienzo')?.errors?.['required']"
                   class="alert alert-danger">Este campo es requerido
@@ -115,7 +115,7 @@
               <div class="col">
                 <label for="input" class="form-label">Ingrese Fecha de Final</label>
                 <input type="datetime-local" class="form-control fecha" onkeydown="return false" name="horaTermino"
-                  formControlName="horaTermino" />
+                  formControlName="fechaTermino" />
                 <div *ngIf="horasForm.get('horaTermino')?.touched && horasForm.get('horaTermino')?.errors?.['required']"
                   class="alert alert-danger">Este campo es requerido
                 </div>

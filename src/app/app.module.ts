@@ -1,5 +1,4 @@
 import { NgModule }                               from '@angular/core';
-import { BrowserModule }                          from '@angular/platform-browser';
 import { AppRoutingModule }    from './app-routing.module';
 import { AppComponent }                          from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
@@ -19,20 +18,18 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { CalendarioModule } from './vistas/adminPages/pages/calendario-adm/calendario.module';
 import { InscripcionTorneoModule } from './vistas/inscripcion-torneo/inscripcion-torneo.module';
 
-import { VerGrillasComponent } from './vistas/grilla/pages/ver-grillas/ver-grillas.component';
-import { GrillaModule } from './vistas/grilla/grilla.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './vistas/auth/auth.module';
 import { AdminPagesModule } from './vistas/adminPages/admin-pages.module';
+import { CuadrosTorneosModule } from './vistas/cuadros-torneos/cuadros-torneos.module';
+import { BracketsTorneosModule } from './vistas/brackets-torneos/brackets-torneos.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    VerGrillasComponent,
   ],
   imports: [
-    BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
@@ -48,9 +45,11 @@ import { AdminPagesModule } from './vistas/adminPages/admin-pages.module';
     IniciousercanchaModule,
     CalendarioModule,
     InscripcionTorneoModule,
-    GrillaModule,
     AuthModule,
     AdminPagesModule,
+    CuadrosTorneosModule,
+    BracketsTorneosModule,
+    CalendarioModule,
   ],
   exports:[
   ],
