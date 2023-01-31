@@ -58,4 +58,16 @@ export class CargaMasivaService {
     return this.http.get<AllUsuarios[]>(url)
   }
 
+  agendarHora() {
+    const url = `${ this.urlUser }/moderator/agendar-hora`;
+    return this.http.post(
+      url,
+      {
+        horascanchas: '63d138b00f9b5ae3a0eae513',
+        cancha: '625ec62558f5fcde8c9d5433',
+        rut: '5612793-3'
+      }
+    )
+  }
+
 }
