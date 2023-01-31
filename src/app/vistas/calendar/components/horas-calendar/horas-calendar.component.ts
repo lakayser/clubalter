@@ -31,13 +31,22 @@ export class HorasCalendarComponent implements OnInit {
   rol               !: string | null;
   displayOpciones   : boolean = false;
   displayRegistrados: boolean = false;
+  displaySiguiente  : boolean = false;
   ruts             !: AllUsuarios[];
   horaDialog       !: string;
   modelRut         !: string;
+  useresRuts        : AllUsuarios[] = [];
+  userEmail        !: string;
+  userTelefono     !: string;
+  userNombre       !: string;
 
   constructor(private cargaMasivaService: CargaMasivaService) { }
 
   ngOnInit(): void {
+    this.cargaMasivaService.getUsers()
+      .subscribe(users => {
+        this.useresRuts = users;
+      })
   }
 
   agendarHora(horas: CargaMasivaCalendar) {
@@ -68,7 +77,20 @@ export class HorasCalendarComponent implements OnInit {
   }
 
   setDatesRuts() {
-    console.log(this.modelRut);
+    this.useresRuts.map(user => {
+      if(user.rut === this.modelRut) {
+        this.userNombre = user.nameUser;
+        this.userEmail = user.email;
+        this.userTelefono = user.telefono;
+        this.displaySiguiente = true;
+        this.displayRegistrados = false;
+      }
+    })
+  }
+
+  buttonBack() {
+    this.displaySiguiente = false;
+    this.displayRegistrados = true;
   }
 
 }
