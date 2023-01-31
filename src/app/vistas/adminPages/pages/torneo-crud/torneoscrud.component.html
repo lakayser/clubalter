@@ -37,7 +37,7 @@
                       </div>
                       <div class="col d-flex justify-aling-center align-items-center">
                         <span class="pastillaVerdechica mr-1"></span>
-                        fecha de inicio:<br />
+                        Fecha de inicio:<br />
                         {{ TorneoD.inicioT | date : "mediumDate" }}
                         {{ TorneoD.inicioT | date : "shortTime" : "UTC"
                         }}{{ TorneoD.inicioT | date : "aaa" }}
@@ -47,7 +47,8 @@
                   <div class="container">
                     <div class="row">
                       <div class="col d-flex justify-aling-center align-items-center">
-                        <p>Tipo Categoria:</p>
+                        <p>Tipo 
+                          Categoría:</p>
                       </div>
                       <div class="col d-flex justify-aling-center align-items-center"
                         *ngFor="let a of TorneoD.categoriaTorneo">
@@ -83,7 +84,7 @@
           <div class="burbuja ranking col-lg col-xl  mt-5">
             <div class="col d-flex justify-aling-center align-items-center">
               <span class="pastillaVerde mr-1"></span>
-              <h2 style="color: black!important;">Lider de la categoria</h2>
+              <h2 style="color: black!important;">Líder de la categoria</h2>
             </div>
 
             <div class="row">
@@ -151,7 +152,7 @@
                   </div>
                   <div class="col d-flex justify-aling-center align-items-center">
                     <span class="pastillaRojachica mr-1"></span>
-                    fecha de inicio:<br />
+                    Fecha de inicio:<br />
                     {{ TorneoP.inicioT | date : "mediumDate" }}
                     {{ TorneoP.inicioT | date : "shortTime" : "UTC"
                     }}{{ TorneoP.inicioT | date : "aaa" }}
@@ -161,7 +162,7 @@
               <div class="container">
               <div class="row mt-3">
                 <div class="col  d-flex justify-aling-center align-items-center">
-                  <p>Tipo Categoria:</p>
+                  <p>Tipo Categoría:</p>
                 </div>
                 <div class="col  d-flex justify-aling-center align-items-center" *ngFor="let a of TorneoP.categoriaTorneo">
                   <p *ngFor="let c of TorneoP.categoriaParticipantes">
