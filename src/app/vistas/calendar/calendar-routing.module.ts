@@ -4,7 +4,7 @@ import { CalendarHomeComponent } from './pages/calendar-home/calendar-home.compo
 
 const routes: Routes = [
   {
-    path     : 'calendario',
+    path     : '',
     component: CalendarHomeComponent,
   },
 ];
