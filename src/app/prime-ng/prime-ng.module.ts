@@ -6,6 +6,8 @@ import {TableModule} from 'primeng/table';
 import {ToolbarModule} from 'primeng/toolbar';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import {MenubarModule} from 'primeng/menubar';
+import {MenuItem} from 'primeng/api';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     DialogModule,
     InputNumberModule,
     AutoCompleteModule,
+    MenubarModule,
+
   ]
 })
 export class PrimeNgModule { }

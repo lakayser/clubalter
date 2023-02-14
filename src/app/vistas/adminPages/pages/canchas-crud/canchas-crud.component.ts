@@ -63,8 +63,6 @@ export class CanchasCrudComponent implements OnInit {
         showConfirmButton: false,
         timer: 1200,
         timerProgressBar: true,
-
-
       })
     }, err => {
       Swal.fire({

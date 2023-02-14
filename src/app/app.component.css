@@ -1,7 +1,7 @@
-.scrollable{
+/* .scrollable{
     height: 300px;
     overflow: scroll;
-}
+} */
 .poto {
     position: fixed;
     bottom: 5px;

@@ -1,116 +1,182 @@
 <body>
-<section>
-    <div class="logo text-center">
+    <section>
+        <!-- <div class="logo text-center">
         <img src="../../../../../assets/botpadelLogo.jpg" class="foto-logo">
-    </div>
-    <div class="text-center">
-        
-        <h3>Administra y planifica de manera simple conforme a tus necesidades</h3>
-        <h6>Combinamos multiples tecnologias de automatizacion con inteligencia artificial <br> para mejorar la atencion al cliente</h6>
-    </div>
-    <div class="text-center">
-        <button pButton type="button" label="Ver mas" class="p-button-outlined p-button-secondary p-button-lg m-3"></button>
-        <button pButton type="button" label="Registrarse" class="p-button-success p-button-lg m-3"></button>
-        <div class="logo">
-            <img src="../../../../assets/tabletRecta.png" class="foto-tablet1">
-        </div>
-    </div>
-    <div class="text-center">
-        <h1>Beneficios para aumentar  tus servicios</h1>
-        <h6>permitir que los usuarios se comuniquen con usted a traves de su canal preferido.</h6>
-    </div>
-    <div class="container">
-
+    </div> -->
     
-    <div class="row text-center mt-5">
-        <div class="col">
-            <div class="m-3"><span class="material-icons circulito">
-                people_alt
-                </span>
-            </div>
-            <div><h5>Respuesta personalizada</h5></div>
-            <div>respuesta inmediata y <br>personalizada a tus clientes</div>
-        </div>
-        <div class="col">
-            <div class="m-3"><span class="material-icons circulito">
-                watch_later
-                </span>
-            </div>
-            <div><h5>Agendamiento</h5></div>
-            <div>Planifica y irganiza tus horas <br>de manera automatica</div>
-        </div>
-        <div class="col">
-            <div class="m-3"><span class="material-icons circulito">
-                chat
-                </span>
-            </div>
-            <div><h5>Eficacia</h5></div>
-            <div>Atiende a tus clientes las 24 horas<br>los 7 dias de la semana</div>
-        </div>
-    </div>
-    <div class="row text-center mt-5">
-        <div class="col">
-            <div class="m-3"><span class="material-icons circulito">
-                question_answer
-                </span>
-            </div>
-            <div><h5>Omnicanalidad</h5></div>
-            <div>Tus canales comunicacionales<br>se adaptan a tus clientes</div>
-        </div>
-        <div class="col">
-            <div class="m-3"><span class="material-icons circulito">
-                show_chart
-                </span>
-            </div>
-            <div><h5>Controla tus avances</h5></div>
-            <div>Informamos de tu crecimiento<br>dia a dia</div>
-        </div>
-        <div class="col">
-            <div class="m-3"><span class="material-icons circulito">
-                show_chart
-                </span>
-            </div>
-            <div><h5>Simplifica el chat</h5></div>
-        </div>
-    </div>
-</div>
+        <div class="text-center pt-3">
 
-</section>
-<section>
-<div class="separacion mt-3">
-</div>
-</section>
-<section>
-    <div class="text-center mt-3">
-        
-        <h3>Gestiona tus horas aparte de ver aumentar ganancias y tu crecimiento</h3>
-        <h6>Combinamos multiples tecnologias de automatizacion con inteligencia artificial <br> para mejorar la atencion al cliente</h6>
-    </div>
-        <div class="container-fluid">
+            <h3>Administra y planifica de manera simple conforme a tus necesidades</h3>
+            <h5>Con Botpadel simplifica el agendamiento de canchas y controla todo tu negocio desde cualquier lugar.
+            </h5>
+        </div>
+        <div class="text-center">
+            <button pButton type="button" label="Ver DEMO"
+                class="p-button-outlined p-button-secondary p-button-lg m-3"></button>
+            <button pButton type="button" label="Contacto" (click)="showDialog()"
+                class="p-button-success p-button-lg m-3" id="Contacto"></button>
+            <div class="logo">
+                <img src="../../../../assets/tabletRecta1.png" class="foto-tablet1">
+            </div>
+        </div>
+        <div class="text-center">
+            <h1>¿Por qué preferir BotPadel?
+            </h1>
+            
+        </div>
+        <div class="container">
+
+
+            <div class="row text-center mt-5">
+                <div class="col">
+                    <div class="m-3"><span class="material-icons-outlined circulito">
+                            calendar_month
+                        </span>
+                    </div>
+                    <div>
+                        <h5>Calendario</h5>
+                    </div>
+                    <div>Permite visualizar disponibilidad <br> inmediata de canchas.
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="m-3"><span class="material-icons-outlined circulito">
+                            edit_calendar
+                        </span>
+                    </div>
+                    <div>
+                        <h5>Agendamiento</h5>
+                    </div>
+                    <div>Agenda en dos pasos en el horario que desea</div>
+                </div>
+                <div class="col">
+                    <div class="m-3"><span class="material-icons-outlined circulito">
+                            stadium
+                        </span>
+                    </div>
+                    <div>
+                        <h5>Creador de Cancha</h5>
+                    </div>
+                    <div>Programa tus canchas en<br> los horarios que deseas.</div>
+                </div>
+            </div>
+            <div class="row text-center mt-5">
+                <div class="col">
+                    <div class="m-3"><span class="material-icons-outlined circulito">
+                            query_stats
+                        </span>
+                    </div>
+                    <div>
+                        <h5>Estadísticas</h5>
+                    </div>
+                    <div>Monitorea en tiempo real ingresos,<br> ocupación y horarios.</div>
+                </div>
+                <div class="col">
+                    <div class="m-3"><span class="material-icons-outlined circulito">
+                            smart_toy
+                        </span>
+                    </div>
+                    <div>
+                        <h5>Chat Bot</h5>
+                    </div>
+                    <div> Asistente virtual 24/7 <br> para agendamiento y resolver dudas.</div>
+                </div>
+                <div class="col">
+                    <div class="m-3"><span class="material-icons-outlined circulito">
+                            folder_shared
+                        </span>
+                    </div>
+                    <div>
+                        <h5>Control de Clientes</h5>
+                        <div>Registro de clientes para el <br>uso de programas de fidelización</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section>
+        <div class="separacion mt-3" id="Servicios">
+
+            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                <h1 class="display-4 fw-normal"> Servicios </h1>
+                <p class="fs-5 text-muted">Una vez seleccionado tu Bot deberas seleccionar un plan de suscripcion</p>
+            </div>
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">Basico</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">$50.000<small
+                                        class="text-muted fw-light">/mes</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>Plataforma de gestion</li>
+                                    <li>Bot de Facebook</li><br>
+                                    <br><br>
+                                    <br>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Comenzar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                            <div class="card-header py-3 text-white bg-primary border-primary">
+                                <h4 class="my-0 fw-normal">Empresario</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">$75.000<small
+                                        class="text-muted fw-light">/mes</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>Plataforma de gestion</li>
+                                    <li>Clases y Campeonatos</li>
+                                    <li>Bot de Facebook</li>
+                                    <li>Bot de instagram</li>
+                                    <li>Bot Publicidad</li>
+                                    <li>Soporte</li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-primary">Comenzar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section>
+        <div class="text-center mt-3">
+
+            <h3>Coordina tu equipo de trabajo para una experiencia memorable </h3>
+
+        </div>
+        <div class="">
+
             <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6">
-                                <img src="../../../../assets/tabletRecta.png" class="foto-tablet2">
-                        </div>
-                        <div class="col-1"></div>
-                        <div class="col-md-4 text-center">
-                            <div class="elemento"><span class="material-icons circulito">
-                                system_update
-                                </span>
-                            </div>
-                            <div><h5>Consolidar y automatizar multiples datos</h5></div>
-                            <div class="elemento"><span class="material-icons circulito">
-                                show_chart
-                                </span>
-                            </div>
-                            <div><h5>autonomia y control de resultados</h5></div>
-                            <div class="elemento"><span class="material-icons circulito">
-                                groups
-                                </span>
-                            </div>
-                            <div><h5>Alineando esfuerzo entre departamentos</h5></div>
-                        </div>
+                <div class="col-1"></div>
+                <div class="col-md-6 text-center">
+                    <img src="../../../../assets/tabletRecta1.png" class="foto-tablet2">
+                </div>
+
+                <div class="col-md-4 text-center">
+                    <div class="elemento"><span class="material-icons-outlined circulito">
+                            people
+                        </span>
+                    </div>
+                    <div>
+                        <h5>Puedes crear distintos perfiles de acuerdo a responsabilidad.</h5>
+                    </div>
+                    <div></div>
+                    <div class="elemento"><span class="material-icons-outlined circulito">
+                            engineering
+                        </span>
+                    </div>
+                    <div>
+                        <h5>Lleva el control de tu colaboradores</h5>
                     </div>
                 </div>
             </div>
@@ -119,36 +185,107 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
-                        
+
                         <div class="col-md-4 text-center">
                             <div class="elemento"><span class="material-icons circulito">
-                                system_update
+                                    system_update
                                 </span>
                             </div>
-                            <div><h5>Consolidar y automatizar multiples datos</h5></div>
+                            <div>
+                                <h5>Consolidar y automatizar multiples datos</h5>
+                            </div>
                             <div class="elemento"><span class="material-icons circulito">
-                                show_chart
+                                    show_chart
                                 </span>
                             </div>
-                            <div><h5>autonomia y control de resultados</h5></div>
+                            <div>
+                                <h5>autonomia y control de resultados</h5>
+                            </div>
                             <div class="elemento"><span class="material-icons circulito">
-                                groups
+                                    groups
                                 </span>
                             </div>
-                            <div><h5>Alineando esfuerzo entre departamentos</h5></div>
+                            <div>
+                                <h5>Alineando esfuerzo entre departamentos</h5>
+                            </div>
                         </div>
-                        
+
                         <div class="col-1"></div>
-                    <div class="col-md-6">
-                        <img src="../../../../assets/tabletRecta.png" class="foto-tablet3">
-                </div>
+                        <div class="col-md-6 text-center">
+                            <img src="../../../../assets/tabletRecta2.png" class="foto-tablet3">
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
-    
-    
-   
-    
-</section>
+    </section>
+    <section>
+        <div class="separacion mt-3" id="Nosotros" style="padding: 5rem;">
+            <div class="text-center">
+                <h1>Nuestra Historia</h1>
+            </div>
+        </div>
+    </section>
 </body>
+
+<app-footer></app-footer>
+
+<p-dialog header="" [(visible)]="display" [style]="{width: '50vw'}">
+
+    <div class="container text-center">
+        <h1>Contactanos!</h1>
+        <h4>Nos pondremos en contacto contigo lo mas pronto posible</h4>
+        <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm">
+            <div class="form-group">
+                <input type="text" class="form-control formu" formControlName="nombre" placeholder="Nombre">
+                <div *ngIf="reactiveForm.get('nombre')?.touched && reactiveForm.get('nombre')?.errors?.['required']"
+                    class="alert alert-danger">Este campo es requerido
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control formu" formControlName="emailPersona" placeholder="Correo">
+                <span style="color: #ed1b24" *ngIf="reactiveForm.get('emailPersona')?.errors?.['email']">
+                    El mail no es válido
+                </span>
+                <div *ngIf="reactiveForm.get('emailPersona')?.touched && reactiveForm.get('emailPersona')?.errors?.['required']"
+                    class="alert-danger">Este campo es requerido
+                </div>
+
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control formu" formControlName="" placeholder="Telefono">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control formu" formControlName="" placeholder="Ciudad">
+            </div>
+
+            <!-- <div class="form-group">
+                <select class="form-control formu text-center" formControlName="subject" >
+                  <option value="" selected disabled>Seleccione una opcion</option>
+                  <option>Quiero contratar el servicio</option>
+                  <option>Tengo preguntas sobre el servicio</option>
+                  <option>Quiero mas informacion</option>
+                  <option>Otro</option>
+                </select>
+                <div
+                *ngIf="reactiveForm.get('subject')?.touched && reactiveForm.get('subject')?.errors?.['required']"
+                class="alert alert-danger">Este campo es requerido
+              </div>
+              </div> -->
+            <div class="form-group">
+                <input type="text" class="form-control formu" formControlName=""
+                    placeholder="Tienes alguna pagina de tu negocio? pon el enlace aqui">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control formu" id="exampleFormControlTextarea1" rows="3"
+                    placeholder="Cuentanos como podemos ayudarte"></textarea>
+            </div>
+            <div class="text-center">
+                <button pButton type="button" label="Enviar" [disabled]="reactiveForm.invalid" (click)="onSubmit()"
+                    class="p-button-success p-button-rounded p-button-lg m-3"></button>
+            </div>
+        </form>
+    </div>
+
+</p-dialog>

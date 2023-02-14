@@ -52,6 +52,7 @@ import { BracketsTorneosModule } from './vistas/brackets-torneos/brackets-torneo
     CalendarioModule,
   ],
   exports:[
+    PlantillasModule
   ],
   providers: [AuthGuard, {
     provide: HTTP_INTERCEPTORS,

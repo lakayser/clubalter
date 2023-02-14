@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CanchasInicioComponent } from './pages/canchasInicio/canchasInicio.component';
 import { CrearTorneoComponent } from './pages/crear-torneo/crear-torneo.component';
 import { IniciomodcanchaComponent } from './pages/dashBoard-mod/iniciomodcancha.component';
 import { IniciosubadmincanchaComponent } from './pages/dashBoard-sub/iniciosubadmincancha.component';
@@ -55,10 +54,7 @@ const routes: Routes = [
         path     : 'new-user',
         component: UsermoderatorComponent, //admin
       },
-      {
-        path     : 'inicio',
-        component: CanchasInicioComponent,
-      },
+     
       {
         path     : 'users-admin',
         component: AdminusuariosComponent, //admin

@@ -8,9 +8,13 @@
   line-height: 20px;
 
 }
-.nav-item{
+.menu{
   cursor: pointer;
+  color: black; 
+  font-size: large;  
+  font-weight: bold;
 }
+
 span {
   vertical-align: middle;
 }
@@ -47,3 +51,25 @@ span {
     margin: 0 auto;
     background-color: #ffffff;
 } 
+.contenedor-flexbox {
+  display: flex; /*Convertimos al menú en flexbox*/
+  justify-content: space-between; /*Con esto le indicamos que margine todos los items que se encuentra adentro hacia la derecha e izquierda*/
+  align-items: center; /*con esto alineamos de manera vertical*/
+}
+.text-black{
+  color: black;
+}
+:host ::ng-deep .p-menuitem {
+  background-color: black;
+  margin: 12px;
+}
+a:link { text-decoration: none;
+}
+a:visited {
+text-decoration: none;
+}
+@media(max-width:1325px) {
+  .menu{
+    font-size: small;  
+  }
+}

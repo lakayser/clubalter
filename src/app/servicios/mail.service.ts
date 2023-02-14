@@ -14,7 +14,7 @@ export class MailService {
 
   constructor(private http:HttpClient) 
    {
-      
+
    }
 
    postEmail(email:Email)

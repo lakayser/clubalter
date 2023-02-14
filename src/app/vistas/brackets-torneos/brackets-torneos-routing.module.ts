@@ -4,7 +4,7 @@ import { BracketOchoComponent } from './pages/bracket-ocho/bracket-ocho.componen
 
 const routes: Routes = [
   {
-    path     : 'bracket/:id',
+    path     : '',
     component: BracketOchoComponent,
   },
 ];

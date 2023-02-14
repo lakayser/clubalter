@@ -1,6 +1,7 @@
 body{
     background-color: #f5fffa!important;
     font-family: 'Montserrat', sans-serif;
+    width: auto;
 }
 .logo{
     width: 45%;
@@ -8,17 +9,17 @@ body{
 }
 .foto-logo{
     max-width: 100%;
-
 }
 .foto-tablet1{
     max-width: 80%;
 }
 .foto-tablet2{
-    max-width: 80%;
+    max-height: 45rem;
     transform: rotate3d(-1, -1, 2, -60deg);
 }
 .foto-tablet3{
-    max-width: 80%;
+    max-height: 45rem;
+
     transform: rotate3d(2, -1, 2, 60deg);
 }
 .circulito{
@@ -29,7 +30,7 @@ body{
         color: #33cc86;
 }
 .separacion{
-    padding: 5rem;
+   
     background-color: #b7e9d0;
 }
 .imagen2{
@@ -40,3 +41,28 @@ body{
     align-items: center;
     padding: 3rem;
 }
+.formu {
+    background-color: #d3ecd7;
+    border-radius: 50px;
+    margin: 1rem;
+    padding: 1rem;
+    border: #78e289 solid;
+  }
+  @media(max-width:1325px) {
+    .foto-tablet1{
+        max-width: 80%;
+    }
+    .foto-tablet2{
+        max-width: 80%;
+        transform: rotate3d(0, 0, 0, 0deg);
+    }
+    .foto-tablet3{
+        max-width: 80%;
+        transform: rotate3d(0, 0, 0, 0deg);
+    }
+    .logo{
+        width: 80%;
+        margin: 0 auto;
+    }
+  }
+
