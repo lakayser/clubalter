@@ -221,17 +221,46 @@
         </div>
     </section>
     <section>
-        <div class="separacion mt-3" id="Nosotros" style="padding: 5rem;">
+        <div class="separacion mt-3" id="Nosotros" style="padding: 1rem;">
             <div class="text-center">
-                <h1>Nuestra Historia</h1>
+                <img src="../../../../../assets/quien.png" style="max-width: 50%;">
+                <div class="container"><h4>Somos una empresa apasionada por la tecnología y el deporte, que mediante un equipo de expertos en el área de la informática, experiencia de clientes y diseño, nos preocupamos de crear herramientas  personalizadas acorde a las necesidades de nuestros clientes, a fin de facilitar y fomentar la vida sana, salud mental y el trabajo en equipo, conceptos fundamentales para mejorar la calidad de vida de las personas.</h4>
+                </div>
             </div>
+            <div class="container">
+
+                <div class="row text-center mt-5">
+                    <h1>Valores Corporativos</h1>
+                    <div class="col">
+                        <div>
+                            <h2>Innovación</h2>
+                        </div>
+                        <div class="h4">Somos una empresa que pone su foco principal en la creación de servicios, ampliarnos a nuevos modelos de negocios que entreguen un servicio integral y personalizado.
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <h2>Promesa a los clientes</h2>
+                        </div>
+                        <div  class="h4">Ponemos a nuestros clientes en el centro de nuestro quehacer, siendo fiel a las palabras que decimos y a los vínculos que establecemos, todo esto para velar siempre por una experiencia memorable.</div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <h2>Pasión</h2>
+                        </div>
+                        <div class="h4">Disfrutamos lo que hacemos y de las personas que nos rodeamos, lo que nos permite entregar lo mejor de nosotros en cada proyecto que desarrollamos.</div>
+                    </div>
+                </div>
+            </div>
+            
+
         </div>
     </section>
 </body>
 
 <app-footer></app-footer>
 
-<p-dialog header="" [(visible)]="display" [style]="{width: '50vw'}">
+<p-dialog header="" [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}">
 
     <div class="container text-center">
         <h1>Contactanos!</h1>

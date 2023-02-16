@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
+  display: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
+  showDialog() {
+    this.display = true;
+}
 }

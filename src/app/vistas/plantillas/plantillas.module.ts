@@ -8,7 +8,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
 
 
-
 @NgModule({
   declarations: [
     FooterComponent,
@@ -23,6 +22,7 @@ import { PrimeNgModule } from '../../prime-ng/prime-ng.module';
     RouterModule,
     PipesModule,
     PrimeNgModule,
+    
   ]
 })
 export class PlantillasModule { }

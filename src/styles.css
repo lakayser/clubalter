@@ -3,6 +3,6 @@ html, body {
   font-weight     : bold!important;
   color           : #3b3636!important;
   font-family     : var( --font-family )!important;
-  max-width: 100% !important;
-  overflow-x: hidden !important;
+  /* max-width: 100% !important;
+  overflow-x: hidden !important; */
 }
