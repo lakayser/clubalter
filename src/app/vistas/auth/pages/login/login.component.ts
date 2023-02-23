@@ -45,11 +45,11 @@ export class LoginComponent implements OnInit {
           var rol = localStorage.getItem('rol');
           if (orga === '623c92c697790a694cdc6959') {
             if (rol === '620c0d94b83e4a21f81253d7') {
-              this.router.navigate(['/mod/subodminio/dash-boardAdm'])
+              this.router.navigate(['/mod/dash-boardAdm'])
 
             } else {
               if (rol === '63111b712b21bfd30c4d9e02') {
-                this.router.navigate(['/mod/subodminio/dash-boardSub']);
+                this.router.navigate(['/mod/dash-boardSub']);
               } else {
                 if (rol === '620c0d94b83e4a21f81253d6') {
                   this.router.navigate(['/canchaselbicho/dashboarduser'])

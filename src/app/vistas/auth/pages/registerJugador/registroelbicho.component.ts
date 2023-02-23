@@ -16,22 +16,13 @@ export class RegistroComponent implements OnInit {
    IDX: any={};
    Rol: any={};
 
-   player = new UntypedFormGroup({
-
-    nameUser: new UntypedFormControl(''),
-    password: new UntypedFormControl(''),
-    organization: new UntypedFormControl(''),
-    rut: new UntypedFormControl(''),
-    telefono: new UntypedFormControl(''),
-    email: new UntypedFormControl(''),
-    // roles: new FormControl('')
-})
+   
 constructor(private router: Router, private formBuilder: FormBuilder, private registroService:ApiService) {
   this.reactiveForm = this.formBuilder.group({
     nameUser: ['', [Validators.required]],
     password: ['', [Validators.required]],
     confirmPassword: ['', [Validators.required]],
-    organization: [this.IDX, [Validators.required]],
+    organization: ['623c92c697790a694cdc6959', ],
     rut: ['', [Validators.required, Validators.pattern('^[0-9]{1,8}-[0-9Kk]$')]],
     telefono: ['', [Validators.required]],
     email: ['', [Validators.required]],
@@ -46,6 +37,8 @@ ngOnInit(): void {
   let BN = '623c92c697790a694cdc6959';
   this.IDX = BN;
   this.Rol = lol;
+  console.log(this.IDX)
+  console.log(this.Rol)
 }
 
 Mustmatch(password: string, confirmPassword: string) {
@@ -69,9 +62,9 @@ getControl(name: any): AbstractControl | null {
 }
 
 submit() {
-  // console.log('form-> ', this.multistep.value);
-  this.registroService.singUp(this.player.value).subscribe((res)=>{
+  this.registroService.singUp(this.reactiveForm.value).subscribe((res)=>{
     console.log(res);
+    this.router.navigate(['/nombreclub'])
   })
 }
 goLogin(){

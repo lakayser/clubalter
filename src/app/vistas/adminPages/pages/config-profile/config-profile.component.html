@@ -1,0 +1,110 @@
+<body>
+    <section>
+
+        <br>
+        <h1 class="text-center">Perfil de Usuario</h1>
+        <br>
+        <div class="container text-center">
+        <div class=" burbuja">
+            <div *ngFor="let nombre of usuariosService.nombre | ObjToArray">
+                <div class="container ">
+                    <div class="h2 text-center"> Datos personales</div>
+                    <div>
+                        <h3> <span class="material-icons-outlined">
+                                radio_button_unchecked
+                            </span>Nombre: {{nombre.nameUser}}</h3>
+                    </div>
+                    <div>
+                        <h3><span class="material-icons-outlined">
+                                radio_button_unchecked
+                            </span>E-mail: {{nombre.email}}</h3>
+                    </div>
+                    <div>
+                        <h3><span class="material-icons-outlined">
+                                radio_button_unchecked
+                            </span>Direccion: {{nombre.direccion}}</h3>
+                    </div>
+                    <div>
+                        <h3><span class="material-icons-outlined">
+                                radio_button_unchecked
+                            </span>Rut: {{nombre.rut}}</h3>
+                    </div>
+                    <div>
+                        <h3><span class="material-icons-outlined">
+                                radio_button_unchecked
+                            </span>Telefono: +56 {{nombre.telefono}}</h3>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-success m-2" (click)="showDialog(nombre)">EDITAR DATOS</button>
+                    <button type="button" class="btn btn-danger m-2" (click)="showDialog2()">Cambiar Contraseña</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </section>
+</body>
+<p-dialog header="Editar Usuario" [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '100vw'}"
+    [style]="{width: '50vw'}">
+    <div class="">
+        <form (ngSubmit)="onSubmit2()" [formGroup]="reactiveForm2" class="row g-3 mb-3">
+            <input type="hidden" name="_id" id="_id" formControlName="_id">
+            <div class="">
+                <label for="inputName" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nameUser" required id="nameUser"
+                    formControlName="nameUser">
+                <div *ngIf="reactiveForm2.get('nameUser')?.touched && reactiveForm2.get('nameUser')?.errors?.['required']"
+                    class="alert alert-danger">Este campo es requerido
+                </div>
+            </div>
+            <div class="">
+                <label for="inputMail" class="form-label">E-mail</label>
+                <input type="email" class="form-control" name="email" required id="email" formControlName="email">
+                <div *ngIf="reactiveForm2.get('email')?.touched && reactiveForm2.get('email')?.errors?.['required']"
+                    class="alert-danger">Este campo es requerido
+                </div>
+                <span style="color: #ed1b24" *ngIf="reactiveForm2.get('email')?.errors?.['email']">
+                    El mail no es válido
+                </span>
+            </div>
+            <div class="">
+                <label for="inputTelefono" class="form-label">Telefono</label>
+                <input type="text" class="form-control" name="telefono" required id="telefono"
+                    formControlName="telefono">
+                <div *ngIf="reactiveForm2.get('telefono')?.touched && reactiveForm2.get('telefono')?.errors?.['required']"
+                    class="alert alert-danger">Este campo es requerido
+                </div>
+            </div>
+            <div class="">
+                <label for="inputDireccion" class="form-label">Direccion</label>
+                <input type="text" class="form-control" name="direccion" required id="direccion"
+                    formControlName="direccion">
+                <div *ngIf="reactiveForm2.get('direccion')?.touched && reactiveForm2.get('direccion')?.errors?.['required']"
+                    class="alert alert-danger">Este campo es requerido
+                </div>
+            </div>
+
+            <div class="text-center mb-3">
+
+                <button type="submit" class="btn btn-danger text-uppercase" [disabled]="reactiveForm2.invalid">Editar
+                    Usuario</button>
+            </div>
+        </form>
+    </div>
+</p-dialog>
+<p-dialog header="Editar Contraseña" [(visible)]="display2" [breakpoints]="{'960px': '75vw', '640px': '100vw'}"
+    [style]="{width: '50vw'}">
+    <div *ngFor="let nombre of usuariosService.nombre | ObjToArray">
+        <form>
+            <label for="inputpassword" class="form-label">Ingrese su Contraseña actual</label>
+            <input type="password" class="form-control" #contra (keyup)="getPass()">
+            <div class="text-center m-2">
+                <button type="button" class="btn btn-danger" (click)="onlogin()">Validar Contraseña actual</button>
+            </div>
+            
+            
+        </form>
+    </div>
+</p-dialog>

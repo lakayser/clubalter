@@ -13,7 +13,7 @@ const routes: Routes = [
         component: LoginComponent,
       },
       {
-        path     : 'registerJugador',
+        path     : 'registerJugador/:id',
         component: RegistroComponent,
       },
       {

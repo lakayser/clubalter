@@ -33,9 +33,9 @@ const routes: Routes = [
   { path: 'pagos/:CodigoVenta',             component: PortalPagoComponent },
   { path: 'webpay_plus/commit',             component: CommitComponent },
   { path: 'canchaselbicho/dashboarduser',   component: IniciousercanchaComponent },
-  { path: 'canchaselbicho/Inscripcion/:id', component: InscripcionTorneoComponent },
-  { path: 'subdominio',                     component: InicioComponent },
-  { path: '',                         component: CanchasInicioComponent,
+  { path: 'nombreclub/Inscripcion/:id',     component: InscripcionTorneoComponent },
+  { path: 'nombreclub',                     component: InicioComponent },
+  { path: '',                               component: CanchasInicioComponent,
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 

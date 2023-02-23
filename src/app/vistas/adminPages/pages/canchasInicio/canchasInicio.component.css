@@ -48,6 +48,15 @@ body{
     padding: 1rem;
     border: #78e289 solid;
   }
+  .conta{
+    background-color: #c5e1a5;
+  }
+  .demo{
+    border: solid ;
+  }
+  .demo:hover{
+    background-color: #c5e1a5;
+  }
   @media(max-width:1325px) {
     .foto-tablet1{
         max-width: 80%;

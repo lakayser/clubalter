@@ -1,0 +1,33 @@
+body{
+    background-color: #f5fffa;
+    font-family: 'Montserrat', sans-serif;
+    }
+    .burbuja{
+    
+        background-color: white;
+        margin-bottom: 20px;
+        box-shadow: 10px 10px 2px 5px rgba(0, 0, 0,.1);
+        border-radius: 15px;
+    }
+    .scrollable{
+        height: 400px;
+        overflow: auto;
+        position: relative;
+        
+    }
+    h1{
+        color: white;
+    }
+    ::-webkit-scrollbar {
+        width: 1rem;               /* width of the entire scrollbar */
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #4959b1;        /* color of the tracking area */
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background-color: #f1f1f1;    /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+        border: 2px solid black;  /* creates padding around scroll thumb */
+      }

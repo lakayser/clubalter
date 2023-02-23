@@ -14,12 +14,12 @@ import { TorneoCrudModule } from './pages/torneo-crud/torneo-crud.module';
 import { TorneoDetallesModule } from './pages/torneo-detalles/torneo-detalles.module';
 import { VistaAdminModule } from './pages/usermoderator/vista-admin.module';
 import { HistorialReservasModule } from './pages/historial-reservas/historial-reservas.module';
+import { ConfigProfileModule } from './pages/config-profile/config-profile.module';
 
 
 @NgModule({
   declarations: [
   
-    
   ],
   imports: [
     AdminPagesRoutingModule,
@@ -37,7 +37,7 @@ import { HistorialReservasModule } from './pages/historial-reservas/historial-re
     VistaAdminModule,
     CalendarioModule,
     HistorialReservasModule,
-    
+    ConfigProfileModule
   ],
 
 })

@@ -20,7 +20,7 @@ export class HorasmasivasService {
   constructor(private http:HttpClient) { }
 
   createHorasMasivas(horamasi:HorasMasivas): Observable<HorasMasivas>{
-    return this.http.post<HorasMasivas>(`${this.URL}generar-horas`, horamasi)
+    return this.http.post<HorasMasivas>(`${this.URL}generarHoras`, horamasi)
   }
 
 }
